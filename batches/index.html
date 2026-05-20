@@ -13,6 +13,16 @@
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <style>
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: HTML HEAD META + EXTERNAL SCRIPTS 👈
+                     👉 START OF: GLOBAL CSS RESET 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
     * { box-sizing: border-box; }
 
     body {
@@ -129,9 +139,27 @@
       pointer-events: none;
     }
 
-    @keyframes batchSpinaf { to { transform: rotate(360deg); } }
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH IMAGE LOADER CSS 👈
+                     👉 START OF: BATCH CARD BODY CSS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+@keyframes batchSpinaf { to { transform: rotate(360deg); } }
 
-    .batch-card-bodyaf { padding: 16px 16px 18px; }
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH CARD BODY CSS 👈
+                     👉 START OF: BATCH DETAIL PAGE CSS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+.batch-card-bodyaf { padding: 16px 16px 18px; }
 
     .batch-card-metaaf {
       display: flex;
@@ -246,7 +274,16 @@
       cursor: pointer;
     }
 
-    .batch-backaf {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH LIST CARD CSS 👈
+                     👉 START OF: BATCH DETAIL PAGE CSS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+.batch-backaf {
       border: 0;
       margin-bottom: 14px;
       padding: 10px 13px;
@@ -346,7 +383,16 @@
       border: 1px solid rgba(148, 163, 184, 0.28);
     }
 
-    @media (max-width: 520px) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH DETAIL + INFO CSS 👈
+                     👉 START OF: RESPONSIVE CSS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+@media (max-width: 520px) {
       #batchaf { padding: 14px 12px 88px; }
       .batch-topbaraf h2 { font-size: 28px; }
       .batch-card-bodyaf { padding: 15px; }
@@ -355,7 +401,16 @@
       .batch-buy-btnaf { min-width: 138px; padding: 14px 16px; }
       .batch-arrowaf { width: 52px; height: 52px; }
     }
-    .af-toast-wrap {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: RESPONSIVE CSS 👈
+                     👉 START OF: TOAST CSS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+.af-toast-wrap {
   position: fixed;
   left: 50%;
   bottom: 22px;
@@ -444,6 +499,15 @@
   color: #fcd34d;
 }
 
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: TOAST COMPONENT CSS 👈
+                     👉 START OF: TOAST ANIMATION CSS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 @keyframes afToastIn {
   to {
     opacity: 1;
@@ -457,11 +521,29 @@
     transform: translateY(18px) scale(0.96);
   }
 }
-  </style>
+  
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: TOAST ANIMATION CSS 👈
+                     👉 START OF: HTML BODY / BATCH SECTION 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+</style>
 </head>
 
 <body>
-  <section id="batchaf" class="section">
+  
+<!--
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: HTML BODY 👈
+                     👉 START OF: BATCH SECTION 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+-->
+<section id="batchaf" class="section">
     <div class="batch-wrapaf">
       <div class="batch-pageaf" id="batchListBoxaf">
         <div class="batch-topbaraf">
@@ -479,7 +561,16 @@
         <div class="batch-gridaf" id="batchCardsaf"></div>
       </div>
 
-      <div class="batch-pageaf hidden-box" id="batchDetailsBoxaf">
+      
+<!--
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH LIST HTML 👈
+                     👉 START OF: BATCH DETAILS HTML 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+-->
+<div class="batch-pageaf hidden-box" id="batchDetailsBoxaf">
         <button class="batch-backaf" type="button" onclick="backToBatchListaf()">← Back to Batches</button>
 
         <div class="batch-detail-cardaf">
@@ -522,11 +613,29 @@
         </div>
       </div>
       
-      <div id="afToastWrap" class="af-toast-wrap"></div>
+      
+<!--
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH DETAILS HTML 👈
+                     👉 START OF: TOAST WRAPPER HTML 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+-->
+<div id="afToastWrap" class="af-toast-wrap"></div>
     </div>
   </section>
 
-  <script>
+  
+<!--
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH SECTION HTML 👈
+                     👉 START OF: JAVASCRIPT CONFIG + STATE 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+-->
+<script>
     const SUPABASE_URL = "https://afooyyydhlwngzssgqih.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmb295eXlkaGx3bmd6c3NncWloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NDQxMjgsImV4cCI6MjA5NDIyMDEyOH0.KG0XO0oP_2MpewHoIwTtbrKg5FkyOYRUtVzLH1MSJiE";
     const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -620,6 +729,7 @@
       {
     id: "ai-prompt-engineering",
     courseSlug: "ai-prompt-engineering",
+    courseId: afCourseIdBySlug["ai-prompt-engineering"],
     image: "Course 5.jpeg",
     category: "Target",
     language: "HINGLISH",
@@ -648,9 +758,37 @@
   }
 ];
 
-    function afBatchEl(id) { return document.getElementById(id); }
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: CONFIG + STATIC DATA 👈
+                     👉 START OF: DOM HELPERS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+function afBatchEl(id) { return document.getElementById(id); }
 
-    function getCurrentStudentaf() {
+function afEscapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: DOM HELPERS 👈
+                     👉 START OF: STUDENT SESSION HELPERS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+function getCurrentStudentaf() {
       return {
         id: localStorage.getItem("af_student_uuid") || "",
         student_id: localStorage.getItem("af_student_id") || "",
@@ -662,7 +800,16 @@
 
     function isBatchEnrolledaf(courseSlug) { return afEnrolledCourseSlugs.includes(courseSlug); }
 
-    async function checkBatchCourseExistsaf(batch) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: STUDENT SESSION HELPERS 👈
+                     👉 START OF: SUPABASE COURSE CHECK 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+async function checkBatchCourseExistsaf(batch) {
       if (!batch || !batch.courseId) throw new Error("Course ID missing for this batch.");
 
       const { data, error } = await db.from("courses").select("id,title").eq("id", batch.courseId).limit(1);
@@ -671,7 +818,16 @@
       return true;
     }
 
-    async function loadEnrolledBatchSlugsaf() {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: SUPABASE COURSE CHECK 👈
+                     👉 START OF: ENROLLMENT LOADER 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+async function loadEnrolledBatchSlugsaf() {
       const student = getCurrentStudentaf();
       afEnrolledCourseSlugs = [];
       if (!student.id) return [];
@@ -692,7 +848,16 @@
       }
     }
 
-    async function openBatchSectionaf() {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: ENROLLMENT LOADER 👈
+                     👉 START OF: BATCH SECTION OPEN 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+async function openBatchSectionaf() {
       showBatchListaf();
       await loadEnrolledBatchSlugsaf();
       renderBatchesaf(afBatches);
@@ -710,7 +875,16 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function renderBatchesaf(list) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH VIEW TOGGLE 👈
+                     👉 START OF: BATCH CARD RENDERING 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+function renderBatchesaf(list) {
       const box = afBatchEl("batchCardsaf");
       const count = afBatchEl("batchCountTextaf");
       if (!box) return;
@@ -754,7 +928,16 @@
       }).join("");
     }
 
-    function filterBatchesaf() {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH CARD RENDERING 👈
+                     👉 START OF: BATCH SEARCH FILTER 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+function filterBatchesaf() {
       const input = afBatchEl("batchSearchInputaf");
       const query = input ? input.value.trim().toLowerCase() : "";
       if (!query) { renderBatchesaf(afBatches); return; }
@@ -762,7 +945,16 @@
       renderBatchesaf(filtered);
     }
 
-    function openBatchDetailsaf(batchId) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH SEARCH FILTER 👈
+                     👉 START OF: BATCH DETAILS RENDERING 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+function openBatchDetailsaf(batchId) {
       const batch = afBatches.find(item => item.id === batchId);
       if (!batch) { alert("Batch not found."); return; }
 
@@ -800,7 +992,16 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function buyBatchDirectaf(batchId, btn) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: BATCH DETAILS RENDERING 👈
+                     👉 START OF: PAYMENT ENTRYPOINTS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+function buyBatchDirectaf(batchId, btn) {
       const batch = afBatches.find(item => item.id === batchId);
       if (!batch) { alert("Batch not found."); return; }
       if (isBatchEnrolledaf(batch.courseSlug)) { alert("You are already enrolled in this batch."); return; }
@@ -815,7 +1016,16 @@
       startBatchPaymentaf(afSelectedBatch, btn);
     }
 
-    async function startBatchPaymentaf(batch, btn) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: PAYMENT ENTRYPOINTS 👈
+                     👉 START OF: RAZORPAY PAYMENT FLOW 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+async function startBatchPaymentaf(batch, btn) {
       const student = getCurrentStudentaf();
 
       if (!student.id) {
@@ -887,7 +1097,16 @@
       }
     }
 
-    async function grantBatchAccessaf(batch, paymentResponse) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: RAZORPAY PAYMENT FLOW 👈
+                     👉 START OF: SUPABASE ACCESS GRANT 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+async function grantBatchAccessaf(batch, paymentResponse) {
       const student = getCurrentStudentaf();
       if (!student.id) throw new Error("Student login session not found.");
       if (!batch.courseId) throw new Error("Course ID missing.");
@@ -914,7 +1133,16 @@
       return true;
     }
 
-    async function saveBatchPaymentRecordaf(batch, paymentResponse) {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: SUPABASE ACCESS GRANT 👈
+                     👉 START OF: PAYMENT RECORD SAVE 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+async function saveBatchPaymentRecordaf(batch, paymentResponse) {
       const student = getCurrentStudentaf();
       try {
         const { error } = await db.from("batch_payments_af").insert([{
@@ -940,10 +1168,28 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: PAYMENT RECORD SAVE 👈
+                     👉 START OF: APP BOOTSTRAP 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+document.addEventListener("DOMContentLoaded", function() {
       openBatchSectionaf();
     });
-    function showAfToast(message, type = "info", title = "") {
+    
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: APP BOOTSTRAP 👈
+                     👉 START OF: TOAST JAVASCRIPT 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+function showAfToast(message, type = "info", title = "") {
   const wrap = document.getElementById("afToastWrap");
   if (!wrap) return;
 
@@ -969,8 +1215,8 @@
   toast.innerHTML = `
     <div class="af-toast-icon">${icons[type] || icons.info}</div>
     <div class="af-toast-content">
-      <p class="af-toast-title">${title || titles[type] || "Info"}</p>
-      <p class="af-toast-msg">${message}</p>
+      <p class="af-toast-title">${afEscapeHtml(title || titles[type] || "Info")}</p>
+      <p class="af-toast-msg">${afEscapeHtml(message)}</p>
     </div>
     <button class="af-toast-close" type="button" aria-label="Close">×</button>
   `;
