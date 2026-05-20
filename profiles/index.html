@@ -1,707 +1,16 @@
-/* ==============================
-   STUDENT PROFILE NEW UI
-================================ */
-
-.student-profile-page {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 18px 14px 90px;
-}
-
-.student-profile-top {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 18px;
-  border-radius: 26px;
-  margin-bottom: 16px;
-}
-
-.student-profile-back {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  border: 0;
-  border-radius: 999px;
-  padding: 8px 12px;
-  background: rgba(99, 102, 241, 0.14);
-  color: #6366f1;
-  font-size: 12px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.student-profile-avatar {
-  width: 58px;
-  height: 58px;
-  border-radius: 20px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #6366f1, #22c55e);
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 950;
-  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.22);
-  flex: 0 0 58px;
-}
-
-.student-profile-top h2 {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.15;
-  font-weight: 950;
-  letter-spacing: -0.04em;
-}
-
-.student-profile-top p {
-  margin: 6px 0 0;
-  font-size: 13px;
-  font-weight: 750;
-  opacity: 0.72;
-}
-
-.student-panel {
-  padding: 16px;
-  border-radius: 24px;
-  margin-bottom: 16px;
-}
-
-.student-panel-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 13px;
-}
-
-.student-panel-head h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 950;
-  letter-spacing: -0.02em;
-}
-
-.student-panel-head p {
-  margin: 5px 0 0;
-  font-size: 13px;
-  font-weight: 750;
-  opacity: 0.68;
-}
-
-.student-small-btn {
-  border: 0;
-  border-radius: 999px;
-  padding: 8px 13px;
-  background: rgba(99, 102, 241, 0.14);
-  color: #4f46e5;
-  font-size: 12px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.student-detail-list {
-  display: grid;
-  gap: 10px;
-}
-
-.student-detail-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 13px;
-  border-radius: 18px;
-  background: rgba(148, 163, 184, 0.10);
-}
-
-.student-detail-row span {
-  font-size: 12px;
-  font-weight: 850;
-  opacity: 0.62;
-}
-
-.student-detail-row strong {
-  font-size: 14px;
-  font-weight: 950;
-  text-align: right;
-  word-break: break-word;
-}
-
-.student-batch-list {
-  display: grid;
-  gap: 10px;
-}
-
-.student-batch-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 13px;
-  border-radius: 18px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.12);
-}
-
-.student-batch-item h4 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 950;
-}
-
-.student-batch-item p {
-  margin: 4px 0 0;
-  font-size: 12px;
-  font-weight: 750;
-  opacity: 0.68;
-}
-
-.student-batch-status {
-  padding: 6px 9px;
-  border-radius: 999px;
-  background: rgba(34, 197, 94, 0.14);
-  color: #16a34a;
-  font-size: 11px;
-  font-weight: 950;
-  white-space: nowrap;
-}
-
-.student-empty-text {
-  margin: 0;
-  padding: 14px;
-  border-radius: 16px;
-  background: rgba(148, 163, 184, 0.10);
-  font-size: 13px;
-  font-weight: 800;
-  opacity: 0.72;
-  text-align: center;
-}
-
-.student-additional-settings {
-  border-radius: 18px;
-  background: rgba(148, 163, 184, 0.10);
-  padding: 13px;
-}
-
-.student-additional-settings summary {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 950;
-}
-
-.student-delete-form {
-  margin-top: 14px;
-  display: grid;
-  gap: 10px;
-}
-
-.student-delete-form label,
-.student-modal-card label {
-  font-size: 12px;
-  font-weight: 900;
-  opacity: 0.72;
-}
-
-.student-delete-form input,
-.student-delete-form textarea,
-.student-modal-card input {
-  width: 100%;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  outline: none;
-  border-radius: 15px;
-  padding: 12px 13px;
-  background: rgba(255, 255, 255, 0.72);
-  color: #0f172a;
-  font-size: 14px;
-  font-weight: 750;
-}
-
-.student-delete-form textarea {
-  min-height: 82px;
-  resize: vertical;
-}
-
-.student-warning-text {
-  margin: 0 0 4px;
-  padding: 12px;
-  border-radius: 16px;
-  background: rgba(244, 63, 94, 0.08);
-  color: #e11d48;
-  font-size: 12px;
-  font-weight: 800;
-  line-height: 1.45;
-}
-
-.student-delete-btn,
-.student-delete-confirm-btn {
-  border: 0;
-  border-radius: 15px;
-  padding: 12px 14px;
-  background: #e11d48;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.student-delete-confirm-btn {
-  background: #be123c;
-}
-
-.student-primary-btn {
-  border: 0;
-  border-radius: 15px;
-  padding: 12px 14px;
-  background: linear-gradient(135deg, #4f46e5, #22c55e);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.student-otp-box {
-  display: grid;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.student-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: grid;
-  place-items: center;
-  padding: 18px;
-  background: rgba(15, 23, 42, 0.46);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.student-modal-card {
-  position: relative;
-  width: min(94vw, 430px);
-  display: grid;
-  gap: 10px;
-  padding: 18px;
-  border-radius: 24px;
-}
-
-.student-modal-card h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 950;
-}
-
-.student-modal-card p {
-  margin: 0 0 4px;
-  font-size: 13px;
-  font-weight: 750;
-  opacity: 0.68;
-}
-
-.student-modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 32px;
-  height: 32px;
-  border: 0;
-  border-radius: 12px;
-  background: rgba(148, 163, 184, 0.16);
-  color: inherit;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.hidden-box {
-  display: none !important;
-}
-
-@media (max-width: 560px) {
-  .student-profile-page {
-    padding: 14px 12px 88px;
-  }
-
-  .student-profile-top {
-    padding: 16px;
-    border-radius: 24px;
-  }
-
-  .student-profile-top h2 {
-    font-size: 22px;
-  }
-
-  .student-detail-row {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .student-detail-row strong {
-    text-align: left;
-  }
-}
-
-    /* ==============================
-   STUDENT PROFILE DASHBOARD AF
-================================ */
-
-.student-profile-card h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 950;
-  letter-spacing: -0.02em;
-}
-
-.student-profile-card p {
-  margin: 5px 0 0;
-  font-size: 13px;
-  font-weight: 750;
-  opacity: 0.78;
-}
-
-.student-profile-page {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 18px 14px 90px;
-}
-
-.student-profile-top {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 18px;
-  border-radius: 26px;
-  margin-bottom: 16px;
-}
-
-.student-profile-back {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  border: 0;
-  border-radius: 999px;
-  padding: 8px 12px;
-  background: rgba(99, 102, 241, 0.14);
-  color: #6366f1;
-  font-size: 12px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.student-profile-avatar {
-  width: 58px;
-  height: 58px;
-  border-radius: 20px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #6366f1, #22c55e);
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 950;
-  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.22);
-  flex: 0 0 58px;
-}
-
-.student-profile-top h2 {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.15;
-  font-weight: 950;
-  letter-spacing: -0.04em;
-}
-
-.student-profile-top p {
-  margin: 6px 0 0;
-  font-size: 13px;
-  font-weight: 750;
-  opacity: 0.72;
-}
-
-.student-panel {
-  padding: 16px;
-  border-radius: 24px;
-  margin-bottom: 16px;
-}
-
-.student-panel-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 13px;
-}
-
-.student-panel-head h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 950;
-  letter-spacing: -0.02em;
-}
-
-.student-panel-head p {
-  margin: 5px 0 0;
-  font-size: 13px;
-  font-weight: 750;
-  opacity: 0.68;
-}
-
-.student-small-btn {
-  border: 0;
-  border-radius: 999px;
-  padding: 8px 13px;
-  background: rgba(99, 102, 241, 0.14);
-  color: #4f46e5;
-  font-size: 12px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.student-detail-list {
-  display: grid;
-  gap: 10px;
-}
-
-.student-detail-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 13px;
-  border-radius: 18px;
-  background: rgba(148, 163, 184, 0.10);
-}
-
-.student-detail-row span {
-  font-size: 12px;
-  font-weight: 850;
-  opacity: 0.62;
-}
-
-.student-detail-row strong {
-  font-size: 14px;
-  font-weight: 950;
-  text-align: right;
-  word-break: break-word;
-}
-
-.student-batch-list {
-  display: grid;
-  gap: 10px;
-}
-
-.student-batch-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 13px;
-  border-radius: 18px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.12);
-}
-
-.student-batch-item h4 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 950;
-}
-
-.student-batch-item p {
-  margin: 4px 0 0;
-  font-size: 12px;
-  font-weight: 750;
-  opacity: 0.68;
-}
-
-.student-batch-status {
-  padding: 6px 9px;
-  border-radius: 999px;
-  background: rgba(34, 197, 94, 0.14);
-  color: #16a34a;
-  font-size: 11px;
-  font-weight: 950;
-  white-space: nowrap;
-}
-
-.student-empty-text {
-  margin: 0;
-  padding: 14px;
-  border-radius: 16px;
-  background: rgba(148, 163, 184, 0.10);
-  font-size: 13px;
-  font-weight: 800;
-  opacity: 0.72;
-  text-align: center;
-}
-
-.student-additional-settings {
-  border-radius: 18px;
-  background: rgba(148, 163, 184, 0.10);
-  padding: 13px;
-}
-
-.student-additional-settings summary {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 950;
-}
-
-.student-delete-form {
-  margin-top: 14px;
-  display: grid;
-  gap: 10px;
-}
-
-.student-delete-form label,
-.student-modal-card label {
-  font-size: 12px;
-  font-weight: 900;
-  opacity: 0.72;
-}
-
-.student-delete-form input,
-.student-delete-form textarea,
-.student-modal-card input {
-  width: 100%;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  outline: none;
-  border-radius: 15px;
-  padding: 12px 13px;
-  background: rgba(255, 255, 255, 0.72);
-  color: #0f172a;
-  font-size: 14px;
-  font-weight: 750;
-}
-
-.student-delete-form textarea {
-  min-height: 82px;
-  resize: vertical;
-}
-
-.student-warning-text {
-  margin: 0 0 4px;
-  padding: 12px;
-  border-radius: 16px;
-  background: rgba(244, 63, 94, 0.08);
-  color: #e11d48;
-  font-size: 12px;
-  font-weight: 800;
-  line-height: 1.45;
-}
-
-.student-delete-btn,
-.student-delete-confirm-btn {
-  border: 0;
-  border-radius: 15px;
-  padding: 12px 14px;
-  background: #e11d48;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.student-delete-confirm-btn {
-  background: #be123c;
-}
-
-.student-primary-btn {
-  border: 0;
-  border-radius: 15px;
-  padding: 12px 14px;
-  background: linear-gradient(135deg, #4f46e5, #22c55e);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.student-otp-box {
-  display: grid;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.student-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: grid;
-  place-items: center;
-  padding: 18px;
-  background: rgba(15, 23, 42, 0.46);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.student-modal-card {
-  position: relative;
-  width: min(94vw, 430px);
-  display: grid;
-  gap: 10px;
-  padding: 18px;
-  border-radius: 24px;
-}
-
-.student-modal-card h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 950;
-}
-
-.student-modal-card p {
-  margin: 0 0 4px;
-  font-size: 13px;
-  font-weight: 750;
-  opacity: 0.68;
-}
-
-.student-modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 32px;
-  height: 32px;
-  border: 0;
-  border-radius: 12px;
-  background: rgba(148, 163, 184, 0.16);
-  color: inherit;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.hidden-box {
-  display: none !important;
-}
-
-@media (max-width: 560px) {
-  .student-profile-page {
-    padding: 14px 12px 88px;
-  }
-
-  .student-profile-top {
-    padding: 16px;
-    border-radius: 24px;
-  }
-
-  .student-profile-top h2 {
-    font-size: 22px;
-  }
-
-  .student-detail-row {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .student-detail-row strong {
-    text-align: left;
-  }
-}
-    /* ==============================
-   AF STUDENT PROFILE DASHBOARD
-================================ */
+<!-- ==============================
+     AF STUDENT PROFILE DASHBOARD - CLEANED
+     Name-only edit button added
+================================ -->
+
+<style>
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 START OF SECTION: STUDENT PROFILE CARD 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 
 .student-profile-card {
   text-align: left;
@@ -726,11 +35,31 @@
   opacity: 0.72;
 }
 
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: STUDENT PROFILE CARD 👈
+                     👉 START OF: PROFILE LAYOUT 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
 .af-profile-wrap {
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
   padding: 16px 14px 92px;
+}
+
+.af-profile-hero,
+.af-panel,
+.af-modal-card,
+.af-delete-modal-card-v2 {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .af-profile-hero {
@@ -744,16 +73,6 @@
   overflow: hidden;
 }
 
-.af-profile-hero::before {
-  content: "";
-  position: absolute;
-  inset: -80px auto auto -80px;
-  width: 190px;
-  height: 190px;
-  background: radial-gradient(circle, rgba(109, 93, 252, 0.28), transparent 68%);
-  pointer-events: none;
-}
-
 .af-back-btn {
   position: absolute;
   top: 12px;
@@ -761,10 +80,10 @@
   border: 0;
   border-radius: 999px;
   padding: 8px 12px;
-  background: rgba(109, 93, 252, 0.14);
-  color: #6d5dfc;
+  background: rgba(15, 23, 42, 0.06);
+  color: #111827;
   font-size: 12px;
-  font-weight: 950;
+  font-weight: 900;
   cursor: pointer;
   z-index: 2;
 }
@@ -775,18 +94,18 @@
   border-radius: 20px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #6d5dfc, #00c896);
+  background: #111827;
   color: #ffffff;
   font-size: 24px;
   font-weight: 950;
-  box-shadow: 0 16px 34px rgba(109, 93, 252, 0.22);
   flex: 0 0 58px;
   z-index: 1;
 }
 
 .af-hero-text {
   z-index: 1;
-  padding-right: 70px;
+  padding-right: 76px;
+  min-width: 0;
 }
 
 .af-hero-text h2 {
@@ -795,6 +114,7 @@
   line-height: 1.15;
   font-weight: 950;
   letter-spacing: -0.04em;
+  word-break: break-word;
 }
 
 .af-hero-text p {
@@ -803,6 +123,15 @@
   font-weight: 800;
   opacity: 0.7;
 }
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: PROFILE LAYOUT 👈
+                     👉 START OF: DETAILS + BATCH PANELS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 
 .af-panel {
   padding: 16px;
@@ -832,30 +161,21 @@
   opacity: 0.66;
 }
 
-.af-mini-btn {
-  border: 0;
-  border-radius: 999px;
-  padding: 8px 13px;
-  background: rgba(109, 93, 252, 0.14);
-  color: #6d5dfc;
-  font-size: 12px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.af-detail-grid {
+.af-detail-grid,
+.af-batch-list {
   display: grid;
   gap: 10px;
 }
 
 .af-detail-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: minmax(88px, auto) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
   padding: 13px;
   border-radius: 18px;
-  background: rgba(148, 163, 184, 0.10);
-  border: 1px solid rgba(148, 163, 184, 0.10);
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.14);
 }
 
 .af-detail-row span {
@@ -871,9 +191,16 @@
   word-break: break-word;
 }
 
-.af-batch-list {
-  display: grid;
-  gap: 10px;
+.af-name-edit-btn {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .af-batch-item {
@@ -883,8 +210,8 @@
   gap: 14px;
   padding: 13px;
   border-radius: 18px;
-  background: rgba(109, 93, 252, 0.08);
-  border: 1px solid rgba(109, 93, 252, 0.13);
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.14);
 }
 
 .af-batch-item h4 {
@@ -903,8 +230,8 @@
 .af-batch-status {
   padding: 6px 9px;
   border-radius: 999px;
-  background: rgba(0, 200, 150, 0.14);
-  color: #00a67d;
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
   font-size: 11px;
   font-weight: 950;
   white-space: nowrap;
@@ -914,98 +241,24 @@
   margin: 0;
   padding: 14px;
   border-radius: 16px;
-  background: rgba(148, 163, 184, 0.10);
+  background: rgba(15, 23, 42, 0.04);
   text-align: center;
   font-size: 13px;
   font-weight: 850;
   opacity: 0.72;
 }
 
-.af-delete-box {
-  border-radius: 18px;
-  background: rgba(148, 163, 184, 0.10);
-  padding: 13px;
-}
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: DETAILS + BATCH PANELS 👈
+                     👉 START OF: MODALS + FORMS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 
-.af-delete-box summary {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 950;
-}
-
-.af-delete-form {
-  display: grid;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.af-delete-form label,
-.af-modal-card label {
-  font-size: 12px;
-  font-weight: 900;
-  opacity: 0.72;
-}
-
-.af-delete-form input,
-.af-delete-form textarea,
-.af-modal-card input {
-  width: 100%;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  outline: none;
-  border-radius: 15px;
-  padding: 12px 13px;
-  background: rgba(255, 255, 255, 0.78);
-  color: #0f172a;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.af-delete-form textarea {
-  min-height: 82px;
-  resize: vertical;
-}
-
-.af-danger-note {
-  margin: 0 0 4px;
-  padding: 12px;
-  border-radius: 16px;
-  background: rgba(244, 63, 94, 0.08);
-  color: #e11d48;
-  font-size: 12px;
-  font-weight: 850;
-  line-height: 1.45;
-}
-
-.af-danger-btn,
-.af-primary-btn {
-  border: 0;
-  border-radius: 15px;
-  padding: 12px 14px;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 950;
-  cursor: pointer;
-}
-
-.af-primary-btn {
-  background: linear-gradient(135deg, #6d5dfc, #00c896);
-}
-
-.af-danger-btn {
-  background: #e11d48;
-}
-
-.af-danger-dark {
-  background: #be123c;
-}
-
-.af-otp-box {
-  display: grid;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.af-modal {
+.af-modal,
+.af-delete-modal-overlay-v2 {
   position: fixed;
   inset: 0;
   z-index: 999999;
@@ -1039,7 +292,35 @@
   opacity: 0.68;
 }
 
-.af-modal-close {
+.af-modal-card label,
+.af-delete-field-v2 label {
+  font-size: 12px;
+  font-weight: 900;
+  opacity: 0.72;
+}
+
+.af-modal-card input,
+.af-delete-field-v2 input,
+.af-delete-field-v2 select,
+.af-delete-field-v2 textarea {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  outline: none;
+  border-radius: 15px;
+  padding: 12px 13px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.af-delete-field-v2 textarea {
+  min-height: 104px;
+  resize: vertical;
+}
+
+.af-modal-close,
+.af-delete-modal-close-v2 {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -1053,32 +334,253 @@
   cursor: pointer;
 }
 
-.af-hidden {
+.af-primary-btn,
+.af-delete-submit-v2,
+.af-delete-home-btn-v2 {
+  border: 0;
+  border-radius: 15px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.af-primary-btn,
+.af-delete-submit-v2 {
+  background: #111827;
+  color: #ffffff;
+}
+
+.af-delete-home-btn-v2 {
+  background: rgba(15, 23, 42, 0.06);
+  color: #111827;
+}
+
+.af-otp-box {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.af-hidden,
+.af-extra-hidden-v2 {
   display: none !important;
 }
 
-/* Light mode safety */
-body.light-mode .af-detail-row,
-body.light .af-detail-row,
-.light-mode .af-detail-row,
-.light .af-detail-row {
-  background: rgba(15, 23, 42, 0.04);
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: MODALS + FORMS 👈
+                     👉 START OF: ADDITIONAL SETTINGS + DELETE ACCOUNT 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
+.af-additional-settings-panel-v2 {
+  padding: 12px;
 }
 
-body.light-mode .af-delete-form input,
-body.light-mode .af-delete-form textarea,
-body.light-mode .af-modal-card input,
-body.light .af-delete-form input,
-body.light .af-delete-form textarea,
-body.light .af-modal-card input,
-.light-mode .af-delete-form input,
-.light-mode .af-delete-form textarea,
-.light-mode .af-modal-card input,
-.light .af-delete-form input,
-.light .af-delete-form textarea,
-.light .af-modal-card input {
+.af-extra-settings-toggle-v2,
+.af-delete-open-btn-v2 {
+  width: 100%;
+  border: 0;
+  border-radius: 18px;
+  padding: 13px;
+  background: rgba(15, 23, 42, 0.04);
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.af-extra-settings-toggle-v2 {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.af-extra-settings-icon-v2 {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #111827;
+  color: #ffffff;
+}
+
+.af-extra-settings-text-v2 strong,
+.af-delete-open-btn-v2 span {
+  display: block;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.af-extra-settings-text-v2 small,
+.af-delete-open-btn-v2 small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.62;
+}
+
+.af-extra-settings-body-v2 {
+  margin-top: 10px;
+}
+
+.af-delete-open-btn-v2 {
+  border: 1px solid rgba(225, 29, 72, 0.16);
+  color: #be123c;
+}
+
+.af-delete-modal-card-v2 {
+  position: relative;
+  width: min(94vw, 500px);
+  max-height: min(86vh, 760px);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.af-delete-modal-top-v2 {
+  position: relative;
+  padding: 18px 56px 14px 18px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.af-delete-request-head-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.af-delete-request-alert-v2 {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(225, 29, 72, 0.12);
+  color: #be123c;
+  font-weight: 950;
+}
+
+.af-delete-modal-top-v2 h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.af-delete-modal-top-v2 p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.66;
+}
+
+.af-delete-modal-scroll-v2 {
+  max-height: calc(86vh - 88px);
+  overflow: auto;
+  padding: 16px;
+}
+
+.af-delete-policy-card-v2 {
+  padding: 13px;
+  border-radius: 18px;
+  background: rgba(225, 29, 72, 0.08);
+  color: #be123c;
+  margin-bottom: 14px;
+}
+
+.af-delete-policy-card-v2 strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.af-delete-policy-card-v2 p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.af-delete-form-v2 {
+  display: grid;
+  gap: 12px;
+}
+
+.af-delete-confirm-v2 {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 800;
+  opacity: 0.78;
+}
+
+.af-delete-confirm-v2 input {
+  margin-top: 3px;
+}
+
+.af-delete-message-v2 {
+  min-height: 18px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: ADDITIONAL SETTINGS + DELETE ACCOUNT 👈
+                     👉 START OF: DARK MODE + RESPONSIVE 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
+body.dark-mode .af-profile-hero,
+body.dark-mode .af-panel,
+body.dark-mode .af-modal-card,
+body.dark-mode .af-delete-modal-card-v2 {
+  background: rgba(17, 17, 19, 0.92);
+  border-color: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+
+body.dark-mode .af-back-btn,
+body.dark-mode .af-name-edit-btn,
+body.dark-mode .af-delete-home-btn-v2,
+body.dark-mode .af-extra-settings-toggle-v2 {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+body.dark-mode .af-avatar,
+body.dark-mode .af-extra-settings-icon-v2,
+body.dark-mode .af-primary-btn,
+body.dark-mode .af-delete-submit-v2 {
   background: #ffffff;
-  color: #0f172a;
+  color: #111827;
+}
+
+body.dark-mode .af-detail-row,
+body.dark-mode .af-batch-item,
+body.dark-mode .af-empty,
+body.dark-mode .af-delete-open-btn-v2 {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+body.dark-mode .af-modal-card input,
+body.dark-mode .af-delete-field-v2 input,
+body.dark-mode .af-delete-field-v2 select,
+body.dark-mode .af-delete-field-v2 textarea {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 @media (max-width: 560px) {
@@ -1096,11 +598,784 @@ body.light .af-modal-card input,
   }
 
   .af-detail-row {
-    flex-direction: column;
-    gap: 5px;
+    grid-template-columns: 1fr auto;
+    gap: 6px 10px;
+  }
+
+  .af-detail-row span {
+    grid-column: 1 / -1;
   }
 
   .af-detail-row strong {
     text-align: left;
   }
+
+  .af-name-edit-btn {
+    align-self: center;
+  }
 }
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: DARK MODE + RESPONSIVE 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+</style>
+
+<section id="studentDashboardAf" class="section">
+  <div class="af-profile-wrap">
+    <div class="af-profile-hero glass">
+      <button class="af-back-btn" type="button" onclick="showSection('home')">← Back</button>
+      <div class="af-avatar" id="afProfileAvatar">S</div>
+      <div class="af-hero-text">
+        <h2 id="afProfileHeroName">Student</h2>
+        <p id="afProfileHeroSub">View and manage your dashboard</p>
+      </div>
+    </div>
+
+    <div class="af-panel glass">
+      <div class="af-panel-head">
+        <div>
+          <h3>Your Details</h3>
+          <p>Name, email and phone number</p>
+        </div>
+      </div>
+
+      <div class="af-detail-grid">
+        <div class="af-detail-row">
+          <span>Name</span>
+          <strong id="afInfoName">-</strong>
+          <button class="af-name-edit-btn" type="button" onclick="openNameEditAf()">Edit</button>
+        </div>
+
+        <div class="af-detail-row">
+          <span>Email</span>
+          <strong id="afInfoEmail">-</strong>
+        </div>
+
+        <div class="af-detail-row">
+          <span>Phone Number</span>
+          <strong id="afInfoMobile">-</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="af-panel glass">
+      <div class="af-panel-head">
+        <div>
+          <h3>Batch Enrolled In</h3>
+          <p>Your enrolled courses or batches</p>
+        </div>
+      </div>
+
+      <div id="afBatchList" class="af-batch-list">
+        <p class="af-empty">No enrolled course found.</p>
+      </div>
+    </div>
+
+    <div class="af-panel glass af-additional-settings-panel-v2">
+      <button id="afExtraSettingsToggleV2" class="af-extra-settings-toggle-v2" type="button" onclick="toggleAfExtraSettingsV2()" aria-expanded="false" aria-controls="afExtraSettingsBodyV2">
+        <span class="af-extra-settings-icon-v2" aria-hidden="true">⚙️</span>
+        <span class="af-extra-settings-text-v2">
+          <strong>Additional Setting</strong>
+          <small>Account safety and sensitive actions</small>
+        </span>
+        <span id="afExtraSettingsArrowV2" class="af-extra-settings-arrow-v2" aria-hidden="true">⌄</span>
+      </button>
+
+      <div id="afExtraSettingsBodyV2" class="af-extra-settings-body-v2 af-extra-hidden-v2">
+        <button id="afDeleteAccountOpenBtnV2" class="af-delete-open-btn-v2" type="button" onclick="openAfDeleteAccountRequestV2()" aria-expanded="false" aria-controls="afDeleteAccountModalV2">
+          <span>Delete Account</span>
+          <small>Permanent account removal request</small>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="afNameEditModal" class="af-modal af-hidden" role="dialog" aria-modal="true" aria-labelledby="afNameEditTitle">
+  <div class="af-modal-card glass">
+    <button class="af-modal-close" type="button" onclick="closeAfModal('afNameEditModal')" aria-label="Close name edit">×</button>
+    <h3 id="afNameEditTitle">Edit Name</h3>
+    <p>Only your display name will be updated.</p>
+
+    <label for="afEditNameOnly">Full Name</label>
+    <input id="afEditNameOnly" type="text" autocomplete="name" maxlength="90" placeholder="Enter your full name" />
+
+    <div id="afNameOtpBox" class="af-otp-box af-hidden">
+      <label for="afNameEditOtp">Email OTP</label>
+      <input id="afNameEditOtp" type="text" inputmode="numeric" maxlength="8" placeholder="Enter OTP" />
+      <button class="af-primary-btn" type="button" onclick="confirmNameEditAf()">Confirm Name Update</button>
+    </div>
+
+    <button class="af-primary-btn" type="button" onclick="sendNameEditOtpAf()">Send OTP</button>
+  </div>
+</div>
+
+<div id="afDeleteAccountModalV2" class="af-delete-modal-overlay-v2 af-extra-hidden-v2" role="dialog" aria-modal="true" aria-labelledby="afDeleteModalTitleV2">
+  <div class="af-delete-modal-card-v2">
+    <div class="af-delete-modal-top-v2">
+      <div class="af-delete-request-head-v2">
+        <div class="af-delete-request-alert-v2" aria-hidden="true">!</div>
+        <div>
+          <h4 id="afDeleteModalTitleV2">Account Deletion Request</h4>
+          <p>Secure verification required</p>
+        </div>
+      </div>
+      <button type="button" class="af-delete-modal-close-v2" onclick="closeAfDeleteAccountRequestV2()" aria-label="Close delete account request">×</button>
+    </div>
+
+    <div class="af-delete-modal-scroll-v2">
+      <div class="af-delete-policy-card-v2">
+        <strong>Important account deletion policy</strong>
+        <p>Your account deletion request will be reviewed by our team. If approved, your account will be scheduled for deletion after 90 days.</p>
+        <p>If you log in again before the 90-day period ends, your deletion request may be cancelled automatically for account safety.</p>
+      </div>
+
+      <form id="afDeleteAccountFormV2" class="af-delete-form-v2" onsubmit="submitAfDeleteAccountRequestV2(event)">
+        <div class="af-delete-field-v2">
+          <label for="afDeleteFullNameV2">Full Name</label>
+          <input id="afDeleteFullNameV2" name="full_name" type="text" autocomplete="name" placeholder="Enter your full name" maxlength="90" required />
+        </div>
+
+        <div class="af-delete-field-v2">
+          <label for="afDeleteEmailV2">Registered Email</label>
+          <input id="afDeleteEmailV2" name="registered_email" type="email" autocomplete="email" placeholder="Enter your registered email" maxlength="140" required />
+        </div>
+
+        <div class="af-delete-field-v2">
+          <label for="afDeletePhoneV2">Registered Phone Number</label>
+          <input id="afDeletePhoneV2" name="registered_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter your registered phone number" maxlength="18" required />
+        </div>
+
+        <div class="af-delete-field-v2">
+          <label for="afDeleteReasonV2">Why do you want to delete your account?</label>
+          <select id="afDeleteReasonV2" name="delete_reason" required>
+            <option value="">Select a reason</option>
+            <option value="No longer using the platform">No longer using the platform</option>
+            <option value="Created another account">Created another account</option>
+            <option value="Privacy or data concern">Privacy or data concern</option>
+            <option value="Course or access issue">Course or access issue</option>
+            <option value="Technical issue">Technical issue</option>
+            <option value="Other reason">Other reason</option>
+          </select>
+        </div>
+
+        <div class="af-delete-field-v2">
+          <label for="afDeleteDetailsV2">Additional Details</label>
+          <textarea id="afDeleteDetailsV2" name="additional_details" rows="5" placeholder="Explain your reason clearly." maxlength="1200" required></textarea>
+        </div>
+
+        <label class="af-delete-confirm-v2" for="afDeleteConfirmV2">
+          <input id="afDeleteConfirmV2" type="checkbox" required />
+          <span>I understand that my account may be deleted after 90 days and this request may be cancelled if I log in before deletion is completed.</span>
+        </label>
+
+        <div id="afDeleteMessageV2" class="af-delete-message-v2" aria-live="polite"></div>
+
+        <button id="afDeleteSubmitBtnV2" class="af-delete-submit-v2" type="submit">Submit Deletion Request</button>
+        <button class="af-delete-home-btn-v2" type="button" onclick="closeAfDeleteAccountRequestV2()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+let afCurrentStudent = null;
+let afCurrentExtra = null;
+let afPendingNameEdit = null;
+
+function afMsg(message, type, title) {
+  if (typeof showAfToast === "function") {
+    showAfToast(message, type || "info", title || "Message");
+    return;
+  }
+
+  if (typeof showToast === "function") {
+    showToast(title || "Message", message);
+    return;
+  }
+
+  if (typeof showStudentMessageaf === "function") {
+    showStudentMessageaf(type === "error" ? "err" : type === "success" ? "ok" : "info", message);
+    return;
+  }
+
+  alert((title ? title + ": " : "") + message);
+}
+
+function afBackend() {
+  if (typeof getStudentBackendaf === "function") return getStudentBackendaf();
+  if (typeof studentDb !== "undefined") return studentDb;
+  return null;
+}
+
+async function afProfileEdgeCall(functionName, payload) {
+  const backend = afBackend();
+
+  if (!backend) {
+    return { ok: false, message: "Student backend is not connected." };
+  }
+
+  try {
+    const { data, error } = await backend.functions.invoke(functionName, { body: payload || {} });
+
+    if (error) return { ok: false, message: error.message || "Server request failed." };
+    if (!data) return { ok: false, message: "Empty server response." };
+
+    return data;
+  } catch (err) {
+    return { ok: false, message: err.message || "Server request failed." };
+  }
+}
+
+function afGetLoginData() {
+  const data = {
+    id: "",
+    uuid: localStorage.getItem("af_student_uuid") || "",
+    student_id: localStorage.getItem("af_student_id") || localStorage.getItem("student_id") || "",
+    name: localStorage.getItem("af_student_name") || "",
+    email: localStorage.getItem("af_student_email") || "",
+    mobile: localStorage.getItem("af_student_mobile") || ""
+  };
+
+  data.id = data.uuid || data.student_id || "";
+
+  const possibleKeys = ["af_logged_student", "afStudent", "af_student", "loggedStudent", "studentData", "currentStudent", "student"];
+
+  possibleKeys.forEach(function(key) {
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+
+      const obj = JSON.parse(raw);
+      if (!obj) return;
+
+      data.uuid = data.uuid || obj.id || obj.uuid || obj.student_uuid || "";
+      data.student_id = data.student_id || obj.student_id || obj.studentId || "";
+      data.id = data.uuid || data.student_id || data.id || "";
+      data.name = data.name || obj.name || obj.full_name || obj.student_name || obj.studentName || "";
+      data.email = data.email || obj.email || obj.student_email || "";
+      data.mobile = data.mobile || obj.mobile || obj.phone || obj.phone_number || obj.student_mobile || "";
+    } catch (error) {}
+  });
+
+  if (typeof loggedStudent !== "undefined" && loggedStudent) {
+    data.uuid = data.uuid || loggedStudent.id || loggedStudent.uuid || loggedStudent.student_uuid || "";
+    data.student_id = data.student_id || loggedStudent.student_id || loggedStudent.studentId || "";
+    data.id = data.uuid || data.student_id || data.id || "";
+    data.name = data.name || loggedStudent.name || loggedStudent.full_name || loggedStudent.student_name || loggedStudent.studentName || "";
+    data.email = data.email || loggedStudent.email || loggedStudent.student_email || "";
+    data.mobile = data.mobile || loggedStudent.mobile || loggedStudent.phone || loggedStudent.phone_number || loggedStudent.student_mobile || "";
+  }
+
+  return data;
+}
+
+function afIsLoggedIn() {
+  const data = afGetLoginData();
+  return !!(data.email || data.mobile || data.name || data.id);
+}
+
+function afSetText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value && String(value).trim() ? value : "-";
+}
+
+function afGetInput(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : "";
+}
+
+function afSetInput(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.value = value || "";
+}
+
+function afInitial(name) {
+  return name && String(name).trim() ? String(name).trim().charAt(0).toUpperCase() : "S";
+}
+
+function openAfModal(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove("af-hidden");
+}
+
+function closeAfModal(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.add("af-hidden");
+}
+
+function afSafeText(value) {
+  if (value === null || value === undefined) return "";
+  return String(value).replace(/[<>&"']/g, function(char) {
+    return { "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&#039;" }[char];
+  });
+}
+
+function afNormalizeValue(value) {
+  if (value === null || value === undefined) return "";
+  return String(value).trim();
+}
+
+function afStudentStableKey(student) {
+  const login = afGetLoginData();
+
+  return (
+    afNormalizeValue(student && student.email) ||
+    afNormalizeValue(login.email) ||
+    afNormalizeValue(student && student.mobile) ||
+    afNormalizeValue(login.mobile) ||
+    afNormalizeValue(student && student.name) ||
+    afNormalizeValue(login.name)
+  );
+}
+
+function afStudentKey(student) {
+  return afStudentStableKey(student);
+}
+
+async function afSendOtp(email) {
+  if (!email) throw new Error("Email is required.");
+  if (typeof sendSupabaseEmailOtpaf !== "function") throw new Error("OTP send function not found.");
+
+  let res = await sendSupabaseEmailOtpaf(email, false);
+
+  if (!res || !res.ok) {
+    res = await sendSupabaseEmailOtpaf(email, true);
+  }
+
+  if (!res || !res.ok) {
+    throw new Error(res && res.message ? res.message : "OTP send failed.");
+  }
+
+  return true;
+}
+
+async function afVerifyOtp(email, otp) {
+  if (!email) throw new Error("Email is required.");
+  if (!otp) throw new Error("OTP is required.");
+  if (typeof verifySupabaseEmailOtpaf !== "function") throw new Error("OTP verify function not found.");
+
+  const res = await verifySupabaseEmailOtpaf(email, otp);
+
+  if (!res || !res.ok) {
+    throw new Error(res && res.message ? res.message : "Invalid OTP.");
+  }
+
+  return true;
+}
+
+async function afFetchStudent() {
+  const backend = afBackend();
+
+  if (!backend) {
+    afMsg("Student backend not connected.", "error", "Backend Error");
+    return null;
+  }
+
+  const login = afGetLoginData();
+
+  if (!afIsLoggedIn()) return null;
+
+  let result = null;
+
+  if (login.email) {
+    result = await backend.from("students_af").select("name, mobile, email, status").eq("email", login.email).maybeSingle();
+  }
+
+  if ((!result || !result.data) && login.mobile) {
+    result = await backend.from("students_af").select("name, mobile, email, status").eq("mobile", login.mobile).maybeSingle();
+  }
+
+  if ((!result || !result.data) && login.name) {
+    result = await backend.from("students_af").select("name, mobile, email, status").eq("name", login.name).maybeSingle();
+  }
+
+  if (result && result.error) {
+    console.error("students_af fetch error:", result.error);
+    return {
+      name: login.name || "Student",
+      email: login.email || "",
+      mobile: login.mobile || "",
+      status: "active"
+    };
+  }
+
+  if (!result || !result.data) {
+    return {
+      name: login.name || "Student",
+      email: login.email || "",
+      mobile: login.mobile || "",
+      status: "active"
+    };
+  }
+
+  if (result.data.status === "deleted") {
+    afMsg("This account is marked as deleted.", "error", "Account Deleted");
+    return null;
+  }
+
+  return result.data;
+}
+
+async function afFetchExtra(student) {
+  const backend = afBackend();
+  if (!backend || !student) return null;
+
+  const key = afStudentStableKey(student);
+  if (!key) return null;
+
+  const { data, error } = await backend
+    .from("student_profile_details_af")
+    .select("student_key, state, district, class_name, updated_at")
+    .eq("student_key", key)
+    .maybeSingle();
+
+  if (error) {
+    console.error("Profile extra fetch error:", error);
+    return null;
+  }
+
+  return data || null;
+}
+
+async function afFetchBatches() {
+  const login = afGetLoginData();
+  const studentUuid = localStorage.getItem("af_student_uuid") || login.uuid || "";
+
+  if (!studentUuid) return [];
+
+  const result = await afProfileEdgeCall("student-courses-af", { student_id: studentUuid });
+
+  if (!result || !result.ok) {
+    console.warn("Profile course edge error:", result);
+    return [];
+  }
+
+  const courses = Array.isArray(result.courses) ? result.courses : [];
+
+  return courses.map(function(course) {
+    return {
+      title: course.title || "Enrolled Course",
+      slug: course.slug || "Active",
+      icon: course.icon || "📚",
+      status: "active"
+    };
+  });
+}
+
+function afMergedName() {
+  return (afCurrentStudent && afCurrentStudent.name) || afGetLoginData().name || "Student";
+}
+
+function afMergedEmail() {
+  return (afCurrentStudent && afCurrentStudent.email) || afGetLoginData().email || "-";
+}
+
+function afMergedMobile() {
+  return (afCurrentStudent && afCurrentStudent.mobile) || afGetLoginData().mobile || "-";
+}
+
+function afRenderCard() {
+  const nameEl = document.getElementById("studentDashboardCardNameAf");
+  const subEl = document.getElementById("studentDashboardCardSubAf");
+
+  if (!afIsLoggedIn()) {
+    if (nameEl) nameEl.textContent = "Hi, Student";
+    if (subEl) subEl.textContent = "Login to view profile";
+    return;
+  }
+
+  if (nameEl) nameEl.textContent = "Hi, " + afMergedName();
+  if (subEl) subEl.textContent = "View Profile";
+}
+
+function afRenderProfile(batches) {
+  const name = afMergedName();
+  const email = afMergedEmail();
+  const mobile = afMergedMobile();
+
+  afSetText("afProfileAvatar", afInitial(name));
+  afSetText("afProfileHeroName", name);
+  afSetText("afProfileHeroSub", "View and manage your dashboard");
+  afSetText("afInfoName", name);
+  afSetText("afInfoEmail", email);
+  afSetText("afInfoMobile", mobile);
+
+  const list = document.getElementById("afBatchList");
+  if (!list) return;
+
+  if (!batches || !batches.length) {
+    list.innerHTML = '<p class="af-empty">No enrolled course found.</p>';
+    return;
+  }
+
+  list.innerHTML = batches.map(function(item) {
+    const title = afSafeText(item.title || "Enrolled Course");
+    const slug = afSafeText(item.slug || "Active");
+    const icon = afSafeText(item.icon || "📚");
+    const status = afSafeText(item.status || "active");
+
+    return '<div class="af-batch-item"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:22px;">' + icon + '</span><div><h4>' + title + '</h4><p>' + slug + '</p></div></div><span class="af-batch-status">' + status + '</span></div>';
+  }).join("");
+}
+
+async function openStudentDashboardCardAf(event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  if (!afIsLoggedIn()) {
+    afMsg("Login to fetch your dashboard.", "warning", "Login Required");
+    return false;
+  }
+
+  if (typeof showSection === "function") {
+    showSection("studentDashboardAf");
+  }
+
+  afSetText("afProfileHeroName", "Loading...");
+  afSetText("afProfileHeroSub", "Fetching your details...");
+  afSetText("afInfoName", "Loading...");
+  afSetText("afInfoEmail", "Loading...");
+  afSetText("afInfoMobile", "Loading...");
+
+  const list = document.getElementById("afBatchList");
+  if (list) list.innerHTML = '<p class="af-empty">Loading enrolled courses...</p>';
+
+  const student = await afFetchStudent();
+
+  if (!student) {
+    afMsg("Could not fetch your dashboard. Please login again.", "warning", "Login Required");
+    afSetText("afProfileHeroName", "Login Required");
+    afSetText("afProfileHeroSub", "Please login again.");
+    afSetText("afInfoName", "-");
+    afSetText("afInfoEmail", "-");
+    afSetText("afInfoMobile", "-");
+    if (list) list.innerHTML = '<p class="af-empty">Please login again to view enrolled courses.</p>';
+    return false;
+  }
+
+  afCurrentStudent = student;
+  afCurrentExtra = await afFetchExtra(student);
+
+  const batches = await afFetchBatches();
+
+  afRenderCard();
+  afRenderProfile(batches);
+
+  return false;
+}
+
+function openNameEditAf() {
+  if (!afIsLoggedIn()) {
+    afMsg("Login to edit your name.", "warning", "Login Required");
+    return;
+  }
+
+  afSetInput("afEditNameOnly", afMergedName() === "Student" ? "" : afMergedName());
+  afSetInput("afNameEditOtp", "");
+
+  const box = document.getElementById("afNameOtpBox");
+  if (box) box.classList.add("af-hidden");
+
+  openAfModal("afNameEditModal");
+}
+
+async function sendNameEditOtpAf() {
+  const name = afGetInput("afEditNameOnly");
+  const email = afMergedEmail();
+
+  if (!name) {
+    afMsg("Please enter your name.", "warning", "Missing Name");
+    return;
+  }
+
+  if (!email || email === "-") {
+    afMsg("Registered email not found. Please login again.", "error", "Email Required");
+    return;
+  }
+
+  afPendingNameEdit = { name: name, email: email };
+
+  try {
+    await afSendOtp(email);
+
+    const box = document.getElementById("afNameOtpBox");
+    if (box) box.classList.remove("af-hidden");
+
+    afMsg("OTP sent to your registered email.", "success", "OTP Sent");
+  } catch (err) {
+    afMsg(err.message || "OTP send failed.", "error", "OTP Error");
+  }
+}
+
+async function confirmNameEditAf() {
+  if (!afPendingNameEdit) {
+    afMsg("Please send OTP first.", "warning", "OTP Required");
+    return;
+  }
+
+  const otp = afGetInput("afNameEditOtp");
+
+  if (!otp) {
+    afMsg("Enter OTP.", "warning", "OTP Required");
+    return;
+  }
+
+  const backend = afBackend();
+
+  if (!backend) {
+    afMsg("Backend not connected.", "error", "Backend Error");
+    return;
+  }
+
+  try {
+    await afVerifyOtp(afPendingNameEdit.email, otp);
+
+    const oldStudent = afCurrentStudent || await afFetchStudent();
+
+    if (!oldStudent) {
+      throw new Error("Student record not found.");
+    }
+
+    let updateQuery = backend.from("students_af").update({ name: afPendingNameEdit.name });
+
+    if (oldStudent.email) {
+      updateQuery = updateQuery.eq("email", oldStudent.email);
+    } else if (oldStudent.mobile) {
+      updateQuery = updateQuery.eq("mobile", oldStudent.mobile);
+    } else {
+      throw new Error("Old student record not found.");
+    }
+
+    const { error } = await updateQuery;
+
+    if (error) throw new Error(error.message);
+
+    afCurrentStudent = {
+      ...oldStudent,
+      name: afPendingNameEdit.name
+    };
+
+    localStorage.setItem("af_student_name", afPendingNameEdit.name);
+
+    afPendingNameEdit = null;
+
+    closeAfModal("afNameEditModal");
+
+    afMsg("Name updated successfully.", "success", "Updated");
+
+    await openStudentDashboardCardAf();
+  } catch (err) {
+    afMsg(err.message || "Name update failed.", "error", "Update Failed");
+  }
+}
+
+function toggleAfExtraSettingsV2() {
+  const body = document.getElementById("afExtraSettingsBodyV2");
+  const toggle = document.getElementById("afExtraSettingsToggleV2");
+  const arrow = document.getElementById("afExtraSettingsArrowV2");
+
+  if (!body) return;
+
+  const isHidden = body.classList.contains("af-extra-hidden-v2");
+  body.classList.toggle("af-extra-hidden-v2", !isHidden);
+
+  if (toggle) toggle.setAttribute("aria-expanded", String(isHidden));
+  if (arrow) arrow.textContent = isHidden ? "⌃" : "⌄";
+}
+
+function openAfDeleteAccountRequestV2() {
+  const modal = document.getElementById("afDeleteAccountModalV2");
+  if (!modal) return;
+
+  afSetInput("afDeleteFullNameV2", afMergedName() === "Student" ? "" : afMergedName());
+  afSetInput("afDeleteEmailV2", afMergedEmail() === "-" ? "" : afMergedEmail());
+  afSetInput("afDeletePhoneV2", afMergedMobile() === "-" ? "" : afMergedMobile());
+
+  modal.classList.remove("af-extra-hidden-v2");
+}
+
+function closeAfDeleteAccountRequestV2() {
+  const modal = document.getElementById("afDeleteAccountModalV2");
+  if (modal) modal.classList.add("af-extra-hidden-v2");
+}
+
+async function submitAfDeleteAccountRequestV2(event) {
+  event.preventDefault();
+
+  const backend = afBackend();
+  const message = document.getElementById("afDeleteMessageV2");
+  const button = document.getElementById("afDeleteSubmitBtnV2");
+
+  if (!backend) {
+    if (message) message.textContent = "Backend not connected.";
+    return;
+  }
+
+  const payload = {
+    full_name: afGetInput("afDeleteFullNameV2"),
+    registered_email: afGetInput("afDeleteEmailV2"),
+    registered_phone: afGetInput("afDeletePhoneV2"),
+    delete_reason: afGetInput("afDeleteReasonV2"),
+    additional_details: afGetInput("afDeleteDetailsV2"),
+    requested_at: new Date().toISOString(),
+    status: "pending"
+  };
+
+  if (!payload.full_name || !payload.registered_email || !payload.registered_phone || !payload.delete_reason || !payload.additional_details) {
+    if (message) message.textContent = "Please fill all required fields.";
+    return;
+  }
+
+  try {
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Submitting...";
+    }
+
+    const { error } = await backend.from("student_delete_requests_af").insert(payload);
+
+    if (error) throw new Error(error.message);
+
+    if (message) message.textContent = "Deletion request submitted successfully.";
+    afMsg("Deletion request submitted successfully.", "success", "Request Submitted");
+
+    window.setTimeout(closeAfDeleteAccountRequestV2, 900);
+  } catch (err) {
+    if (message) message.textContent = err.message || "Request failed.";
+    afMsg(err.message || "Request failed.", "error", "Request Failed");
+  } finally {
+    if (button) {
+      button.disabled = false;
+      button.textContent = "Submit Deletion Request";
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  try {
+    afRenderCard();
+  } catch (error) {
+    console.error("Profile init failed:", error);
+  }
+});
+
+document.addEventListener("click", function(event) {
+  const deleteModal = document.getElementById("afDeleteAccountModalV2");
+  const nameModal = document.getElementById("afNameEditModal");
+
+  if (deleteModal && !deleteModal.classList.contains("af-extra-hidden-v2") && event.target === deleteModal) {
+    closeAfDeleteAccountRequestV2();
+  }
+
+  if (nameModal && !nameModal.classList.contains("af-hidden") && event.target === nameModal) {
+    closeAfModal("afNameEditModal");
+  }
+});
+</script>
