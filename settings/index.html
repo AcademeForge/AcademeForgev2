@@ -1,646 +1,77 @@
-
-<!-- SETTINGS -->
-
-
 <!--
 ================================================================================
 ████████████████████████████████████████████████████████████████████████████████
-                    👉 HTML SECTION: SETTINGS PAGE 👈
+                    👉 START OF SECTION: AF FINAL SUPPORT PATCH 👈
+        BUG REPORT SHEET + CONTACT SHEET + REQUEST STATUS + CONTACT STATUS
 ████████████████████████████████████████████████████████████████████████████████
 ================================================================================
 -->
-
-<section id="settings" class="section settings-section" aria-label="Settings page">
-  <div class="settings-page">
-    <div class="settings-profile-card">
-      <div class="settings-avatar" aria-hidden="true">👨‍🎓</div>
-
-      <div class="settings-profile-info">
-        <h2 id="settingsStudentName">Hi, Devraj</h2>
-        <button
-  type="button"
-  class="settings-profile-link"
-  onclick="openStudentDashboardFromSettingsAf()"
-  aria-label="View profile"
->
-  View profile
-</button>
-      </div>
-    </div>
-
-    <a
-      href="https://academeforge.github.io/SUPER/official/"
-      class="settings-beta-card"
-      aria-label="Open AcademeForge official website"
-    >
-      <span>Official Website ✨</span>
-      <span class="settings-arrow" aria-hidden="true">›</span>
-    </a>
-
-    <div class="settings-list">
-      <div class="settings-row settings-row-static">
-        <div class="settings-row-left">
-          <span class="settings-row-icon" aria-hidden="true">🌙</span>
-          <span>Night Mode</span>
-        </div>
-
-        <label class="settings-switch" for="settingsDarkToggle" aria-label="Toggle dark mode">
-          <input
-            id="settingsDarkToggle"
-            type="checkbox"
-            onchange="toggleSettingsDarkMode(this.checked)"
-          />
-          <span class="settings-slider" aria-hidden="true"></span>
-        </label>
-      </div>
-
-      <button
-        type="button"
-        class="settings-row settings-row-btn"
-        onclick="showSection('explore')"
-        aria-label="Open Explore"
-      >
-        <div class="settings-row-left">
-          <span class="settings-row-icon" aria-hidden="true">🎓</span>
-          <span>AF Test Arena</span>
-        </div>
-        <span class="settings-arrow" aria-hidden="true">›</span>
-      </button>
-
-      <button
-        type="button"
-        class="settings-row settings-row-btn"
-        onclick="showSection('studentaf')"
-        aria-label="Open Student ID Access"
-      >
-        <div class="settings-row-left">
-          <span class="settings-row-icon" aria-hidden="true">📋</span>
-          <span>Login/Create ID</span>
-        </div>
-        <span class="settings-arrow" aria-hidden="true">›</span>
-      </button>
-
-      <button
-        type="button"
-        class="settings-row settings-row-btn"
-        onclick="openBugReportModal()"
-        aria-label="Report a Bug"
-      >
-        <div class="settings-row-left">
-          <span class="settings-row-icon" aria-hidden="true">🐞</span>
-          <span>Report a Bug</span>
-        </div>
-        <span class="settings-arrow" aria-hidden="true">›</span>
-      </button>
-
-      <button
-  type="button"
-  class="settings-row settings-row-btn"
-  onclick="openRequestStatusPageAf()"
-  aria-label="Open Request Status"
->
-  <div class="settings-row-left">
-    <span class="settings-row-icon" aria-hidden="true">📌</span>
-    <span>Request Status</span>
-  </div>
-  <span class="settings-new-badge">Track</span>
-</button>
-      
-
-      <button
-        type="button"
-        class="settings-row settings-row-btn"
-        onclick="openContactStatusPageAf()"
-        aria-label="Open Contact Us Status"
-      >
-        <div class="settings-row-left">
-          <span class="settings-row-icon" aria-hidden="true">☎</span>
-          <span>Contact Us Status</span>
-        </div>
-        <span class="settings-new-badge">Track</span>
-      </button>
-
-      <button
-        type="button"
-        class="settings-row settings-row-btn"
-        onclick="showSection('learningHeatmap')"
-        aria-label="Open Learning Heatmap"
-      >
-        <div class="settings-row-left">
-          <span class="settings-row-icon" aria-hidden="true">🔥</span>
-          <span>Learning Heatmap</span>
-        </div>
-        <span class="settings-arrow" aria-hidden="true">›</span>
-      </button>
-
-      <button
-        type="button"
-        class="settings-row settings-row-btn"
-        onclick="showSection('notifications')"
-        aria-label="Open Notifications"
-      >
-        <div class="settings-row-left">
-          <span class="settings-row-icon" aria-hidden="true">📚</span>
-          <span>Notifications</span>
-        </div>
-        <span class="settings-new-badge">New</span>
-      </button>
-    </div>
-
- <div class="settings-support-list">
-  <button
-    type="button"
-    class="settings-support-row"
-    onclick="showSection('management')"
-    aria-label="Open About Us"
-  >
-    <div class="settings-support-left">
-      <span class="settings-support-icon" aria-hidden="true">ⓘ</span>
-      <span>About Us</span>
-    </div>
-    <span class="settings-arrow" aria-hidden="true">›</span>
-  </button>
-
-  <button
-    type="button"
-    class="settings-support-row"
-    onclick="openContactUsPage()"
-    aria-label="Open Contact Us"
-  >
-    <div class="settings-support-left">
-      <span class="settings-support-icon" aria-hidden="true">☎</span>
-      <span>Contact Us</span>
-    </div>
-    <span class="settings-arrow" aria-hidden="true">›</span>
-  </button>
-
-  <div class="settings-support-divider"></div>
-
-  <button
-    type="button"
-    class="settings-support-row settings-logout-row"
-    onclick="logoutStudentafWithMessage()"
-    aria-label="Logout"
-  >
-    <div class="settings-support-left">
-      <span class="settings-support-icon settings-logout-icon" aria-hidden="true">↩</span>
-      <span>Logout</span>
-    </div>
-  </button>
-</div>
-
-<div class="settings-app-version-box">
-  <strong>App Version: 09.01.2024</strong>
-  <span>Made with ❤️ in India</span>
-</div>
-</section>
-<!-- ==============================
-     REQUEST STATUS PAGE - AF
-================================ -->
-
-
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 HTML SECTION: REQUEST STATUS PAGE 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
-
-<section id="requestStatusAf" class="section request-status-section-af" aria-label="Request Status">
-  <div class="request-status-page-af">
-    <div class="request-status-hero-af">
-      <button
-        type="button"
-        class="request-status-back-af"
-        onclick="showSection('settings')"
-        aria-label="Back to settings"
-      >
-        ← Back
-      </button>
-
-      <div class="request-status-hero-text-af">
-        <p>Support Center</p>
-        <h2>Request Status</h2>
-        <span>Track your bug reports and support requests.</span>
-      </div>
-
-      <button
-        type="button"
-        class="request-status-refresh-af"
-        onclick="loadRequestStatusAf(true)"
-        aria-label="Refresh request status"
-      >
-        ↻
-      </button>
-    </div>
-
-    <div id="requestStatusMessageAf" class="request-status-message-af">
-      Loading your requests...
-    </div>
-
-    <div id="requestStatusListAf" class="request-status-list-af"></div>
-  </div>
-</section>
-
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 HTML SECTION: CONTACT STATUS PAGE 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
-
-<section id="contactStatusAf" class="section request-status-section-af contact-status-section-af" aria-label="Contact Request Status">
-  <div class="request-status-page-af">
-    <div class="request-status-hero-af">
-      <button
-        type="button"
-        class="request-status-back-af"
-        onclick="showSection('settings')"
-        aria-label="Back to settings"
-      >
-        ← Back
-      </button>
-
-      <div class="request-status-hero-text-af">
-        <p>Support Center</p>
-        <h2>Contact Status</h2>
-        <span>Track your call/email support requests.</span>
-      </div>
-
-      <button
-        type="button"
-        class="request-status-refresh-af"
-        onclick="loadContactStatusAf(true)"
-        aria-label="Refresh contact request status"
-      >
-        ↻
-      </button>
-    </div>
-
-    <div id="contactStatusMessageAf" class="request-status-message-af">
-      Loading your contact requests...
-    </div>
-
-    <div id="contactStatusListAf" class="request-status-list-af"></div>
-  </div>
-</section>
-
-<!-- ==============================
-     CONTACT US SECTION - AF
-================================ -->
-
-
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 HTML SECTION: CONTACT US PAGE 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
-
-<div id="contactUsAf" class="contact-sheet-overlay-af" aria-hidden="true" onclick="closeContactUsSheetAf()">
-  <div class="contact-us-af-page" onclick="event.stopPropagation()">
-    <button
-      type="button"
-      class="contact-back-btn-af"
-      onclick="closeContactUsSheetAf()"
-      aria-label="Back to Settings"
-    >
-      Close
-    </button>
-
-    <div class="contact-us-af-card">
-      <div class="contact-us-af-head">
-        <div class="contact-us-af-icon" aria-hidden="true">☎</div>
-
-        <div>
-          <p class="contact-us-af-kicker">Support Request</p>
-          <h2>Request a Call or Email Reply</h2>
-          <p>
-            Share your details and our team will contact you regarding your query.
-          </p>
-        </div>
-      </div>
-
-      <form id="contactUsFormAf" class="contact-us-af-form" onsubmit="submitContactRequestAf(event)">
-        <div class="contact-field-af">
-          <label for="contactNameAf">Full Name</label>
-          <input
-            id="contactNameAf"
-            name="name"
-            type="text"
-            inputmode="text"
-            autocomplete="name"
-            placeholder="Enter your full name"
-            maxlength="80"
-            required
-          />
-        </div>
-
-        <div class="contact-field-af">
-          <label for="contactMobileAf">Mobile Number</label>
-          <input
-            id="contactMobileAf"
-            name="mobile"
-            type="tel"
-            inputmode="tel"
-            autocomplete="tel"
-            placeholder="Enter your mobile number"
-            maxlength="15"
-            required
-          />
-        </div>
-
-        <div class="contact-field-af">
-          <label for="contactEmailAf">Email Address</label>
-          <input
-            id="contactEmailAf"
-            name="email"
-            type="email"
-            inputmode="email"
-            autocomplete="email"
-            placeholder="Enter your email address"
-            maxlength="120"
-            required
-          />
-        </div>
-
-        <div class="contact-field-af">
-          <label for="contactReasonAf">Reason for Contact</label>
-          <select id="contactReasonAf" name="reason" required>
-            <option value="">Select a reason</option>
-            <option value="Course Access Issue">Course Access Issue</option>
-            <option value="Login or Student ID Issue">Login or Student ID Issue</option>
-            <option value="Payment or Enrollment Query">Payment or Enrollment Query</option>
-            <option value="Technical Problem">Technical Problem</option>
-            <option value="General Support">General Support</option>
-          </select>
-        </div>
-
-        <div class="contact-field-af">
-          <label for="contactProblemAf">Describe Your Problem</label>
-          <textarea
-            id="contactProblemAf"
-            name="problem"
-            rows="5"
-            placeholder="Write your issue clearly so our team can help you faster."
-            maxlength="1200"
-            required
-          ></textarea>
-        </div>
-
-        <div id="contactUsMessageAf" class="contact-message-af" aria-live="polite"></div>
-
-        <button id="contactSubmitBtnAf" type="submit" class="contact-submit-btn-af">
-          Submit Request
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
-    <!-- Learning Heatmap -->
-    
-  
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 HTML SECTION: LEARNING HEATMAP 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
-
-<section id="learningHeatmap" class="section learning-heatmap-section" aria-label="Learning Heatmap">
-  <div class="learning-heatmap-page">
-
-    <button
-      type="button"
-      class="learning-back-btn"
-      onclick="showSection('settings')"
-      aria-label="Back to settings"
-    >
-      <span aria-hidden="true">←</span>
-      <span>Back to Settings</span>
-    </button>
-
-    <div class="learning-heatmap-hero">
-      <div>
-        <p class="learning-heatmap-kicker">Weekly Online Activity</p>
-        <h2>Learning Heatmap</h2>
-        <p>
-          Login daily and stay active to maintain your learning streak.
-        </p>
-      </div>
-
-      <div class="learning-streak-card">
-        <span class="learning-streak-fire" aria-hidden="true">🔥</span>
-        <strong id="learningHeatmapStreakCount">0</strong>
-        <small>Day Streak</small>
-      </div>
-    </div>
-
-    <div class="learning-week-card">
-      <div class="learning-week-card-top">
-        <div>
-          <h3>This Week</h3>
-          <p id="learningHeatmapStatus">Checking activity...</p>
-        </div>
-
-        <button
-          type="button"
-          class="learning-refresh-btn"
-          onclick="loadLearningHeatmap()"
-          aria-label="Refresh learning heatmap"
-        >
-          ↻
-        </button>
-      </div>
-
-      <div class="learning-week-grid" id="learningWeekGrid">
-        <div class="learning-day-box">
-          <span>Mon</span>
-          <strong>-</strong>
-        </div>
-
-        <div class="learning-day-box">
-          <span>Tue</span>
-          <strong>-</strong>
-        </div>
-
-        <div class="learning-day-box">
-          <span>Wed</span>
-          <strong>-</strong>
-        </div>
-
-        <div class="learning-day-box">
-          <span>Thu</span>
-          <strong>-</strong>
-        </div>
-
-        <div class="learning-day-box">
-          <span>Fri</span>
-          <strong>-</strong>
-        </div>
-
-        <div class="learning-day-box">
-          <span>Sat</span>
-          <strong>-</strong>
-        </div>
-
-        <div class="learning-day-box">
-          <span>Sun</span>
-          <strong>-</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="learning-info-card">
-      <h3>How streak works</h3>
-
-      <ul>
-        <li>Login daily to keep your learning streak active.</li>
-        <li>Daily activity automatically marks your day as active.</li>
-        <li>Continuous daily learning increases your streak count.</li>
-        <li>If a day is missed, the streak starts again from zero.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-<!-----------------------  NAV BUTTONS --------------------------------------->
-
-
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 HTML SECTION: BOTTOM NAVIGATION 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
-
-<nav class="bottom-nav glass">
-  <button class="nav-btn active" data-section="home" onclick="showSection('home')">
-    <b>🏠</b>
-    Home
-  </button>
-
-  <button class="nav-btn" data-section="studentaf" onclick="showSection('studentaf')">
-    <b>🎓</b>
-    Student
-  </button>
-  
-<button class="nav-btn" data-section="batchaf" type="button" onclick="showSection('batchaf')">
-  <b>📚</b>
-  Batches
-</button>
-   <button class="nav-btn" data-section="community" onclick="showSection('community')">
-    <b>💬</b>
-    Community
-  </button>
-
-   <button class="nav-btn" data-section="settings" type="button" onclick="showSection('settings')">
-    <b class="nav-icon-wrap">⚙️</b>
-    <span>Settings</span>
-  </button>
-</nav>
-
-  </main>
-
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 HTML SECTION: BUG REPORT BOTTOM SHEET - FIXED 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
-<div id="bugReportOverlay" class="bug-report-overlay" aria-hidden="true" onclick="closeBugReportModal()">
-  <div class="bug-report-modal" role="dialog" aria-modal="true" aria-labelledby="bugReportTitle" onclick="event.stopPropagation()">
-    <div class="bug-report-header">
-      <div>
-        <p class="bug-report-kicker">AcademeForge Support</p>
-        <h3 id="bugReportTitle" class="bug-report-title">Report a Bug</h3>
-      </div>
-      <button type="button" class="bug-report-x" onclick="closeBugReportModal()" aria-label="Close bug report">×</button>
-    </div>
-    <form id="bugReportForm" class="bug-report-form" onsubmit="submitBugReport(event)">
-      <label class="bug-report-field"><span>Your Name</span><input id="bugReporterName" type="text" maxlength="80" autocomplete="name" placeholder="Enter your name" required /></label>
-      <label class="bug-report-field"><span>Contact Email</span><input id="bugReporterEmail" type="email" maxlength="120" autocomplete="email" placeholder="example@email.com" required /></label>
-      <label class="bug-report-field"><span>Bug Category</span><select id="bugCategory" required><option value="">Select issue type</option><option value="login">Login / Student ID</option><option value="navigation">Navigation</option><option value="dark_mode">Dark / Reading Mode</option><option value="notification">Notifications</option><option value="payment">Payment / Purchase</option><option value="ui">UI / Design</option><option value="performance">Slow / Lagging</option><option value="other">Other</option></select></label>
-      <label class="bug-report-field"><span>Priority</span><select id="bugPriority" required><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option><option value="critical">Critical</option></select></label>
-      <label class="bug-report-field"><span>What happened?</span><textarea id="bugDescription" maxlength="1200" rows="5" placeholder="Explain the issue clearly..." required></textarea></label>
-      <input id="bugPageUrl" type="hidden" />
-      <input id="bugUserAgent" type="hidden" />
-      <div id="bugReportStatus" class="bug-report-status" aria-live="polite"></div>
-      <button id="bugReportSubmitBtn" type="submit" class="bug-report-submit">Submit Report</button>
-    </form>
-  </div>
-</div>
-
-<div class="toast" id="toast">
-  <strong>Notification</strong>
-  <p>Message</p>
-</div>
 
 <style>
 /*
 ================================================================================
 ████████████████████████████████████████████████████████████████████████████████
-                  👉 START OF SECTION: LIGHTWEIGHT THEME TOKENS + RESET 👈
+                    👉 START OF SECTION: AF PATCH VARIABLES 👈
 ████████████████████████████████████████████████████████████████████████████████
 ================================================================================
 */
 
 :root {
-  --af-bg: #f6f7f9;
-  --af-surface: #ffffff;
-  --af-surface-2: #f1f3f6;
-  --af-text: #111111;
-  --af-muted: #6b7280;
-  --af-border: #e5e7eb;
-  --af-primary: #111111;
-  --af-primary-text: #ffffff;
-  --af-success: #12823b;
-  --af-warning: #a16207;
-  --af-danger: #b42318;
-  --af-shadow: 0 14px 40px rgba(17, 24, 39, 0.08);
-  --af-radius: 20px;
-  --af-nav-height: 76px;
+  --af-fix-bg: #f6f7f9;
+  --af-fix-surface: #ffffff;
+  --af-fix-surface-2: #f2f4f7;
+  --af-fix-text: #111827;
+  --af-fix-muted: #667085;
+  --af-fix-border: #e5e7eb;
+  --af-fix-strong-border: #d0d5dd;
+  --af-fix-primary: #111827;
+  --af-fix-primary-text: #ffffff;
+  --af-fix-success: #087443;
+  --af-fix-warning: #b54708;
+  --af-fix-danger: #b42318;
+  --af-fix-radius-lg: 24px;
+  --af-fix-radius-md: 18px;
+  --af-fix-radius-sm: 14px;
+  --af-fix-shadow: 0 24px 80px rgba(17, 24, 39, 0.16);
+  --af-fix-bottom-nav: 86px;
 }
 
 html.dark-mode,
 body.dark-mode,
 body.settings-dark-mode {
-  --af-bg: #08090b;
-  --af-surface: #111216;
-  --af-surface-2: #181a20;
-  --af-text: #f8fafc;
-  --af-muted: #a1a1aa;
-  --af-border: #27272a;
-  --af-primary: #ffffff;
-  --af-primary-text: #111111;
-  --af-success: #4ade80;
-  --af-warning: #facc15;
-  --af-danger: #fb7185;
-  --af-shadow: 0 18px 50px rgba(0, 0, 0, 0.38);
+  --af-fix-bg: #08090b;
+  --af-fix-surface: #111317;
+  --af-fix-surface-2: #181b20;
+  --af-fix-text: #f9fafb;
+  --af-fix-muted: #a1a1aa;
+  --af-fix-border: #262a31;
+  --af-fix-strong-border: #343942;
+  --af-fix-primary: #f9fafb;
+  --af-fix-primary-text: #09090b;
+  --af-fix-success: #4ade80;
+  --af-fix-warning: #fbbf24;
+  --af-fix-danger: #fb7185;
+  --af-fix-shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
 }
 
-* {
-  box-sizing: border-box;
-}
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: AF PATCH VARIABLES 👈
+                       👉 START OF: GLOBAL PATCH RESET 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 
 html,
 body {
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
+  background: var(--af-fix-bg) !important;
+  color: var(--af-fix-text) !important;
 }
 
 body {
-  margin: 0;
-  background: var(--af-bg);
-  color: var(--af-text);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
 }
@@ -649,19 +80,29 @@ button,
 input,
 select,
 textarea {
-  font: inherit;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
 }
 
 button {
-  border: 0;
-  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .section,
 .app-section {
+  background: var(--af-fix-bg) !important;
+  color: var(--af-fix-text) !important;
+}
+
+.section:not(.active),
+.app-section:not(.active) {
   display: none;
-  min-height: 100dvh;
-  padding: 16px 12px calc(var(--af-nav-height) + 28px);
 }
 
 .section.active,
@@ -669,488 +110,497 @@ button {
   display: block;
 }
 
-.settings-page,
-.request-status-page-af,
-.learning-heatmap-page {
-  width: min(100%, 520px);
-  margin: 0 auto;
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: GLOBAL PATCH RESET 👈
+                       👉 START OF: MOBILE APP WIDTH FIX 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
+.app,
+main.app,
+#app,
+.app-shell {
+  width: 100% !important;
+  max-width: 480px !important;
+  min-height: 100dvh !important;
+  margin: 0 auto !important;
+  background: var(--af-fix-bg) !important;
+  color: var(--af-fix-text) !important;
+  overflow-x: hidden !important;
+}
+
+@media (min-width: 768px) {
+  body {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.04), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.04)),
+      var(--af-fix-bg) !important;
+  }
+
+  html.dark-mode body,
+  body.dark-mode {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.035)),
+      var(--af-fix-bg) !important;
+  }
 }
 
 /*
 ================================================================================
 ████████████████████████████████████████████████████████████████████████████████
-                  👉 END OF SECTION: LIGHTWEIGHT THEME TOKENS + RESET 👈
-                     👉 START OF: SETTINGS PAGE CARDS 👈
+                    👉 END OF SECTION: MOBILE APP WIDTH FIX 👈
+                       👉 START OF: SETTINGS BUTTON PATCH 👈
 ████████████████████████████████████████████████████████████████████████████████
 ================================================================================
 */
 
-.settings-profile-card,
-.settings-beta-card,
-.settings-list,
-.settings-support-list,
-.settings-app-version-box,
-.request-status-hero-af,
-.request-card-af,
-.learning-heatmap-hero,
-.learning-week-card,
-.learning-info-card,
-.contact-us-af-card,
-.bug-report-modal {
-  background: var(--af-surface);
-  border: 1px solid var(--af-border);
-  border-radius: var(--af-radius);
-  box-shadow: var(--af-shadow);
-}
-
-.settings-profile-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px;
-  margin-bottom: 12px;
-}
-
-.settings-avatar,
-.settings-row-icon,
-.settings-support-icon {
-  display: grid;
-  place-items: center;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-}
-
-.settings-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 18px;
-  font-size: 26px;
-}
-
-.settings-profile-info h2 {
-  margin: 0 0 4px;
-  font-size: 22px;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-}
-
-.settings-profile-link {
-  padding: 0;
-  background: transparent;
-  color: var(--af-muted);
-  font-size: 13px;
-  font-weight: 750;
-}
-
-.settings-beta-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 16px;
-  margin-bottom: 12px;
-  color: var(--af-text);
-  text-decoration: none;
-  font-weight: 850;
-}
-
-.settings-list,
-.settings-support-list {
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-
 .settings-row,
+.settings-row-btn,
 .settings-support-row {
   width: 100%;
-  min-height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  background: transparent;
-  color: var(--af-text);
-  border-bottom: 1px solid var(--af-border);
-  text-align: left;
+  min-height: 58px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  padding: 14px 16px !important;
+  border-radius: var(--af-fix-radius-md) !important;
+  background: var(--af-fix-surface) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  box-shadow: none !important;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease !important;
 }
 
-.settings-row:last-child,
-.settings-support-row:last-child {
-  border-bottom: 0;
+.settings-row:hover,
+.settings-row-btn:hover,
+.settings-support-row:hover {
+  transform: translateY(-1px);
+  border-color: var(--af-fix-strong-border) !important;
+  background: var(--af-fix-surface-2) !important;
 }
 
 .settings-row-left,
 .settings-support-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 800;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  min-width: 0 !important;
 }
 
 .settings-row-icon,
 .settings-support-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 13px;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 12px !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
 }
 
-.settings-arrow {
-  color: var(--af-muted);
-  font-size: 24px;
-  line-height: 1;
-}
-
-.settings-new-badge {
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: var(--af-surface-2);
-  color: var(--af-muted);
-  font-size: 12px;
-  font-weight: 850;
-}
-
-.settings-support-divider {
-  height: 1px;
-  background: var(--af-border);
-}
-
-.settings-logout-row {
-  color: var(--af-danger);
-}
-
-.settings-app-version-box {
-  padding: 15px;
-  text-align: center;
-}
-
-.settings-app-version-box strong {
-  display: block;
-  font-size: 13px;
-}
-
-.settings-app-version-box span {
-  display: block;
-  margin-top: 5px;
-  color: var(--af-muted);
-  font-size: 12px;
-}
-
-.settings-switch {
-  position: relative;
-  width: 50px;
-  height: 28px;
-  flex: 0 0 auto;
-}
-
-.settings-switch input {
-  position: absolute;
-  opacity: 0;
-}
-
-.settings-slider {
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-}
-
-.settings-slider::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: var(--af-muted);
-  transition: transform 180ms ease, background 180ms ease;
-}
-
-.settings-switch input:checked + .settings-slider {
-  background: var(--af-primary);
-}
-
-.settings-switch input:checked + .settings-slider::before {
-  transform: translateX(22px);
-  background: var(--af-primary-text);
+.settings-new-badge,
+.request-status-pill-af {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 28px !important;
+  padding: 0 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--af-fix-border) !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
 }
 
 /*
 ================================================================================
 ████████████████████████████████████████████████████████████████████████████████
-                  👉 END OF SECTION: SETTINGS PAGE CARDS 👈
-                     👉 START OF: STATUS PAGES + EXPANDABLE CARDS 👈
+                    👉 END OF SECTION: SETTINGS BUTTON PATCH 👈
+                       👉 START OF: STATUS PAGES DESIGN 👈
 ████████████████████████████████████████████████████████████████████████████████
 ================================================================================
 */
 
-.request-status-hero-af {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-  margin-bottom: 14px;
+.request-status-section-af,
+.contact-status-section-af {
+  min-height: 100dvh !important;
+  padding: 18px 14px calc(var(--af-fix-bottom-nav) + 28px) !important;
+  background: var(--af-fix-bg) !important;
+}
+
+.request-status-page-af,
+.contact-status-page-af {
+  width: 100% !important;
+  max-width: 480px !important;
+  margin: 0 auto !important;
+}
+
+.request-status-hero-af,
+.contact-status-hero-af {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 16px !important;
+  margin: 0 0 14px !important;
+  border-radius: var(--af-fix-radius-lg) !important;
+  background: var(--af-fix-surface) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  box-shadow: none !important;
 }
 
 .request-status-back-af,
 .request-status-refresh-af,
-.learning-back-btn,
-.learning-refresh-btn,
-.contact-back-btn-af {
-  min-height: 42px;
-  border-radius: 14px;
-  border: 1px solid var(--af-border);
-  background: var(--af-surface-2);
-  color: var(--af-text);
-  padding: 10px 12px;
-  font-weight: 850;
+.contact-status-back-af,
+.contact-status-refresh-af {
+  width: 42px !important;
+  height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 15px !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  font-size: 0 !important;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease !important;
+}
+
+.request-status-back-af::before,
+.contact-status-back-af::before {
+  content: "←";
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.request-status-refresh-af::before,
+.contact-status-refresh-af::before {
+  content: "↻";
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.request-status-back-af:hover,
+.request-status-refresh-af:hover,
+.contact-status-back-af:hover,
+.contact-status-refresh-af:hover {
+  transform: translateY(-1px);
+  border-color: var(--af-fix-strong-border) !important;
+}
+
+.request-status-hero-text-af,
+.contact-status-hero-text-af {
+  min-width: 0 !important;
 }
 
 .request-status-hero-text-af p,
-.learning-heatmap-kicker,
-.contact-us-af-kicker {
-  margin: 0;
-  color: var(--af-muted);
-  font-size: 11px;
-  font-weight: 850;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.contact-status-hero-text-af p {
+  margin: 0 0 4px !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 11px !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
 }
 
 .request-status-hero-text-af h2,
-.learning-heatmap-hero h2,
-.contact-us-af-head h2 {
-  margin: 4px 0;
-  font-size: 25px;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+.contact-status-hero-text-af h2 {
+  margin: 0 !important;
+  color: var(--af-fix-text) !important;
+  font-size: 22px !important;
+  line-height: 1.1 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.04em !important;
 }
 
 .request-status-hero-text-af span,
-.learning-heatmap-hero p,
-.contact-us-af-head p {
-  color: var(--af-muted);
-  font-size: 13px;
-  line-height: 1.45;
+.contact-status-hero-text-af span {
+  display: block !important;
+  margin-top: 5px !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
 }
 
 .request-status-message-af,
+.contact-status-message-af,
 .contact-message-af,
 .bug-report-status {
-  margin: 12px 0;
-  padding: 12px;
-  border-radius: 14px;
-  background: var(--af-surface-2);
-  color: var(--af-muted);
-  font-size: 13px;
-  font-weight: 750;
+  display: none;
+  margin: 12px 0 !important;
+  padding: 12px 14px !important;
+  border-radius: var(--af-fix-radius-sm) !important;
+  background: var(--af-fix-surface) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+  line-height: 1.45 !important;
 }
 
 .request-status-message-af.is-error,
+.contact-status-message-af.is-error,
 .contact-message-af.is-error,
 .bug-report-status.error {
-  color: var(--af-danger);
+  display: block !important;
+  color: var(--af-fix-danger) !important;
+  border-color: color-mix(in srgb, var(--af-fix-danger) 35%, var(--af-fix-border)) !important;
+}
+
+.request-status-message-af.is-empty,
+.contact-status-message-af.is-empty {
+  display: block !important;
+  color: var(--af-fix-muted) !important;
 }
 
 .contact-message-af.is-success,
 .bug-report-status.success {
-  color: var(--af-success);
+  display: block !important;
+  color: var(--af-fix-success) !important;
+  border-color: color-mix(in srgb, var(--af-fix-success) 35%, var(--af-fix-border)) !important;
 }
 
-.request-card-af {
-  padding: 0;
-  margin-bottom: 12px;
-  overflow: hidden;
-  animation: afCardIn 240ms ease both;
-}
-
-.request-card-button-af {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 42px 1fr auto;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
-  background: transparent;
-  color: var(--af-text);
-  text-align: left;
-}
-
-.request-card-check-af {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--af-success) 14%, var(--af-surface-2));
-  color: var(--af-success);
-  font-weight: 950;
-}
-
-.request-card-title-af h3 {
-  margin: 0 0 4px;
-  font-size: 16px;
-  letter-spacing: -0.02em;
-}
-
-.request-card-title-af p {
-  margin: 0;
-  color: var(--af-muted);
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-.request-status-pill-af {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-  font-size: 11px;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.request-status-pill-af.solved {
-  color: var(--af-success);
-}
-
-.request-status-pill-af.read,
-.request-status-pill-af.review {
-  color: var(--af-warning);
-}
-
-.request-status-pill-af.pending {
-  color: var(--af-muted);
-}
-
-.request-card-detail-af {
-  display: none;
-  padding: 0 15px 15px;
-  border-top: 1px solid var(--af-border);
-}
-
-.request-card-af.is-open .request-card-detail-af {
-  display: block;
-}
-
-.request-detail-box-af {
-  margin-top: 14px;
-  padding: 13px;
-  border-radius: 16px;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-}
-
-.request-detail-box-af strong {
-  display: block;
-  margin-bottom: 7px;
-  font-size: 13px;
-}
-
-.request-detail-box-af p {
-  margin: 0;
-  color: var(--af-muted);
-  font-size: 13px;
-  line-height: 1.55;
-  white-space: pre-wrap;
-}
-
-.request-progress-af {
-  margin-top: 14px;
-  display: grid;
-  gap: 10px;
-}
-
-.request-step-af {
-  display: flex;
-  gap: 10px;
-}
-
-.request-step-dot-af {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-  color: var(--af-muted);
-  font-weight: 900;
-}
-
-.request-step-af.is-done .request-step-dot-af {
-  background: color-mix(in srgb, var(--af-success) 18%, var(--af-surface));
-  color: var(--af-success);
-}
-
-.request-step-content-af strong {
-  display: block;
-  font-size: 13px;
-}
-
-.request-step-content-af span {
-  color: var(--af-muted);
-  font-size: 12px;
+.request-status-list-af,
+.contact-status-list-af {
+  display: grid !important;
+  gap: 12px !important;
 }
 
 /*
 ================================================================================
 ████████████████████████████████████████████████████████████████████████████████
-                  👉 END OF SECTION: STATUS PAGES + EXPANDABLE CARDS 👈
-                     👉 START OF: CHATGPT STYLE BOTTOM SHEETS 👈
+                    👉 END OF SECTION: STATUS PAGES DESIGN 👈
+                       👉 START OF: STATUS CARD DESIGN 👈
 ████████████████████████████████████████████████████████████████████████████████
 ================================================================================
 */
 
-.bug-report-overlay,
-.contact-sheet-overlay-af {
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 0;
-  background: rgba(0, 0, 0, 0.46);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: opacity 220ms ease, visibility 220ms ease;
+.request-card-af,
+.contact-status-card-af {
+  width: 100% !important;
+  padding: 16px !important;
+  border-radius: var(--af-fix-radius-lg) !important;
+  background: var(--af-fix-surface) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  color: var(--af-fix-text) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  animation: afFixFadeUp 220ms ease both !important;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease !important;
 }
 
-.bug-report-overlay.show,
-.bug-report-overlay[aria-hidden="false"],
-.contact-sheet-overlay-af.show,
-.contact-sheet-overlay-af[aria-hidden="false"] {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+.request-card-af:hover,
+.contact-status-card-af:hover {
+  transform: translateY(-1px);
+  border-color: var(--af-fix-strong-border) !important;
 }
 
-.bug-report-modal,
-.contact-us-af-page {
-  width: min(100%, 560px);
-  max-height: 88dvh;
-  overflow-y: auto;
-  border-radius: 28px 28px 0 0;
-  border: 1px solid var(--af-border);
-  border-bottom: 0;
-  background: var(--af-surface);
-  color: var(--af-text);
-  transform: translateY(105%);
-  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 -20px 70px rgba(0, 0, 0, 0.20);
+.request-card-top-af {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
 }
 
-.bug-report-overlay.show .bug-report-modal,
-.bug-report-overlay[aria-hidden="false"] .bug-report-modal,
-.contact-sheet-overlay-af.show .contact-us-af-page,
-.contact-sheet-overlay-af[aria-hidden="false"] .contact-us-af-page {
-  transform: translateY(0);
+.request-card-icon-af {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-success) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  font-size: 18px !important;
+  font-weight: 950 !important;
+}
+
+.request-card-title-af {
+  min-width: 0 !important;
+}
+
+.request-card-title-af h3 {
+  margin: 0 0 5px !important;
+  color: var(--af-fix-text) !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.request-card-title-af p {
+  margin: 2px 0 !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  font-weight: 650 !important;
+}
+
+.request-status-pill-af.pending {
+  color: var(--af-fix-muted) !important;
+}
+
+.request-status-pill-af.read {
+  color: var(--af-fix-warning) !important;
+}
+
+.request-status-pill-af.solved {
+  color: var(--af-fix-success) !important;
+}
+
+.request-progress-af {
+  display: grid !important;
+  gap: 10px !important;
+  margin-top: 16px !important;
+  padding-top: 14px !important;
+  border-top: 1px solid var(--af-fix-border) !important;
+}
+
+.request-step-af {
+  display: grid !important;
+  grid-template-columns: 28px 1fr !important;
+  gap: 10px !important;
+  align-items: flex-start !important;
+}
+
+.request-step-dot-af {
+  width: 28px !important;
+  height: 28px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-muted) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+}
+
+.request-step-af.is-done .request-step-dot-af {
+  color: var(--af-fix-success) !important;
+  border-color: color-mix(in srgb, var(--af-fix-success) 35%, var(--af-fix-border)) !important;
+}
+
+.request-step-af.is-pending .request-step-dot-af {
+  color: var(--af-fix-warning) !important;
+  border-color: color-mix(in srgb, var(--af-fix-warning) 35%, var(--af-fix-border)) !important;
+}
+
+.request-step-content-af strong {
+  display: block !important;
+  margin: 0 0 2px !important;
+  color: var(--af-fix-text) !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  font-weight: 850 !important;
+}
+
+.request-step-content-af span {
+  display: block !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+}
+
+.request-card-detail-af {
+  display: none !important;
+  margin-top: 14px !important;
+  padding: 14px !important;
+  border-radius: var(--af-fix-radius-sm) !important;
+  background: var(--af-fix-surface-2) !important;
+  border: 1px solid var(--af-fix-border) !important;
+}
+
+.request-card-af.is-expanded .request-card-detail-af,
+.contact-status-card-af.is-expanded .request-card-detail-af {
+  display: block !important;
+}
+
+.request-card-detail-af strong {
+  display: block !important;
+  margin-bottom: 6px !important;
+  color: var(--af-fix-text) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+
+.request-card-detail-af p {
+  margin: 0 !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  white-space: pre-wrap !important;
+}
+
+.request-note-af {
+  margin-top: 12px !important;
+  padding: 12px !important;
+  border-radius: var(--af-fix-radius-sm) !important;
+  background: var(--af-fix-surface) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: STATUS CARD DESIGN 👈
+                       👉 START OF: BUG REPORT BOTTOM SHEET 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
+#bugReportOverlay,
+.bug-report-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+  display: none !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  padding: 14px !important;
+  background: rgba(0, 0, 0, 0.46) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+#bugReportOverlay.show,
+.bug-report-overlay.show {
+  display: flex !important;
+}
+
+.bug-report-modal {
+  width: min(100%, 480px) !important;
+  max-height: min(86dvh, 760px) !important;
+  overflow: auto !important;
+  overscroll-behavior: contain !important;
+  padding: 18px !important;
+  border-radius: 28px 28px 20px 20px !important;
+  background: var(--af-fix-surface) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  box-shadow: var(--af-fix-shadow) !important;
+  transform: translateY(110%) !important;
+  animation: afFixSheetUp 260ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
 }
 
 .bug-report-modal::before,
@@ -1159,434 +609,9 @@ button {
   display: block;
   width: 42px;
   height: 5px;
-  margin: 10px auto 4px;
+  margin: 0 auto 14px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--af-muted) 34%, transparent);
-}
-
-.bug-report-header {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--af-border);
-  background: var(--af-surface);
-}
-
-.bug-report-kicker {
-  margin: 0 0 4px;
-  color: var(--af-muted);
-  font-size: 11px;
-  font-weight: 850;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.bug-report-title {
-  margin: 0;
-  font-size: 21px;
-  letter-spacing: -0.04em;
-}
-
-.bug-report-x {
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  background: var(--af-surface-2);
-  color: var(--af-text);
-  font-size: 24px;
-}
-
-.bug-report-form,
-.contact-us-af-card {
-  padding: 16px;
-}
-
-.contact-us-af-card {
-  margin: 0;
-  border: 0;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.contact-back-btn-af {
-  margin: 12px 16px 0;
-}
-
-.contact-us-af-head {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.contact-us-af-icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
-  border-radius: 16px;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-  font-size: 22px;
-}
-
-.contact-field-af,
-.bug-report-field {
-  display: grid;
-  gap: 7px;
-  margin-bottom: 12px;
-}
-
-.contact-field-af label,
-.bug-report-field span {
-  color: var(--af-muted);
-  font-size: 13px;
-  font-weight: 850;
-}
-
-.contact-field-af input,
-.contact-field-af select,
-.contact-field-af textarea,
-.bug-report-field input,
-.bug-report-field select,
-.bug-report-field textarea {
-  width: 100%;
-  min-height: 48px;
-  border: 1px solid var(--af-border);
-  border-radius: 15px;
-  background: var(--af-surface-2);
-  color: var(--af-text);
-  padding: 12px;
-  outline: none;
-}
-
-.contact-field-af textarea,
-.bug-report-field textarea {
-  min-height: 116px;
-  resize: vertical;
-}
-
-.contact-submit-btn-af,
-.bug-report-submit {
-  width: 100%;
-  min-height: 50px;
-  border-radius: 16px;
-  background: var(--af-primary);
-  color: var(--af-primary-text);
-  font-weight: 900;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                  👉 END OF SECTION: CHATGPT STYLE BOTTOM SHEETS 👈
-                     👉 START OF: LEARNING HEATMAP PREMIUM UI 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-.learning-back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.learning-heatmap-hero {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 14px;
-  padding: 18px;
-  margin-bottom: 12px;
-}
-
-.learning-streak-card {
-  display: grid;
-  place-items: center;
-  min-width: 96px;
-  padding: 13px;
-  border-radius: 18px;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-}
-
-.learning-streak-fire {
-  font-size: 24px;
-}
-
-.learning-streak-card strong {
-  font-size: 28px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.learning-streak-card small {
-  margin-top: 4px;
-  color: var(--af-muted);
-  font-size: 11px;
-  font-weight: 850;
-}
-
-.learning-week-card,
-.learning-info-card {
-  padding: 16px;
-  margin-top: 12px;
-}
-
-.learning-week-card-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.learning-week-card h3,
-.learning-info-card h3 {
-  margin: 0;
-  font-size: 18px;
-  letter-spacing: -0.03em;
-}
-
-.learning-week-card p {
-  margin: 4px 0 0;
-  color: var(--af-muted);
-  font-size: 13px;
-}
-
-.learning-week-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 7px;
-  margin-top: 14px;
-}
-
-.learning-day-box {
-  min-height: 66px;
-  display: grid;
-  place-items: center;
-  gap: 5px;
-  padding: 8px 3px;
-  border-radius: 16px;
-  background: var(--af-surface-2);
-  border: 1px solid var(--af-border);
-  transition: transform 160ms ease, border-color 160ms ease;
-}
-
-.learning-day-box span {
-  color: var(--af-muted);
-  font-size: 10px;
-  font-weight: 850;
-}
-
-.learning-day-box strong {
-  font-size: 18px;
-}
-
-.learning-day-box.active {
-  border-color: color-mix(in srgb, var(--af-success) 36%, var(--af-border));
-}
-
-.learning-day-box.active strong {
-  color: var(--af-success);
-}
-
-.learning-day-box.today {
-  outline: 2px solid color-mix(in srgb, var(--af-primary) 24%, transparent);
-}
-
-.learning-info-card ul {
-  margin: 10px 0 0;
-  padding-left: 18px;
-}
-
-.learning-info-card li {
-  margin: 8px 0;
-  color: var(--af-muted);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                  👉 END OF SECTION: LEARNING HEATMAP PREMIUM UI 👈
-                     👉 START OF: BOTTOM NAV + TOAST + RESPONSIVE 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-.bottom-nav {
-  position: fixed;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  z-index: 300;
-  width: min(calc(100% - 18px), 500px);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 4px;
-  padding: 7px;
-  border-radius: 24px;
-  background: color-mix(in srgb, var(--af-surface) 90%, transparent);
-  border: 1px solid var(--af-border);
-  box-shadow: var(--af-shadow);
-  backdrop-filter: blur(16px);
-}
-
-.nav-btn {
-  display: grid;
-  place-items: center;
-  gap: 3px;
-  min-height: 54px;
-  border-radius: 18px;
-  background: transparent;
-  color: var(--af-muted);
-  font-size: 10px;
-  font-weight: 850;
-}
-
-.nav-btn b {
-  font-size: 17px;
-  line-height: 1;
-}
-
-.nav-btn.active {
-  background: var(--af-primary);
-  color: var(--af-primary-text);
-}
-
-.toast,
-.af-toast-message {
-  position: fixed;
-  left: 50%;
-  bottom: calc(var(--af-nav-height) + 24px);
-  transform: translateX(-50%);
-  z-index: 800;
-  display: none;
-  width: min(calc(100% - 28px), 420px);
-  padding: 12px 14px;
-  border-radius: 16px;
-  background: var(--af-surface);
-  border: 1px solid var(--af-border);
-  box-shadow: var(--af-shadow);
-  color: var(--af-text);
-}
-
-.toast.show,
-.af-toast-message {
-  display: block;
-}
-
-body.bug-report-open,
-body.contact-sheet-open {
-  overflow: hidden;
-}
-
-@keyframes afCardIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 520px) {
-  .request-status-hero-af {
-    grid-template-columns: 1fr auto;
-  }
-
-  .request-status-back-af {
-    grid-column: 1 / -1;
-    width: fit-content;
-  }
-
-  .learning-heatmap-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .learning-week-grid {
-    gap: 5px;
-  }
-
-  .learning-day-box {
-    min-height: 60px;
-    border-radius: 14px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-    /* =========================================================
-   REPORT A BUG MODAL
-========================================================= */
-
-body.bug-report-open {
-  overflow: hidden !important;
-}
-
-.bug-report-overlay {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 9999999 !important;
-  width: 100vw !important;
-  height: 100dvh !important;
-  padding: 16px !important;
-  box-sizing: border-box !important;
-  background: rgba(15, 23, 42, 0.52) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  display: none !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.bug-report-overlay.show {
-  display: flex !important;
-}
-
-.bug-report-modal {
-  width: min(100%, 390px) !important;
-  max-height: min(88dvh, 720px) !important;
-  overflow-y: auto !important;
-  border-radius: 26px !important;
-  border: 1px solid rgba(226, 232, 240, 0.92) !important;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(239, 68, 68, 0.10), transparent 32%),
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
-  color: #0f172a !important;
-  box-shadow:
-    0 26px 80px rgba(15, 23, 42, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92) !important;
-  padding: 18px !important;
-  box-sizing: border-box !important;
-  animation: bugReportIn 180ms ease forwards !important;
-}
-
-@keyframes bugReportIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  background: var(--af-fix-border);
 }
 
 .bug-report-header {
@@ -1594,1333 +619,692 @@ body.bug-report-open {
   align-items: flex-start !important;
   justify-content: space-between !important;
   gap: 14px !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 14px !important;
 }
 
-.bug-report-kicker {
-  margin: 0 0 4px !important;
-  color: #dc2626 !important;
-  font-size: 11px !important;
-  line-height: 1.35 !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
+.bug-report-title-wrap {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: flex-start !important;
 }
 
+.bug-report-icon {
+  width: 42px !important;
+  height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 16px !important;
+  background: var(--af-fix-surface-2) !important;
+  border: 1px solid var(--af-fix-border) !important;
+}
+
+.bug-report-title h2,
 .bug-report-title {
   margin: 0 !important;
-  color: #0f172a !important;
-  font-size: 24px !important;
+  color: var(--af-fix-text) !important;
+  font-size: 20px !important;
   line-height: 1.15 !important;
   font-weight: 900 !important;
-  letter-spacing: -0.045em !important;
+  letter-spacing: -0.035em !important;
 }
 
-.bug-report-x {
-  width: 38px !important;
-  height: 38px !important;
-  min-width: 38px !important;
-  border: 0 !important;
-  outline: 0 !important;
-  border-radius: 14px !important;
-  background: #111827 !important;
-  color: #ffffff !important;
-  font-size: 25px !important;
-  line-height: 1 !important;
+.bug-report-subtitle,
+.bug-report-title p {
+  margin: 5px 0 0 !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+.bug-report-close {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  font-size: 22px !important;
   font-weight: 800 !important;
-  cursor: pointer !important;
 }
 
 .bug-report-form {
   display: grid !important;
-  grid-template-columns: 1fr !important;
   gap: 12px !important;
 }
 
 .bug-report-field {
   display: grid !important;
-  grid-template-columns: 1fr !important;
   gap: 7px !important;
 }
 
-.bug-report-field span {
-  color: #334155 !important;
-  font-size: 13px !important;
-  line-height: 1.35 !important;
+.bug-report-field span,
+.bug-report-field label,
+.contact-field-af label {
+  color: var(--af-fix-text) !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
   font-weight: 850 !important;
 }
 
 .bug-report-field input,
 .bug-report-field select,
-.bug-report-field textarea {
+.bug-report-field textarea,
+.contact-field-af input,
+.contact-field-af select,
+.contact-field-af textarea {
   width: 100% !important;
-  border: 1px solid rgba(203, 213, 225, 0.95) !important;
-  outline: 0 !important;
-  border-radius: 15px !important;
-  background: rgba(255, 255, 255, 0.94) !important;
-  color: #0f172a !important;
+  min-height: 48px !important;
+  padding: 12px 14px !important;
+  border-radius: var(--af-fix-radius-sm) !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
   font-size: 14px !important;
   font-weight: 650 !important;
-  box-sizing: border-box !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease !important;
 }
 
-.bug-report-field input,
-.bug-report-field select {
-  height: 46px !important;
-  padding: 0 13px !important;
-}
-
-.bug-report-field textarea {
+.bug-report-field textarea,
+.contact-field-af textarea {
+  min-height: 118px !important;
   resize: vertical !important;
-  min-height: 98px !important;
-  max-height: 220px !important;
-  padding: 12px 13px !important;
-  line-height: 1.55 !important;
 }
 
 .bug-report-field input:focus,
 .bug-report-field select:focus,
-.bug-report-field textarea:focus {
-  border-color: rgba(220, 38, 38, 0.85) !important;
-  box-shadow:
-    0 0 0 4px rgba(220, 38, 38, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+.bug-report-field textarea:focus,
+.contact-field-af input:focus,
+.contact-field-af select:focus,
+.contact-field-af textarea:focus {
+  border-color: var(--af-fix-text) !important;
+  background: var(--af-fix-surface) !important;
 }
 
-.bug-report-status {
-  min-height: 20px !important;
-  color: #64748b !important;
-  font-size: 13px !important;
-  line-height: 1.45 !important;
-  font-weight: 750 !important;
-}
-
-.bug-report-status.success {
-  color: #15803d !important;
-}
-
-.bug-report-status.error {
-  color: #dc2626 !important;
-}
-
-.bug-report-submit {
+.bug-report-submit,
+.contact-submit-btn-af {
   width: 100% !important;
-  height: 48px !important;
-  border: 0 !important;
-  outline: 0 !important;
+  min-height: 52px !important;
   border-radius: 16px !important;
-  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%) !important;
-  color: #ffffff !important;
-  font-size: 15px !important;
-  line-height: 1 !important;
+  background: var(--af-fix-primary) !important;
+  color: var(--af-fix-primary-text) !important;
+  border: 1px solid var(--af-fix-primary) !important;
+  font-size: 14px !important;
   font-weight: 900 !important;
-  cursor: pointer !important;
-  box-shadow: 0 14px 30px rgba(220, 38, 38, 0.26) !important;
+  letter-spacing: -0.01em !important;
 }
 
-.bug-report-submit:disabled {
+.bug-report-submit:disabled,
+.contact-submit-btn-af:disabled {
   opacity: 0.62 !important;
   cursor: not-allowed !important;
 }
 
-.bug-report-submit:active,
-.bug-report-x:active {
-  transform: scale(0.97) !important;
-}
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: BUG REPORT BOTTOM SHEET 👈
+                       👉 START OF: CONTACT US BOTTOM SHEET 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 
-/* Dark / premium dark compatibility */
-body.dark-mode .bug-report-modal,
-body.dark .bug-report-modal,
-body.settings-dark-mode .bug-report-modal,
-html.dark-mode body .bug-report-modal,
-html.dark body .bug-report-modal {
-  border-color: rgba(51, 65, 85, 0.92) !important;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(248, 113, 113, 0.12), transparent 32%),
-    linear-gradient(180deg, #1e293b 0%, #111827 100%) !important;
-  color: #f8fafc !important;
-}
-
-body.dark-mode .bug-report-title,
-body.dark .bug-report-title,
-body.settings-dark-mode .bug-report-title,
-html.dark-mode body .bug-report-title,
-html.dark body .bug-report-title {
-  color: #f8fafc !important;
-}
-
-body.dark-mode .bug-report-field span,
-body.dark .bug-report-field span,
-body.settings-dark-mode .bug-report-field span,
-html.dark-mode body .bug-report-field span,
-html.dark body .bug-report-field span {
-  color: #cbd5e1 !important;
-}
-
-body.dark-mode .bug-report-field input,
-body.dark-mode .bug-report-field select,
-body.dark-mode .bug-report-field textarea,
-body.dark .bug-report-field input,
-body.dark .bug-report-field select,
-body.dark .bug-report-field textarea,
-body.settings-dark-mode .bug-report-field input,
-body.settings-dark-mode .bug-report-field select,
-body.settings-dark-mode .bug-report-field textarea,
-html.dark-mode body .bug-report-field input,
-html.dark-mode body .bug-report-field select,
-html.dark-mode body .bug-report-field textarea,
-html.dark body .bug-report-field input,
-html.dark body .bug-report-field select,
-html.dark body .bug-report-field textarea {
-  border-color: rgba(71, 85, 105, 0.95) !important;
-  background: rgba(15, 23, 42, 0.72) !important;
-  color: #f8fafc !important;
-}
-
-body.dark-mode .bug-report-status,
-body.dark .bug-report-status,
-body.settings-dark-mode .bug-report-status,
-html.dark-mode body .bug-report-status,
-html.dark body .bug-report-status {
-  color: #94a3b8 !important;
-}
-
-body.dark-mode .bug-report-status.success,
-body.dark .bug-report-status.success,
-body.settings-dark-mode .bug-report-status.success,
-html.dark-mode body .bug-report-status.success,
-html.dark body .bug-report-status.success {
-  color: #86efac !important;
-}
-
-body.dark-mode .bug-report-status.error,
-body.dark .bug-report-status.error,
-body.settings-dark-mode .bug-report-status.error,
-html.dark-mode body .bug-report-status.error,
-html.dark body .bug-report-status.error {
-  color: #fca5a5 !important;
-}
-    /* =========================================================
-   LEARNING HEATMAP + HEADER STREAK
-========================================================= */
-
-.af-streak-pill {
-  height: 42px !important;
-  min-width: 74px !important;
-  padding: 0 13px !important;
-  border: 1px solid rgba(245, 158, 11, 0.36) !important;
-  outline: 0 !important;
-  border-radius: 16px !important;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(251, 191, 36, 0.32), transparent 42%),
-    linear-gradient(135deg, rgba(255, 247, 237, 0.96), rgba(255, 255, 255, 0.92)) !important;
-  color: #92400e !important;
-  display: inline-flex !important;
-  align-items: center !important;
+#contactUsAf.contact-us-af-section {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999998 !important;
+  display: none !important;
+  align-items: flex-end !important;
   justify-content: center !important;
-  gap: 8px !important;
-  font-size: 16px !important;
-  font-weight: 900 !important;
-  cursor: pointer !important;
-  box-shadow:
-    0 10px 24px rgba(245, 158, 11, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.88) !important;
+  padding: 14px !important;
+  background: rgba(0, 0, 0, 0.46) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
 }
 
-.af-streak-fire {
-  font-size: 22px !important;
-  line-height: 1 !important;
-  filter: drop-shadow(0 2px 4px rgba(146, 64, 14, 0.22)) !important;
+#contactUsAf.contact-us-af-section.active {
+  display: flex !important;
 }
 
-.af-streak-pill:active {
-  transform: scale(0.97) !important;
-}
-
-.learning-heatmap-section {
-  min-height: calc(100dvh - 78px) !important;
-  padding: 0 !important;
-  background:
-    radial-gradient(circle at top left, rgba(245, 158, 11, 0.12), transparent 32%),
-    linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%) !important;
-}
-
-.learning-heatmap-page {
-  width: 100% !important;
-  max-width: 430px !important;
-  margin: 0 auto !important;
-  padding: 18px 14px 104px !important;
-  box-sizing: border-box !important;
-}
-
-.learning-heatmap-hero {
-  width: 100% !important;
-  border-radius: 28px !important;
+.contact-us-af-page {
+  width: min(100%, 480px) !important;
+  max-height: min(86dvh, 760px) !important;
+  overflow: auto !important;
+  overscroll-behavior: contain !important;
   padding: 18px !important;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(251, 191, 36, 0.26), transparent 34%),
-    linear-gradient(135deg, #111827 0%, #1e293b 58%, #7f1d1d 100%) !important;
-  color: #ffffff !important;
-  display: grid !important;
-  grid-template-columns: 1fr auto !important;
-  gap: 14px !important;
-  align-items: center !important;
-  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.22) !important;
+  border-radius: 28px 28px 20px 20px !important;
+  background: var(--af-fix-surface) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  box-shadow: var(--af-fix-shadow) !important;
+  transform: translateY(110%) !important;
+  animation: afFixSheetUp 260ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
 }
 
-.learning-heatmap-kicker {
-  margin: 0 0 6px !important;
-  color: #fbbf24 !important;
-  font-size: 11px !important;
-  line-height: 1.35 !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.11em !important;
-  text-transform: uppercase !important;
-}
-
-.learning-heatmap-hero h2 {
-  margin: 0 !important;
-  color: #ffffff !important;
-  font-size: 27px !important;
-  line-height: 1.08 !important;
-  font-weight: 950 !important;
-  letter-spacing: -0.055em !important;
-}
-
-.learning-heatmap-hero p {
-  margin: 9px 0 0 !important;
-  color: rgba(255, 255, 255, 0.76) !important;
+.contact-back-btn-af {
+  width: auto !important;
+  min-height: 42px !important;
+  margin-bottom: 12px !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-text) !important;
+  border: 1px solid var(--af-fix-border) !important;
   font-size: 13px !important;
-  line-height: 1.55 !important;
-  font-weight: 600 !important;
+  font-weight: 850 !important;
 }
 
-.learning-streak-card {
-  width: 92px !important;
-  min-height: 108px !important;
-  border-radius: 24px !important;
-  background: rgba(255, 255, 255, 0.10) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+.contact-us-af-card {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.contact-us-af-head {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  gap: 12px !important;
+  align-items: flex-start !important;
+  margin-bottom: 16px !important;
+}
+
+.contact-us-af-icon {
+  width: 42px !important;
+  height: 42px !important;
   display: grid !important;
   place-items: center !important;
-  padding: 10px !important;
-  text-align: center !important;
+  border-radius: 16px !important;
+  background: var(--af-fix-surface-2) !important;
+  border: 1px solid var(--af-fix-border) !important;
 }
 
-.learning-streak-fire {
-  font-size: 34px !important;
-  line-height: 1 !important;
-}
-
-.learning-streak-card strong {
-  color: #ffffff !important;
-  font-size: 28px !important;
-  line-height: 1 !important;
-  font-weight: 950 !important;
-}
-
-.learning-streak-card small {
-  color: rgba(255, 255, 255, 0.68) !important;
-  font-size: 10.5px !important;
-  line-height: 1.25 !important;
-  font-weight: 800 !important;
+.contact-us-af-kicker {
+  margin: 0 0 5px !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 11px !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
 }
 
-.learning-week-card {
-  margin-top: 16px !important;
-  padding: 18px !important;
-  border-radius: 28px !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(226, 232, 240, 0.96) !important;
-  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.08) !important;
-}
-
-.learning-week-card-top {
-  display: flex !important;
-  align-items: flex-start !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
-  margin-bottom: 18px !important;
-}
-
-.learning-week-card h3 {
+.contact-us-af-head h2 {
   margin: 0 !important;
-  color: #0f172a !important;
-  font-size: 19px !important;
-  line-height: 1.2 !important;
-  font-weight: 950 !important;
+  color: var(--af-fix-text) !important;
+  font-size: 20px !important;
+  line-height: 1.15 !important;
+  font-weight: 900 !important;
   letter-spacing: -0.035em !important;
 }
 
-.learning-week-card p {
+.contact-us-af-head p {
   margin: 5px 0 0 !important;
-  color: #64748b !important;
-  font-size: 12.5px !important;
+  color: var(--af-fix-muted) !important;
+  font-size: 12px !important;
   line-height: 1.45 !important;
-  font-weight: 700 !important;
 }
 
-.learning-refresh-btn {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  border: 0 !important;
-  outline: 0 !important;
-  border-radius: 14px !important;
-  background: #111827 !important;
-  color: #ffffff !important;
-  font-size: 20px !important;
-  line-height: 1 !important;
-  font-weight: 900 !important;
-  cursor: pointer !important;
-}
-
-.learning-week-grid {
+.contact-us-af-form {
   display: grid !important;
-  grid-template-columns: repeat(7, 1fr) !important;
-  gap: 8px !important;
+  gap: 12px !important;
 }
 
-.learning-day-box {
-  min-height: 74px !important;
-  border-radius: 18px !important;
-  background: #f8fafc !important;
-  border: 1px solid rgba(226, 232, 240, 0.95) !important;
+.contact-field-af {
   display: grid !important;
-  place-items: center !important;
-  padding: 8px 4px !important;
-  text-align: center !important;
+  gap: 7px !important;
 }
 
-.learning-day-box span {
-  color: #475569 !important;
-  font-size: 11.5px !important;
-  line-height: 1 !important;
-  font-weight: 900 !important;
-}
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: CONTACT US BOTTOM SHEET 👈
+                       👉 START OF: BOTTOM NAV PATCH 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 
-.learning-day-box strong {
-  color: #94a3b8 !important;
-  font-size: 24px !important;
-  line-height: 1 !important;
-  font-weight: 950 !important;
-}
-
-.learning-day-box.active {
-  background:
-    radial-gradient(circle at 50% 28%, rgba(34, 197, 94, 0.18), transparent 42%),
-    linear-gradient(180deg, #ecfdf5 0%, #ffffff 100%) !important;
-  border-color: rgba(34, 197, 94, 0.42) !important;
-}
-
-.learning-day-box.active strong {
-  color: #16a34a !important;
-}
-
-.learning-day-box.today {
-  border-color: rgba(245, 158, 11, 0.62) !important;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.10) !important;
-}
-
-.learning-info-card {
-  margin-top: 16px !important;
-  padding: 18px !important;
+.bottom-nav {
+  width: min(100% - 16px, 464px) !important;
+  max-width: 464px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  bottom: 10px !important;
+  padding: 6px !important;
   border-radius: 24px !important;
-  background: rgba(255, 255, 255, 0.92) !important;
-  border: 1px solid rgba(226, 232, 240, 0.95) !important;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06) !important;
+  background: color-mix(in srgb, var(--af-fix-surface) 92%, transparent) !important;
+  border: 1px solid var(--af-fix-border) !important;
+  box-shadow: 0 12px 42px rgba(17, 24, 39, 0.12) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
 }
 
-.learning-info-card h3 {
-  margin: 0 0 10px !important;
-  color: #0f172a !important;
-  font-size: 17px !important;
-  line-height: 1.2 !important;
-  font-weight: 950 !important;
+.nav-btn {
+  min-height: 58px !important;
+  border-radius: 18px !important;
+  color: var(--af-fix-muted) !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
 }
 
-.learning-info-card ul {
-  margin: 0 !important;
-  padding-left: 18px !important;
-  color: #64748b !important;
-  font-size: 13px !important;
-  line-height: 1.75 !important;
-  font-weight: 650 !important;
+.nav-btn.active {
+  background: var(--af-fix-surface-2) !important;
+  color: var(--af-fix-text) !important;
+  border-color: var(--af-fix-border) !important;
 }
 
-/* Dark mode support */
-body.dark-mode .af-streak-pill,
-body.dark .af-streak-pill,
-html.dark-mode body .af-streak-pill,
-html.dark body .af-streak-pill {
-  border-color: rgba(250, 204, 21, 0.42) !important;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(250, 204, 21, 0.24), transparent 42%),
-    linear-gradient(135deg, #422006, #111827) !important;
-  color: #fef3c7 !important;
-}
-
-body.dark-mode .learning-heatmap-section,
-body.dark .learning-heatmap-section,
-html.dark-mode body .learning-heatmap-section,
-html.dark body .learning-heatmap-section {
-  background:
-    radial-gradient(circle at top left, rgba(250, 204, 21, 0.08), transparent 32%),
-    linear-gradient(180deg, #020617 0%, #111827 100%) !important;
-}
-
-body.dark-mode .learning-week-card,
-body.dark-mode .learning-info-card,
-body.dark .learning-week-card,
-body.dark .learning-info-card,
-html.dark-mode body .learning-week-card,
-html.dark-mode body .learning-info-card,
-html.dark body .learning-week-card,
-html.dark body .learning-info-card {
-  background: #111827 !important;
-  border-color: rgba(51, 65, 85, 0.95) !important;
-}
-
-body.dark-mode .learning-week-card h3,
-body.dark-mode .learning-info-card h3,
-body.dark .learning-week-card h3,
-body.dark .learning-info-card h3,
-html.dark-mode body .learning-week-card h3,
-html.dark-mode body .learning-info-card h3,
-html.dark body .learning-week-card h3,
-html.dark body .learning-info-card h3 {
-  color: #f8fafc !important;
-}
-
-body.dark-mode .learning-week-card p,
-body.dark-mode .learning-info-card ul,
-body.dark .learning-week-card p,
-body.dark .learning-info-card ul,
-html.dark-mode body .learning-week-card p,
-html.dark-mode body .learning-info-card ul,
-html.dark body .learning-week-card p,
-html.dark body .learning-info-card ul {
-  color: #94a3b8 !important;
-}
-
-body.dark-mode .learning-day-box,
-body.dark .learning-day-box,
-html.dark-mode body .learning-day-box,
-html.dark body .learning-day-box {
-  background: #1e293b !important;
-  border-color: rgba(51, 65, 85, 0.95) !important;
-}
-
-body.dark-mode .learning-day-box span,
-body.dark .learning-day-box span,
-html.dark-mode body .learning-day-box span,
-html.dark body .learning-day-box span {
-  color: #cbd5e1 !important;
-}
-
-body.dark-mode .learning-day-box.active,
-body.dark .learning-day-box.active,
-html.dark-mode body .learning-day-box.active,
-html.dark body .learning-day-box.active {
-  background:
-    radial-gradient(circle at 50% 28%, rgba(34, 197, 94, 0.18), transparent 42%),
-    linear-gradient(180deg, #052e16 0%, #111827 100%) !important;
-  border-color: rgba(34, 197, 94, 0.48) !important;
-}
-
-@media (max-width: 380px) {
-  .learning-heatmap-hero {
-    grid-template-columns: 1fr !important;
-  }
-
-  .learning-streak-card {
-    width: 100% !important;
-    min-height: 92px !important;
-    grid-template-columns: auto auto 1fr !important;
-    justify-content: start !important;
-    gap: 10px !important;
-  }
-
-  .learning-week-grid {
-    gap: 6px !important;
-  }
-
-  .learning-day-box {
-    min-height: 66px !important;
-    border-radius: 15px !important;
-  }
-}
-
-    .learning-heatmap-section {
-  width: 100%;
-  min-height: 100vh;
-  padding: 76px 14px 104px;
-  background:
-    radial-gradient(circle at top left, rgba(255, 122, 24, 0.14), transparent 32%),
-    radial-gradient(circle at top right, rgba(255, 193, 7, 0.14), transparent 34%),
-    linear-gradient(180deg, #fff8ef 0%, #f7f9fc 42%, #eef4ff 100%);
-  overflow-x: hidden;
-}
-
-.learning-heatmap-page {
-  width: 100%;
-  max-width: 460px;
-  margin: 0 auto;
-}
-
-.learning-back-btn {
-  width: fit-content;
-  min-height: 42px;
-  margin: 0 0 14px;
-  padding: 0 14px;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  color: #243247;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  cursor: pointer;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.learning-back-btn span:first-child {
-  font-size: 18px;
-  line-height: 1;
-  transform: translateY(-1px);
-}
-
-.learning-back-btn:active {
-  transform: scale(0.98);
-}
-
-.learning-heatmap-hero {
-  width: 100%;
-  min-height: 168px;
-  padding: 20px;
-  border-radius: 30px;
-  background:
-    linear-gradient(135deg, rgba(255, 107, 0, 0.98), rgba(255, 168, 0, 0.96)),
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.32), transparent 34%);
-  box-shadow:
-    0 24px 52px rgba(255, 122, 24, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 14px;
-  position: relative;
-  overflow: hidden;
-}
-
-.learning-heatmap-hero::before {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  right: -80px;
-  top: -92px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-  pointer-events: none;
-}
-
-.learning-heatmap-hero::after {
-  content: "";
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  left: -70px;
-  bottom: -78px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.13);
-  pointer-events: none;
-}
-
-.learning-heatmap-hero > div {
-  position: relative;
-  z-index: 1;
-}
-
-.learning-heatmap-kicker {
-  margin: 0 0 8px;
-  color: #ffffff !important;
-  font-size: 11px;
-  font-weight: 950;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  opacity: 0.92;
-}
-
-.learning-heatmap-hero h2 {
-  margin: 0 0 8px;
-  color: #ffffff !important;
-  font-size: 27px;
-  line-height: 1.04;
-  font-weight: 950;
-  letter-spacing: -0.06em;
-}
-
-.learning-heatmap-hero p {
-  max-width: 230px;
-  margin: 0;
-  color: #ffffff !important;
-  font-size: 13px;
-  line-height: 1.48;
-  font-weight: 750;
-  opacity: 0.96;
-}
-
-.learning-streak-card {
-  min-width: 98px;
-  padding: 14px 12px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.learning-streak-fire {
-  font-size: 34px;
-  line-height: 1;
-  filter: drop-shadow(0 8px 16px rgba(107, 33, 0, 0.24));
-}
-
-.learning-streak-card strong {
-  margin-top: 8px;
-  color: #ffffff !important;
-  font-size: 34px;
-  line-height: 0.92;
-  font-weight: 950;
-  letter-spacing: -0.06em;
-}
-
-.learning-streak-card small {
-  margin-top: 7px;
-  color: #ffffff !important;
-  font-size: 10px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.92;
-}
-
-.learning-week-card {
-  margin-top: 16px;
-  padding: 18px;
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(15, 23, 42, 0.07);
-  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.learning-week-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.learning-week-card-top h3 {
-  margin: 0 0 4px;
-  color: #172033;
-  font-size: 18px;
-  font-weight: 950;
-  letter-spacing: -0.04em;
-}
-
-.learning-week-card-top p {
-  margin: 0;
-  color: #64748b;
-  font-size: 12px;
-  line-height: 1.45;
-  font-weight: 750;
-}
-
-#learningHeatmapStatus[data-type="success"] {
-  color: #15803d;
-}
-
-#learningHeatmapStatus[data-type="error"] {
-  color: #dc2626;
-}
-
-.learning-refresh-btn {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  border: 0;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #fff2dd, #ffe4b5);
-  color: #b45309;
-  box-shadow: 0 10px 22px rgba(180, 83, 9, 0.13);
-  font-size: 22px;
-  font-weight: 950;
-  line-height: 1;
-  cursor: pointer;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.learning-refresh-btn:active {
-  transform: scale(0.96);
-}
-
-.learning-week-grid {
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 7px;
-}
-
-.learning-day-box {
-  min-height: 72px;
-  padding: 9px 5px;
-  border-radius: 18px;
-  background: #f4f7fb;
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  transition:
-    transform 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
-}
-
-.learning-day-box span {
-  color: #64748b;
-  font-size: 10px;
-  font-weight: 950;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.learning-day-box strong {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: #e2e8f0;
-  color: #64748b;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 950;
-}
-
-.learning-day-box.active {
-  background: linear-gradient(180deg, #fff7ed, #ffedd5);
-  border-color: rgba(249, 115, 22, 0.24);
-  box-shadow: 0 12px 24px rgba(249, 115, 22, 0.12);
-}
-
-.learning-day-box.active span {
-  color: #9a3412;
-}
-
-.learning-day-box.active strong {
-  background: linear-gradient(135deg, #f97316, #f59e0b);
-  color: #ffffff;
-  box-shadow: 0 8px 18px rgba(249, 115, 22, 0.25);
-}
-
-.learning-day-box.today {
-  transform: translateY(-2px);
-  border-color: rgba(245, 158, 11, 0.5);
-}
-
-.learning-info-card {
-  margin-top: 16px;
-  padding: 18px;
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(15, 23, 42, 0.07);
-  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.07);
-}
-
-.learning-info-card h3 {
-  margin: 0 0 12px;
-  color: #172033;
-  font-size: 17px;
-  font-weight: 950;
-  letter-spacing: -0.04em;
-}
-
-.learning-info-card ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 10px;
-}
-
-.learning-info-card li {
-  position: relative;
-  padding-left: 24px;
-  color: #475569;
-  font-size: 13px;
-  line-height: 1.5;
-  font-weight: 750;
-}
-
-.learning-info-card li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 17px;
-  height: 17px;
-  border-radius: 999px;
-  background: #dcfce7;
-  color: #15803d;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 950;
-}
-
-body.dark-mode .learning-heatmap-section,
-html.dark-mode .learning-heatmap-section,
-body.settings-dark-mode .learning-heatmap-section {
-  background:
-    radial-gradient(circle at top left, rgba(255, 122, 24, 0.18), transparent 34%),
-    radial-gradient(circle at top right, rgba(255, 193, 7, 0.12), transparent 34%),
-    linear-gradient(180deg, #0b1120 0%, #111827 52%, #0f172a 100%);
-}
-
-body.dark-mode .learning-back-btn,
-html.dark-mode .learning-back-btn,
-body.settings-dark-mode .learning-back-btn {
-  background: rgba(15, 23, 42, 0.82);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #e5e7eb;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-}
-
-body.dark-mode .learning-week-card,
-html.dark-mode .learning-week-card,
-body.settings-dark-mode .learning-week-card,
-body.dark-mode .learning-info-card,
-html.dark-mode .learning-info-card,
-body.settings-dark-mode .learning-info-card {
-  background: rgba(15, 23, 42, 0.84);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
-}
-
-body.dark-mode .learning-week-card-top h3,
-html.dark-mode .learning-week-card-top h3,
-body.settings-dark-mode .learning-week-card-top h3,
-body.dark-mode .learning-info-card h3,
-html.dark-mode .learning-info-card h3,
-body.settings-dark-mode .learning-info-card h3 {
-  color: #f8fafc;
-}
-
-body.dark-mode .learning-week-card-top p,
-html.dark-mode .learning-week-card-top p,
-body.settings-dark-mode .learning-week-card-top p,
-body.dark-mode .learning-info-card li,
-html.dark-mode .learning-info-card li,
-body.settings-dark-mode .learning-info-card li {
-  color: #cbd5e1;
-}
-
-body.dark-mode .learning-day-box,
-html.dark-mode .learning-day-box,
-body.settings-dark-mode .learning-day-box {
-  background: rgba(30, 41, 59, 0.86);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-body.dark-mode .learning-day-box span,
-html.dark-mode .learning-day-box span,
-body.settings-dark-mode .learning-day-box span {
-  color: #cbd5e1;
-}
-
-body.dark-mode .learning-day-box strong,
-html.dark-mode .learning-day-box strong,
-body.settings-dark-mode .learning-day-box strong {
-  background: rgba(51, 65, 85, 0.92);
-  color: #e5e7eb;
-}
-
-body.dark-mode .learning-day-box.active,
-html.dark-mode .learning-day-box.active,
-body.settings-dark-mode .learning-day-box.active {
-  background: linear-gradient(180deg, rgba(124, 45, 18, 0.92), rgba(67, 20, 7, 0.88));
-  border-color: rgba(251, 146, 60, 0.34);
-}
-
-body.dark-mode .learning-day-box.active span,
-html.dark-mode .learning-day-box.active span,
-body.settings-dark-mode .learning-day-box.active span {
-  color: #fed7aa;
-}
-
-@media (max-width: 380px) {
-  .learning-heatmap-section {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .learning-heatmap-hero {
-    padding: 18px;
-    border-radius: 26px;
-  }
-
-  .learning-heatmap-hero h2 {
-    font-size: 24px;
-  }
-
-  .learning-heatmap-hero p {
-    max-width: 190px;
-    font-size: 12px;
-  }
-
-  .learning-streak-card {
-    min-width: 88px;
-    padding: 12px 10px;
-  }
-
-  .learning-streak-fire {
-    font-size: 30px;
-  }
-
-  .learning-streak-card strong {
-    font-size: 30px;
-  }
-
-  .learning-week-grid {
-    gap: 5px;
-  }
-
-  .learning-day-box {
-    min-height: 66px;
-    border-radius: 15px;
-  }
-
-  .learning-day-box strong {
-    width: 25px;
-    height: 25px;
-    font-size: 13px;
-  }
-}
-
-    /* FORCE Learning Heatmap hero text white in all modes */
-.learning-heatmap-hero,
-.learning-heatmap-hero *,
-.learning-heatmap-hero .learning-heatmap-kicker,
-.learning-heatmap-hero h2,
-.learning-heatmap-hero p,
-.learning-heatmap-hero .learning-streak-card,
-.learning-heatmap-hero .learning-streak-card *,
-.learning-heatmap-hero .learning-streak-fire,
-.learning-heatmap-hero .learning-streak-card strong,
-.learning-heatmap-hero .learning-streak-card small {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  opacity: 1 !important;
-}
-
-    /* =========================================================
-   IMPORTANT: Override old notification button style
-   Makes notification button match streak pill design
-========================================================= */
-
-.topbar .notification-time-box,
-.notification-time-box.time-box,
-button.notification-time-box,
-.time-box.glass.notification-time-box {
-  width: 54px !important;
-  min-width: 54px !important;
-  height: 42px !important;
-  min-height: 42px !important;
-  padding: 0 !important;
-
-  border: 1px solid rgba(245, 158, 11, 0.36) !important;
-  outline: 0 !important;
-  border-radius: 16px !important;
-
-  background:
-    radial-gradient(circle at 30% 20%, rgba(251, 191, 36, 0.32), transparent 42%),
-    linear-gradient(135deg, rgba(255, 247, 237, 0.96), rgba(255, 255, 255, 0.92)) !important;
-
-  color: #92400e !important;
-
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  box-shadow:
-    0 10px 24px rgba(245, 158, 11, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.88) !important;
-
-  cursor: pointer !important;
-  transform: none !important;
-  animation: none !important;
-  overflow: hidden !important;
-
-  -webkit-tap-highlight-color: transparent !important;
-  touch-action: manipulation !important;
-}
-
-.topbar .notification-time-box .notification-icon,
-.notification-time-box .notification-icon,
-.time-box.glass.notification-time-box .notification-icon {
-  margin: 0 !important;
-  padding: 0 !important;
-
-  color: #f59e0b !important;
-  -webkit-text-fill-color: #f59e0b !important;
-
-  font-size: 20px !important;
+.nav-btn b {
+  font-size: 16px !important;
   line-height: 1 !important;
-  font-weight: 900 !important;
-
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  filter: drop-shadow(0 2px 4px rgba(146, 64, 14, 0.22)) !important;
-
-  transform: none !important;
-  animation: none !important;
 }
 
-.topbar .notification-time-box:hover,
-.notification-time-box.time-box:hover,
-button.notification-time-box:hover,
-.time-box.glass.notification-time-box:hover {
-  transform: none !important;
-  animation: none !important;
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: BOTTOM NAV PATCH 👈
+                       👉 START OF: ANIMATIONS + RESPONSIVE 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
+@keyframes afFixSheetUp {
+  from {
+    transform: translateY(110%);
+    opacity: 0.72;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.topbar .notification-time-box:active,
-.notification-time-box.time-box:active,
-button.notification-time-box:active,
-.time-box.glass.notification-time-box:active {
-  transform: scale(0.97) !important;
+@keyframes afFixFadeUp {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-/* Dark mode support */
-body.dark-mode .topbar .notification-time-box,
-body.dark-mode .notification-time-box.time-box,
-body.dark-mode button.notification-time-box,
-body.dark-mode .time-box.glass.notification-time-box,
-html.dark-mode body .topbar .notification-time-box,
-html.dark-mode body .notification-time-box.time-box,
-html.dark-mode body button.notification-time-box,
-html.dark-mode body .time-box.glass.notification-time-box,
-body.settings-dark-mode .topbar .notification-time-box,
-body.settings-dark-mode .notification-time-box.time-box,
-body.settings-dark-mode button.notification-time-box,
-body.settings-dark-mode .time-box.glass.notification-time-box {
-  border-color: rgba(250, 204, 21, 0.42) !important;
+@media (max-width: 380px) {
+  .request-status-hero-af,
+  .contact-status-hero-af {
+    grid-template-columns: auto 1fr auto !important;
+    padding: 14px !important;
+  }
 
-  background:
-    radial-gradient(circle at 30% 20%, rgba(250, 204, 21, 0.24), transparent 42%),
-    linear-gradient(135deg, #422006, #111827) !important;
+  .request-status-hero-text-af h2,
+  .contact-status-hero-text-af h2 {
+    font-size: 19px !important;
+  }
 
-  color: #fef3c7 !important;
+  .request-card-top-af {
+    grid-template-columns: auto 1fr !important;
+  }
 
-  box-shadow:
-    0 10px 24px rgba(250, 204, 21, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  .request-status-pill-af {
+    grid-column: 2 / 3 !important;
+    justify-self: start !important;
+  }
 }
 
-body.dark-mode .topbar .notification-time-box .notification-icon,
-body.dark-mode .notification-time-box .notification-icon,
-body.dark-mode .time-box.glass.notification-time-box .notification-icon,
-html.dark-mode body .topbar .notification-time-box .notification-icon,
-html.dark-mode body .notification-time-box .notification-icon,
-html.dark-mode body .time-box.glass.notification-time-box .notification-icon,
-body.settings-dark-mode .topbar .notification-time-box .notification-icon,
-body.settings-dark-mode .notification-time-box .notification-icon,
-body.settings-dark-mode .time-box.glass.notification-time-box .notification-icon {
-  color: #facc15 !important;
-  -webkit-text-fill-color: #facc15 !important;
-  filter: drop-shadow(0 2px 5px rgba(250, 204, 21, 0.28)) !important;
+@media (prefers-reduced-motion: reduce) {
+  .bug-report-modal,
+  .contact-us-af-page,
+  .request-card-af {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
-/* =========================================================
-   FIXED BOTTOM SHEET OVERRIDES - BUG + CONTACT
-========================================================= */
-.bug-report-overlay,
-.contact-sheet-overlay-af{
-  position:fixed!important;inset:0!important;z-index:9999999!important;width:100vw!important;height:100dvh!important;
-  padding:0!important;background:rgba(15,23,42,.52)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;
-  display:none!important;align-items:flex-end!important;justify-content:center!important;
-}
-.bug-report-overlay.show,.bug-report-overlay[aria-hidden="false"],
-.contact-sheet-overlay-af.show,.contact-sheet-overlay-af[aria-hidden="false"]{display:flex!important}
-.bug-report-modal,.contact-us-af-page{
-  width:min(100%,430px)!important;max-height:88dvh!important;overflow-y:auto!important;border-radius:28px 28px 0 0!important;
-  border:1px solid rgba(226,232,240,.92)!important;border-bottom:0!important;background:#fff!important;color:#0f172a!important;
-  box-shadow:0 -26px 80px rgba(15,23,42,.30)!important;padding:18px!important;box-sizing:border-box!important;
-  animation:afSheetUpFixed .24s cubic-bezier(.22,1,.36,1) forwards!important;
-}
-@keyframes afSheetUpFixed{from{opacity:.75;transform:translateY(105%)}to{opacity:1;transform:translateY(0)}}
-.contact-us-af-card{border:0!important;box-shadow:none!important;background:transparent!important;padding:0!important}
-body.dark-mode .bug-report-modal,body.settings-dark-mode .bug-report-modal,html.dark-mode body .bug-report-modal,
-body.dark-mode .contact-us-af-page,body.settings-dark-mode .contact-us-af-page,html.dark-mode body .contact-us-af-page{
-  background:#111827!important;color:#f8fafc!important;border-color:rgba(51,65,85,.92)!important;
-}
-.request-card-af{border-radius:24px!important;background:#fff!important;border:1px solid rgba(226,232,240,.96)!important;box-shadow:0 14px 38px rgba(15,23,42,.08)!important;overflow:hidden!important;margin-bottom:12px!important}
-.request-card-button-af{width:100%!important;display:grid!important;grid-template-columns:42px 1fr auto!important;gap:12px!important;align-items:center!important;padding:15px!important;background:transparent!important;color:#0f172a!important;text-align:left!important}
-.request-card-check-af{width:42px!important;height:42px!important;border-radius:999px!important;background:#dcfce7!important;color:#15803d!important;display:grid!important;place-items:center!important;font-weight:950!important}
-.request-card-detail-af{display:none!important;padding:0 15px 15px!important;border-top:1px solid rgba(226,232,240,.96)!important}
-.request-card-af.is-open .request-card-detail-af{display:block!important}
-.request-detail-box-af{margin-top:14px!important;padding:13px!important;border-radius:16px!important;background:#f8fafc!important;border:1px solid rgba(226,232,240,.96)!important}
-.request-detail-box-af p{white-space:pre-wrap!important;color:#475569!important;line-height:1.55!important}
-body.dark-mode .request-card-af,body.settings-dark-mode .request-card-af,html.dark-mode body .request-card-af{background:#111827!important;border-color:rgba(51,65,85,.95)!important}
-body.dark-mode .request-card-button-af,body.settings-dark-mode .request-card-button-af,html.dark-mode body .request-card-button-af{color:#f8fafc!important}
-body.dark-mode .request-detail-box-af,body.settings-dark-mode .request-detail-box-af,html.dark-mode body .request-detail-box-af{background:#1e293b!important;border-color:rgba(51,65,85,.95)!important}
-body.dark-mode .request-detail-box-af p,body.settings-dark-mode .request-detail-box-af p,html.dark-mode body .request-detail-box-af p{color:#cbd5e1!important}
-
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: ANIMATIONS + RESPONSIVE 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 </style>
 
 <script>
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 START OF SECTION: AF FINAL SUPPORT PATCH JS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
 (function () {
   "use strict";
 
-  const $ = (id) => document.getElementById(id);
-  const qs = (selector, root = document) => root.querySelector(selector);
-  const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-
-  const EDGE = {
+  const AF_EDGE = {
     bug: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/report-bug",
-    contact: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/contact-request",
-    learning: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/learning-activity",
-    bugStatus: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/request-status-af",
+    requestStatus: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/request-status-af",
+    contactSubmit: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/contact-request",
     contactStatus: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/contact-request-status-af"
   };
 
-  const emailOk = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
+  function $(id) {
+    return document.getElementById(id);
+  }
 
-  const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;"
-  }[char]));
+  function qsa(selector, root) {
+    return Array.from((root || document).querySelectorAll(selector));
+  }
 
-  const val = (id) => String($(id)?.value || "").trim();
+  function valueOf(id) {
+    const node = $(id);
+    return String(node && node.value ? node.value : "").trim();
+  }
 
-  function getSupabaseHeaders() {
-    const key = window.SUPABASE_ANON_KEY || "";
+  function escapeHtml(value) {
+    return String(value == null ? "" : value).replace(/[&<>"']/g, function (char) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[char];
+    });
+  }
+
+  function isEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
+  }
+
+  function getAnonKey() {
+    return typeof window.SUPABASE_ANON_KEY !== "undefined" && window.SUPABASE_ANON_KEY
+      ? window.SUPABASE_ANON_KEY
+      : "";
+  }
+
+  function getHeaders() {
+    const key = getAnonKey();
+
+    const headers = {
+      "Content-Type": "application/json"
+    };
+
+    if (key) {
+      headers.apikey = key;
+      headers.Authorization = "Bearer " + key;
+    }
+
+    return headers;
+  }
+
+  function safeJsonParse(raw) {
+    try {
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function getStoredStudent() {
+    const keys = [
+      "af_current_student",
+      "af_logged_student",
+      "af_student_session",
+      "af_student_data",
+      "studentaf_session",
+      "student_session_af",
+      "currentStudentaf",
+      "current_student_af",
+      "currentStudent",
+      "studentData",
+      "loggedInStudent",
+      "student"
+    ];
+
+    for (let i = 0; i < keys.length; i += 1) {
+      const parsed = safeJsonParse(localStorage.getItem(keys[i]));
+
+      if (parsed) {
+        const student = parsed.student || parsed.data || parsed.user || parsed.profile || parsed;
+
+        if (student && typeof student === "object") {
+          return student;
+        }
+      }
+    }
+
+    return {};
+  }
+
+  function getIdentity() {
+    const student = getStoredStudent();
+
+    const email = String(
+      student.registered_email ||
+        student.email ||
+        student.student_email ||
+        student.email_id ||
+        student.studentEmail ||
+        student.user_email ||
+        localStorage.getItem("af_student_email") ||
+        localStorage.getItem("student_email_af") ||
+        localStorage.getItem("studentEmailaf") ||
+        localStorage.getItem("studentEmail") ||
+        localStorage.getItem("registered_email") ||
+        localStorage.getItem("email") ||
+        ""
+    ).trim().toLowerCase();
+
+    const mobile = String(
+      student.registered_mobile ||
+        student.mobile_number ||
+        student.mobile ||
+        student.phone ||
+        student.phone_number ||
+        student.student_mobile ||
+        localStorage.getItem("af_student_mobile") ||
+        localStorage.getItem("student_mobile_af") ||
+        localStorage.getItem("studentPhoneaf") ||
+        localStorage.getItem("studentPhone") ||
+        localStorage.getItem("registered_mobile") ||
+        localStorage.getItem("mobile") ||
+        localStorage.getItem("phone") ||
+        ""
+    ).trim();
+
+    const name = String(
+      student.full_name ||
+        student.name ||
+        student.student_name ||
+        localStorage.getItem("af_student_name") ||
+        localStorage.getItem("student_name_af") ||
+        localStorage.getItem("studentNameaf") ||
+        ""
+    ).trim();
+
     return {
-      "Content-Type": "application/json",
-      apikey: key,
-      Authorization: key ? "Bearer " + key : ""
+      email: email,
+      mobile: mobile,
+      name: name
     };
   }
 
-  function toast(message, type = "success") {
-    let box = $("afToastMessage");
+  function formatDate(value) {
+    try {
+      if (!value) return "Recently submitted";
 
-    if (!box) {
-      box = document.createElement("div");
-      box.id = "afToastMessage";
-      box.className = "af-toast-message";
-      document.body.appendChild(box);
-    }
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return "Recently submitted";
 
-    box.textContent = message;
-    box.style.display = "block";
-    box.dataset.type = type;
-
-    clearTimeout(window.__afToastTimer);
-    window.__afToastTimer = setTimeout(() => {
-      box.style.display = "none";
-    }, 2400);
-  }
-
-  function isDarkMode() {
-    return (
-      document.documentElement.classList.contains("dark-mode") ||
-      document.body.classList.contains("dark-mode") ||
-      localStorage.getItem("af_theme_mode") === "dark"
-    );
-  }
-
-  function applyTheme(dark) {
-    document.documentElement.classList.toggle("dark-mode", dark);
-    document.body.classList.toggle("dark-mode", dark);
-    document.body.classList.toggle("settings-dark-mode", dark);
-
-    localStorage.setItem("af_theme_mode", dark ? "dark" : "light");
-    localStorage.setItem("af_settings_dark_mode", dark ? "1" : "0");
-
-    const toggle = $("settingsDarkToggle");
-    if (toggle) {
-      toggle.checked = dark;
+      return date.toLocaleString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    } catch (error) {
+      return "Recently submitted";
     }
   }
 
-  window.toggleSettingsDarkMode = function (enabled) {
-    applyTheme(Boolean(enabled));
-  };
+  function flagTrue(value) {
+    return String(value || "F").trim().toUpperCase() === "T" || value === true;
+  }
 
-  function hydrateSettingsName() {
-    const target = $("settingsStudentName");
+  function setMessage(id, type, message) {
+    const box = $(id);
+    if (!box) return;
+
+    box.classList.remove("is-error", "is-empty", "is-success");
+    box.textContent = message || "";
+    box.style.display = message ? "block" : "none";
+
+    if (type === "error") box.classList.add("is-error");
+    if (type === "empty") box.classList.add("is-empty");
+    if (type === "success") box.classList.add("is-success");
+  }
+
+  function ensureContactStatusButton() {
+    const settingsSupportList = document.querySelector(".settings-support-list");
+    if (!settingsSupportList) return;
+
+    if (document.querySelector('[onclick="openContactStatusPageAf()"]')) return;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "settings-support-row";
+    button.setAttribute("aria-label", "Open Contact Us Status");
+    button.setAttribute("onclick", "openContactStatusPageAf()");
+    button.innerHTML = [
+      '<div class="settings-support-left">',
+      '<span class="settings-support-icon" aria-hidden="true">✓</span>',
+      "<span>Contact Us Status</span>",
+      "</div>",
+      '<span class="settings-new-badge">Track</span>'
+    ].join("");
+
+    const divider = settingsSupportList.querySelector(".settings-support-divider");
+    if (divider) {
+      settingsSupportList.insertBefore(button, divider);
+    } else {
+      settingsSupportList.appendChild(button);
+    }
+  }
+
+  function ensureContactStatusSection() {
+    if ($("contactStatusAf")) return;
+
+    const section = document.createElement("section");
+    section.id = "contactStatusAf";
+    section.className = "section contact-status-section-af";
+    section.setAttribute("aria-label", "Contact Status");
+
+    section.innerHTML = [
+      '<div class="contact-status-page-af">',
+      '<div class="contact-status-hero-af">',
+      '<button type="button" class="contact-status-back-af" onclick="showSection(\'settings\')" aria-label="Back to settings">← Back</button>',
+      '<div class="contact-status-hero-text-af">',
+      "<p>Support Center</p>",
+      "<h2>Contact Status</h2>",
+      "<span>Track your contact requests and team replies.</span>",
+      "</div>",
+      '<button type="button" class="contact-status-refresh-af" onclick="loadContactStatusAf(true)" aria-label="Refresh contact status">↻</button>',
+      "</div>",
+      '<div id="contactStatusMessageAf" class="contact-status-message-af">Loading your contact requests...</div>',
+      '<div id="contactStatusListAf" class="contact-status-list-af"></div>',
+      "</div>"
+    ].join("");
+
+    const app = document.querySelector(".app") || document.querySelector("main") || document.body;
+    const bottomNav = document.querySelector(".bottom-nav");
+
+    if (bottomNav && bottomNav.parentNode) {
+      bottomNav.parentNode.insertBefore(section, bottomNav);
+    } else {
+      app.appendChild(section);
+    }
+  }
+
+  function ensureBugOverlayClickSafety() {
+    const overlay = $("bugReportOverlay");
+    if (!overlay) return;
+
+    overlay.addEventListener("click", function (event) {
+      if (event.target === overlay) {
+        window.closeBugReportModal();
+      }
+    });
+
+    const modal = overlay.querySelector(".bug-report-modal");
+    if (modal) {
+      modal.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    }
+  }
+
+  function ensureContactSheetClickSafety() {
+    const section = $("contactUsAf");
+    if (!section) return;
+
+    section.addEventListener("click", function (event) {
+      if (event.target === section) {
+        window.closeContactUsSheetAf();
+      }
+    });
+
+    const page = section.querySelector(".contact-us-af-page");
+    if (page) {
+      page.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    }
+  }
+
+  function fixedShowSection(id) {
+    const targetId = String(id || "").trim();
+    const target = $(targetId);
 
     if (!target) {
+      console.error("Section not found:", targetId);
       return;
     }
 
-    const savedName =
-      localStorage.getItem("af_student_name") ||
-      localStorage.getItem("student_name_af") ||
-      localStorage.getItem("studentNameaf") ||
-      "Student";
-
-    target.textContent = "Hi, " + savedName;
-  }
-
-  window.showSection = function (id) {
-    const target = $(String(id || "").trim());
-
-    if (!target) {
-      console.error("Section not found:", id);
-      return;
+    if (targetId !== "contactUsAf") {
+      const contact = $("contactUsAf");
+      if (contact) {
+        contact.classList.remove("active", "active-section");
+        contact.setAttribute("aria-hidden", "true");
+      }
     }
 
-    qsa(".section,.app-section").forEach((section) => {
+    qsa(".section, .app-section").forEach(function (section) {
+      if (section.id === "contactUsAf") return;
+
       section.classList.remove("active", "active-section");
       section.setAttribute("aria-hidden", "true");
     });
 
     target.classList.add("active");
+    target.classList.remove("hidden-box");
     target.setAttribute("aria-hidden", "false");
 
-    qsa(".bottom-nav .nav-btn").forEach((button) => {
-      const active = button.dataset.section === target.id;
+    qsa(".bottom-nav .nav-btn").forEach(function (button) {
+      const active = button.dataset.section === targetId;
       button.classList.toggle("active", active);
 
       if (active) {
@@ -2930,233 +1314,297 @@ body.dark-mode .request-detail-box-af p,body.settings-dark-mode .request-detail-
       }
     });
 
-    if (target.id === "settings") {
-      hydrateSettingsName();
-      applyTheme(isDarkMode());
+    if (targetId === "requestStatusAf") {
+      window.setTimeout(function () {
+        window.loadRequestStatusAf(false);
+      }, 80);
     }
 
-    if (target.id === "learningHeatmap") {
+    if (targetId === "contactStatusAf") {
+      window.setTimeout(function () {
+        window.loadContactStatusAf(false);
+      }, 80);
+    }
+
+    if (targetId === "learningHeatmap" && typeof window.loadLearningHeatmap === "function") {
       window.loadLearningHeatmap();
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  };
+    if (targetId !== "contactUsAf") {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }
 
-  /*
-  ================================================================================
-  ████████████████████████████████████████████████████████████████████████████████
-                    👉 BUG REPORT BOTTOM SHEET 👈
-  ████████████████████████████████████████████████████████████████████████████████
-  ================================================================================
-  */
+  window.showSection = fixedShowSection;
 
   window.openBugReportModal = function () {
-    const overlay = $("bugReportOverlay");
+    try {
+      const overlay = $("bugReportOverlay");
+      const form = $("bugReportForm");
+      const status = $("bugReportStatus");
+      const pageUrl = $("bugPageUrl");
+      const userAgent = $("bugUserAgent");
 
-    if (!overlay) {
-      return;
+      if (!overlay) {
+        console.error("bugReportOverlay not found");
+        return;
+      }
+
+      if (form) form.reset();
+
+      if (status) {
+        status.textContent = "";
+        status.className = "bug-report-status";
+        status.style.display = "none";
+      }
+
+      if (pageUrl) pageUrl.value = window.location.href;
+      if (userAgent) userAgent.value = navigator.userAgent || "";
+
+      overlay.classList.add("show");
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.classList.add("bug-report-open");
+
+      window.setTimeout(function () {
+        const firstInput = $("bugReporterName");
+        if (firstInput) firstInput.focus();
+      }, 120);
+    } catch (error) {
+      console.error("openBugReportModal failed:", error);
     }
-
-    $("bugReportForm")?.reset();
-
-    if ($("bugReportStatus")) {
-      $("bugReportStatus").textContent = "";
-      $("bugReportStatus").className = "bug-report-status";
-    }
-
-    if ($("bugPageUrl")) {
-      $("bugPageUrl").value = location.href;
-    }
-
-    if ($("bugUserAgent")) {
-      $("bugUserAgent").value = navigator.userAgent || "";
-    }
-
-    overlay.classList.add("show");
-    overlay.setAttribute("aria-hidden", "false");
-    document.body.classList.add("bug-report-open");
-
-    setTimeout(() => $("bugReporterName")?.focus({ preventScroll: true }), 180);
   };
 
   window.closeBugReportModal = function () {
-    const overlay = $("bugReportOverlay");
+    try {
+      const overlay = $("bugReportOverlay");
 
-    if (!overlay) {
-      return;
+      if (overlay) {
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+
+      document.body.classList.remove("bug-report-open");
+    } catch (error) {
+      console.error("closeBugReportModal failed:", error);
     }
-
-    overlay.classList.remove("show");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("bug-report-open");
   };
 
-  function setBugStatus(message, type = "") {
+  function setBugReportStatus(message, type) {
     const status = $("bugReportStatus");
+    if (!status) return;
 
-    if (!status) {
-      return;
-    }
+    status.textContent = String(message || "");
+    status.className = "bug-report-status";
 
-    status.textContent = message || "";
-    status.className = "bug-report-status " + type;
+    if (type === "success") status.classList.add("success");
+    if (type === "error") status.classList.add("error");
+
+    status.style.display = message ? "block" : "none";
   }
 
   window.submitBugReport = async function (event) {
-    event.preventDefault();
+    if (event) event.preventDefault();
 
-    const button = $("bugReportSubmitBtn");
+    const submitBtn = $("bugReportSubmitBtn");
 
     try {
+      const reporterName = valueOf("bugReporterName");
+      const reporterEmail = valueOf("bugReporterEmail").toLowerCase();
+      const category = valueOf("bugCategory");
+      const priority = valueOf("bugPriority");
+      const description = valueOf("bugDescription");
+      const stepsToReproduce = valueOf("bugSteps");
+      const pageUrl = valueOf("bugPageUrl") || window.location.href;
+
+      if (reporterName.length < 2) {
+        setBugReportStatus("Please enter a valid name.", "error");
+        return;
+      }
+
+      if (!isEmail(reporterEmail)) {
+        setBugReportStatus("Please enter a valid email address.", "error");
+        return;
+      }
+
+      if (!category) {
+        setBugReportStatus("Please select a bug category.", "error");
+        return;
+      }
+
+      if (!priority) {
+        setBugReportStatus("Please select a valid priority.", "error");
+        return;
+      }
+
+      if (description.length < 10) {
+        setBugReportStatus("Please describe the bug in at least 10 characters.", "error");
+        return;
+      }
+
+      const identity = getIdentity();
+
       const payload = {
-        reporterName: val("bugReporterName"),
-        reporterEmail: val("bugReporterEmail"),
-        category: val("bugCategory"),
-        priority: val("bugPriority"),
-        description: val("bugDescription"),
-        pageUrl: val("bugPageUrl") || location.href,
-        activeSection: qs(".section.active,.app-section.active")?.id || "",
+        reporterName: reporterName,
+        reporterEmail: reporterEmail,
+        registered_email: reporterEmail || identity.email,
+        email: reporterEmail || identity.email,
+        mobile: identity.mobile,
+        category: category,
+        priority: priority,
+        description: description,
+        stepsToReproduce: stepsToReproduce,
+        pageUrl: pageUrl,
+        activeSection: document.querySelector(".section.active, .app-section.active")?.id || "",
         deviceInfo: {
-          userAgent: navigator.userAgent,
-          language: navigator.language,
-          platform: navigator.platform,
-          viewportWidth: innerWidth,
-          viewportHeight: innerHeight,
-          devicePixelRatio: devicePixelRatio || 1,
+          userAgent: navigator.userAgent || "",
+          language: navigator.language || "",
+          platform: navigator.platform || "",
+          viewportWidth: window.innerWidth || 0,
+          viewportHeight: window.innerHeight || 0,
+          devicePixelRatio: window.devicePixelRatio || 1,
           timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
           online: navigator.onLine === true
         }
       };
 
-      if (payload.reporterName.length < 2) {
-        setBugStatus("Please enter a valid name.", "error");
-        return;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
       }
 
-      if (!emailOk(payload.reporterEmail)) {
-        setBugStatus("Please enter a valid email address.", "error");
-        return;
-      }
+      setBugReportStatus("Submitting your report...", "");
 
-      if (!payload.category) {
-        setBugStatus("Please select a bug category.", "error");
-        return;
-      }
-
-      if (payload.description.length < 10) {
-        setBugStatus("Please describe the bug in at least 10 characters.", "error");
-        return;
-      }
-
-      if (button) {
-        button.disabled = true;
-        button.textContent = "Submitting...";
-      }
-
-      setBugStatus("Submitting your report...", "");
-
-      const response = await fetch(EDGE.bug, {
+      const response = await fetch(AF_EDGE.bug, {
         method: "POST",
-        headers: getSupabaseHeaders(),
+        headers: getHeaders(),
         body: JSON.stringify(payload)
       });
 
-      const result = await response.json().catch(() => null);
+      const result = await response.json().catch(function () {
+        return null;
+      });
 
-      if (!response.ok) {
-        throw new Error(result?.error || "Bug report failed. Please try again.");
+      if (!response.ok || (result && result.success === false)) {
+        throw new Error(
+          result && (result.message || result.error)
+            ? result.message || result.error
+            : "Bug report failed. Please try again."
+        );
       }
 
-      setBugStatus("Bug report submitted successfully.", "success");
-      $("bugReportForm")?.reset();
+      try {
+        localStorage.setItem("af_student_email", reporterEmail);
+      } catch (storageError) {}
 
-      setTimeout(window.closeBugReportModal, 850);
+      const form = $("bugReportForm");
+      if (form) form.reset();
+
+      setBugReportStatus("Bug report submitted successfully.", "success");
+
+      window.setTimeout(function () {
+        window.closeBugReportModal();
+      }, 900);
     } catch (error) {
-      setBugStatus(error.message || "Something went wrong.", "error");
+      console.error("submitBugReport failed:", error);
+      setBugReportStatus(error && error.message ? error.message : "Something went wrong.", "error");
     } finally {
-      if (button) {
-        button.disabled = false;
-        button.textContent = "Submit Report";
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Report";
       }
     }
   };
 
-  /*
-  ================================================================================
-  ████████████████████████████████████████████████████████████████████████████████
-                    👉 CONTACT US BOTTOM SHEET 👈
-  ████████████████████████████████████████████████████████████████████████████████
-  ================================================================================
-  */
-
   window.openContactUsPage = function () {
-    const overlay = $("contactUsAf");
+    const section = $("contactUsAf");
 
-    if (!overlay) {
+    if (!section) {
+      console.error("contactUsAf section not found");
       return;
     }
 
-    overlay.classList.add("show");
-    overlay.setAttribute("aria-hidden", "false");
-    document.body.classList.add("contact-sheet-open");
+    const message = $("contactUsMessageAf");
+    if (message) {
+      message.textContent = "";
+      message.style.display = "none";
+      message.className = "contact-message-af";
+    }
 
-    setTimeout(() => $("contactNameAf")?.focus({ preventScroll: true }), 180);
+    section.classList.add("active");
+    section.classList.remove("hidden-box");
+    section.setAttribute("aria-hidden", "false");
+    document.body.classList.add("contact-us-open");
+
+    window.setTimeout(function () {
+      const firstInput = $("contactNameAf");
+      if (firstInput) firstInput.focus();
+    }, 120);
   };
 
   window.closeContactUsSheetAf = function () {
-    const overlay = $("contactUsAf");
+    const section = $("contactUsAf");
 
-    if (!overlay) {
-      return;
+    if (section) {
+      section.classList.remove("active", "active-section");
+      section.setAttribute("aria-hidden", "true");
     }
 
-    overlay.classList.remove("show");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("contact-sheet-open");
+    document.body.classList.remove("contact-us-open");
   };
 
-  window.backToSettingsFromContact = window.closeContactUsSheetAf;
+  window.backToSettingsFromContact = function () {
+    window.closeContactUsSheetAf();
+  };
 
   function setContactMessage(type, message) {
     const box = $("contactUsMessageAf");
+    if (!box) return;
 
-    if (!box) {
-      return;
-    }
+    box.className = "contact-message-af";
+    if (type === "success") box.classList.add("is-success");
+    if (type === "error") box.classList.add("is-error");
 
-    box.className = "contact-message-af " + (type === "success" ? "is-success" : type === "error" ? "is-error" : "");
     box.textContent = message || "";
     box.style.display = message ? "block" : "none";
   }
 
-  window.submitContactRequestAf = async function (event) {
-    event.preventDefault();
+  function getDeviceId() {
+    let id = localStorage.getItem("af_device_id");
 
-    const button = $("contactSubmitBtnAf");
+    if (!id) {
+      id = "web_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2);
+      localStorage.setItem("af_device_id", id);
+    }
+
+    return id;
+  }
+
+  window.submitContactRequestAf = async function (event) {
+    if (event) event.preventDefault();
+
+    const submitBtn = $("contactSubmitBtnAf");
 
     try {
-      const mobile = val("contactMobileAf").replace(/\s+/g, "");
+      setContactMessage("", "");
+
+      const identity = getIdentity();
+      const mobile = valueOf("contactMobileAf").replace(/\s+/g, "");
+      const email = valueOf("contactEmailAf").toLowerCase();
 
       const payload = {
         student_id: null,
-        student_identifier:
-          localStorage.getItem("af_student_email") ||
-          localStorage.getItem("af_student_mobile") ||
-          null,
-        student_name: localStorage.getItem("af_student_name") || null,
-        full_name: val("contactNameAf"),
+        student_identifier: identity.email || identity.mobile || email || mobile || null,
+        student_name: identity.name || valueOf("contactNameAf") || null,
+        full_name: valueOf("contactNameAf"),
         mobile_number: mobile,
-        email: val("contactEmailAf").toLowerCase(),
-        contact_reason: val("contactReasonAf"),
-        problem_description: val("contactProblemAf"),
-        page_url: location.href,
-        user_agent: navigator.userAgent,
-        device_id:
-          localStorage.getItem("af_device_id") ||
-          ("web_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2))
+        email: email,
+        registered_email: email,
+        contact_reason: valueOf("contactReasonAf"),
+        problem_description: valueOf("contactProblemAf"),
+        page_url: window.location.href,
+        user_agent: navigator.userAgent || "",
+        device_id: getDeviceId()
       };
-
-      localStorage.setItem("af_device_id", payload.device_id);
 
       if (payload.full_name.length < 2) {
         setContactMessage("error", "Please enter your full name.");
@@ -3168,7 +1616,7 @@ body.dark-mode .request-detail-box-af p,body.settings-dark-mode .request-detail-
         return;
       }
 
-      if (!emailOk(payload.email)) {
+      if (!isEmail(email)) {
         setContactMessage("error", "Please enter a valid email address.");
         return;
       }
@@ -3183,532 +1631,430 @@ body.dark-mode .request-detail-box-af p,body.settings-dark-mode .request-detail-
         return;
       }
 
-      if (button) {
-        button.disabled = true;
-        button.textContent = "Submitting...";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
       }
 
-      const response = await fetch(EDGE.contact, {
+      const response = await fetch(AF_EDGE.contactSubmit, {
         method: "POST",
-        headers: getSupabaseHeaders(),
+        headers: getHeaders(),
         body: JSON.stringify(payload)
       });
 
-      const result = await response.json().catch(() => null);
+      const result = await response.json().catch(function () {
+        return null;
+      });
 
-      if (!response.ok || result?.success !== true) {
-        throw new Error(result?.message || "Unable to submit request right now.");
+      if (!response.ok || !result || result.success !== true) {
+        throw new Error(
+          result && result.message
+            ? result.message
+            : "Unable to submit request right now."
+        );
       }
 
-      $("contactUsFormAf")?.reset();
-      setContactMessage("success", "Your request has been submitted successfully.");
+      try {
+        localStorage.setItem("af_student_email", email);
+        localStorage.setItem("af_student_mobile", mobile);
+        localStorage.setItem("af_student_name", payload.full_name);
+      } catch (storageError) {}
+
+      const form = $("contactUsFormAf");
+      if (form) form.reset();
+
+      setContactMessage("success", "Your request has been submitted successfully. Our team will contact you soon.");
     } catch (error) {
-      setContactMessage("error", error.message || "Something went wrong. Please try again.");
+      console.error("submitContactRequestAf failed:", error);
+      setContactMessage("error", error && error.message ? error.message : "Something went wrong. Please try again.");
     } finally {
-      if (button) {
-        button.disabled = false;
-        button.textContent = "Submit Request";
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Request";
       }
     }
-  };
-
-  /*
-  ================================================================================
-  ████████████████████████████████████████████████████████████████████████████████
-                    👉 BUG + CONTACT STATUS CARDS 👈
-  ████████████████████████████████████████████████████████████████████████████████
-  ================================================================================
-  */
-
-  function statusMessage(id, type, message) {
-    const box = $(id);
-
-    if (!box) {
-      return;
-    }
-
-    box.className = "request-status-message-af " + (type === "error" ? "is-error" : type === "empty" ? "is-empty" : "");
-    box.textContent = message || "";
-    box.style.display = message ? "block" : "none";
-  }
-
-  function getStatusLabel(item) {
-    const solved =
-      String(item.request_solved || item.solved || "F").toUpperCase() === "T" ||
-      String(item.status || "").toLowerCase() === "solved";
-
-    const read =
-      String(item.team_read || item.in_review || "F").toUpperCase() === "T" ||
-      ["in_review", "review", "read"].includes(String(item.status || "").toLowerCase());
-
-    if (solved) {
-      return ["Solved", "solved"];
-    }
-
-    if (read) {
-      return ["In Review", "review"];
-    }
-
-    return ["Pending", "pending"];
-  }
-
-  function renderStatusCards(listId, items, type) {
-    const list = $(listId);
-
-    if (!list) {
-      return;
-    }
-
-    list.innerHTML = items.map((item, index) => {
-      const [label, statusClass] = getStatusLabel(item);
-      const title =
-        type === "contact"
-          ? (item.contact_reason || item.reason || "Contact Request")
-          : (item.category || "Bug Report");
-
-      const description =
-        type === "contact"
-          ? (item.problem_description || item.description || item.message || "")
-          : (item.description || item.problem_description || item.message || "");
-
-      const submittedAt = item.created_at
-        ? new Date(item.created_at).toLocaleString("en-IN")
-        : "Recently submitted";
-
-      const teamNote = item.status_note || item.admin_note || item.team_note || "";
-
-      return `
-        <article class="request-card-af" style="animation-delay:${index * 60}ms">
-          <button type="button" class="request-card-button-af" onclick="toggleRequestCardAf(this)">
-            <span class="request-card-check-af">✓</span>
-
-            <span class="request-card-title-af">
-              <h3>${esc(title)}</h3>
-              <p>${esc(submittedAt)}</p>
-            </span>
-
-            <span class="request-status-pill-af ${statusClass}">${label}</span>
-          </button>
-
-          <div class="request-card-detail-af">
-            <div class="request-detail-box-af">
-              <strong>${type === "contact" ? "Your contact request" : "Your bug report"}</strong>
-              <p>${esc(description || "No description available.")}</p>
-            </div>
-
-            <div class="request-progress-af">
-              <div class="request-step-af is-done">
-                <div class="request-step-dot-af">✓</div>
-                <div class="request-step-content-af">
-                  <strong>Request Sent</strong>
-                  <span>Your request has been submitted successfully.</span>
-                </div>
-              </div>
-
-              <div class="request-step-af ${statusClass === "review" || statusClass === "solved" ? "is-done" : "is-pending"}">
-                <div class="request-step-dot-af">${statusClass === "review" || statusClass === "solved" ? "✓" : "!"}</div>
-                <div class="request-step-content-af">
-                  <strong>Team Review</strong>
-                  <span>${statusClass === "review" || statusClass === "solved" ? "Team has reviewed your request." : "Pending — team has not reviewed it yet."}</span>
-                </div>
-              </div>
-
-              <div class="request-step-af ${statusClass === "solved" ? "is-done" : "is-pending"}">
-                <div class="request-step-dot-af">${statusClass === "solved" ? "✓" : "!"}</div>
-                <div class="request-step-content-af">
-                  <strong>Solved</strong>
-                  <span>${statusClass === "solved" ? "Your request has been solved." : "Solution is not marked yet."}</span>
-                </div>
-              </div>
-            </div>
-
-            ${teamNote ? `<div class="request-detail-box-af"><strong>Team note</strong><p>${esc(teamNote)}</p></div>` : ""}
-          </div>
-        </article>
-      `;
-    }).join("");
-  }
-
-  window.toggleRequestCardAf = function (button) {
-    const card = button.closest(".request-card-af");
-
-    if (!card) {
-      return;
-    }
-
-    card.classList.toggle("is-open");
   };
 
   window.openRequestStatusPageAf = function () {
     window.showSection("requestStatusAf");
-    setTimeout(() => window.loadRequestStatusAf(false), 80);
   };
 
-  window.loadRequestStatusAf = async function (force) {
+  function getBugStatus(report) {
+    const isRead = flagTrue(report.team_read);
+    const isSolved = flagTrue(report.request_solved);
+
+    if (isSolved) {
+      return {
+        label: "Solved",
+        className: "solved"
+      };
+    }
+
+    if (isRead) {
+      return {
+        label: "In Review",
+        className: "read"
+      };
+    }
+
+    return {
+      label: "Pending",
+      className: "pending"
+    };
+  }
+
+  function getReportTitle(report) {
+    return (
+      report.category ||
+      report.issue_type ||
+      report.bug_type ||
+      report.subject ||
+      report.title ||
+      "Bug Report"
+    );
+  }
+
+  function getReportText(report) {
+    return (
+      report.description ||
+      report.details ||
+      report.message ||
+      report.bug_description ||
+      report.report_text ||
+      report.additional_details ||
+      "No detailed message found for this report."
+    );
+  }
+
+  window.toggleRequestCardAf = function (cardId) {
+    const card = $(cardId);
+    if (card) card.classList.toggle("is-expanded");
+  };
+
+  function renderBugReportCard(report, index) {
+    const isRead = flagTrue(report.team_read);
+    const isSolved = flagTrue(report.request_solved);
+    const status = getBugStatus(report);
+    const cardId = "requestCardAf_" + index + "_" + String(report.id || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
+
+    const title = escapeHtml(getReportTitle(report));
+    const fullText = escapeHtml(getReportText(report));
+    const createdAt = escapeHtml(formatDate(report.created_at));
+    const note = escapeHtml(report.status_note || report.admin_note || "");
+
+    return [
+      '<article id="' + cardId + '" class="request-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleRequestCardAf(\'' + cardId + '\')">',
+      '<div class="request-card-top-af">',
+      '<div class="request-card-icon-af">✓</div>',
+      '<div class="request-card-title-af">',
+      "<h3>" + title + "</h3>",
+      "<p>Submitted: " + createdAt + "</p>",
+      "</div>",
+      '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
+      "</div>",
+      '<div class="request-progress-af">',
+      '<div class="request-step-af is-done">',
+      '<div class="request-step-dot-af">✓</div>',
+      '<div class="request-step-content-af"><strong>Report Sent</strong><span>Your report has been submitted successfully.</span></div>',
+      "</div>",
+      '<div class="request-step-af ' + (isRead ? "is-done" : "is-pending") + '">',
+      '<div class="request-step-dot-af">' + (isRead ? "✓" : "!") + "</div>",
+      '<div class="request-step-content-af"><strong>Team Read Your Report</strong><span>' + (isRead ? "Team has read your report." : "Pending — team has not read it yet.") + "</span></div>",
+      "</div>",
+      '<div class="request-step-af ' + (isSolved ? "is-done" : "is-pending") + '">',
+      '<div class="request-step-dot-af">' + (isSolved ? "✓" : "!") + "</div>",
+      '<div class="request-step-content-af"><strong>Solved Your Request</strong><span>' + (isSolved ? "Your request has been solved." : "Pending — solution is not marked yet.") + "</span></div>",
+      "</div>",
+      "</div>",
+      '<div class="request-card-detail-af">',
+      "<strong>Your Report</strong>",
+      "<p>" + fullText + "</p>",
+      note ? '<div class="request-note-af">' + note + "</div>" : "",
+      "</div>",
+      "</article>"
+    ].join("");
+  }
+
+  window.loadRequestStatusAf = async function (forceRefresh) {
     const list = $("requestStatusListAf");
 
     try {
-      if (list) {
-        list.innerHTML = "";
-      }
+      if (list) list.innerHTML = "";
 
-      statusMessage("requestStatusMessageAf", "", force ? "Refreshing bug report status..." : "Loading your bug reports...");
+      setMessage(
+        "requestStatusMessageAf",
+        "",
+        forceRefresh ? "Refreshing request status..." : "Loading your requests..."
+      );
 
-      const email =
-        localStorage.getItem("af_student_email") ||
-        localStorage.getItem("student_email_af") ||
-        "";
+      const identity = getIdentity();
+      const registeredEmail = identity.email;
 
-      if (!email) {
-        statusMessage("requestStatusMessageAf", "error", "Login first to view your bug report status.");
+      if (!registeredEmail) {
+        setMessage("requestStatusMessageAf", "error", "Login first to view your request status.");
         return;
       }
 
-      const response = await fetch(EDGE.bugStatus, {
+      const response = await fetch(AF_EDGE.requestStatus, {
         method: "POST",
-        headers: getSupabaseHeaders(),
-        body: JSON.stringify({ registered_email: email })
+        headers: getHeaders(),
+        body: JSON.stringify({
+          registered_email: registeredEmail
+        })
       });
 
-      const result = await response.json().catch(() => null);
+      const result = await response.json().catch(function () {
+        return null;
+      });
 
-      if (!response.ok || result?.success !== true) {
-        throw new Error(result?.message || "Unable to load bug report status right now.");
+      if (!response.ok || !result || result.success !== true) {
+        throw new Error(
+          result && result.message
+            ? result.message
+            : "Unable to load request status right now."
+        );
       }
 
       const reports = Array.isArray(result.reports) ? result.reports : [];
 
       if (!reports.length) {
-        statusMessage("requestStatusMessageAf", "empty", "No bug report found. Submitted bug reports will appear here.");
+        setMessage("requestStatusMessageAf", "empty", "No request found. Your bug reports will appear here after submission.");
         return;
       }
 
-      statusMessage("requestStatusMessageAf", "", "");
-      renderStatusCards("requestStatusListAf", reports, "bug");
+      setMessage("requestStatusMessageAf", "", "");
+
+      if (list) {
+        list.innerHTML = reports
+          .map(function (report, index) {
+            return renderBugReportCard(report, index);
+          })
+          .join("");
+      }
     } catch (error) {
-      statusMessage("requestStatusMessageAf", "error", error.message || "Something went wrong. Please try again.");
+      console.error("loadRequestStatusAf failed:", error);
+      setMessage(
+        "requestStatusMessageAf",
+        "error",
+        error && error.message ? error.message : "Something went wrong. Please try again."
+      );
     }
   };
 
   window.openContactStatusPageAf = function () {
+    ensureContactStatusSection();
     window.showSection("contactStatusAf");
-    setTimeout(() => window.loadContactStatusAf(false), 80);
   };
 
-  window.loadContactStatusAf = async function (force) {
+  function getContactStatus(request) {
+    const rawStatus = String(request.status || "").trim().toLowerCase();
+
+    if (
+      rawStatus === "solved" ||
+      rawStatus === "resolved" ||
+      flagTrue(request.request_solved)
+    ) {
+      return {
+        label: "Solved",
+        className: "solved"
+      };
+    }
+
+    if (
+      rawStatus === "in_review" ||
+      rawStatus === "in review" ||
+      rawStatus === "review" ||
+      flagTrue(request.team_read)
+    ) {
+      return {
+        label: "In Review",
+        className: "read"
+      };
+    }
+
+    return {
+      label: "Pending",
+      className: "pending"
+    };
+  }
+
+  function getContactTitle(request) {
+    return (
+      request.contact_reason ||
+      request.reason ||
+      request.subject ||
+      request.category ||
+      request.issue_type ||
+      "Contact Request"
+    );
+  }
+
+  function getContactText(request) {
+    return (
+      request.problem_description ||
+      request.message ||
+      request.details ||
+      request.description ||
+      request.additional_details ||
+      request.problem ||
+      "No detailed message found for this contact request."
+    );
+  }
+
+  window.toggleContactCardAf = function (cardId) {
+    const card = $(cardId);
+    if (card) card.classList.toggle("is-expanded");
+  };
+
+  function renderContactCard(request, index) {
+    const status = getContactStatus(request);
+    const cardId = "contactCardAf_" + index + "_" + String(request.id || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
+
+    const title = escapeHtml(getContactTitle(request));
+    const fullText = escapeHtml(getContactText(request));
+    const createdAt = escapeHtml(formatDate(request.created_at));
+    const note = escapeHtml(request.status_note || request.admin_note || "");
+
+    return [
+      '<article id="' + cardId + '" class="request-card-af contact-status-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleContactCardAf(\'' + cardId + '\')">',
+      '<div class="request-card-top-af">',
+      '<div class="request-card-icon-af">✓</div>',
+      '<div class="request-card-title-af">',
+      "<h3>" + title + "</h3>",
+      "<p>Submitted: " + createdAt + "</p>",
+      "</div>",
+      '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
+      "</div>",
+      '<div class="request-card-detail-af">',
+      "<strong>Your Contact Message</strong>",
+      "<p>" + fullText + "</p>",
+      note ? '<div class="request-note-af">' + note + "</div>" : "",
+      "</div>",
+      "</article>"
+    ].join("");
+  }
+
+  window.loadContactStatusAf = async function (forceRefresh) {
     const list = $("contactStatusListAf");
 
     try {
-      if (list) {
-        list.innerHTML = "";
-      }
+      ensureContactStatusSection();
 
-      statusMessage("contactStatusMessageAf", "", force ? "Refreshing contact request status..." : "Loading your contact requests...");
+      if (list) list.innerHTML = "";
 
-      const email =
-        localStorage.getItem("af_student_email") ||
-        localStorage.getItem("student_email_af") ||
-        localStorage.getItem("contactEmailAf") ||
-        "";
+      setMessage(
+        "contactStatusMessageAf",
+        "",
+        forceRefresh ? "Refreshing contact status..." : "Loading your contact requests..."
+      );
 
-      if (!email) {
-        statusMessage("contactStatusMessageAf", "error", "Login first to view your contact request status.");
+      const identity = getIdentity();
+
+      if (!identity.email && !identity.mobile) {
+        setMessage("contactStatusMessageAf", "error", "Login first to view your contact request status.");
         return;
       }
 
-      const response = await fetch(EDGE.contactStatus, {
+      const response = await fetch(AF_EDGE.contactStatus, {
         method: "POST",
-        headers: getSupabaseHeaders(),
-        body: JSON.stringify({ email })
+        headers: getHeaders(),
+        body: JSON.stringify({
+          registered_email: identity.email,
+          email: identity.email,
+          mobile_number: identity.mobile,
+          mobile: identity.mobile,
+          phone: identity.mobile
+        })
       });
 
-      const result = await response.json().catch(() => null);
+      const result = await response.json().catch(function () {
+        return null;
+      });
 
-      if (!response.ok || result?.success !== true) {
-        throw new Error(result?.message || "Unable to load contact request status right now.");
+      if (!response.ok || !result || result.success !== true) {
+        throw new Error(
+          result && result.message
+            ? result.message
+            : "Unable to load contact request status right now."
+        );
       }
 
-      const requests = Array.isArray(result.requests) ? result.requests : [];
+      const requests = Array.isArray(result.requests)
+        ? result.requests
+        : Array.isArray(result.reports)
+          ? result.reports
+          : Array.isArray(result.data)
+            ? result.data
+            : [];
 
       if (!requests.length) {
-        statusMessage("contactStatusMessageAf", "empty", "No contact request found. Submitted contact requests will appear here.");
+        setMessage("contactStatusMessageAf", "empty", "No contact request found. Your contact messages will appear here after submission.");
         return;
       }
 
-      statusMessage("contactStatusMessageAf", "", "");
-      renderStatusCards("contactStatusListAf", requests, "contact");
-    } catch (error) {
-      statusMessage("contactStatusMessageAf", "error", error.message || "Something went wrong. Please try again.");
-    }
-  };
+      setMessage("contactStatusMessageAf", "", "");
 
-  /*
-  ================================================================================
-  ████████████████████████████████████████████████████████████████████████████████
-                    👉 LEARNING HEATMAP LOGIC 👈
-  ████████████████████████████████████████████████████████████████████████████████
-  ================================================================================
-  */
+      const finalList = $("contactStatusListAf");
 
-  function uuidOk(value) {
-    return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(String(value || "").trim());
-  }
-
-  async function getStudentId() {
-    for (const key of ["af_student_uuid", "af_student_id", "student_id"]) {
-      const value = localStorage.getItem(key);
-
-      if (uuidOk(value)) {
-        return value;
+      if (finalList) {
+        finalList.innerHTML = requests
+          .map(function (request, index) {
+            return renderContactCard(request, index);
+          })
+          .join("");
       }
-    }
-
-    throw new Error("Student ID not found. Login first.");
-  }
-
-  function setHeatmapStatus(message, type = "") {
-    const box = $("learningHeatmapStatus");
-
-    if (!box) {
-      return;
-    }
-
-    box.textContent = message || "";
-    box.dataset.type = type;
-  }
-
-  function setStreak(streak) {
-    const safe = Math.max(0, Number(streak) || 0);
-
-    if ($("learningHeatmapStreakCount")) {
-      $("learningHeatmapStreakCount").textContent = String(safe);
-    }
-
-    if ($("afHeaderStreakCount")) {
-      $("afHeaderStreakCount").textContent = String(safe);
-    }
-  }
-
-  function renderWeek(days = []) {
-    const grid = $("learningWeekGrid");
-
-    if (!grid) {
-      return;
-    }
-
-    const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
-    grid.innerHTML = labels.map((label, index) => {
-      const item = days[index] || {};
-
-      return `
-        <div class="learning-day-box ${item.active ? "active" : ""} ${item.today ? "today" : ""}">
-          <span>${label}</span>
-          <strong>${item.active ? "✓" : "-"}</strong>
-        </div>
-      `;
-    }).join("");
-  }
-
-  async function learningRequest(action) {
-    const response = await fetch(EDGE.learning, {
-      method: "POST",
-      headers: getSupabaseHeaders(),
-      body: JSON.stringify({
-        action,
-        studentId: await getStudentId()
-      })
-    });
-
-    const result = await response.json().catch(() => null);
-
-    if (!response.ok) {
-      throw new Error(result?.error || "Learning activity request failed.");
-    }
-
-    return result;
-  }
-
-  window.loadLearningHeatmap = async function () {
-    try {
-      setHeatmapStatus("Loading activity...", "");
-
-      const result = await learningRequest("summary");
-
-      setStreak(result.streak);
-      renderWeek(result.week);
-
-      setHeatmapStatus(
-        Number(result.streak) > 0
-          ? "Current streak: " + result.streak + " day(s)."
-          : "No active streak yet. Use the app today.",
-        Number(result.streak) > 0 ? "success" : ""
+    } catch (error) {
+      console.error("loadContactStatusAf failed:", error);
+      setMessage(
+        "contactStatusMessageAf",
+        "error",
+        error && error.message ? error.message : "Something went wrong. Please try again."
       );
-    } catch (error) {
-      setStreak(0);
-      setHeatmapStatus(error.message || "Could not load activity.", "error");
     }
   };
 
-  setTimeout(async () => {
-    try {
-      const result = await learningRequest("mark");
-      setStreak(result.streak);
-      renderWeek(result.week);
-      setHeatmapStatus("Today marked active.", "success");
-    } catch (error) {
-      // Silent fail: user may not be logged in yet.
-    }
-  }, 10000);
+  function patchEscapeKey() {
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
 
-  /*
-  ================================================================================
-  ████████████████████████████████████████████████████████████████████████████████
-                    👉 BOOTSTRAP + GLOBAL CLOSE HANDLERS 👈
-  ████████████████████████████████████████████████████████████████████████████████
-  ================================================================================
-  */
+      window.closeBugReportModal();
+      window.closeContactUsSheetAf();
+    });
+  }
 
-  window.logoutStudentafWithMessage = function () {
-    try {
-      if (typeof window.logoutStudentaf === "function") {
-        window.logoutStudentaf();
-      }
+  function initPatch() {
+    ensureContactStatusSection();
+    ensureContactStatusButton();
+    ensureBugOverlayClickSafety();
+    ensureContactSheetClickSafety();
+    patchEscapeKey();
 
-      setTimeout(() => toast("Logged out successfully."), 120);
-    } catch (error) {
-      toast("Logout failed. Please try again.", "error");
-    }
-  };
-
-  window.openSettingsProfile = function () {
-    if (typeof window.openStudentDashboardFromSettingsAf === "function") {
-      window.openStudentDashboardFromSettingsAf();
-      return;
-    }
-
-    window.showSection("studentaf");
-  };
-
-  document.addEventListener("DOMContentLoaded", () => {
-    applyTheme(
-      localStorage.getItem("af_theme_mode") === "dark" ||
-      localStorage.getItem("af_settings_dark_mode") === "1"
-    );
-
-    hydrateSettingsName();
-
-    const active = qs(".section.active,.app-section.active");
-    if (active) {
+    const active = document.querySelector(".section.active, .app-section.active");
+    if (active && active.id !== "contactUsAf") {
       window.showSection(active.id);
     }
-  });
+  }
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape") {
-      return;
-    }
-
-    window.closeBugReportModal();
-    window.closeContactUsSheetAf();
-  });
-
-  window.addEventListener("hashchange", () => {
-    const id = location.hash.replace("#", "").trim();
-
-    if (id && $(id)) {
-      window.showSection(id);
-    }
-  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPatch);
+  } else {
+    initPatch();
+  }
 })();
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: AF FINAL SUPPORT PATCH JS 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
 </script>
-<script>
-(function(){
-"use strict";
-const $=id=>document.getElementById(id);
-const qsa=(s,r=document)=>Array.from(r.querySelectorAll(s));
-const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-const val=id=>String($(id)?.value||"").trim();
-const emailOk=v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(v||"").trim());
-const SUPA_URL="https://afooyyydhlwngzssgqih.supabase.co";
-const EDGE={
- bug:SUPA_URL+"/functions/v1/report-bug",
- bugStatus:SUPA_URL+"/functions/v1/request-status-af",
- contactStatus:SUPA_URL+"/functions/v1/contact-request-status-af"
-};
-function headers(){const k=window.SUPABASE_ANON_KEY||"";return {"Content-Type":"application/json",apikey:k,Authorization:k?"Bearer "+k:""}}
-function currentEmail(){return localStorage.getItem("af_student_email")||localStorage.getItem("student_email_af")||localStorage.getItem("af_registered_email")||localStorage.getItem("studentEmail")||""}
-function currentPhone(){return localStorage.getItem("af_student_mobile")||localStorage.getItem("student_mobile_af")||localStorage.getItem("af_registered_mobile")||localStorage.getItem("studentPhone")||""}
 
-window.openBugReportModal=function(){
- const o=$("bugReportOverlay"); if(!o){alert("Bug report form missing in HTML.");return;}
- $("bugReportForm")?.reset();
- if($("bugReporterEmail") && currentEmail()) $("bugReporterEmail").value=currentEmail();
- if($("bugPageUrl")) $("bugPageUrl").value=location.href;
- if($("bugUserAgent")) $("bugUserAgent").value=navigator.userAgent||"";
- if($("bugReportStatus")){$("bugReportStatus").textContent="";$("bugReportStatus").className="bug-report-status";}
- o.classList.add("show");o.setAttribute("aria-hidden","false");document.body.classList.add("bug-report-open");
- setTimeout(()=>$("bugReporterName")?.focus({preventScroll:true}),160);
-};
-window.closeBugReportModal=function(){const o=$("bugReportOverlay"); if(o){o.classList.remove("show");o.setAttribute("aria-hidden","true")} document.body.classList.remove("bug-report-open")};
-window.openContactUsPage=function(){const o=$("contactUsAf"); if(!o)return; o.classList.add("show");o.setAttribute("aria-hidden","false");document.body.classList.add("contact-sheet-open");setTimeout(()=>$("contactNameAf")?.focus({preventScroll:true}),160)};
-window.closeContactUsSheetAf=function(){const o=$("contactUsAf"); if(o){o.classList.remove("show");o.setAttribute("aria-hidden","true")} document.body.classList.remove("contact-sheet-open")};
-window.backToSettingsFromContact=window.closeContactUsSheetAf;
-
-window.submitBugReport=async function(e){
- e.preventDefault();
- const b=$("bugReportSubmitBtn"), s=$("bugReportStatus");
- try{
-  const payload={reporterName:val("bugReporterName"),reporterEmail:val("bugReporterEmail"),category:val("bugCategory"),priority:val("bugPriority"),description:val("bugDescription"),pageUrl:location.href,userAgent:navigator.userAgent};
-  if(payload.reporterName.length<2) throw new Error("Please enter your name.");
-  if(!emailOk(payload.reporterEmail)) throw new Error("Please enter valid email.");
-  if(!payload.category) throw new Error("Please select category.");
-  if(payload.description.length<10) throw new Error("Please write at least 10 characters.");
-  if(b){b.disabled=true;b.textContent="Submitting..."} if(s){s.textContent="Submitting...";s.className="bug-report-status";}
-  const r=await fetch(EDGE.bug,{method:"POST",headers:headers(),body:JSON.stringify(payload)});
-  const j=await r.json().catch(()=>null); if(!r.ok) throw new Error(j?.error||j?.message||"Submit failed.");
-  if(s){s.textContent="Bug report submitted successfully.";s.className="bug-report-status success";}
-  setTimeout(window.closeBugReportModal,900);
- }catch(err){if(s){s.textContent=err.message||"Something went wrong.";s.className="bug-report-status error";}}
- finally{if(b){b.disabled=false;b.textContent="Submit Report"}}
-};
-
-function statusMsg(id,type,msg){const x=$(id);if(!x)return;x.className="request-status-message-af "+(type==="error"?"is-error":type==="empty"?"is-empty":"");x.textContent=msg||"";x.style.display=msg?"block":"none";}
-function statusLabel(r){const st=String(r.status||"").toLowerCase();const solved=String(r.request_solved||r.solved||"F").toUpperCase()==="T"||st==="solved";const read=String(r.team_read||r.in_review||"F").toUpperCase()==="T"||["in_review","review","read"].includes(st);return solved?["Solved","solved"]:read?["In Review","review"]:["Pending","pending"];}
-function render(listId,items,type){const list=$(listId);if(!list)return;list.innerHTML=items.map((r,i)=>{const [lab,cls]=statusLabel(r);const title=type==="contact"?(r.contact_reason||r.reason||"Contact Request"):(r.category||"Bug Report");const desc=type==="contact"?(r.problem_description||r.description||r.message||""):(r.description||r.problem_description||r.message||"");const date=r.created_at?new Date(r.created_at).toLocaleString("en-IN"):"Recently submitted";return `<article class="request-card-af" style="animation-delay:${i*50}ms"><button type="button" class="request-card-button-af" onclick="toggleRequestCardAf(this)"><span class="request-card-check-af">✓</span><span class="request-card-title-af"><h3>${esc(title)}</h3><p>${esc(date)}</p></span><span class="request-status-pill-af ${cls}">${lab}</span></button><div class="request-card-detail-af"><div class="request-detail-box-af"><strong>${type==="contact"?"Your contact request":"Your bug report"}</strong><p>${esc(desc||"No description available.")}</p></div></div></article>`}).join("")}
-window.toggleRequestCardAf=function(btn){btn.closest(".request-card-af")?.classList.toggle("is-open")};
-
-async function fetchBugStatus(){
- const email=currentEmail(), phone=currentPhone();
- const body={registered_email:email,email,registered_mobile:phone,mobile:phone,phone};
- const r=await fetch(EDGE.bugStatus,{method:"POST",headers:headers(),body:JSON.stringify(body)});
- const j=await r.json().catch(()=>null); if(!r.ok||j?.success===false) throw new Error(j?.message||j?.error||"Unable to fetch bug status.");
- return Array.isArray(j?.reports)?j.reports:(Array.isArray(j?.data)?j.data:[]);
-}
-async function fetchContactStatus(){
- const email=currentEmail(), phone=currentPhone();
- try{
-  const r=await fetch(EDGE.contactStatus,{method:"POST",headers:headers(),body:JSON.stringify({email,registered_email:email,mobile:phone,phone,registered_mobile:phone})});
-  const j=await r.json().catch(()=>null); if(r.ok&&j?.success!==false) return Array.isArray(j?.requests)?j.requests:(Array.isArray(j?.data)?j.data:[]);
- }catch(e){}
- const key=window.SUPABASE_ANON_KEY||""; if(!key) throw new Error("Contact status edge function not reachable and anon key missing.");
- const filters=[]; if(email) filters.push("email.eq."+encodeURIComponent(email.toLowerCase())); if(phone) filters.push("mobile_number.eq."+encodeURIComponent(phone));
- if(!filters.length) throw new Error("Email or phone not found. Login first.");
- const url=SUPA_URL+"/rest/v1/af_contact_requests?select=*&or=("+filters.join(",")+")&order=created_at.desc&limit=50";
- const r=await fetch(url,{headers:{apikey:key,Authorization:"Bearer "+key}});
- const j=await r.json().catch(()=>null); if(!r.ok) throw new Error(j?.message||"Unable to fetch contact status.");
- return Array.isArray(j)?j:[];
-}
-window.openRequestStatusPageAf=function(){window.showSection("requestStatusAf");setTimeout(()=>window.loadRequestStatusAf(false),80)};
-window.loadRequestStatusAf=async function(force){
- try{statusMsg("requestStatusMessageAf","",force?"Refreshing bug status...":"Loading bug status...");$("requestStatusListAf")&&($("requestStatusListAf").innerHTML="");const items=await fetchBugStatus();if(!items.length){statusMsg("requestStatusMessageAf","empty","No bug reports found.");return;}statusMsg("requestStatusMessageAf","","");render("requestStatusListAf",items,"bug");}
- catch(e){statusMsg("requestStatusMessageAf","error",e.message||"Could not fetch bug status.")}
-};
-window.openContactStatusPageAf=function(){window.showSection("contactStatusAf");setTimeout(()=>window.loadContactStatusAf(false),80)};
-window.loadContactStatusAf=async function(force){
- try{statusMsg("contactStatusMessageAf","",force?"Refreshing contact status...":"Loading contact status...");$("contactStatusListAf")&&($("contactStatusListAf").innerHTML="");const items=await fetchContactStatus();if(!items.length){statusMsg("contactStatusMessageAf","empty","No contact requests found.");return;}statusMsg("contactStatusMessageAf","","");render("contactStatusListAf",items,"contact");}
- catch(e){statusMsg("contactStatusMessageAf","error",e.message||"Could not fetch contact status.")}
-};
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){window.closeBugReportModal();window.closeContactUsSheetAf();}});
-})();
-</script>
+<!--
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                    👉 END OF SECTION: AF FINAL SUPPORT PATCH 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+-->
