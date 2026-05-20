@@ -1,2060 +1,2584 @@
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 START OF SECTION: AF FINAL SUPPORT PATCH 👈
-        BUG REPORT SHEET + CONTACT SHEET + REQUEST STATUS + CONTACT STATUS
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
-
-<style>
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 START OF SECTION: AF PATCH VARIABLES 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-:root {
-  --af-fix-bg: #f6f7f9;
-  --af-fix-surface: #ffffff;
-  --af-fix-surface-2: #f2f4f7;
-  --af-fix-text: #111827;
-  --af-fix-muted: #667085;
-  --af-fix-border: #e5e7eb;
-  --af-fix-strong-border: #d0d5dd;
-  --af-fix-primary: #111827;
-  --af-fix-primary-text: #ffffff;
-  --af-fix-success: #087443;
-  --af-fix-warning: #b54708;
-  --af-fix-danger: #b42318;
-  --af-fix-radius-lg: 24px;
-  --af-fix-radius-md: 18px;
-  --af-fix-radius-sm: 14px;
-  --af-fix-shadow: 0 24px 80px rgba(17, 24, 39, 0.16);
-  --af-fix-bottom-nav: 86px;
-}
-
-html.dark-mode,
-body.dark-mode,
-body.settings-dark-mode {
-  --af-fix-bg: #08090b;
-  --af-fix-surface: #111317;
-  --af-fix-surface-2: #181b20;
-  --af-fix-text: #f9fafb;
-  --af-fix-muted: #a1a1aa;
-  --af-fix-border: #262a31;
-  --af-fix-strong-border: #343942;
-  --af-fix-primary: #f9fafb;
-  --af-fix-primary-text: #09090b;
-  --af-fix-success: #4ade80;
-  --af-fix-warning: #fbbf24;
-  --af-fix-danger: #fb7185;
-  --af-fix-shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: AF PATCH VARIABLES 👈
-                       👉 START OF: GLOBAL PATCH RESET 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-html,
-body {
-  background: var(--af-fix-bg) !important;
-  color: var(--af-fix-text) !important;
-}
-
-body {
-  min-height: 100dvh;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
-}
-
-button,
-input,
-select,
-textarea {
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif !important;
-}
-
-button {
-  -webkit-tap-highlight-color: transparent;
-}
-
-.section,
-.app-section {
-  background: var(--af-fix-bg) !important;
-  color: var(--af-fix-text) !important;
-}
-
-.section:not(.active),
-.app-section:not(.active) {
-  display: none;
-}
-
-.section.active,
-.app-section.active {
-  display: block;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: GLOBAL PATCH RESET 👈
-                       👉 START OF: MOBILE APP WIDTH FIX 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-.app,
-main.app,
-#app,
-.app-shell {
-  width: 100% !important;
-  max-width: 480px !important;
-  min-height: 100dvh !important;
-  margin: 0 auto !important;
-  background: var(--af-fix-bg) !important;
-  color: var(--af-fix-text) !important;
-  overflow-x: hidden !important;
-}
-
-@media (min-width: 768px) {
-  body {
-    background:
-      linear-gradient(90deg, rgba(0, 0, 0, 0.04), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.04)),
-      var(--af-fix-bg) !important;
-  }
-
-  html.dark-mode body,
-  body.dark-mode {
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.035)),
-      var(--af-fix-bg) !important;
-  }
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: MOBILE APP WIDTH FIX 👈
-                       👉 START OF: SETTINGS BUTTON PATCH 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-.settings-row,
-.settings-row-btn,
-.settings-support-row {
-  width: 100%;
-  min-height: 58px;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 14px !important;
-  padding: 14px 16px !important;
-  border-radius: var(--af-fix-radius-md) !important;
-  background: var(--af-fix-surface) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  box-shadow: none !important;
-  transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease !important;
-}
-
-.settings-row:hover,
-.settings-row-btn:hover,
-.settings-support-row:hover {
-  transform: translateY(-1px);
-  border-color: var(--af-fix-strong-border) !important;
-  background: var(--af-fix-surface-2) !important;
-}
-
-.settings-row-left,
-.settings-support-left {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  min-width: 0 !important;
-}
-
-.settings-row-icon,
-.settings-support-icon {
-  width: 34px !important;
-  height: 34px !important;
-  min-width: 34px !important;
-  display: grid !important;
-  place-items: center !important;
-  border-radius: 12px !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-}
-
-.settings-new-badge,
-.request-status-pill-af {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 28px !important;
-  padding: 0 10px !important;
-  border-radius: 999px !important;
-  border: 1px solid var(--af-fix-border) !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 12px !important;
-  font-weight: 800 !important;
-  white-space: nowrap !important;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: SETTINGS BUTTON PATCH 👈
-                       👉 START OF: STATUS PAGES DESIGN 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-.request-status-section-af,
-.contact-status-section-af {
-  min-height: 100dvh !important;
-  padding: 18px 14px calc(var(--af-fix-bottom-nav) + 28px) !important;
-  background: var(--af-fix-bg) !important;
-}
-
-.request-status-page-af,
-.contact-status-page-af {
-  width: 100% !important;
-  max-width: 480px !important;
-  margin: 0 auto !important;
-}
-
-.request-status-hero-af,
-.contact-status-hero-af {
-  display: grid !important;
-  grid-template-columns: auto 1fr auto !important;
-  align-items: center !important;
-  gap: 12px !important;
-  padding: 16px !important;
-  margin: 0 0 14px !important;
-  border-radius: var(--af-fix-radius-lg) !important;
-  background: var(--af-fix-surface) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  box-shadow: none !important;
-}
-
-.request-status-back-af,
-.request-status-refresh-af,
-.contact-status-back-af,
-.contact-status-refresh-af {
-  width: 42px !important;
-  height: 42px !important;
-  display: grid !important;
-  place-items: center !important;
-  border-radius: 15px !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  font-size: 0 !important;
-  transition:
-    transform 160ms ease,
-    background 160ms ease,
-    border-color 160ms ease !important;
-}
-
-.request-status-back-af::before,
-.contact-status-back-af::before {
-  content: "←";
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.request-status-refresh-af::before,
-.contact-status-refresh-af::before {
-  content: "↻";
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.request-status-back-af:hover,
-.request-status-refresh-af:hover,
-.contact-status-back-af:hover,
-.contact-status-refresh-af:hover {
-  transform: translateY(-1px);
-  border-color: var(--af-fix-strong-border) !important;
-}
-
-.request-status-hero-text-af,
-.contact-status-hero-text-af {
-  min-width: 0 !important;
-}
-
-.request-status-hero-text-af p,
-.contact-status-hero-text-af p {
-  margin: 0 0 4px !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 11px !important;
-  font-weight: 850 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-}
-
-.request-status-hero-text-af h2,
-.contact-status-hero-text-af h2 {
-  margin: 0 !important;
-  color: var(--af-fix-text) !important;
-  font-size: 22px !important;
-  line-height: 1.1 !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.04em !important;
-}
-
-.request-status-hero-text-af span,
-.contact-status-hero-text-af span {
-  display: block !important;
-  margin-top: 5px !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 12px !important;
-  line-height: 1.4 !important;
-}
-
-.request-status-message-af,
-.contact-status-message-af,
-.contact-message-af,
-.bug-report-status {
-  display: none;
-  margin: 12px 0 !important;
-  padding: 12px 14px !important;
-  border-radius: var(--af-fix-radius-sm) !important;
-  background: var(--af-fix-surface) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 13px !important;
-  font-weight: 750 !important;
-  line-height: 1.45 !important;
-}
-
-.request-status-message-af.is-error,
-.contact-status-message-af.is-error,
-.contact-message-af.is-error,
-.bug-report-status.error {
-  display: block !important;
-  color: var(--af-fix-danger) !important;
-  border-color: color-mix(in srgb, var(--af-fix-danger) 35%, var(--af-fix-border)) !important;
-}
-
-.request-status-message-af.is-empty,
-.contact-status-message-af.is-empty {
-  display: block !important;
-  color: var(--af-fix-muted) !important;
-}
-
-.contact-message-af.is-success,
-.bug-report-status.success {
-  display: block !important;
-  color: var(--af-fix-success) !important;
-  border-color: color-mix(in srgb, var(--af-fix-success) 35%, var(--af-fix-border)) !important;
-}
-
-.request-status-list-af,
-.contact-status-list-af {
-  display: grid !important;
-  gap: 12px !important;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: STATUS PAGES DESIGN 👈
-                       👉 START OF: STATUS CARD DESIGN 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-.request-card-af,
-.contact-status-card-af {
-  width: 100% !important;
-  padding: 16px !important;
-  border-radius: var(--af-fix-radius-lg) !important;
-  background: var(--af-fix-surface) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  color: var(--af-fix-text) !important;
-  box-shadow: none !important;
-  cursor: pointer !important;
-  animation: afFixFadeUp 220ms ease both !important;
-  transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease !important;
-}
-
-.request-card-af:hover,
-.contact-status-card-af:hover {
-  transform: translateY(-1px);
-  border-color: var(--af-fix-strong-border) !important;
-}
-
-.request-card-top-af {
-  display: grid !important;
-  grid-template-columns: auto 1fr auto !important;
-  align-items: flex-start !important;
-  gap: 12px !important;
-}
-
-.request-card-icon-af {
-  width: 38px !important;
-  height: 38px !important;
-  min-width: 38px !important;
-  display: grid !important;
-  place-items: center !important;
-  border-radius: 50% !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-success) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  font-size: 18px !important;
-  font-weight: 950 !important;
-}
-
-.request-card-title-af {
-  min-width: 0 !important;
-}
-
-.request-card-title-af h3 {
-  margin: 0 0 5px !important;
-  color: var(--af-fix-text) !important;
-  font-size: 16px !important;
-  line-height: 1.25 !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.02em !important;
-}
-
-.request-card-title-af p {
-  margin: 2px 0 !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 12px !important;
-  line-height: 1.4 !important;
-  font-weight: 650 !important;
-}
-
-.request-status-pill-af.pending {
-  color: var(--af-fix-muted) !important;
-}
-
-.request-status-pill-af.read {
-  color: var(--af-fix-warning) !important;
-}
-
-.request-status-pill-af.solved {
-  color: var(--af-fix-success) !important;
-}
-
-.request-progress-af {
-  display: grid !important;
-  gap: 10px !important;
-  margin-top: 16px !important;
-  padding-top: 14px !important;
-  border-top: 1px solid var(--af-fix-border) !important;
-}
-
-.request-step-af {
-  display: grid !important;
-  grid-template-columns: 28px 1fr !important;
-  gap: 10px !important;
-  align-items: flex-start !important;
-}
-
-.request-step-dot-af {
-  width: 28px !important;
-  height: 28px !important;
-  display: grid !important;
-  place-items: center !important;
-  border-radius: 50% !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-muted) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  font-size: 13px !important;
-  font-weight: 950 !important;
-}
-
-.request-step-af.is-done .request-step-dot-af {
-  color: var(--af-fix-success) !important;
-  border-color: color-mix(in srgb, var(--af-fix-success) 35%, var(--af-fix-border)) !important;
-}
-
-.request-step-af.is-pending .request-step-dot-af {
-  color: var(--af-fix-warning) !important;
-  border-color: color-mix(in srgb, var(--af-fix-warning) 35%, var(--af-fix-border)) !important;
-}
-
-.request-step-content-af strong {
-  display: block !important;
-  margin: 0 0 2px !important;
-  color: var(--af-fix-text) !important;
-  font-size: 13px !important;
-  line-height: 1.3 !important;
-  font-weight: 850 !important;
-}
-
-.request-step-content-af span {
-  display: block !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 12px !important;
-  line-height: 1.4 !important;
-  font-weight: 600 !important;
-}
-
-.request-card-detail-af {
-  display: none !important;
-  margin-top: 14px !important;
-  padding: 14px !important;
-  border-radius: var(--af-fix-radius-sm) !important;
-  background: var(--af-fix-surface-2) !important;
-  border: 1px solid var(--af-fix-border) !important;
-}
-
-.request-card-af.is-expanded .request-card-detail-af,
-.contact-status-card-af.is-expanded .request-card-detail-af {
-  display: block !important;
-}
-
-.request-card-detail-af strong {
-  display: block !important;
-  margin-bottom: 6px !important;
-  color: var(--af-fix-text) !important;
-  font-size: 13px !important;
-  font-weight: 900 !important;
-}
-
-.request-card-detail-af p {
-  margin: 0 !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 13px !important;
-  line-height: 1.55 !important;
-  white-space: pre-wrap !important;
-}
-
-.request-note-af {
-  margin-top: 12px !important;
-  padding: 12px !important;
-  border-radius: var(--af-fix-radius-sm) !important;
-  background: var(--af-fix-surface) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 12px !important;
-  line-height: 1.45 !important;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: STATUS CARD DESIGN 👈
-                       👉 START OF: BUG REPORT BOTTOM SHEET 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-#bugReportOverlay,
-.bug-report-overlay {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 999999 !important;
-  display: none !important;
-  align-items: flex-end !important;
-  justify-content: center !important;
-  padding: 14px !important;
-  background: rgba(0, 0, 0, 0.46) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-#bugReportOverlay.show,
-.bug-report-overlay.show {
-  display: flex !important;
-}
-
-.bug-report-modal {
-  width: min(100%, 480px) !important;
-  max-height: min(86dvh, 760px) !important;
-  overflow: auto !important;
-  overscroll-behavior: contain !important;
-  padding: 18px !important;
-  border-radius: 28px 28px 20px 20px !important;
-  background: var(--af-fix-surface) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  box-shadow: var(--af-fix-shadow) !important;
-  transform: translateY(110%) !important;
-  animation: afFixSheetUp 260ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
-}
-
-.bug-report-modal::before,
-.contact-us-af-page::before {
-  content: "";
-  display: block;
-  width: 42px;
-  height: 5px;
-  margin: 0 auto 14px;
-  border-radius: 999px;
-  background: var(--af-fix-border);
-}
-
-.bug-report-header {
-  display: flex !important;
-  align-items: flex-start !important;
-  justify-content: space-between !important;
-  gap: 14px !important;
-  margin-bottom: 14px !important;
-}
-
-.bug-report-title-wrap {
-  display: flex !important;
-  gap: 12px !important;
-  align-items: flex-start !important;
-}
-
-.bug-report-icon {
-  width: 42px !important;
-  height: 42px !important;
-  display: grid !important;
-  place-items: center !important;
-  border-radius: 16px !important;
-  background: var(--af-fix-surface-2) !important;
-  border: 1px solid var(--af-fix-border) !important;
-}
-
-.bug-report-title h2,
-.bug-report-title {
-  margin: 0 !important;
-  color: var(--af-fix-text) !important;
-  font-size: 20px !important;
-  line-height: 1.15 !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.035em !important;
-}
-
-.bug-report-subtitle,
-.bug-report-title p {
-  margin: 5px 0 0 !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 12px !important;
-  line-height: 1.45 !important;
-}
-
-.bug-report-close {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  display: grid !important;
-  place-items: center !important;
-  border-radius: 50% !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  font-size: 22px !important;
-  font-weight: 800 !important;
-}
-
-.bug-report-form {
-  display: grid !important;
-  gap: 12px !important;
-}
-
-.bug-report-field {
-  display: grid !important;
-  gap: 7px !important;
-}
-
-.bug-report-field span,
-.bug-report-field label,
-.contact-field-af label {
-  color: var(--af-fix-text) !important;
-  font-size: 12px !important;
-  line-height: 1.2 !important;
-  font-weight: 850 !important;
-}
-
-.bug-report-field input,
-.bug-report-field select,
-.bug-report-field textarea,
-.contact-field-af input,
-.contact-field-af select,
-.contact-field-af textarea {
-  width: 100% !important;
-  min-height: 48px !important;
-  padding: 12px 14px !important;
-  border-radius: var(--af-fix-radius-sm) !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  outline: none !important;
-  box-shadow: none !important;
-  font-size: 14px !important;
-  font-weight: 650 !important;
-  transition:
-    border-color 160ms ease,
-    background 160ms ease !important;
-}
-
-.bug-report-field textarea,
-.contact-field-af textarea {
-  min-height: 118px !important;
-  resize: vertical !important;
-}
-
-.bug-report-field input:focus,
-.bug-report-field select:focus,
-.bug-report-field textarea:focus,
-.contact-field-af input:focus,
-.contact-field-af select:focus,
-.contact-field-af textarea:focus {
-  border-color: var(--af-fix-text) !important;
-  background: var(--af-fix-surface) !important;
-}
-
-.bug-report-submit,
-.contact-submit-btn-af {
-  width: 100% !important;
-  min-height: 52px !important;
-  border-radius: 16px !important;
-  background: var(--af-fix-primary) !important;
-  color: var(--af-fix-primary-text) !important;
-  border: 1px solid var(--af-fix-primary) !important;
-  font-size: 14px !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.01em !important;
-}
-
-.bug-report-submit:disabled,
-.contact-submit-btn-af:disabled {
-  opacity: 0.62 !important;
-  cursor: not-allowed !important;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: BUG REPORT BOTTOM SHEET 👈
-                       👉 START OF: CONTACT US BOTTOM SHEET 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-#contactUsAf.contact-us-af-section {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 999998 !important;
-  display: none !important;
-  align-items: flex-end !important;
-  justify-content: center !important;
-  padding: 14px !important;
-  background: rgba(0, 0, 0, 0.46) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-#contactUsAf.contact-us-af-section.active {
-  display: flex !important;
-}
-
-.contact-us-af-page {
-  width: min(100%, 480px) !important;
-  max-height: min(86dvh, 760px) !important;
-  overflow: auto !important;
-  overscroll-behavior: contain !important;
-  padding: 18px !important;
-  border-radius: 28px 28px 20px 20px !important;
-  background: var(--af-fix-surface) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  box-shadow: var(--af-fix-shadow) !important;
-  transform: translateY(110%) !important;
-  animation: afFixSheetUp 260ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
-}
-
-.contact-back-btn-af {
-  width: auto !important;
-  min-height: 42px !important;
-  margin-bottom: 12px !important;
-  padding: 0 14px !important;
-  border-radius: 999px !important;
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-text) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  font-size: 13px !important;
-  font-weight: 850 !important;
-}
-
-.contact-us-af-card {
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.contact-us-af-head {
-  display: grid !important;
-  grid-template-columns: auto 1fr !important;
-  gap: 12px !important;
-  align-items: flex-start !important;
-  margin-bottom: 16px !important;
-}
-
-.contact-us-af-icon {
-  width: 42px !important;
-  height: 42px !important;
-  display: grid !important;
-  place-items: center !important;
-  border-radius: 16px !important;
-  background: var(--af-fix-surface-2) !important;
-  border: 1px solid var(--af-fix-border) !important;
-}
-
-.contact-us-af-kicker {
-  margin: 0 0 5px !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 11px !important;
-  font-weight: 850 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-}
-
-.contact-us-af-head h2 {
-  margin: 0 !important;
-  color: var(--af-fix-text) !important;
-  font-size: 20px !important;
-  line-height: 1.15 !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.035em !important;
-}
-
-.contact-us-af-head p {
-  margin: 5px 0 0 !important;
-  color: var(--af-fix-muted) !important;
-  font-size: 12px !important;
-  line-height: 1.45 !important;
-}
-
-.contact-us-af-form {
-  display: grid !important;
-  gap: 12px !important;
-}
-
-.contact-field-af {
-  display: grid !important;
-  gap: 7px !important;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: CONTACT US BOTTOM SHEET 👈
-                       👉 START OF: BOTTOM NAV PATCH 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-.bottom-nav {
-  width: min(100% - 16px, 464px) !important;
-  max-width: 464px !important;
-  left: 50% !important;
-  right: auto !important;
-  transform: translateX(-50%) !important;
-  bottom: 10px !important;
-  padding: 6px !important;
-  border-radius: 24px !important;
-  background: color-mix(in srgb, var(--af-fix-surface) 92%, transparent) !important;
-  border: 1px solid var(--af-fix-border) !important;
-  box-shadow: 0 12px 42px rgba(17, 24, 39, 0.12) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-}
-
-.nav-btn {
-  min-height: 58px !important;
-  border-radius: 18px !important;
-  color: var(--af-fix-muted) !important;
-  background: transparent !important;
-  border: 1px solid transparent !important;
-  font-size: 11px !important;
-  font-weight: 750 !important;
-}
-
-.nav-btn.active {
-  background: var(--af-fix-surface-2) !important;
-  color: var(--af-fix-text) !important;
-  border-color: var(--af-fix-border) !important;
-}
-
-.nav-btn b {
-  font-size: 16px !important;
-  line-height: 1 !important;
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: BOTTOM NAV PATCH 👈
-                       👉 START OF: ANIMATIONS + RESPONSIVE 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-@keyframes afFixSheetUp {
-  from {
-    transform: translateY(110%);
-    opacity: 0.72;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes afFixFadeUp {
-  from {
-    transform: translateY(8px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 380px) {
-  .request-status-hero-af,
-  .contact-status-hero-af {
-    grid-template-columns: auto 1fr auto !important;
-    padding: 14px !important;
-  }
-
-  .request-status-hero-text-af h2,
-  .contact-status-hero-text-af h2 {
-    font-size: 19px !important;
-  }
-
-  .request-card-top-af {
-    grid-template-columns: auto 1fr !important;
-  }
-
-  .request-status-pill-af {
-    grid-column: 2 / 3 !important;
-    justify-self: start !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bug-report-modal,
-  .contact-us-af-page,
-  .request-card-af {
-    animation: none !important;
-    transform: none !important;
-  }
-}
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: ANIMATIONS + RESPONSIVE 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-</style>
-
-<script>
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 START OF SECTION: AF FINAL SUPPORT PATCH JS 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-
-(function () {
-  "use strict";
-
-  const AF_EDGE = {
-    bug: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/report-bug",
-    requestStatus: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/request-status-af",
-    contactSubmit: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/contact-request",
-    contactStatus: "https://afooyyydhlwngzssgqih.supabase.co/functions/v1/contact-request-status-af"
-  };
-
-  function $(id) {
-    return document.getElementById(id);
-  }
-
-  function qsa(selector, root) {
-    return Array.from((root || document).querySelectorAll(selector));
-  }
-
-  function valueOf(id) {
-    const node = $(id);
-    return String(node && node.value ? node.value : "").trim();
-  }
-
-  function escapeHtml(value) {
-    return String(value == null ? "" : value).replace(/[&<>"']/g, function (char) {
-      return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-      }[char];
-    });
-  }
-
-  function isEmail(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
-  }
-
-  function getAnonKey() {
-    return typeof window.SUPABASE_ANON_KEY !== "undefined" && window.SUPABASE_ANON_KEY
-      ? window.SUPABASE_ANON_KEY
-      : "";
-  }
-
-  function getHeaders() {
-    const key = getAnonKey();
-
-    const headers = {
-      "Content-Type": "application/json"
-    };
-
-    if (key) {
-      headers.apikey = key;
-      headers.Authorization = "Bearer " + key;
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <title>AcademeForge Settings</title>
+
+  <style>
+    :root {
+      --af-bg: #f6f7fb;
+      --af-bg-2: #eef2f7;
+      --af-surface: #ffffff;
+      --af-surface-2: #f1f4f9;
+      --af-surface-3: #e9eef6;
+      --af-text: #101828;
+      --af-muted: #667085;
+      --af-muted-2: #98a2b3;
+      --af-border: #e4e7ec;
+      --af-border-strong: #d0d5dd;
+      --af-primary: #111827;
+      --af-primary-text: #ffffff;
+      --af-success: #087443;
+      --af-danger: #b42318;
+      --af-warning: #b54708;
+      --af-blue: #175cd3;
+      --af-shadow: 0 18px 55px rgba(16, 24, 40, 0.12);
+      --af-soft-shadow: 0 10px 28px rgba(16, 24, 40, 0.07);
+      --af-radius-xl: 30px;
+      --af-radius-lg: 24px;
+      --af-radius-md: 18px;
+      --af-radius-sm: 14px;
+      --af-bottom-nav-height: 88px;
+      --af-max-width: 520px;
     }
 
-    return headers;
-  }
-
-  function safeJsonParse(raw) {
-    try {
-      if (!raw) return null;
-      const parsed = JSON.parse(raw);
-      return parsed && typeof parsed === "object" ? parsed : null;
-    } catch (error) {
-      return null;
+    html.dark-mode,
+    body.dark-mode,
+    body.settings-dark-mode,
+    html[data-theme="dark"],
+    body[data-theme="dark"] {
+      --af-bg: #07090d;
+      --af-bg-2: #0b0f16;
+      --af-surface: #111722;
+      --af-surface-2: #151d2a;
+      --af-surface-3: #1b2534;
+      --af-text: #f8fafc;
+      --af-muted: #a4adbb;
+      --af-muted-2: #7b8493;
+      --af-border: #263244;
+      --af-border-strong: #354257;
+      --af-primary: #f8fafc;
+      --af-primary-text: #080b10;
+      --af-success: #4ade80;
+      --af-danger: #fb7185;
+      --af-warning: #fbbf24;
+      --af-blue: #93c5fd;
+      --af-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+      --af-soft-shadow: 0 14px 42px rgba(0, 0, 0, 0.28);
     }
-  }
 
-  function getStoredStudent() {
-    const keys = [
-      "af_current_student",
-      "af_logged_student",
-      "af_student_session",
-      "af_student_data",
-      "studentaf_session",
-      "student_session_af",
-      "currentStudentaf",
-      "current_student_af",
-      "currentStudent",
-      "studentData",
-      "loggedInStudent",
-      "student"
-    ];
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-    for (let i = 0; i < keys.length; i += 1) {
-      const parsed = safeJsonParse(localStorage.getItem(keys[i]));
+    html {
+      width: 100%;
+      min-height: 100%;
+      scroll-behavior: smooth;
+      background: var(--af-bg);
+    }
 
-      if (parsed) {
-        const student = parsed.student || parsed.data || parsed.user || parsed.profile || parsed;
+    body {
+      width: 100%;
+      min-height: 100dvh;
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(17, 24, 39, 0.07), transparent 34%),
+        radial-gradient(circle at top right, rgba(23, 92, 211, 0.06), transparent 32%),
+        var(--af-bg);
+      color: var(--af-text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+      transition: background 180ms ease, color 180ms ease;
+    }
 
-        if (student && typeof student === "object") {
-          return student;
+    body.dark-mode,
+    body.settings-dark-mode {
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.055), transparent 34%),
+        radial-gradient(circle at top right, rgba(147, 197, 253, 0.045), transparent 32%),
+        var(--af-bg);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.62;
+    }
+
+    input,
+    select,
+    textarea {
+      min-width: 0;
+    }
+
+    .app {
+      width: 100%;
+      max-width: var(--af-max-width);
+      min-height: 100dvh;
+      margin: 0 auto;
+      background: var(--af-bg);
+      color: var(--af-text);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .section,
+    .app-section {
+      display: none;
+      width: 100%;
+      min-height: 100dvh;
+      padding: 16px 12px calc(var(--af-bottom-nav-height) + 28px);
+      background: var(--af-bg);
+      color: var(--af-text);
+    }
+
+    .section.active,
+    .section.active-section,
+    .app-section.active,
+    .app-section.active-section {
+      display: block;
+    }
+
+    .settings-page,
+    .request-status-page-af,
+    .contact-status-page-af {
+      width: 100%;
+      max-width: var(--af-max-width);
+      margin: 0 auto;
+    }
+
+    .settings-profile-card,
+    .settings-beta-card,
+    .settings-row,
+    .settings-support-row,
+    .settings-app-version-box,
+    .request-status-hero-af,
+    .request-card-af,
+    .contact-us-af-page,
+    .bug-report-modal {
+      background: var(--af-surface);
+      color: var(--af-text);
+      border: 1px solid var(--af-border);
+      box-shadow: var(--af-soft-shadow);
+    }
+
+    .settings-profile-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      border-radius: var(--af-radius-lg);
+      margin-bottom: 12px;
+    }
+
+    .settings-avatar {
+      width: 58px;
+      height: 58px;
+      min-width: 58px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: var(--af-primary);
+      color: var(--af-primary-text);
+      font-size: 26px;
+      font-weight: 950;
+      box-shadow: 0 10px 28px rgba(17, 24, 39, 0.18);
+    }
+
+    .settings-profile-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .settings-profile-info h2 {
+      margin: 0;
+      color: var(--af-text);
+      font-size: 23px;
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: -0.045em;
+      word-break: break-word;
+    }
+
+    .settings-profile-link {
+      margin-top: 7px;
+      padding: 0;
+      background: transparent;
+      color: var(--af-muted);
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+
+    .settings-beta-card {
+      width: 100%;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 16px;
+      margin-bottom: 12px;
+      border-radius: var(--af-radius-md);
+      text-decoration: none;
+      color: var(--af-text);
+      font-size: 15px;
+      font-weight: 950;
+      letter-spacing: -0.01em;
+    }
+
+    .settings-list,
+    .settings-support-list {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 12px;
+      padding: 0;
+    }
+
+    .settings-row,
+    .settings-row-btn,
+    .settings-support-row {
+      width: 100%;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: var(--af-radius-md);
+      background: var(--af-surface);
+      color: var(--af-text);
+      text-align: left;
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .settings-row:hover,
+    .settings-row-btn:hover,
+    .settings-support-row:hover {
+      transform: translateY(-1px);
+      border-color: var(--af-border-strong);
+      background: var(--af-surface-2);
+    }
+
+    .settings-row-left,
+    .settings-support-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .settings-row-icon,
+    .settings-support-icon {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--af-surface-2);
+      color: var(--af-text);
+      border: 1px solid var(--af-border);
+      font-size: 17px;
+    }
+
+    .settings-arrow {
+      color: var(--af-muted);
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .settings-new-badge,
+    .request-status-pill-af {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--af-surface-2);
+      color: var(--af-muted);
+      border: 1px solid var(--af-border);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .settings-logout-row,
+    .settings-logout-icon {
+      color: var(--af-danger);
+    }
+
+    .settings-app-version-box {
+      padding: 15px;
+      border-radius: var(--af-radius-md);
+      text-align: center;
+    }
+
+    .settings-app-version-box strong {
+      display: block;
+      color: var(--af-text);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .settings-app-version-box span {
+      display: block;
+      margin-top: 5px;
+      color: var(--af-muted);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .settings-switch {
+      position: relative;
+      width: 54px;
+      height: 31px;
+      flex: 0 0 auto;
+    }
+
+    .settings-switch input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .settings-slider {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: var(--af-surface-2);
+      border: 1px solid var(--af-border);
+      transition: background 180ms ease, border-color 180ms ease;
+    }
+
+    .settings-slider::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 23px;
+      height: 23px;
+      border-radius: 999px;
+      background: var(--af-muted);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .settings-switch input:checked + .settings-slider {
+      background: var(--af-primary);
+      border-color: var(--af-primary);
+    }
+
+    .settings-switch input:checked + .settings-slider::before {
+      transform: translateX(23px);
+      background: var(--af-primary-text);
+    }
+
+    .request-status-section-af,
+    .contact-status-section-af {
+      min-height: 100dvh;
+      padding: 16px 12px calc(var(--af-bottom-nav-height) + 28px);
+      background: var(--af-bg);
+    }
+
+    .request-status-hero-af {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      margin-bottom: 14px;
+      border-radius: var(--af-radius-lg);
+    }
+
+    .request-status-back-af,
+    .request-status-refresh-af {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      min-height: 44px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border-radius: 15px;
+      background: var(--af-surface-2);
+      color: var(--af-text);
+      border: 1px solid var(--af-border);
+      font-size: 0;
+      font-weight: 950;
+    }
+
+    .request-status-back-af::before {
+      content: "←";
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .request-status-refresh-af::before {
+      content: "↻";
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .request-status-hero-text-af {
+      min-width: 0;
+      text-align: left;
+    }
+
+    .request-status-hero-text-af p,
+    .contact-us-af-kicker,
+    .bug-report-kicker {
+      margin: 0 0 5px;
+      color: var(--af-muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .request-status-hero-text-af h2,
+    .contact-us-af-head h2,
+    .bug-report-title {
+      margin: 0;
+      color: var(--af-text);
+      font-size: 22px;
+      line-height: 1.1;
+      font-weight: 950;
+      letter-spacing: -0.045em;
+    }
+
+    .request-status-hero-text-af span,
+    .contact-us-af-head p {
+      display: block;
+      margin-top: 5px;
+      color: var(--af-muted);
+      font-size: 12px;
+      line-height: 1.42;
+      font-weight: 700;
+    }
+
+    .request-status-message-af,
+    .contact-message-af,
+    .bug-report-status {
+      display: none;
+      margin: 12px 0;
+      padding: 12px 14px;
+      border-radius: var(--af-radius-sm);
+      background: var(--af-surface);
+      border: 1px solid var(--af-border);
+      color: var(--af-muted);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+
+    .request-status-message-af.is-error,
+    .contact-message-af.is-error,
+    .bug-report-status.error,
+    .bug-report-status.is-error {
+      display: block;
+      color: var(--af-danger);
+      border-color: color-mix(in srgb, var(--af-danger) 35%, var(--af-border));
+    }
+
+    .request-status-message-af.is-empty {
+      display: block;
+      color: var(--af-muted);
+    }
+
+    .contact-message-af.is-success,
+    .bug-report-status.success,
+    .bug-report-status.is-success {
+      display: block;
+      color: var(--af-success);
+      border-color: color-mix(in srgb, var(--af-success) 35%, var(--af-border));
+    }
+
+    .request-status-list-af {
+      display: grid;
+      gap: 12px;
+    }
+
+    .request-card-af {
+      width: 100%;
+      padding: 16px;
+      border-radius: var(--af-radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      animation: afFadeUp 220ms ease both;
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background 160ms ease;
+    }
+
+    .request-card-af:hover {
+      transform: translateY(-1px);
+      border-color: var(--af-border-strong);
+    }
+
+    .request-card-top-af {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .request-card-icon-af {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--af-surface-2);
+      color: var(--af-success);
+      border: 1px solid var(--af-border);
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .request-card-title-af {
+      min-width: 0;
+    }
+
+    .request-card-title-af h3 {
+      margin: 0 0 5px;
+      color: var(--af-text);
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      word-break: break-word;
+    }
+
+    .request-card-title-af p {
+      margin: 2px 0;
+      color: var(--af-muted);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .request-status-pill-af.pending {
+      color: var(--af-muted);
+    }
+
+    .request-status-pill-af.read,
+    .request-status-pill-af.review {
+      color: var(--af-warning);
+    }
+
+    .request-status-pill-af.solved {
+      color: var(--af-success);
+    }
+
+    .request-progress-af {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--af-border);
+    }
+
+    .request-step-af {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .request-step-dot-af {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--af-surface-2);
+      color: var(--af-muted);
+      border: 1px solid var(--af-border);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .request-step-af.is-done .request-step-dot-af {
+      color: var(--af-success);
+      border-color: color-mix(in srgb, var(--af-success) 35%, var(--af-border));
+    }
+
+    .request-step-af.is-pending .request-step-dot-af {
+      color: var(--af-warning);
+      border-color: color-mix(in srgb, var(--af-warning) 35%, var(--af-border));
+    }
+
+    .request-step-content-af strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--af-text);
+      font-size: 13px;
+      line-height: 1.3;
+      font-weight: 950;
+    }
+
+    .request-step-content-af span {
+      display: block;
+      color: var(--af-muted);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .request-card-detail-af {
+      display: none;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: var(--af-radius-sm);
+      background: var(--af-surface-2);
+      border: 1px solid var(--af-border);
+    }
+
+    .request-card-af.is-expanded .request-card-detail-af,
+    .request-card-af.is-open .request-card-detail-af {
+      display: block;
+    }
+
+    .request-card-detail-af strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--af-text);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .request-card-detail-af p {
+      margin: 0;
+      color: var(--af-muted);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 700;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .request-note-af {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: var(--af-radius-sm);
+      background: var(--af-surface);
+      border: 1px solid var(--af-border);
+      color: var(--af-muted);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 750;
+    }
+
+    #bugReportOverlay,
+    .bug-report-overlay,
+    #contactUsAf,
+    #contactUsAf.contact-sheet-overlay-af {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 14px;
+      background: rgba(0, 0, 0, 0.52);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: opacity 220ms ease, visibility 220ms ease;
+    }
+
+    #contactUsAf {
+      z-index: 999998;
+    }
+
+    #bugReportOverlay.show,
+    .bug-report-overlay.show,
+    #bugReportOverlay[aria-hidden="false"],
+    .bug-report-overlay[aria-hidden="false"],
+    #contactUsAf.show,
+    #contactUsAf.active,
+    #contactUsAf[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .bug-report-modal,
+    .contact-us-af-page {
+      width: min(100%, var(--af-max-width));
+      max-height: min(88dvh, 780px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 18px;
+      border-radius: 30px 30px 20px 20px;
+      box-shadow: var(--af-shadow);
+      transform: translateY(110%);
+      transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #bugReportOverlay.show .bug-report-modal,
+    #bugReportOverlay[aria-hidden="false"] .bug-report-modal,
+    #contactUsAf.show .contact-us-af-page,
+    #contactUsAf.active .contact-us-af-page,
+    #contactUsAf[aria-hidden="false"] .contact-us-af-page {
+      transform: translateY(0);
+    }
+
+    .bug-report-modal::before,
+    .contact-us-af-page::before {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 5px;
+      margin: 0 auto 14px;
+      border-radius: 999px;
+      background: var(--af-border-strong);
+    }
+
+    .bug-report-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .bug-report-x,
+    .contact-back-btn-af {
+      min-width: 40px;
+      min-height: 40px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--af-surface-2);
+      color: var(--af-text);
+      border: 1px solid var(--af-border);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .contact-back-btn-af {
+      width: auto;
+      margin-bottom: 12px;
+      padding: 0 14px;
+      font-size: 13px;
+    }
+
+    .bug-report-form,
+    .contact-us-af-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bug-report-field,
+    .contact-field-af {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+    }
+
+    .bug-report-field span,
+    .bug-report-field label,
+    .contact-field-af label {
+      color: var(--af-text);
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 950;
+    }
+
+    .bug-report-field input,
+    .bug-report-field select,
+    .bug-report-field textarea,
+    .contact-field-af input,
+    .contact-field-af select,
+    .contact-field-af textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border-radius: var(--af-radius-sm);
+      background: var(--af-surface-2);
+      color: var(--af-text);
+      border: 1px solid var(--af-border);
+      outline: none;
+      box-shadow: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    .bug-report-field input::placeholder,
+    .bug-report-field textarea::placeholder,
+    .contact-field-af input::placeholder,
+    .contact-field-af textarea::placeholder {
+      color: color-mix(in srgb, var(--af-muted) 76%, transparent);
+    }
+
+    .bug-report-field textarea,
+    .contact-field-af textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .bug-report-field input:focus,
+    .bug-report-field select:focus,
+    .bug-report-field textarea:focus,
+    .contact-field-af input:focus,
+    .contact-field-af select:focus,
+    .contact-field-af textarea:focus {
+      border-color: var(--af-text);
+      background: var(--af-surface);
+    }
+
+    .bug-report-submit,
+    .contact-submit-btn-af {
+      width: 100%;
+      min-height: 52px;
+      border-radius: 17px;
+      background: var(--af-primary);
+      color: var(--af-primary-text);
+      border: 1px solid var(--af-primary);
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-us-af-card {
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .contact-us-af-head {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .contact-us-af-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--af-surface-2);
+      color: var(--af-text);
+      border: 1px solid var(--af-border);
+      font-size: 18px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: 10px;
+      z-index: 900;
+      width: min(calc(100% - 18px), 500px);
+      max-width: 500px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      padding: 7px;
+      border-radius: 24px;
+      transform: translateX(-50%);
+      background: color-mix(in srgb, var(--af-surface) 90%, transparent);
+      border: 1px solid var(--af-border);
+      box-shadow: var(--af-shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-btn {
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      min-height: 54px;
+      border-radius: 18px;
+      background: transparent;
+      color: var(--af-muted);
+      border: 1px solid transparent;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .nav-btn b {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .nav-btn.active {
+      background: var(--af-primary);
+      color: var(--af-primary-text);
+      border-color: var(--af-primary);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(var(--af-bottom-nav-height) + 24px);
+      transform: translateX(-50%) translateY(12px);
+      z-index: 1000000;
+      display: none;
+      width: min(calc(100% - 28px), 420px);
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: var(--af-surface);
+      color: var(--af-text);
+      border: 1px solid var(--af-border);
+      box-shadow: var(--af-shadow);
+    }
+
+    .toast.show {
+      display: block;
+      animation: afToastIn 220ms ease both;
+    }
+
+    .toast strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .toast p {
+      margin: 4px 0 0;
+      color: var(--af-muted);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    @keyframes afFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes afToastIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .section,
+      .app-section {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .request-status-hero-af {
+        grid-template-columns: 40px minmax(0, 1fr) 40px;
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .request-status-back-af,
+      .request-status-refresh-af {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+      }
+
+      .request-status-hero-text-af h2 {
+        font-size: 19px;
+      }
+
+      .request-card-top-af {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .request-status-pill-af {
+        grid-column: 2 / 3;
+        justify-self: start;
+      }
+
+      .bottom-nav {
+        width: calc(100% - 12px);
+        padding: 5px;
+        gap: 3px;
+      }
+
+      .nav-btn {
+        min-height: 50px;
+        font-size: 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 1ms !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+    <section id="settings" class="section app-section active" aria-label="Settings">
+      <div class="settings-page">
+        <div class="settings-profile-card">
+          <div class="settings-avatar" aria-hidden="true">👨‍🎓</div>
+
+          <div class="settings-profile-info">
+            <h2 id="settingsStudentName">Hi, Student</h2>
+            <button type="button" class="settings-profile-link" onclick="openSettingsProfile()">
+              View / Edit Profile
+            </button>
+          </div>
+        </div>
+
+        <a class="settings-beta-card" href="javascript:void(0)" onclick="showComingSoon('Beta features will be available soon.')">
+          <span>AcademeForge Beta Access</span>
+          <span class="settings-new-badge">Soon</span>
+        </a>
+
+        <div class="settings-list">
+          <button type="button" class="settings-row settings-row-btn" onclick="openRequestStatusPageAf()">
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">📌</span>
+              <span>Request Status</span>
+            </div>
+            <span class="settings-new-badge">Track</span>
+          </button>
+
+          <button type="button" class="settings-row settings-row-btn" onclick="openContactStatusPageAf()">
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">☎</span>
+              <span>Contact Us Status</span>
+            </div>
+            <span class="settings-new-badge">Track</span>
+          </button>
+
+          <div class="settings-row">
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">🌙</span>
+              <span>Dark Mode</span>
+            </div>
+
+            <label class="settings-switch" aria-label="Toggle dark mode">
+              <input id="settingsDarkToggle" type="checkbox" onchange="toggleSettingsDarkMode(this.checked)" />
+              <span class="settings-slider"></span>
+            </label>
+          </div>
+
+          <button type="button" class="settings-row settings-row-btn" onclick="showComingSoon('Notifications settings coming soon.')">
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">🔔</span>
+              <span>Notifications</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <div class="settings-support-list">
+          <button type="button" class="settings-support-row" onclick="openContactUsPage()">
+            <div class="settings-support-left">
+              <span class="settings-support-icon" aria-hidden="true">☎</span>
+              <span>Contact Us</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button type="button" class="settings-support-row" onclick="openBugReportModal()">
+            <div class="settings-support-left">
+              <span class="settings-support-icon" aria-hidden="true">🐞</span>
+              <span>Report a Bug</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button type="button" class="settings-support-row" onclick="showComingSoon('Help Center will be available soon.')">
+            <div class="settings-support-left">
+              <span class="settings-support-icon" aria-hidden="true">❔</span>
+              <span>Help Center</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button type="button" class="settings-support-row settings-logout-row" onclick="logoutStudentafWithMessage()">
+            <div class="settings-support-left">
+              <span class="settings-support-icon settings-logout-icon" aria-hidden="true">⎋</span>
+              <span>Logout</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <div class="settings-app-version-box">
+          <strong>App Version: 09.01.2024</strong>
+          <span>Made with ❤️ in India</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="requestStatusAf" class="section request-status-section-af" aria-label="Request Status">
+      <div class="request-status-page-af">
+        <div class="request-status-hero-af">
+          <button type="button" class="request-status-back-af" onclick="showSection('settings')" aria-label="Back to settings">
+            Back
+          </button>
+
+          <div class="request-status-hero-text-af">
+            <p>Support Center</p>
+            <h2>Request Status</h2>
+            <span>Track your bug reports and support requests.</span>
+          </div>
+
+          <button type="button" class="request-status-refresh-af" onclick="loadRequestStatusAf(true)" aria-label="Refresh request status">
+            Refresh
+          </button>
+        </div>
+
+        <div id="requestStatusMessageAf" class="request-status-message-af">Loading your requests...</div>
+        <div id="requestStatusListAf" class="request-status-list-af"></div>
+      </div>
+    </section>
+
+    <section id="contactStatusAf" class="section request-status-section-af contact-status-section-af" aria-label="Contact Request Status">
+      <div class="contact-status-page-af">
+        <div class="request-status-hero-af">
+          <button type="button" class="request-status-back-af" onclick="showSection('settings')" aria-label="Back to settings">
+            Back
+          </button>
+
+          <div class="request-status-hero-text-af">
+            <p>Support Center</p>
+            <h2>Contact Status</h2>
+            <span>Track your call/email support requests.</span>
+          </div>
+
+          <button type="button" class="request-status-refresh-af" onclick="loadContactStatusAf(true)" aria-label="Refresh contact request status">
+            Refresh
+          </button>
+        </div>
+
+        <div id="contactStatusMessageAf" class="request-status-message-af">Loading your contact requests...</div>
+        <div id="contactStatusListAf" class="request-status-list-af"></div>
+      </div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Bottom navigation">
+      <button type="button" class="nav-btn" data-section="home" onclick="showComingSoon('Home section is connected in your main app.')">
+        <b>⌂</b>
+        <span>Home</span>
+      </button>
+
+      <button type="button" class="nav-btn" data-section="courses" onclick="showComingSoon('Courses section is connected in your main app.')">
+        <b>▣</b>
+        <span>Courses</span>
+      </button>
+
+      <button type="button" class="nav-btn" data-section="nexus" onclick="showComingSoon('Nexus section is connected in your main app.')">
+        <b>◆</b>
+        <span>Nexus</span>
+      </button>
+
+      <button type="button" class="nav-btn" data-section="profile" onclick="openSettingsProfile()">
+        <b>◉</b>
+        <span>Profile</span>
+      </button>
+
+      <button type="button" class="nav-btn active" data-section="settings" onclick="showSection('settings')" aria-current="page">
+        <b>⚙</b>
+        <span>Settings</span>
+      </button>
+    </nav>
+  </main>
+
+  <div id="contactUsAf" class="contact-sheet-overlay-af" aria-hidden="true">
+    <div class="contact-us-af-page" role="dialog" aria-modal="true" aria-labelledby="contactUsTitleAf">
+      <button type="button" class="contact-back-btn-af" onclick="closeContactUsSheetAf()" aria-label="Close Contact Us">
+        Close
+      </button>
+
+      <div class="contact-us-af-card">
+        <div class="contact-us-af-head">
+          <div class="contact-us-af-icon" aria-hidden="true">☎</div>
+
+          <div>
+            <p class="contact-us-af-kicker">Support Request</p>
+            <h2 id="contactUsTitleAf">Request a Call or Email Reply</h2>
+            <p>Share your details and our team will contact you regarding your query.</p>
+          </div>
+        </div>
+
+        <form id="contactUsFormAf" class="contact-us-af-form" onsubmit="submitContactRequestAf(event)">
+          <div class="contact-field-af">
+            <label for="contactNameAf">Full Name</label>
+            <input id="contactNameAf" name="name" type="text" inputmode="text" autocomplete="name" placeholder="Enter your full name" maxlength="80" required />
+          </div>
+
+          <div class="contact-field-af">
+            <label for="contactMobileAf">Mobile Number</label>
+            <input id="contactMobileAf" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter your mobile number" maxlength="15" required />
+          </div>
+
+          <div class="contact-field-af">
+            <label for="contactEmailAf">Email Address</label>
+            <input id="contactEmailAf" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email address" maxlength="120" required />
+          </div>
+
+          <div class="contact-field-af">
+            <label for="contactReasonAf">Reason for Contact</label>
+            <select id="contactReasonAf" name="reason" required>
+              <option value="">Select a reason</option>
+              <option value="Course Access Issue">Course Access Issue</option>
+              <option value="Login or Student ID Issue">Login or Student ID Issue</option>
+              <option value="Payment or Enrollment Query">Payment or Enrollment Query</option>
+              <option value="Technical Problem">Technical Problem</option>
+              <option value="General Support">General Support</option>
+            </select>
+          </div>
+
+          <div class="contact-field-af">
+            <label for="contactProblemAf">Describe Your Problem</label>
+            <textarea id="contactProblemAf" name="problem" rows="5" placeholder="Write your issue clearly so our team can help you faster." maxlength="1200" required></textarea>
+          </div>
+
+          <div id="contactUsMessageAf" class="contact-message-af" aria-live="polite"></div>
+
+          <button id="contactSubmitBtnAf" type="submit" class="contact-submit-btn-af">
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="bugReportOverlay" class="bug-report-overlay" aria-hidden="true">
+    <div class="bug-report-modal" role="dialog" aria-modal="true" aria-labelledby="bugReportTitle">
+      <div class="bug-report-header">
+        <div>
+          <p class="bug-report-kicker">AcademeForge Support</p>
+          <h3 id="bugReportTitle" class="bug-report-title">Report a Bug</h3>
+        </div>
+
+        <button type="button" class="bug-report-x" onclick="closeBugReportModal()" aria-label="Close bug report">
+          ×
+        </button>
+      </div>
+
+      <form id="bugReportForm" class="bug-report-form" onsubmit="submitBugReport(event)">
+        <label class="bug-report-field">
+          <span>Your Name</span>
+          <input id="bugReporterName" type="text" maxlength="80" autocomplete="name" placeholder="Enter your name" required />
+        </label>
+
+        <label class="bug-report-field">
+          <span>Contact Email</span>
+          <input id="bugReporterEmail" type="email" maxlength="120" autocomplete="email" placeholder="example@email.com" required />
+        </label>
+
+        <label class="bug-report-field">
+          <span>Bug Category</span>
+          <select id="bugCategory" required>
+            <option value="">Select issue type</option>
+            <option value="login">Login / Student ID</option>
+            <option value="navigation">Navigation</option>
+            <option value="dark_mode">Dark / Reading Mode</option>
+            <option value="notification">Notifications</option>
+            <option value="payment">Payment / Purchase</option>
+            <option value="ui">UI / Design</option>
+            <option value="performance">Slow / Lagging</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+
+        <label class="bug-report-field">
+          <span>Priority</span>
+          <select id="bugPriority" required>
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+            <option value="critical">Critical</option>
+          </select>
+        </label>
+
+        <label class="bug-report-field">
+          <span>What happened?</span>
+          <textarea id="bugDescription" maxlength="1200" rows="5" placeholder="Explain the issue clearly. Example: Settings page opens blank after clicking." required></textarea>
+        </label>
+
+        <input id="bugPageUrl" type="hidden" />
+        <input id="bugUserAgent" type="hidden" />
+
+        <div id="bugReportStatus" class="bug-report-status" aria-live="polite"></div>
+
+        <button id="bugReportSubmitBtn" type="submit" class="bug-report-submit">
+          Submit Report
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <strong>Notification</strong>
+    <p>Message</p>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const AF_SUPABASE_URL = "https://afooyyydhlwngzssgqih.supabase.co";
+
+      const AF_EDGE = {
+        bugSubmit: AF_SUPABASE_URL + "/functions/v1/report-bug",
+        bugStatus: AF_SUPABASE_URL + "/functions/v1/request-status-af",
+        contactSubmit: AF_SUPABASE_URL + "/functions/v1/contact-request",
+        contactStatus: AF_SUPABASE_URL + "/functions/v1/contact-request-status-af"
+      };
+
+      const STORAGE_KEYS = {
+        theme: "af_theme_mode",
+        oldTheme: "af_settings_dark_mode",
+        deviceId: "af_device_id",
+        email: "af_student_email",
+        mobile: "af_student_mobile",
+        name: "af_student_name"
+      };
+
+      function byId(id) {
+        return document.getElementById(id);
+      }
+
+      function qs(selector, root) {
+        return (root || document).querySelector(selector);
+      }
+
+      function qsa(selector, root) {
+        return Array.from((root || document).querySelectorAll(selector));
+      }
+
+      function valueOf(id) {
+        const node = byId(id);
+        return String(node && node.value ? node.value : "").trim();
+      }
+
+      function setValue(id, value) {
+        const node = byId(id);
+        if (node) {
+          node.value = value || "";
         }
       }
-    }
 
-    return {};
-  }
-
-  function getIdentity() {
-    const student = getStoredStudent();
-
-    const email = String(
-      student.registered_email ||
-        student.email ||
-        student.student_email ||
-        student.email_id ||
-        student.studentEmail ||
-        student.user_email ||
-        localStorage.getItem("af_student_email") ||
-        localStorage.getItem("student_email_af") ||
-        localStorage.getItem("studentEmailaf") ||
-        localStorage.getItem("studentEmail") ||
-        localStorage.getItem("registered_email") ||
-        localStorage.getItem("email") ||
-        ""
-    ).trim().toLowerCase();
-
-    const mobile = String(
-      student.registered_mobile ||
-        student.mobile_number ||
-        student.mobile ||
-        student.phone ||
-        student.phone_number ||
-        student.student_mobile ||
-        localStorage.getItem("af_student_mobile") ||
-        localStorage.getItem("student_mobile_af") ||
-        localStorage.getItem("studentPhoneaf") ||
-        localStorage.getItem("studentPhone") ||
-        localStorage.getItem("registered_mobile") ||
-        localStorage.getItem("mobile") ||
-        localStorage.getItem("phone") ||
-        ""
-    ).trim();
-
-    const name = String(
-      student.full_name ||
-        student.name ||
-        student.student_name ||
-        localStorage.getItem("af_student_name") ||
-        localStorage.getItem("student_name_af") ||
-        localStorage.getItem("studentNameaf") ||
-        ""
-    ).trim();
-
-    return {
-      email: email,
-      mobile: mobile,
-      name: name
-    };
-  }
-
-  function formatDate(value) {
-    try {
-      if (!value) return "Recently submitted";
-
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return "Recently submitted";
-
-      return date.toLocaleString("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
-      });
-    } catch (error) {
-      return "Recently submitted";
-    }
-  }
-
-  function flagTrue(value) {
-    return String(value || "F").trim().toUpperCase() === "T" || value === true;
-  }
-
-  function setMessage(id, type, message) {
-    const box = $(id);
-    if (!box) return;
-
-    box.classList.remove("is-error", "is-empty", "is-success");
-    box.textContent = message || "";
-    box.style.display = message ? "block" : "none";
-
-    if (type === "error") box.classList.add("is-error");
-    if (type === "empty") box.classList.add("is-empty");
-    if (type === "success") box.classList.add("is-success");
-  }
-
-  function ensureContactStatusButton() {
-    const settingsSupportList = document.querySelector(".settings-support-list");
-    if (!settingsSupportList) return;
-
-    if (document.querySelector('[onclick="openContactStatusPageAf()"]')) return;
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "settings-support-row";
-    button.setAttribute("aria-label", "Open Contact Us Status");
-    button.setAttribute("onclick", "openContactStatusPageAf()");
-    button.innerHTML = [
-      '<div class="settings-support-left">',
-      '<span class="settings-support-icon" aria-hidden="true">✓</span>',
-      "<span>Contact Us Status</span>",
-      "</div>",
-      '<span class="settings-new-badge">Track</span>'
-    ].join("");
-
-    const divider = settingsSupportList.querySelector(".settings-support-divider");
-    if (divider) {
-      settingsSupportList.insertBefore(button, divider);
-    } else {
-      settingsSupportList.appendChild(button);
-    }
-  }
-
-  function ensureContactStatusSection() {
-    if ($("contactStatusAf")) return;
-
-    const section = document.createElement("section");
-    section.id = "contactStatusAf";
-    section.className = "section contact-status-section-af";
-    section.setAttribute("aria-label", "Contact Status");
-
-    section.innerHTML = [
-      '<div class="contact-status-page-af">',
-      '<div class="contact-status-hero-af">',
-      '<button type="button" class="contact-status-back-af" onclick="showSection(\'settings\')" aria-label="Back to settings">← Back</button>',
-      '<div class="contact-status-hero-text-af">',
-      "<p>Support Center</p>",
-      "<h2>Contact Status</h2>",
-      "<span>Track your contact requests and team replies.</span>",
-      "</div>",
-      '<button type="button" class="contact-status-refresh-af" onclick="loadContactStatusAf(true)" aria-label="Refresh contact status">↻</button>',
-      "</div>",
-      '<div id="contactStatusMessageAf" class="contact-status-message-af">Loading your contact requests...</div>',
-      '<div id="contactStatusListAf" class="contact-status-list-af"></div>',
-      "</div>"
-    ].join("");
-
-    const app = document.querySelector(".app") || document.querySelector("main") || document.body;
-    const bottomNav = document.querySelector(".bottom-nav");
-
-    if (bottomNav && bottomNav.parentNode) {
-      bottomNav.parentNode.insertBefore(section, bottomNav);
-    } else {
-      app.appendChild(section);
-    }
-  }
-
-  function ensureBugOverlayClickSafety() {
-    const overlay = $("bugReportOverlay");
-    if (!overlay) return;
-
-    overlay.addEventListener("click", function (event) {
-      if (event.target === overlay) {
-        window.closeBugReportModal();
+      function escapeHtml(value) {
+        return String(value == null ? "" : value).replace(/[&<>"']/g, function (char) {
+          return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+          }[char];
+        });
       }
-    });
 
-    const modal = overlay.querySelector(".bug-report-modal");
-    if (modal) {
-      modal.addEventListener("click", function (event) {
-        event.stopPropagation();
-      });
-    }
-  }
+      function isEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
+      }
 
-  function ensureContactSheetClickSafety() {
-    const section = $("contactUsAf");
-    if (!section) return;
+      function isMobile(value) {
+        const mobile = String(value || "").replace(/\s+/g, "");
+        return /^(\+91)?[6-9]\d{9}$/.test(mobile) || /^\+\d{8,15}$/.test(mobile);
+      }
 
-    section.addEventListener("click", function (event) {
-      if (event.target === section) {
+      function safeJsonParse(raw) {
+        try {
+          if (!raw) {
+            return null;
+          }
+
+          const parsed = JSON.parse(raw);
+          return parsed && typeof parsed === "object" ? parsed : null;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function getAnonKey() {
+        return typeof window.SUPABASE_ANON_KEY === "string" && window.SUPABASE_ANON_KEY.trim()
+          ? window.SUPABASE_ANON_KEY.trim()
+          : "";
+      }
+
+      function getHeaders() {
+        const key = getAnonKey();
+
+        const headers = {
+          "Content-Type": "application/json"
+        };
+
+        if (key) {
+          headers.apikey = key;
+          headers.Authorization = "Bearer " + key;
+        }
+
+        return headers;
+      }
+
+      function getStoredStudent() {
+        const keys = [
+          "af_current_student",
+          "af_logged_student",
+          "af_student_session",
+          "af_student_data",
+          "studentaf_session",
+          "student_session_af",
+          "currentStudentaf",
+          "current_student_af",
+          "currentStudent",
+          "studentData",
+          "loggedInStudent",
+          "student"
+        ];
+
+        for (let i = 0; i < keys.length; i += 1) {
+          const parsed = safeJsonParse(localStorage.getItem(keys[i]));
+
+          if (!parsed) {
+            continue;
+          }
+
+          const student = parsed.student || parsed.data || parsed.user || parsed.profile || parsed;
+
+          if (student && typeof student === "object") {
+            return student;
+          }
+        }
+
+        return {};
+      }
+
+      function getIdentity() {
+        const student = getStoredStudent();
+
+        const email = String(
+          student.registered_email ||
+            student.email ||
+            student.student_email ||
+            student.email_id ||
+            student.studentEmail ||
+            student.user_email ||
+            localStorage.getItem(STORAGE_KEYS.email) ||
+            localStorage.getItem("student_email_af") ||
+            localStorage.getItem("studentEmailaf") ||
+            localStorage.getItem("studentEmail") ||
+            localStorage.getItem("registered_email") ||
+            localStorage.getItem("email") ||
+            ""
+        ).trim().toLowerCase();
+
+        const mobile = String(
+          student.registered_mobile ||
+            student.mobile_number ||
+            student.mobile ||
+            student.phone ||
+            student.phone_number ||
+            student.student_mobile ||
+            localStorage.getItem(STORAGE_KEYS.mobile) ||
+            localStorage.getItem("student_mobile_af") ||
+            localStorage.getItem("studentPhoneaf") ||
+            localStorage.getItem("studentPhone") ||
+            localStorage.getItem("registered_mobile") ||
+            localStorage.getItem("mobile") ||
+            localStorage.getItem("phone") ||
+            ""
+        ).trim();
+
+        const name = String(
+          student.full_name ||
+            student.name ||
+            student.student_name ||
+            localStorage.getItem(STORAGE_KEYS.name) ||
+            localStorage.getItem("student_name_af") ||
+            localStorage.getItem("studentNameaf") ||
+            ""
+        ).trim();
+
+        return {
+          email: email,
+          mobile: mobile,
+          name: name
+        };
+      }
+
+      function getDeviceId() {
+        let id = localStorage.getItem(STORAGE_KEYS.deviceId);
+
+        if (!id) {
+          id = "web_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2);
+          localStorage.setItem(STORAGE_KEYS.deviceId, id);
+        }
+
+        return id;
+      }
+
+      function formatDate(value) {
+        try {
+          if (!value) {
+            return "Recently submitted";
+          }
+
+          const date = new Date(value);
+
+          if (Number.isNaN(date.getTime())) {
+            return "Recently submitted";
+          }
+
+          return date.toLocaleString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+          });
+        } catch (error) {
+          return "Recently submitted";
+        }
+      }
+
+      function flagTrue(value) {
+        const normalized = String(value == null ? "" : value).trim().toLowerCase();
+        return value === true || normalized === "t" || normalized === "true" || normalized === "1" || normalized === "yes";
+      }
+
+      function normalizeStatus(item) {
+        const raw = String(item && item.status ? item.status : "").trim().toLowerCase();
+
+        const solved =
+          flagTrue(item && (item.request_solved || item.solved || item.is_solved)) ||
+          raw === "solved" ||
+          raw === "resolved" ||
+          raw === "closed";
+
+        const read =
+          flagTrue(item && (item.team_read || item.in_review || item.is_read)) ||
+          raw === "in_review" ||
+          raw === "in review" ||
+          raw === "review" ||
+          raw === "read";
+
+        if (solved) {
+          return {
+            label: "Solved",
+            className: "solved",
+            isRead: true,
+            isSolved: true
+          };
+        }
+
+        if (read) {
+          return {
+            label: "In Review",
+            className: "read",
+            isRead: true,
+            isSolved: false
+          };
+        }
+
+        return {
+          label: "Pending",
+          className: "pending",
+          isRead: false,
+          isSolved: false
+        };
+      }
+
+      function setMessage(id, type, message) {
+        const box = byId(id);
+
+        if (!box) {
+          return;
+        }
+
+        box.classList.remove("is-error", "is-empty", "is-success", "error", "success");
+        box.textContent = message || "";
+        box.style.display = message ? "block" : "none";
+
+        if (type === "error") {
+          box.classList.add("is-error");
+        }
+
+        if (type === "empty") {
+          box.classList.add("is-empty");
+        }
+
+        if (type === "success") {
+          box.classList.add("is-success");
+        }
+      }
+
+      function showToast(message, type) {
+        const toast = byId("toast");
+
+        if (!toast) {
+          return;
+        }
+
+        const strong = toast.querySelector("strong");
+        const paragraph = toast.querySelector("p");
+
+        if (strong) {
+          strong.textContent = type === "error" ? "Error" : "Notification";
+        }
+
+        if (paragraph) {
+          paragraph.textContent = message || "";
+        }
+
+        toast.classList.add("show");
+
+        window.clearTimeout(window.__afToastTimer);
+        window.__afToastTimer = window.setTimeout(function () {
+          toast.classList.remove("show");
+        }, 2400);
+      }
+
+      function applyTheme(isDark) {
+        document.documentElement.classList.toggle("dark-mode", isDark);
+        document.body.classList.toggle("dark-mode", isDark);
+        document.body.classList.toggle("settings-dark-mode", isDark);
+        document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+        document.body.setAttribute("data-theme", isDark ? "dark" : "light");
+
+        const toggle = byId("settingsDarkToggle");
+
+        if (toggle) {
+          toggle.checked = isDark;
+        }
+
+        try {
+          localStorage.setItem(STORAGE_KEYS.theme, isDark ? "dark" : "light");
+          localStorage.setItem(STORAGE_KEYS.oldTheme, isDark ? "1" : "0");
+        } catch (error) {}
+      }
+
+      function isDarkMode() {
+        return (
+          localStorage.getItem(STORAGE_KEYS.theme) === "dark" ||
+          localStorage.getItem(STORAGE_KEYS.oldTheme) === "1" ||
+          document.documentElement.classList.contains("dark-mode") ||
+          document.body.classList.contains("dark-mode") ||
+          document.body.classList.contains("settings-dark-mode")
+        );
+      }
+
+      function hydrateSettingsName() {
+        const identity = getIdentity();
+        const target = byId("settingsStudentName");
+
+        if (target) {
+          target.textContent = identity.name ? "Hi, " + identity.name : "Hi, Student";
+        }
+
+        if (identity.name && byId("contactNameAf") && !valueOf("contactNameAf")) {
+          setValue("contactNameAf", identity.name);
+        }
+
+        if (identity.email && byId("contactEmailAf") && !valueOf("contactEmailAf")) {
+          setValue("contactEmailAf", identity.email);
+        }
+
+        if (identity.mobile && byId("contactMobileAf") && !valueOf("contactMobileAf")) {
+          setValue("contactMobileAf", identity.mobile);
+        }
+
+        if (identity.name && byId("bugReporterName") && !valueOf("bugReporterName")) {
+          setValue("bugReporterName", identity.name);
+        }
+
+        if (identity.email && byId("bugReporterEmail") && !valueOf("bugReporterEmail")) {
+          setValue("bugReporterEmail", identity.email);
+        }
+      }
+
+      function closeSheets() {
+        window.closeBugReportModal();
         window.closeContactUsSheetAf();
       }
-    });
 
-    const page = section.querySelector(".contact-us-af-page");
-    if (page) {
-      page.addEventListener("click", function (event) {
-        event.stopPropagation();
-      });
-    }
-  }
-
-  function fixedShowSection(id) {
-    const targetId = String(id || "").trim();
-    const target = $(targetId);
-
-    if (!target) {
-      console.error("Section not found:", targetId);
-      return;
-    }
-
-    if (targetId !== "contactUsAf") {
-      const contact = $("contactUsAf");
-      if (contact) {
-        contact.classList.remove("active", "active-section");
-        contact.setAttribute("aria-hidden", "true");
-      }
-    }
-
-    qsa(".section, .app-section").forEach(function (section) {
-      if (section.id === "contactUsAf") return;
-
-      section.classList.remove("active", "active-section");
-      section.setAttribute("aria-hidden", "true");
-    });
-
-    target.classList.add("active");
-    target.classList.remove("hidden-box");
-    target.setAttribute("aria-hidden", "false");
-
-    qsa(".bottom-nav .nav-btn").forEach(function (button) {
-      const active = button.dataset.section === targetId;
-      button.classList.toggle("active", active);
-
-      if (active) {
-        button.setAttribute("aria-current", "page");
-      } else {
-        button.removeAttribute("aria-current");
-      }
-    });
-
-    if (targetId === "requestStatusAf") {
-      window.setTimeout(function () {
-        window.loadRequestStatusAf(false);
-      }, 80);
-    }
-
-    if (targetId === "contactStatusAf") {
-      window.setTimeout(function () {
-        window.loadContactStatusAf(false);
-      }, 80);
-    }
-
-    if (targetId === "learningHeatmap" && typeof window.loadLearningHeatmap === "function") {
-      window.loadLearningHeatmap();
-    }
-
-    if (targetId !== "contactUsAf") {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }
-  }
-
-  window.showSection = fixedShowSection;
-
-  window.openBugReportModal = function () {
-    try {
-      const overlay = $("bugReportOverlay");
-      const form = $("bugReportForm");
-      const status = $("bugReportStatus");
-      const pageUrl = $("bugPageUrl");
-      const userAgent = $("bugUserAgent");
-
-      if (!overlay) {
-        console.error("bugReportOverlay not found");
-        return;
+      function getBugTitle(report) {
+        return (
+          report.category ||
+          report.issue_type ||
+          report.bug_type ||
+          report.subject ||
+          report.title ||
+          "Bug Report"
+        );
       }
 
-      if (form) form.reset();
-
-      if (status) {
-        status.textContent = "";
-        status.className = "bug-report-status";
-        status.style.display = "none";
+      function getBugText(report) {
+        return (
+          report.description ||
+          report.details ||
+          report.message ||
+          report.bug_description ||
+          report.report_text ||
+          report.problem_description ||
+          report.additional_details ||
+          "No detailed message found for this report."
+        );
       }
 
-      if (pageUrl) pageUrl.value = window.location.href;
-      if (userAgent) userAgent.value = navigator.userAgent || "";
-
-      overlay.classList.add("show");
-      overlay.setAttribute("aria-hidden", "false");
-      document.body.classList.add("bug-report-open");
-
-      window.setTimeout(function () {
-        const firstInput = $("bugReporterName");
-        if (firstInput) firstInput.focus();
-      }, 120);
-    } catch (error) {
-      console.error("openBugReportModal failed:", error);
-    }
-  };
-
-  window.closeBugReportModal = function () {
-    try {
-      const overlay = $("bugReportOverlay");
-
-      if (overlay) {
-        overlay.classList.remove("show");
-        overlay.setAttribute("aria-hidden", "true");
+      function getContactTitle(request) {
+        return (
+          request.contact_reason ||
+          request.reason ||
+          request.subject ||
+          request.category ||
+          request.issue_type ||
+          "Contact Request"
+        );
       }
 
-      document.body.classList.remove("bug-report-open");
-    } catch (error) {
-      console.error("closeBugReportModal failed:", error);
-    }
-  };
-
-  function setBugReportStatus(message, type) {
-    const status = $("bugReportStatus");
-    if (!status) return;
-
-    status.textContent = String(message || "");
-    status.className = "bug-report-status";
-
-    if (type === "success") status.classList.add("success");
-    if (type === "error") status.classList.add("error");
-
-    status.style.display = message ? "block" : "none";
-  }
-
-  window.submitBugReport = async function (event) {
-    if (event) event.preventDefault();
-
-    const submitBtn = $("bugReportSubmitBtn");
-
-    try {
-      const reporterName = valueOf("bugReporterName");
-      const reporterEmail = valueOf("bugReporterEmail").toLowerCase();
-      const category = valueOf("bugCategory");
-      const priority = valueOf("bugPriority");
-      const description = valueOf("bugDescription");
-      const stepsToReproduce = valueOf("bugSteps");
-      const pageUrl = valueOf("bugPageUrl") || window.location.href;
-
-      if (reporterName.length < 2) {
-        setBugReportStatus("Please enter a valid name.", "error");
-        return;
+      function getContactText(request) {
+        return (
+          request.problem_description ||
+          request.message ||
+          request.details ||
+          request.description ||
+          request.additional_details ||
+          request.problem ||
+          "No detailed message found for this contact request."
+        );
       }
 
-      if (!isEmail(reporterEmail)) {
-        setBugReportStatus("Please enter a valid email address.", "error");
-        return;
+      function renderBugCard(report, index) {
+        const status = normalizeStatus(report || {});
+        const id = "requestCardAf_" + index + "_" + String((report && report.id) || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
+        const title = escapeHtml(getBugTitle(report || {}));
+        const text = escapeHtml(getBugText(report || {}));
+        const createdAt = escapeHtml(formatDate(report && report.created_at));
+        const note = escapeHtml((report && (report.status_note || report.admin_note || report.note)) || "");
+
+        return [
+          '<article id="' + id + '" class="request-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleRequestCardAf(\'' + id + '\')">',
+          '<div class="request-card-top-af">',
+          '<div class="request-card-icon-af">✓</div>',
+          '<div class="request-card-title-af">',
+          "<h3>" + title + "</h3>",
+          "<p>Submitted: " + createdAt + "</p>",
+          "</div>",
+          '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
+          "</div>",
+          '<div class="request-progress-af">',
+          '<div class="request-step-af is-done">',
+          '<div class="request-step-dot-af">✓</div>',
+          '<div class="request-step-content-af"><strong>Report Sent</strong><span>Your report has been submitted successfully.</span></div>',
+          "</div>",
+          '<div class="request-step-af ' + (status.isRead ? "is-done" : "is-pending") + '">',
+          '<div class="request-step-dot-af">' + (status.isRead ? "✓" : "!") + "</div>",
+          '<div class="request-step-content-af"><strong>Team Read Your Report</strong><span>' + (status.isRead ? "Team has read your report." : "Pending — team has not read it yet.") + "</span></div>",
+          "</div>",
+          '<div class="request-step-af ' + (status.isSolved ? "is-done" : "is-pending") + '">',
+          '<div class="request-step-dot-af">' + (status.isSolved ? "✓" : "!") + "</div>",
+          '<div class="request-step-content-af"><strong>Solved Your Request</strong><span>' + (status.isSolved ? "Your request has been solved." : "Pending — solution is not marked yet.") + "</span></div>",
+          "</div>",
+          "</div>",
+          '<div class="request-card-detail-af">',
+          "<strong>Your Report</strong>",
+          "<p>" + text + "</p>",
+          note ? '<div class="request-note-af">' + note + "</div>" : "",
+          "</div>",
+          "</article>"
+        ].join("");
       }
 
-      if (!category) {
-        setBugReportStatus("Please select a bug category.", "error");
-        return;
+      function renderContactCard(request, index) {
+        const status = normalizeStatus(request || {});
+        const id = "contactCardAf_" + index + "_" + String((request && request.id) || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
+        const title = escapeHtml(getContactTitle(request || {}));
+        const text = escapeHtml(getContactText(request || {}));
+        const createdAt = escapeHtml(formatDate(request && request.created_at));
+        const note = escapeHtml((request && (request.status_note || request.admin_note || request.note)) || "");
+
+        return [
+          '<article id="' + id + '" class="request-card-af contact-status-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleContactCardAf(\'' + id + '\')">',
+          '<div class="request-card-top-af">',
+          '<div class="request-card-icon-af">✓</div>',
+          '<div class="request-card-title-af">',
+          "<h3>" + title + "</h3>",
+          "<p>Submitted: " + createdAt + "</p>",
+          "</div>",
+          '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
+          "</div>",
+          '<div class="request-card-detail-af">',
+          "<strong>Your Contact Message</strong>",
+          "<p>" + text + "</p>",
+          note ? '<div class="request-note-af">' + note + "</div>" : "",
+          "</div>",
+          "</article>"
+        ].join("");
       }
 
-      if (!priority) {
-        setBugReportStatus("Please select a valid priority.", "error");
-        return;
-      }
+      window.toggleSettingsDarkMode = function (checked) {
+        applyTheme(Boolean(checked));
+      };
 
-      if (description.length < 10) {
-        setBugReportStatus("Please describe the bug in at least 10 characters.", "error");
-        return;
-      }
+      window.showSection = function (id) {
+        const targetId = String(id || "").trim();
+        const target = byId(targetId);
 
-      const identity = getIdentity();
+        if (!target) {
+          console.error("Section not found:", targetId);
+          return;
+        }
 
-      const payload = {
-        reporterName: reporterName,
-        reporterEmail: reporterEmail,
-        registered_email: reporterEmail || identity.email,
-        email: reporterEmail || identity.email,
-        mobile: identity.mobile,
-        category: category,
-        priority: priority,
-        description: description,
-        stepsToReproduce: stepsToReproduce,
-        pageUrl: pageUrl,
-        activeSection: document.querySelector(".section.active, .app-section.active")?.id || "",
-        deviceInfo: {
-          userAgent: navigator.userAgent || "",
-          language: navigator.language || "",
-          platform: navigator.platform || "",
-          viewportWidth: window.innerWidth || 0,
-          viewportHeight: window.innerHeight || 0,
-          devicePixelRatio: window.devicePixelRatio || 1,
-          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
-          online: navigator.onLine === true
+        if (targetId !== "contactUsAf") {
+          window.closeContactUsSheetAf();
+        }
+
+        qsa(".section, .app-section").forEach(function (section) {
+          if (section.id === "contactUsAf") {
+            return;
+          }
+
+          section.classList.remove("active", "active-section");
+          section.setAttribute("aria-hidden", "true");
+        });
+
+        target.classList.add("active");
+        target.classList.remove("hidden-box");
+        target.setAttribute("aria-hidden", "false");
+
+        qsa(".bottom-nav .nav-btn").forEach(function (button) {
+          const active = button.dataset.section === targetId;
+          button.classList.toggle("active", active);
+
+          if (active) {
+            button.setAttribute("aria-current", "page");
+          } else {
+            button.removeAttribute("aria-current");
+          }
+        });
+
+        if (targetId === "settings") {
+          hydrateSettingsName();
+          applyTheme(isDarkMode());
+        }
+
+        if (targetId === "requestStatusAf") {
+          window.setTimeout(function () {
+            window.loadRequestStatusAf(false);
+          }, 80);
+        }
+
+        if (targetId === "contactStatusAf") {
+          window.setTimeout(function () {
+            window.loadContactStatusAf(false);
+          }, 80);
+        }
+
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "auto"
+        });
+      };
+
+      window.openSettingsProfile = function () {
+        if (typeof window.openStudentDashboardFromSettingsAf === "function") {
+          window.openStudentDashboardFromSettingsAf();
+          return;
+        }
+
+        showToast("Profile page is connected in your main app.", "info");
+      };
+
+      window.showComingSoon = function (message) {
+        showToast(message || "Coming soon.", "info");
+      };
+
+      window.logoutStudentafWithMessage = function () {
+        try {
+          if (typeof window.logoutStudentaf === "function") {
+            window.logoutStudentaf();
+            window.setTimeout(function () {
+              showToast("Logged out successfully.", "success");
+            }, 120);
+            return;
+          }
+
+          showToast("Logout function is connected in your main app.", "info");
+        } catch (error) {
+          showToast("Logout failed. Please try again.", "error");
         }
       };
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Submitting...";
-      }
+      window.openBugReportModal = function () {
+        try {
+          hydrateSettingsName();
 
-      setBugReportStatus("Submitting your report...", "");
+          const overlay = byId("bugReportOverlay");
+          const form = byId("bugReportForm");
+          const status = byId("bugReportStatus");
 
-      const response = await fetch(AF_EDGE.bug, {
-        method: "POST",
-        headers: getHeaders(),
-        body: JSON.stringify(payload)
-      });
+          if (!overlay) {
+            alert("Bug report form missing.");
+            return;
+          }
 
-      const result = await response.json().catch(function () {
-        return null;
-      });
+          if (form) {
+            form.reset();
+          }
 
-      if (!response.ok || (result && result.success === false)) {
-        throw new Error(
-          result && (result.message || result.error)
-            ? result.message || result.error
-            : "Bug report failed. Please try again."
-        );
-      }
+          hydrateSettingsName();
 
-      try {
-        localStorage.setItem("af_student_email", reporterEmail);
-      } catch (storageError) {}
+          if (status) {
+            status.textContent = "";
+            status.className = "bug-report-status";
+            status.style.display = "none";
+          }
 
-      const form = $("bugReportForm");
-      if (form) form.reset();
+          setValue("bugPageUrl", window.location.href);
+          setValue("bugUserAgent", navigator.userAgent || "");
 
-      setBugReportStatus("Bug report submitted successfully.", "success");
+          overlay.classList.add("show");
+          overlay.setAttribute("aria-hidden", "false");
+          document.body.classList.add("bug-report-open");
 
-      window.setTimeout(function () {
-        window.closeBugReportModal();
-      }, 900);
-    } catch (error) {
-      console.error("submitBugReport failed:", error);
-      setBugReportStatus(error && error.message ? error.message : "Something went wrong.", "error");
-    } finally {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit Report";
-      }
-    }
-  };
+          window.setTimeout(function () {
+            const firstInput = byId("bugReporterName");
 
-  window.openContactUsPage = function () {
-    const section = $("contactUsAf");
-
-    if (!section) {
-      console.error("contactUsAf section not found");
-      return;
-    }
-
-    const message = $("contactUsMessageAf");
-    if (message) {
-      message.textContent = "";
-      message.style.display = "none";
-      message.className = "contact-message-af";
-    }
-
-    section.classList.add("active");
-    section.classList.remove("hidden-box");
-    section.setAttribute("aria-hidden", "false");
-    document.body.classList.add("contact-us-open");
-
-    window.setTimeout(function () {
-      const firstInput = $("contactNameAf");
-      if (firstInput) firstInput.focus();
-    }, 120);
-  };
-
-  window.closeContactUsSheetAf = function () {
-    const section = $("contactUsAf");
-
-    if (section) {
-      section.classList.remove("active", "active-section");
-      section.setAttribute("aria-hidden", "true");
-    }
-
-    document.body.classList.remove("contact-us-open");
-  };
-
-  window.backToSettingsFromContact = function () {
-    window.closeContactUsSheetAf();
-  };
-
-  function setContactMessage(type, message) {
-    const box = $("contactUsMessageAf");
-    if (!box) return;
-
-    box.className = "contact-message-af";
-    if (type === "success") box.classList.add("is-success");
-    if (type === "error") box.classList.add("is-error");
-
-    box.textContent = message || "";
-    box.style.display = message ? "block" : "none";
-  }
-
-  function getDeviceId() {
-    let id = localStorage.getItem("af_device_id");
-
-    if (!id) {
-      id = "web_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2);
-      localStorage.setItem("af_device_id", id);
-    }
-
-    return id;
-  }
-
-  window.submitContactRequestAf = async function (event) {
-    if (event) event.preventDefault();
-
-    const submitBtn = $("contactSubmitBtnAf");
-
-    try {
-      setContactMessage("", "");
-
-      const identity = getIdentity();
-      const mobile = valueOf("contactMobileAf").replace(/\s+/g, "");
-      const email = valueOf("contactEmailAf").toLowerCase();
-
-      const payload = {
-        student_id: null,
-        student_identifier: identity.email || identity.mobile || email || mobile || null,
-        student_name: identity.name || valueOf("contactNameAf") || null,
-        full_name: valueOf("contactNameAf"),
-        mobile_number: mobile,
-        email: email,
-        registered_email: email,
-        contact_reason: valueOf("contactReasonAf"),
-        problem_description: valueOf("contactProblemAf"),
-        page_url: window.location.href,
-        user_agent: navigator.userAgent || "",
-        device_id: getDeviceId()
+            if (firstInput) {
+              firstInput.focus({
+                preventScroll: true
+              });
+            }
+          }, 120);
+        } catch (error) {
+          console.error("openBugReportModal failed:", error);
+        }
       };
 
-      if (payload.full_name.length < 2) {
-        setContactMessage("error", "Please enter your full name.");
-        return;
-      }
+      window.closeBugReportModal = function () {
+        const overlay = byId("bugReportOverlay");
 
-      if (!/^(\+91)?[6-9]\d{9}$/.test(mobile) && !/^\+\d{8,15}$/.test(mobile)) {
-        setContactMessage("error", "Please enter a valid mobile number.");
-        return;
-      }
+        if (!overlay) {
+          return;
+        }
 
-      if (!isEmail(email)) {
-        setContactMessage("error", "Please enter a valid email address.");
-        return;
-      }
-
-      if (!payload.contact_reason) {
-        setContactMessage("error", "Please select why you want to contact our team.");
-        return;
-      }
-
-      if (payload.problem_description.length < 10) {
-        setContactMessage("error", "Please describe your issue properly.");
-        return;
-      }
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Submitting...";
-      }
-
-      const response = await fetch(AF_EDGE.contactSubmit, {
-        method: "POST",
-        headers: getHeaders(),
-        body: JSON.stringify(payload)
-      });
-
-      const result = await response.json().catch(function () {
-        return null;
-      });
-
-      if (!response.ok || !result || result.success !== true) {
-        throw new Error(
-          result && result.message
-            ? result.message
-            : "Unable to submit request right now."
-        );
-      }
-
-      try {
-        localStorage.setItem("af_student_email", email);
-        localStorage.setItem("af_student_mobile", mobile);
-        localStorage.setItem("af_student_name", payload.full_name);
-      } catch (storageError) {}
-
-      const form = $("contactUsFormAf");
-      if (form) form.reset();
-
-      setContactMessage("success", "Your request has been submitted successfully. Our team will contact you soon.");
-    } catch (error) {
-      console.error("submitContactRequestAf failed:", error);
-      setContactMessage("error", error && error.message ? error.message : "Something went wrong. Please try again.");
-    } finally {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit Request";
-      }
-    }
-  };
-
-  window.openRequestStatusPageAf = function () {
-    window.showSection("requestStatusAf");
-  };
-
-  function getBugStatus(report) {
-    const isRead = flagTrue(report.team_read);
-    const isSolved = flagTrue(report.request_solved);
-
-    if (isSolved) {
-      return {
-        label: "Solved",
-        className: "solved"
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("bug-report-open");
       };
-    }
 
-    if (isRead) {
-      return {
-        label: "In Review",
-        className: "read"
+      function setBugReportStatus(message, type) {
+        const status = byId("bugReportStatus");
+
+        if (!status) {
+          return;
+        }
+
+        status.textContent = message || "";
+        status.className = "bug-report-status";
+
+        if (type === "success") {
+          status.classList.add("success", "is-success");
+        }
+
+        if (type === "error") {
+          status.classList.add("error", "is-error");
+        }
+
+        status.style.display = message ? "block" : "none";
+      }
+
+      window.submitBugReport = async function (event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        const button = byId("bugReportSubmitBtn");
+
+        try {
+          const identity = getIdentity();
+
+          const reporterName = valueOf("bugReporterName");
+          const reporterEmail = valueOf("bugReporterEmail").toLowerCase();
+          const category = valueOf("bugCategory");
+          const priority = valueOf("bugPriority") || "medium";
+          const description = valueOf("bugDescription");
+          const pageUrl = valueOf("bugPageUrl") || window.location.href;
+
+          if (reporterName.length < 2) {
+            setBugReportStatus("Please enter a valid name.", "error");
+            return;
+          }
+
+          if (!isEmail(reporterEmail)) {
+            setBugReportStatus("Please enter a valid email address.", "error");
+            return;
+          }
+
+          if (!category) {
+            setBugReportStatus("Please select a bug category.", "error");
+            return;
+          }
+
+          if (description.length < 10) {
+            setBugReportStatus("Please describe the bug in at least 10 characters.", "error");
+            return;
+          }
+
+          const payload = {
+            reporterName: reporterName,
+            reporterEmail: reporterEmail,
+            registered_email: reporterEmail || identity.email,
+            email: reporterEmail || identity.email,
+            mobile: identity.mobile,
+            category: category,
+            priority: priority,
+            description: description,
+            pageUrl: pageUrl,
+            activeSection: qs(".section.active, .app-section.active") ? qs(".section.active, .app-section.active").id : "",
+            deviceInfo: {
+              userAgent: navigator.userAgent || "",
+              language: navigator.language || "",
+              platform: navigator.platform || "",
+              viewportWidth: window.innerWidth || 0,
+              viewportHeight: window.innerHeight || 0,
+              devicePixelRatio: window.devicePixelRatio || 1,
+              timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+              online: navigator.onLine === true
+            }
+          };
+
+          if (button) {
+            button.disabled = true;
+            button.textContent = "Submitting...";
+          }
+
+          setBugReportStatus("Submitting your report...", "");
+
+          const response = await fetch(AF_EDGE.bugSubmit, {
+            method: "POST",
+            headers: getHeaders(),
+            body: JSON.stringify(payload)
+          });
+
+          const result = await response.json().catch(function () {
+            return null;
+          });
+
+          if (!response.ok || (result && result.success === false)) {
+            throw new Error(
+              result && (result.message || result.error)
+                ? result.message || result.error
+                : "Bug report failed. Please try again."
+            );
+          }
+
+          try {
+            localStorage.setItem(STORAGE_KEYS.email, reporterEmail);
+            localStorage.setItem(STORAGE_KEYS.name, reporterName);
+          } catch (error) {}
+
+          const form = byId("bugReportForm");
+
+          if (form) {
+            form.reset();
+          }
+
+          setBugReportStatus("Bug report submitted successfully.", "success");
+          showToast("Bug report submitted successfully.", "success");
+
+          window.setTimeout(function () {
+            window.closeBugReportModal();
+          }, 900);
+        } catch (error) {
+          console.error("submitBugReport failed:", error);
+          setBugReportStatus(error && error.message ? error.message : "Something went wrong.", "error");
+        } finally {
+          if (button) {
+            button.disabled = false;
+            button.textContent = "Submit Report";
+          }
+        }
       };
-    }
 
-    return {
-      label: "Pending",
-      className: "pending"
-    };
-  }
+      window.openContactUsPage = function () {
+        hydrateSettingsName();
 
-  function getReportTitle(report) {
-    return (
-      report.category ||
-      report.issue_type ||
-      report.bug_type ||
-      report.subject ||
-      report.title ||
-      "Bug Report"
-    );
-  }
+        const sheet = byId("contactUsAf");
+        const message = byId("contactUsMessageAf");
 
-  function getReportText(report) {
-    return (
-      report.description ||
-      report.details ||
-      report.message ||
-      report.bug_description ||
-      report.report_text ||
-      report.additional_details ||
-      "No detailed message found for this report."
-    );
-  }
+        if (!sheet) {
+          alert("Contact form missing.");
+          return;
+        }
 
-  window.toggleRequestCardAf = function (cardId) {
-    const card = $(cardId);
-    if (card) card.classList.toggle("is-expanded");
-  };
+        if (message) {
+          message.textContent = "";
+          message.className = "contact-message-af";
+          message.style.display = "none";
+        }
 
-  function renderBugReportCard(report, index) {
-    const isRead = flagTrue(report.team_read);
-    const isSolved = flagTrue(report.request_solved);
-    const status = getBugStatus(report);
-    const cardId = "requestCardAf_" + index + "_" + String(report.id || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
+        sheet.classList.add("show", "active");
+        sheet.classList.remove("hidden-box");
+        sheet.setAttribute("aria-hidden", "false");
+        document.body.classList.add("contact-us-open");
 
-    const title = escapeHtml(getReportTitle(report));
-    const fullText = escapeHtml(getReportText(report));
-    const createdAt = escapeHtml(formatDate(report.created_at));
-    const note = escapeHtml(report.status_note || report.admin_note || "");
+        window.setTimeout(function () {
+          const firstInput = byId("contactNameAf");
 
-    return [
-      '<article id="' + cardId + '" class="request-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleRequestCardAf(\'' + cardId + '\')">',
-      '<div class="request-card-top-af">',
-      '<div class="request-card-icon-af">✓</div>',
-      '<div class="request-card-title-af">',
-      "<h3>" + title + "</h3>",
-      "<p>Submitted: " + createdAt + "</p>",
-      "</div>",
-      '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
-      "</div>",
-      '<div class="request-progress-af">',
-      '<div class="request-step-af is-done">',
-      '<div class="request-step-dot-af">✓</div>',
-      '<div class="request-step-content-af"><strong>Report Sent</strong><span>Your report has been submitted successfully.</span></div>',
-      "</div>",
-      '<div class="request-step-af ' + (isRead ? "is-done" : "is-pending") + '">',
-      '<div class="request-step-dot-af">' + (isRead ? "✓" : "!") + "</div>",
-      '<div class="request-step-content-af"><strong>Team Read Your Report</strong><span>' + (isRead ? "Team has read your report." : "Pending — team has not read it yet.") + "</span></div>",
-      "</div>",
-      '<div class="request-step-af ' + (isSolved ? "is-done" : "is-pending") + '">',
-      '<div class="request-step-dot-af">' + (isSolved ? "✓" : "!") + "</div>",
-      '<div class="request-step-content-af"><strong>Solved Your Request</strong><span>' + (isSolved ? "Your request has been solved." : "Pending — solution is not marked yet.") + "</span></div>",
-      "</div>",
-      "</div>",
-      '<div class="request-card-detail-af">',
-      "<strong>Your Report</strong>",
-      "<p>" + fullText + "</p>",
-      note ? '<div class="request-note-af">' + note + "</div>" : "",
-      "</div>",
-      "</article>"
-    ].join("");
-  }
-
-  window.loadRequestStatusAf = async function (forceRefresh) {
-    const list = $("requestStatusListAf");
-
-    try {
-      if (list) list.innerHTML = "";
-
-      setMessage(
-        "requestStatusMessageAf",
-        "",
-        forceRefresh ? "Refreshing request status..." : "Loading your requests..."
-      );
-
-      const identity = getIdentity();
-      const registeredEmail = identity.email;
-
-      if (!registeredEmail) {
-        setMessage("requestStatusMessageAf", "error", "Login first to view your request status.");
-        return;
-      }
-
-      const response = await fetch(AF_EDGE.requestStatus, {
-        method: "POST",
-        headers: getHeaders(),
-        body: JSON.stringify({
-          registered_email: registeredEmail
-        })
-      });
-
-      const result = await response.json().catch(function () {
-        return null;
-      });
-
-      if (!response.ok || !result || result.success !== true) {
-        throw new Error(
-          result && result.message
-            ? result.message
-            : "Unable to load request status right now."
-        );
-      }
-
-      const reports = Array.isArray(result.reports) ? result.reports : [];
-
-      if (!reports.length) {
-        setMessage("requestStatusMessageAf", "empty", "No request found. Your bug reports will appear here after submission.");
-        return;
-      }
-
-      setMessage("requestStatusMessageAf", "", "");
-
-      if (list) {
-        list.innerHTML = reports
-          .map(function (report, index) {
-            return renderBugReportCard(report, index);
-          })
-          .join("");
-      }
-    } catch (error) {
-      console.error("loadRequestStatusAf failed:", error);
-      setMessage(
-        "requestStatusMessageAf",
-        "error",
-        error && error.message ? error.message : "Something went wrong. Please try again."
-      );
-    }
-  };
-
-  window.openContactStatusPageAf = function () {
-    ensureContactStatusSection();
-    window.showSection("contactStatusAf");
-  };
-
-  function getContactStatus(request) {
-    const rawStatus = String(request.status || "").trim().toLowerCase();
-
-    if (
-      rawStatus === "solved" ||
-      rawStatus === "resolved" ||
-      flagTrue(request.request_solved)
-    ) {
-      return {
-        label: "Solved",
-        className: "solved"
+          if (firstInput) {
+            firstInput.focus({
+              preventScroll: true
+            });
+          }
+        }, 120);
       };
-    }
 
-    if (
-      rawStatus === "in_review" ||
-      rawStatus === "in review" ||
-      rawStatus === "review" ||
-      flagTrue(request.team_read)
-    ) {
-      return {
-        label: "In Review",
-        className: "read"
+      window.closeContactUsSheetAf = function () {
+        const sheet = byId("contactUsAf");
+
+        if (!sheet) {
+          return;
+        }
+
+        sheet.classList.remove("show", "active", "active-section");
+        sheet.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("contact-us-open");
       };
-    }
 
-    return {
-      label: "Pending",
-      className: "pending"
-    };
-  }
+      window.backToSettingsFromContact = function () {
+        window.closeContactUsSheetAf();
+        window.showSection("settings");
+      };
 
-  function getContactTitle(request) {
-    return (
-      request.contact_reason ||
-      request.reason ||
-      request.subject ||
-      request.category ||
-      request.issue_type ||
-      "Contact Request"
-    );
-  }
+      function setContactMessage(type, message) {
+        const box = byId("contactUsMessageAf");
 
-  function getContactText(request) {
-    return (
-      request.problem_description ||
-      request.message ||
-      request.details ||
-      request.description ||
-      request.additional_details ||
-      request.problem ||
-      "No detailed message found for this contact request."
-    );
-  }
+        if (!box) {
+          return;
+        }
 
-  window.toggleContactCardAf = function (cardId) {
-    const card = $(cardId);
-    if (card) card.classList.toggle("is-expanded");
-  };
+        box.className = "contact-message-af";
 
-  function renderContactCard(request, index) {
-    const status = getContactStatus(request);
-    const cardId = "contactCardAf_" + index + "_" + String(request.id || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
+        if (type === "success") {
+          box.classList.add("is-success");
+        }
 
-    const title = escapeHtml(getContactTitle(request));
-    const fullText = escapeHtml(getContactText(request));
-    const createdAt = escapeHtml(formatDate(request.created_at));
-    const note = escapeHtml(request.status_note || request.admin_note || "");
+        if (type === "error") {
+          box.classList.add("is-error");
+        }
 
-    return [
-      '<article id="' + cardId + '" class="request-card-af contact-status-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleContactCardAf(\'' + cardId + '\')">',
-      '<div class="request-card-top-af">',
-      '<div class="request-card-icon-af">✓</div>',
-      '<div class="request-card-title-af">',
-      "<h3>" + title + "</h3>",
-      "<p>Submitted: " + createdAt + "</p>",
-      "</div>",
-      '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
-      "</div>",
-      '<div class="request-card-detail-af">',
-      "<strong>Your Contact Message</strong>",
-      "<p>" + fullText + "</p>",
-      note ? '<div class="request-note-af">' + note + "</div>" : "",
-      "</div>",
-      "</article>"
-    ].join("");
-  }
-
-  window.loadContactStatusAf = async function (forceRefresh) {
-    const list = $("contactStatusListAf");
-
-    try {
-      ensureContactStatusSection();
-
-      if (list) list.innerHTML = "";
-
-      setMessage(
-        "contactStatusMessageAf",
-        "",
-        forceRefresh ? "Refreshing contact status..." : "Loading your contact requests..."
-      );
-
-      const identity = getIdentity();
-
-      if (!identity.email && !identity.mobile) {
-        setMessage("contactStatusMessageAf", "error", "Login first to view your contact request status.");
-        return;
+        box.textContent = message || "";
+        box.style.display = message ? "block" : "none";
       }
 
-      const response = await fetch(AF_EDGE.contactStatus, {
-        method: "POST",
-        headers: getHeaders(),
-        body: JSON.stringify({
-          registered_email: identity.email,
-          email: identity.email,
-          mobile_number: identity.mobile,
-          mobile: identity.mobile,
-          phone: identity.mobile
-        })
-      });
+      window.submitContactRequestAf = async function (event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
 
-      const result = await response.json().catch(function () {
-        return null;
-      });
+        const button = byId("contactSubmitBtnAf");
 
-      if (!response.ok || !result || result.success !== true) {
-        throw new Error(
-          result && result.message
-            ? result.message
-            : "Unable to load contact request status right now."
-        );
+        try {
+          const identity = getIdentity();
+
+          const fullName = valueOf("contactNameAf");
+          const mobile = valueOf("contactMobileAf").replace(/\s+/g, "");
+          const email = valueOf("contactEmailAf").toLowerCase();
+          const reason = valueOf("contactReasonAf");
+          const problem = valueOf("contactProblemAf");
+
+          if (fullName.length < 2) {
+            setContactMessage("error", "Please enter your full name.");
+            return;
+          }
+
+          if (!isMobile(mobile)) {
+            setContactMessage("error", "Please enter a valid mobile number.");
+            return;
+          }
+
+          if (!isEmail(email)) {
+            setContactMessage("error", "Please enter a valid email address.");
+            return;
+          }
+
+          if (!reason) {
+            setContactMessage("error", "Please select why you want to contact our team.");
+            return;
+          }
+
+          if (problem.length < 10) {
+            setContactMessage("error", "Please describe your issue properly.");
+            return;
+          }
+
+          const payload = {
+            student_id: null,
+            student_identifier: identity.email || identity.mobile || email || mobile || null,
+            student_name: identity.name || fullName,
+            full_name: fullName,
+            mobile_number: mobile,
+            mobile: mobile,
+            phone: mobile,
+            email: email,
+            registered_email: email,
+            contact_reason: reason,
+            reason: reason,
+            problem_description: problem,
+            description: problem,
+            message: problem,
+            page_url: window.location.href,
+            user_agent: navigator.userAgent || "",
+            device_id: getDeviceId()
+          };
+
+          if (button) {
+            button.disabled = true;
+            button.textContent = "Submitting...";
+          }
+
+          setContactMessage("", "");
+
+          const response = await fetch(AF_EDGE.contactSubmit, {
+            method: "POST",
+            headers: getHeaders(),
+            body: JSON.stringify(payload)
+          });
+
+          const result = await response.json().catch(function () {
+            return null;
+          });
+
+          if (!response.ok || (result && result.success === false)) {
+            throw new Error(
+              result && (result.message || result.error)
+                ? result.message || result.error
+                : "Unable to submit request right now."
+            );
+          }
+
+          try {
+            localStorage.setItem(STORAGE_KEYS.email, email);
+            localStorage.setItem(STORAGE_KEYS.mobile, mobile);
+            localStorage.setItem(STORAGE_KEYS.name, fullName);
+          } catch (error) {}
+
+          const form = byId("contactUsFormAf");
+
+          if (form) {
+            form.reset();
+          }
+
+          setContactMessage("success", "Your request has been submitted successfully. Our team will contact you soon.");
+          showToast("Contact request submitted successfully.", "success");
+        } catch (error) {
+          console.error("submitContactRequestAf failed:", error);
+          setContactMessage("error", error && error.message ? error.message : "Something went wrong. Please try again.");
+        } finally {
+          if (button) {
+            button.disabled = false;
+            button.textContent = "Submit Request";
+          }
+        }
+      };
+
+      window.openRequestStatusPageAf = function () {
+        window.showSection("requestStatusAf");
+      };
+
+      window.openContactStatusPageAf = function () {
+        window.showSection("contactStatusAf");
+      };
+
+      window.toggleRequestCardAf = function (cardIdOrButton) {
+        if (typeof cardIdOrButton === "string") {
+          const card = byId(cardIdOrButton);
+
+          if (card) {
+            card.classList.toggle("is-expanded");
+            card.classList.toggle("is-open");
+          }
+
+          return;
+        }
+
+        const card = cardIdOrButton && cardIdOrButton.closest ? cardIdOrButton.closest(".request-card-af") : null;
+
+        if (card) {
+          card.classList.toggle("is-expanded");
+          card.classList.toggle("is-open");
+        }
+      };
+
+      window.toggleContactCardAf = function (cardId) {
+        const card = byId(cardId);
+
+        if (card) {
+          card.classList.toggle("is-expanded");
+          card.classList.toggle("is-open");
+        }
+      };
+
+      window.loadRequestStatusAf = async function (forceRefresh) {
+        const list = byId("requestStatusListAf");
+
+        try {
+          if (list) {
+            list.innerHTML = "";
+          }
+
+          setMessage("requestStatusMessageAf", "", forceRefresh ? "Refreshing request status..." : "Loading your requests...");
+
+          const identity = getIdentity();
+          const registeredEmail = identity.email;
+
+          if (!registeredEmail) {
+            setMessage("requestStatusMessageAf", "error", "Login first to view your request status.");
+            return;
+          }
+
+          const response = await fetch(AF_EDGE.bugStatus, {
+            method: "POST",
+            headers: getHeaders(),
+            body: JSON.stringify({
+              registered_email: registeredEmail,
+              email: registeredEmail,
+              mobile: identity.mobile,
+              mobile_number: identity.mobile
+            })
+          });
+
+          const result = await response.json().catch(function () {
+            return null;
+          });
+
+          if (!response.ok || (result && result.success === false)) {
+            throw new Error(
+              result && (result.message || result.error)
+                ? result.message || result.error
+                : "Unable to load request status right now."
+            );
+          }
+
+          const reports = Array.isArray(result && result.reports)
+            ? result.reports
+            : Array.isArray(result && result.requests)
+              ? result.requests
+              : Array.isArray(result && result.data)
+                ? result.data
+                : [];
+
+          if (!reports.length) {
+            setMessage("requestStatusMessageAf", "empty", "No request found. Your bug reports will appear here after submission.");
+            return;
+          }
+
+          setMessage("requestStatusMessageAf", "", "");
+
+          if (list) {
+            list.innerHTML = reports.map(function (report, index) {
+              return renderBugCard(report, index);
+            }).join("");
+          }
+        } catch (error) {
+          console.error("loadRequestStatusAf failed:", error);
+          setMessage("requestStatusMessageAf", "error", error && error.message ? error.message : "Something went wrong. Please try again.");
+        }
+      };
+
+      window.loadContactStatusAf = async function (forceRefresh) {
+        const list = byId("contactStatusListAf");
+
+        try {
+          if (list) {
+            list.innerHTML = "";
+          }
+
+          setMessage("contactStatusMessageAf", "", forceRefresh ? "Refreshing contact status..." : "Loading your contact requests...");
+
+          const identity = getIdentity();
+
+          if (!identity.email && !identity.mobile) {
+            setMessage("contactStatusMessageAf", "error", "Login first to view your contact request status.");
+            return;
+          }
+
+          const response = await fetch(AF_EDGE.contactStatus, {
+            method: "POST",
+            headers: getHeaders(),
+            body: JSON.stringify({
+              registered_email: identity.email,
+              email: identity.email,
+              mobile_number: identity.mobile,
+              mobile: identity.mobile,
+              phone: identity.mobile
+            })
+          });
+
+          const result = await response.json().catch(function () {
+            return null;
+          });
+
+          if (!response.ok || (result && result.success === false)) {
+            throw new Error(
+              result && (result.message || result.error)
+                ? result.message || result.error
+                : "Unable to load contact request status right now."
+            );
+          }
+
+          const requests = Array.isArray(result && result.requests)
+            ? result.requests
+            : Array.isArray(result && result.reports)
+              ? result.reports
+              : Array.isArray(result && result.data)
+                ? result.data
+                : [];
+
+          if (!requests.length) {
+            setMessage("contactStatusMessageAf", "empty", "No contact request found. Your contact messages will appear here after submission.");
+            return;
+          }
+
+          setMessage("contactStatusMessageAf", "", "");
+
+          if (list) {
+            list.innerHTML = requests.map(function (request, index) {
+              return renderContactCard(request, index);
+            }).join("");
+          }
+        } catch (error) {
+          console.error("loadContactStatusAf failed:", error);
+          setMessage("contactStatusMessageAf", "error", error && error.message ? error.message : "Something went wrong. Please try again.");
+        }
+      };
+
+      function patchOverlayClickSafety() {
+        const bug = byId("bugReportOverlay");
+        const contact = byId("contactUsAf");
+
+        if (bug && !bug.dataset.afClickPatched) {
+          bug.dataset.afClickPatched = "1";
+
+          bug.addEventListener("click", function (event) {
+            if (event.target === bug) {
+              window.closeBugReportModal();
+            }
+          });
+
+          const modal = bug.querySelector(".bug-report-modal");
+
+          if (modal) {
+            modal.addEventListener("click", function (event) {
+              event.stopPropagation();
+            });
+          }
+        }
+
+        if (contact && !contact.dataset.afClickPatched) {
+          contact.dataset.afClickPatched = "1";
+
+          contact.addEventListener("click", function (event) {
+            if (event.target === contact) {
+              window.closeContactUsSheetAf();
+            }
+          });
+
+          const page = contact.querySelector(".contact-us-af-page");
+
+          if (page) {
+            page.addEventListener("click", function (event) {
+              event.stopPropagation();
+            });
+          }
+        }
       }
 
-      const requests = Array.isArray(result.requests)
-        ? result.requests
-        : Array.isArray(result.reports)
-          ? result.reports
-          : Array.isArray(result.data)
-            ? result.data
-            : [];
+      function patchEscapeKey() {
+        if (window.__afEscapePatched) {
+          return;
+        }
 
-      if (!requests.length) {
-        setMessage("contactStatusMessageAf", "empty", "No contact request found. Your contact messages will appear here after submission.");
-        return;
+        window.__afEscapePatched = true;
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key !== "Escape") {
+            return;
+          }
+
+          closeSheets();
+        });
       }
 
-      setMessage("contactStatusMessageAf", "", "");
+      function init() {
+        applyTheme(isDarkMode());
+        hydrateSettingsName();
+        patchOverlayClickSafety();
+        patchEscapeKey();
 
-      const finalList = $("contactStatusListAf");
+        const active = qs(".section.active, .app-section.active");
 
-      if (finalList) {
-        finalList.innerHTML = requests
-          .map(function (request, index) {
-            return renderContactCard(request, index);
-          })
-          .join("");
+        if (active && active.id && active.id !== "contactUsAf") {
+          window.showSection(active.id);
+        }
       }
-    } catch (error) {
-      console.error("loadContactStatusAf failed:", error);
-      setMessage(
-        "contactStatusMessageAf",
-        "error",
-        error && error.message ? error.message : "Something went wrong. Please try again."
-      );
-    }
-  };
 
-  function patchEscapeKey() {
-    document.addEventListener("keydown", function (event) {
-      if (event.key !== "Escape") return;
-
-      window.closeBugReportModal();
-      window.closeContactUsSheetAf();
-    });
-  }
-
-  function initPatch() {
-    ensureContactStatusSection();
-    ensureContactStatusButton();
-    ensureBugOverlayClickSafety();
-    ensureContactSheetClickSafety();
-    patchEscapeKey();
-
-    const active = document.querySelector(".section.active, .app-section.active");
-    if (active && active.id !== "contactUsAf") {
-      window.showSection(active.id);
-    }
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initPatch);
-  } else {
-    initPatch();
-  }
-})();
-
-/*
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: AF FINAL SUPPORT PATCH JS 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
-*/
-</script>
-
-<!--
-================================================================================
-████████████████████████████████████████████████████████████████████████████████
-                    👉 END OF SECTION: AF FINAL SUPPORT PATCH 👈
-████████████████████████████████████████████████████████████████████████████████
-================================================================================
--->
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
