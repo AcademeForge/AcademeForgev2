@@ -257,8 +257,7 @@
 ================================================================================
 */
 
-.af-modal,
-.af-delete-modal-overlay-v2 {
+.af-modal {
   position: fixed;
   inset: 0;
   z-index: 999999;
@@ -530,6 +529,149 @@
   font-weight: 850;
 }
 
+
+
+/*
+================================================================================
+████████████████████████████████████████████████████████████████████████████████
+                  👉 END OF SECTION: OLD DELETE ACCOUNT MODAL STYLES 👈
+                     👉 START OF: DELETE ACCOUNT BOTTOM SLIDE SHEET 👈
+████████████████████████████████████████████████████████████████████████████████
+================================================================================
+*/
+
+html.af-delete-sheet-lock-v2,
+body.af-delete-sheet-lock-v2 {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.af-delete-sheet-overlay-v2 {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.42);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+.af-delete-sheet-overlay-v2.af-extra-hidden-v2 {
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.af-delete-sheet-card-v2 {
+  position: relative;
+  width: min(100%, 560px);
+  max-height: min(88vh, 760px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 28px 28px 0 0;
+  border: 1px solid rgba(17, 24, 39, 0.10);
+  border-bottom: 0;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 -18px 60px rgba(0, 0, 0, 0.16);
+  transform: translateY(0);
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.af-delete-sheet-overlay-v2.af-extra-hidden-v2 .af-delete-sheet-card-v2 {
+  transform: translateY(105%);
+}
+
+.af-delete-sheet-card-v2::before {
+  content: "";
+  width: 42px;
+  height: 5px;
+  flex: 0 0 auto;
+  margin: 10px auto 4px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.18);
+}
+
+.af-delete-sheet-card-v2 .af-delete-modal-top-v2 {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 12px 56px 14px 18px;
+  background: #ffffff;
+}
+
+.af-delete-sheet-card-v2 .af-delete-modal-scroll-v2 {
+  flex: 1 1 auto;
+  max-height: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 16px 18px calc(18px + env(safe-area-inset-bottom));
+  -webkit-overflow-scrolling: touch;
+}
+
+body.dark-mode .af-delete-sheet-overlay-v2,
+body.dark .af-delete-sheet-overlay-v2,
+.dark-mode .af-delete-sheet-overlay-v2,
+.dark .af-delete-sheet-overlay-v2 {
+  background: rgba(0, 0, 0, 0.62);
+}
+
+body.dark-mode .af-delete-sheet-card-v2,
+body.dark .af-delete-sheet-card-v2,
+.dark-mode .af-delete-sheet-card-v2,
+.dark .af-delete-sheet-card-v2 {
+  background: #111113;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 -18px 70px rgba(0, 0, 0, 0.48);
+}
+
+body.dark-mode .af-delete-sheet-card-v2::before,
+body.dark .af-delete-sheet-card-v2::before,
+.dark-mode .af-delete-sheet-card-v2::before,
+.dark .af-delete-sheet-card-v2::before {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+body.dark-mode .af-delete-sheet-card-v2 .af-delete-modal-top-v2,
+body.dark .af-delete-sheet-card-v2 .af-delete-modal-top-v2,
+.dark-mode .af-delete-sheet-card-v2 .af-delete-modal-top-v2,
+.dark .af-delete-sheet-card-v2 .af-delete-modal-top-v2 {
+  background: #111113;
+}
+
+@media (max-width: 560px) {
+  .af-delete-sheet-card-v2 {
+    width: 100%;
+    max-height: 88vh;
+    border-radius: 26px 26px 0 0;
+  }
+
+  .af-delete-sheet-card-v2 .af-delete-modal-top-v2 {
+    padding: 12px 54px 13px 14px;
+  }
+
+  .af-delete-sheet-card-v2 .af-delete-modal-scroll-v2 {
+    padding: 14px 14px calc(16px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .af-delete-sheet-overlay-v2,
+  .af-delete-sheet-card-v2 {
+    transition: none;
+  }
+}
+
 /*
 ================================================================================
 ████████████████████████████████████████████████████████████████████████████████
@@ -542,7 +684,7 @@
 body.dark-mode .af-profile-hero,
 body.dark-mode .af-panel,
 body.dark-mode .af-modal-card,
-body.dark-mode .af-delete-modal-card-v2 {
+body.dark-mode .af-delete-sheet-card-v2 {
   background: rgba(17, 17, 19, 0.92);
   border-color: rgba(255, 255, 255, 0.10);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
@@ -714,8 +856,8 @@ body.dark-mode .af-delete-field-v2 textarea {
   </div>
 </div>
 
-<div id="afDeleteAccountModalV2" class="af-delete-modal-overlay-v2 af-extra-hidden-v2" role="dialog" aria-modal="true" aria-labelledby="afDeleteModalTitleV2">
-  <div class="af-delete-modal-card-v2">
+<div id="afDeleteAccountModalV2" class="af-delete-sheet-overlay-v2 af-extra-hidden-v2" role="dialog" aria-modal="true" aria-labelledby="afDeleteModalTitleV2">
+  <div class="af-delete-sheet-card-v2">
     <div class="af-delete-modal-top-v2">
       <div class="af-delete-request-head-v2">
         <div class="af-delete-request-alert-v2" aria-hidden="true">!</div>
@@ -1291,19 +1433,41 @@ function toggleAfExtraSettingsV2() {
 }
 
 function openAfDeleteAccountRequestV2() {
-  const modal = document.getElementById("afDeleteAccountModalV2");
-  if (!modal) return;
+  const sheet = document.getElementById("afDeleteAccountModalV2");
+  const openBtn = document.getElementById("afDeleteAccountOpenBtnV2");
+
+  if (!sheet) {
+    console.error("afDeleteAccountModalV2 not found.");
+    return;
+  }
 
   afSetInput("afDeleteFullNameV2", afMergedName() === "Student" ? "" : afMergedName());
   afSetInput("afDeleteEmailV2", afMergedEmail() === "-" ? "" : afMergedEmail());
   afSetInput("afDeletePhoneV2", afMergedMobile() === "-" ? "" : afMergedMobile());
 
-  modal.classList.remove("af-extra-hidden-v2");
+  sheet.classList.remove("af-extra-hidden-v2");
+  document.documentElement.classList.add("af-delete-sheet-lock-v2");
+  document.body.classList.add("af-delete-sheet-lock-v2");
+
+  if (openBtn) openBtn.setAttribute("aria-expanded", "true");
+
+  window.setTimeout(function() {
+    const firstInput = document.getElementById("afDeleteFullNameV2");
+    if (firstInput && window.innerWidth > 768) firstInput.focus({ preventScroll: true });
+  }, 280);
 }
 
 function closeAfDeleteAccountRequestV2() {
-  const modal = document.getElementById("afDeleteAccountModalV2");
-  if (modal) modal.classList.add("af-extra-hidden-v2");
+  const sheet = document.getElementById("afDeleteAccountModalV2");
+  const openBtn = document.getElementById("afDeleteAccountOpenBtnV2");
+
+  if (!sheet) return;
+
+  sheet.classList.add("af-extra-hidden-v2");
+  document.documentElement.classList.remove("af-delete-sheet-lock-v2");
+  document.body.classList.remove("af-delete-sheet-lock-v2");
+
+  if (openBtn) openBtn.setAttribute("aria-expanded", "false");
 }
 
 async function submitAfDeleteAccountRequestV2(event) {
@@ -1364,6 +1528,12 @@ document.addEventListener("DOMContentLoaded", function() {
   } catch (error) {
     console.error("Profile init failed:", error);
   }
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.key !== "Escape") return;
+  const sheet = document.getElementById("afDeleteAccountModalV2");
+  if (sheet && !sheet.classList.contains("af-extra-hidden-v2")) closeAfDeleteAccountRequestV2();
 });
 
 document.addEventListener("click", function(event) {
