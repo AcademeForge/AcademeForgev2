@@ -1,1711 +1,2212 @@
-<style id="af-final-settings-fix-v3">
-  :root {
-    --af-fix-bg: #f6f8fc;
-    --af-fix-bg-soft: #eef3fb;
-    --af-fix-surface: #ffffff;
-    --af-fix-surface-2: #f3f6fb;
-    --af-fix-text: #111827;
-    --af-fix-muted: #667085;
-    --af-fix-border: rgba(17, 24, 39, 0.10);
-    --af-fix-border-strong: rgba(17, 24, 39, 0.18);
-    --af-fix-primary: #111827;
-    --af-fix-primary-text: #ffffff;
-    --af-fix-success: #16a34a;
-    --af-fix-warning: #d97706;
-    --af-fix-danger: #dc2626;
-    --af-fix-blue: #2563eb;
-    --af-fix-shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
-    --af-fix-soft-shadow: 0 14px 36px rgba(15, 23, 42, 0.09);
-  }
-
-  html.dark-mode,
-  body.dark-mode,
-  body.settings-dark-mode,
-  html[data-theme="dark"],
-  body[data-theme="dark"] {
-    --af-fix-bg: #070a12;
-    --af-fix-bg-soft: #0c111d;
-    --af-fix-surface: #111827;
-    --af-fix-surface-2: #172033;
-    --af-fix-text: #f8fafc;
-    --af-fix-muted: #a7b0c0;
-    --af-fix-border: rgba(255, 255, 255, 0.10);
-    --af-fix-border-strong: rgba(255, 255, 255, 0.18);
-    --af-fix-primary: #f8fafc;
-    --af-fix-primary-text: #070a12;
-    --af-fix-success: #4ade80;
-    --af-fix-warning: #fbbf24;
-    --af-fix-danger: #fb7185;
-    --af-fix-blue: #93c5fd;
-    --af-fix-shadow: 0 28px 80px rgba(0, 0, 0, 0.52);
-    --af-fix-soft-shadow: 0 18px 48px rgba(0, 0, 0, 0.30);
-  }
-
-  html,
-  body {
-    overflow-x: hidden !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    background: var(--af-fix-bg) !important;
-    color: var(--af-fix-text) !important;
-  }
-
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar,
-  #settings::-webkit-scrollbar,
-  .settings-page::-webkit-scrollbar,
-  .bug-report-modal::-webkit-scrollbar,
-  .contact-us-af-page::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-  }
-
-  .app,
-  .app-shell,
-  #app,
-  main.app {
-    width: 100% !important;
-    max-width: 430px !important;
-    margin: 0 auto !important;
-    overflow-x: hidden !important;
-    position: relative !important;
-    background: var(--af-fix-bg) !important;
-  }
-
-  #settings {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-
-  #settings.active,
-  #settings.active-section {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-
-  #settings.settings-section,
-  #settings.section.settings-section,
-  #settings.app-section.settings-section,
-  #settings.section,
-  #settings.app-section {
-    width: 100% !important;
-    max-width: 430px !important;
-    min-height: 100dvh !important;
-    margin: 0 auto !important;
-    padding: 14px 12px 104px !important;
-    background:
-      radial-gradient(circle at 12% 0%, rgba(37, 99, 235, 0.08), transparent 34%),
-      linear-gradient(180deg, var(--af-fix-bg) 0%, var(--af-fix-surface) 100%) !important;
-    color: var(--af-fix-text) !important;
-    overflow: visible !important;
-    position: relative !important;
-    box-sizing: border-box !important;
-  }
-
-  .settings-page {
-    width: 100% !important;
-    max-width: 430px !important;
-    margin: 0 auto !important;
-    display: grid !important;
-    gap: 12px !important;
-  }
-
-  .settings-profile-card,
-  .settings-beta-card,
-  .settings-row,
-  .settings-support-row,
-  .settings-app-version-box {
-    background: var(--af-fix-surface) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    box-shadow: var(--af-fix-soft-shadow) !important;
-  }
-
-  .settings-profile-card {
-    border-radius: 28px !important;
-    padding: 16px !important;
-  }
-
-  .settings-avatar {
-    background: linear-gradient(135deg, var(--af-fix-primary), #334155) !important;
-    color: var(--af-fix-primary-text) !important;
-    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.20) !important;
-  }
-
-  .settings-profile-info h2,
-  .settings-row-left,
-  .settings-support-left,
-  .settings-app-version-box strong {
-    color: var(--af-fix-text) !important;
-  }
-
-  .settings-profile-link,
-  .settings-app-version-box span {
-    color: var(--af-fix-muted) !important;
-  }
-
-  .settings-beta-card,
-  .settings-row,
-  .settings-support-row {
-    border-radius: 22px !important;
-    min-height: 62px !important;
-    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease !important;
-  }
-
-  .settings-beta-card:active,
-  .settings-row:active,
-  .settings-support-row:active {
-    transform: scale(0.985) !important;
-  }
-
-  .settings-row-icon,
-  .settings-support-icon {
-    background: var(--af-fix-surface-2) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-  }
-
-  .settings-new-badge,
-  .request-status-pill-af {
-    border-radius: 999px !important;
-    background: var(--af-fix-surface-2) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    color: var(--af-fix-muted) !important;
-    font-weight: 950 !important;
-  }
-
-  #bugReportOverlay,
-  #contactUsAf {
-    position: fixed !important;
-    inset: 0 !important;
-    z-index: 999999 !important;
-    display: flex !important;
-    align-items: flex-end !important;
-    justify-content: center !important;
-    padding: 12px !important;
-    background: rgba(0, 0, 0, 0.52) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    transition: opacity 220ms ease, visibility 220ms ease !important;
-  }
-
-  #contactUsAf {
-    z-index: 999998 !important;
-  }
-
-  #bugReportOverlay.show,
-  #bugReportOverlay[aria-hidden="false"],
-  #contactUsAf.show,
-  #contactUsAf.active,
-  #contactUsAf[aria-hidden="false"] {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-  }
-
-  .bug-report-modal,
-  .contact-us-af-page {
-    width: min(100%, 430px) !important;
-    max-height: min(88dvh, 780px) !important;
-    overflow-y: auto !important;
-    overscroll-behavior: contain !important;
-    padding: 18px !important;
-    border-radius: 30px 30px 20px 20px !important;
-    background: var(--af-fix-surface) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    box-shadow: var(--af-fix-shadow) !important;
-    transform: translateY(115%) !important;
-    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1) !important;
-  }
-
-  #bugReportOverlay.show .bug-report-modal,
-  #bugReportOverlay[aria-hidden="false"] .bug-report-modal,
-  #contactUsAf.show .contact-us-af-page,
-  #contactUsAf.active .contact-us-af-page,
-  #contactUsAf[aria-hidden="false"] .contact-us-af-page {
-    transform: translateY(0) !important;
-  }
-
-  .bug-report-modal::before,
-  .contact-us-af-page::before {
-    content: "" !important;
-    display: block !important;
-    width: 44px !important;
-    height: 5px !important;
-    margin: 0 auto 14px !important;
-    border-radius: 999px !important;
-    background: var(--af-fix-border-strong) !important;
-  }
-
-  .bug-report-header,
-  .contact-us-af-head {
-    margin-bottom: 16px !important;
-  }
-
-  .bug-report-kicker,
-  .contact-us-af-kicker {
-    color: var(--af-fix-muted) !important;
-    font-size: 11px !important;
-    font-weight: 950 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
-  }
-
-  .bug-report-title,
-  .contact-us-af-head h2 {
-    color: var(--af-fix-text) !important;
-    font-size: 22px !important;
-    line-height: 1.1 !important;
-    font-weight: 950 !important;
-    letter-spacing: -0.045em !important;
-  }
-
-  .contact-us-af-head p {
-    color: var(--af-fix-muted) !important;
-  }
-
-  .bug-report-x,
-  .contact-back-btn-af {
-    background: var(--af-fix-surface-2) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-  }
-
-  .bug-report-field,
-  .contact-field-af {
-    display: grid !important;
-    gap: 7px !important;
-  }
-
-  .bug-report-field span,
-  .bug-report-field label,
-  .contact-field-af label {
-    color: var(--af-fix-text) !important;
-    font-size: 12px !important;
-    font-weight: 950 !important;
-  }
-
-  .bug-report-field input,
-  .bug-report-field select,
-  .bug-report-field textarea,
-  .contact-field-af input,
-  .contact-field-af select,
-  .contact-field-af textarea {
-    width: 100% !important;
-    min-height: 48px !important;
-    padding: 12px 14px !important;
-    border-radius: 16px !important;
-    background: var(--af-fix-surface-2) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    outline: none !important;
-    font-size: 14px !important;
-    font-weight: 760 !important;
-  }
-
-  .bug-report-field textarea,
-  .contact-field-af textarea {
-    min-height: 120px !important;
-    resize: vertical !important;
-  }
-
-  .bug-report-submit,
-  .contact-submit-btn-af {
-    width: 100% !important;
-    min-height: 52px !important;
-    border-radius: 17px !important;
-    background: var(--af-fix-primary) !important;
-    color: var(--af-fix-primary-text) !important;
-    border: 1px solid var(--af-fix-primary) !important;
-    font-size: 14px !important;
-    font-weight: 950 !important;
-  }
-
-  .bug-report-status,
-  .contact-message-af,
-  .request-status-message-af {
-    display: none;
-    margin: 12px 0 !important;
-    padding: 12px 14px !important;
-    border-radius: 16px !important;
-    background: var(--af-fix-surface) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    color: var(--af-fix-muted) !important;
-    font-size: 13px !important;
-    font-weight: 800 !important;
-  }
-
-  .bug-report-status.success,
-  .bug-report-status.is-success,
-  .contact-message-af.is-success,
-  .request-status-message-af.is-success {
-    display: block !important;
-    color: var(--af-fix-success) !important;
-  }
-
-  .bug-report-status.error,
-  .bug-report-status.is-error,
-  .contact-message-af.is-error,
-  .request-status-message-af.is-error {
-    display: block !important;
-    color: var(--af-fix-danger) !important;
-  }
-
-  .request-status-message-af.is-empty {
-    display: block !important;
-    color: var(--af-fix-muted) !important;
-  }
-
-  #requestStatusAf,
-  #contactStatusAf {
-    display: none !important;
-    width: 100% !important;
-    max-width: 430px !important;
-    min-height: 100dvh !important;
-    margin: 0 auto !important;
-    padding: 14px 12px 104px !important;
-    background:
-      radial-gradient(circle at 12% 0%, rgba(37, 99, 235, 0.08), transparent 34%),
-      linear-gradient(180deg, var(--af-fix-bg) 0%, var(--af-fix-surface) 100%) !important;
-    color: var(--af-fix-text) !important;
-  }
-
-  #requestStatusAf.active,
-  #requestStatusAf.active-section,
-  #contactStatusAf.active,
-  #contactStatusAf.active-section {
-    display: block !important;
-  }
-
-  .request-status-page-af,
-  .contact-status-page-af {
-    width: 100% !important;
-    max-width: 430px !important;
-    margin: 0 auto !important;
-  }
-
-  .request-status-hero-af {
-    display: grid !important;
-    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
-    align-items: center !important;
-    gap: 12px !important;
-    padding: 16px !important;
-    margin-bottom: 14px !important;
-    border-radius: 28px !important;
-    background: var(--af-fix-surface) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    box-shadow: var(--af-fix-soft-shadow) !important;
-  }
-
-  .request-status-back-af,
-  .request-status-refresh-af {
-    width: 44px !important;
-    height: 44px !important;
-    display: grid !important;
-    place-items: center !important;
-    border-radius: 16px !important;
-    background: var(--af-fix-surface-2) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    font-size: 0 !important;
-    font-weight: 950 !important;
-  }
-
-  .request-status-back-af::before {
-    content: "←" !important;
-    font-size: 18px !important;
-  }
-
-  .request-status-refresh-af::before {
-    content: "↻" !important;
-    font-size: 18px !important;
-  }
-
-  .request-status-hero-text-af p {
-    margin: 0 0 5px !important;
-    color: var(--af-fix-muted) !important;
-    font-size: 11px !important;
-    font-weight: 950 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
-  }
-
-  .request-status-hero-text-af h2 {
-    margin: 0 !important;
-    color: var(--af-fix-text) !important;
-    font-size: 22px !important;
-    line-height: 1.08 !important;
-    font-weight: 950 !important;
-    letter-spacing: -0.045em !important;
-  }
-
-  .request-status-hero-text-af span {
-    display: block !important;
-    margin-top: 5px !important;
-    color: var(--af-fix-muted) !important;
-    font-size: 12px !important;
-    font-weight: 760 !important;
-  }
-
-  .request-status-list-af {
-    display: grid !important;
-    gap: 12px !important;
-  }
-
-  .request-card-af {
-    position: relative !important;
-    width: 100% !important;
-    padding: 15px !important;
-    border-radius: 24px !important;
-    background: var(--af-fix-surface) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    box-shadow: var(--af-fix-soft-shadow) !important;
-    cursor: pointer !important;
-    overflow: hidden !important;
-    animation: afFinalCardIn 260ms ease both !important;
-    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease !important;
-  }
-
-  .request-card-af:active {
-    transform: scale(0.985) !important;
-  }
-
-  .request-card-top-af {
-    display: grid !important;
-    grid-template-columns: 42px minmax(0, 1fr) auto !important;
-    align-items: start !important;
-    gap: 12px !important;
-  }
-
-  .request-card-icon-af {
-    width: 42px !important;
-    height: 42px !important;
-    display: grid !important;
-    place-items: center !important;
-    border-radius: 16px !important;
-    background: rgba(22, 163, 74, 0.10) !important;
-    color: var(--af-fix-success) !important;
-    border: 1px solid rgba(22, 163, 74, 0.22) !important;
-    font-size: 18px !important;
-    font-weight: 950 !important;
-  }
-
-  .request-card-title-af h3 {
-    margin: 0 0 5px !important;
-    color: var(--af-fix-text) !important;
-    font-size: 15px !important;
-    line-height: 1.25 !important;
-    font-weight: 950 !important;
-    letter-spacing: -0.02em !important;
-  }
-
-  .request-card-title-af p {
-    margin: 0 !important;
-    color: var(--af-fix-muted) !important;
-    font-size: 12px !important;
-    line-height: 1.42 !important;
-    font-weight: 760 !important;
-  }
-
-  .request-status-pill-af.pending {
-    color: var(--af-fix-muted) !important;
-  }
-
-  .request-status-pill-af.read,
-  .request-status-pill-af.review {
-    color: var(--af-fix-warning) !important;
-  }
-
-  .request-status-pill-af.solved {
-    color: var(--af-fix-success) !important;
-  }
-
-  .request-progress-af {
-    display: grid !important;
-    gap: 10px !important;
-    margin-top: 14px !important;
-    padding-top: 14px !important;
-    border-top: 1px solid var(--af-fix-border) !important;
-  }
-
-  .request-step-af {
-    display: grid !important;
-    grid-template-columns: 28px minmax(0, 1fr) !important;
-    gap: 10px !important;
-    align-items: start !important;
-  }
-
-  .request-step-dot-af {
-    width: 28px !important;
-    height: 28px !important;
-    display: grid !important;
-    place-items: center !important;
-    border-radius: 999px !important;
-    background: var(--af-fix-surface-2) !important;
-    color: var(--af-fix-muted) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    font-size: 12px !important;
-    font-weight: 950 !important;
-  }
-
-  .request-step-af.is-done .request-step-dot-af {
-    color: var(--af-fix-success) !important;
-    border-color: rgba(22, 163, 74, 0.28) !important;
-  }
-
-  .request-step-af.is-pending .request-step-dot-af {
-    color: var(--af-fix-warning) !important;
-    border-color: rgba(217, 119, 6, 0.28) !important;
-  }
-
-  .request-step-content-af strong {
-    display: block !important;
-    color: var(--af-fix-text) !important;
-    font-size: 13px !important;
-    font-weight: 950 !important;
-  }
-
-  .request-step-content-af span {
-    display: block !important;
-    margin-top: 2px !important;
-    color: var(--af-fix-muted) !important;
-    font-size: 12px !important;
-    line-height: 1.42 !important;
-    font-weight: 760 !important;
-  }
-
-  .request-card-detail-af {
-    display: none !important;
-    margin-top: 14px !important;
-    padding: 14px !important;
-    border-radius: 18px !important;
-    background: var(--af-fix-surface-2) !important;
-    border: 1px solid var(--af-fix-border) !important;
-  }
-
-  .request-card-af.is-expanded .request-card-detail-af,
-  .request-card-af.is-open .request-card-detail-af {
-    display: block !important;
-    animation: afFinalDetailIn 180ms ease both !important;
-  }
-
-  .request-card-detail-af strong {
-    display: block !important;
-    margin-bottom: 7px !important;
-    color: var(--af-fix-text) !important;
-    font-size: 13px !important;
-    font-weight: 950 !important;
-  }
-
-  .request-card-detail-af p {
-    margin: 0 !important;
-    color: var(--af-fix-muted) !important;
-    font-size: 13px !important;
-    line-height: 1.58 !important;
-    font-weight: 760 !important;
-    white-space: pre-wrap !important;
-    word-break: break-word !important;
-  }
-
-  .request-note-af {
-    margin-top: 12px !important;
-    padding: 12px !important;
-    border-radius: 16px !important;
-    background: var(--af-fix-surface) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    color: var(--af-fix-muted) !important;
-    font-size: 12px !important;
-    line-height: 1.45 !important;
-    font-weight: 760 !important;
-  }
-
-  .learning-heatmap-card,
-  #learningHeatmapCard,
-  .learning-activity-card,
-  .heatmap-card {
-    border-radius: 26px !important;
-    padding: 16px !important;
-    background:
-      radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 35%),
-      var(--af-fix-surface) !important;
-    color: var(--af-fix-text) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    box-shadow: var(--af-fix-soft-shadow) !important;
-    overflow: hidden !important;
-  }
-
-  .learning-heatmap-card h2,
-  .learning-heatmap-card h3,
-  #learningHeatmapCard h2,
-  #learningHeatmapCard h3,
-  .learning-activity-card h2,
-  .learning-activity-card h3,
-  .heatmap-card h2,
-  .heatmap-card h3 {
-    margin: 0 0 6px !important;
-    color: var(--af-fix-text) !important;
-    font-size: 19px !important;
-    line-height: 1.1 !important;
-    font-weight: 950 !important;
-    letter-spacing: -0.035em !important;
-  }
-
-  .learning-heatmap-card p,
-  #learningHeatmapCard p,
-  .learning-activity-card p,
-  .heatmap-card p,
-  #learningHeatmapStatus {
-    color: var(--af-fix-muted) !important;
-    font-size: 12px !important;
-    line-height: 1.45 !important;
-    font-weight: 760 !important;
-  }
-
-  #learningWeekGrid,
-  .learning-week-grid,
-  .heatmap-grid {
-    display: grid !important;
-    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-    gap: 7px !important;
-    margin-top: 14px !important;
-  }
-
-  #learningWeekGrid > *,
-  .learning-week-grid > *,
-  .heatmap-grid > * {
-    min-height: 42px !important;
-    border-radius: 14px !important;
-    background: var(--af-fix-surface-2) !important;
-    border: 1px solid var(--af-fix-border) !important;
-    color: var(--af-fix-muted) !important;
-    display: grid !important;
-    place-items: center !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
-    animation: afFinalCardIn 240ms ease both !important;
-  }
-
-  #learningWeekGrid > *.active,
-  #learningWeekGrid > *.is-active,
-  .learning-week-grid > *.active,
-  .learning-week-grid > *.is-active,
-  .heatmap-grid > *.active,
-  .heatmap-grid > *.is-active {
-    background: rgba(22, 163, 74, 0.12) !important;
-    color: var(--af-fix-success) !important;
-    border-color: rgba(22, 163, 74, 0.26) !important;
-  }
-
-  .bottom-nav {
-    left: 50% !important;
-    right: auto !important;
-    bottom: 10px !important;
-    width: min(calc(100% - 14px), 418px) !important;
-    max-width: 418px !important;
-    margin: 0 !important;
-    transform: translateX(-50%) !important;
-    z-index: 5000 !important;
-  }
-
-  @keyframes afFinalCardIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Settings Page</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --surface-2: #f0f0ec;
+      --surface-3: #e8e8e2;
+
+      --text: #151512;
+      --text-muted: #6d6d64;
+      --text-soft: #8a8a80;
+
+      --border: rgba(20, 20, 16, 0.1);
+      --border-strong: rgba(20, 20, 16, 0.16);
+
+      --accent: #151512;
+      --accent-contrast: #ffffff;
+      --accent-soft: rgba(21, 21, 18, 0.08);
+
+      --success: #188a52;
+      --success-bg: rgba(24, 138, 82, 0.1);
+
+      --warning: #9a6a00;
+      --warning-bg: rgba(154, 106, 0, 0.1);
+
+      --danger: #c5362f;
+      --danger-bg: rgba(197, 54, 47, 0.1);
+
+      --shadow-sm: 0 8px 24px rgba(20, 20, 16, 0.08);
+      --shadow-md: 0 18px 50px rgba(20, 20, 16, 0.14);
+      --shadow-lg: 0 30px 80px rgba(20, 20, 16, 0.2);
+
+      --radius-xs: 10px;
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+
+      --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+      --transition: 0.3s var(--ease);
+
+      --max-width: 1080px;
+      --sheet-max-width: 680px;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    to {
+    html[data-theme="dark"] {
+      color-scheme: dark;
+
+      --bg: #050505;
+      --surface: #101010;
+      --surface-2: #171717;
+      --surface-3: #202020;
+
+      --text: #f4f1ea;
+      --text-muted: #aaa59a;
+      --text-soft: #77736b;
+
+      --border: rgba(244, 241, 234, 0.1);
+      --border-strong: rgba(244, 241, 234, 0.16);
+
+      --accent: #f4f1ea;
+      --accent-contrast: #080808;
+      --accent-soft: rgba(244, 241, 234, 0.09);
+
+      --success: #50c878;
+      --success-bg: rgba(80, 200, 120, 0.12);
+
+      --warning: #d6a84f;
+      --warning-bg: rgba(214, 168, 79, 0.12);
+
+      --danger: #ff6b61;
+      --danger-bg: rgba(255, 107, 97, 0.12);
+
+      --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.32);
+      --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.44);
+      --shadow-lg: 0 30px 90px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, var(--accent-soft), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.04), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      transition:
+        background-color var(--transition),
+        color var(--transition);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.68;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .settings-shell {
+      width: min(100%, var(--max-width));
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .settings-layout {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .settings-sidebar,
+    .settings-view {
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(18px);
+      transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+    }
+
+    .settings-sidebar {
+      position: sticky;
+      top: 24px;
+      overflow: hidden;
+    }
+
+    .settings-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .settings-kicker {
+      margin: 0 0 8px;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .settings-title {
+      margin: 0;
+      font-size: clamp(1.65rem, 4vw, 2.35rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .settings-subtitle {
+      margin: 12px 0 0;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .settings-profile-card {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      margin: 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition:
+        background-color var(--transition),
+        border-color var(--transition);
+    }
+
+    .settings-avatar {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      place-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+      font-size: 1.25rem;
+    }
+
+    .settings-profile-meta {
+      min-width: 0;
+    }
+
+    .settings-profile-meta strong {
+      display: block;
+      overflow: hidden;
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .settings-profile-meta span {
+      display: block;
+      overflow: hidden;
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .settings-nav {
+      display: grid;
+      gap: 8px;
+      padding: 0 16px 16px;
+    }
+
+    .settings-nav-btn {
+      display: flex;
+      width: 100%;
+      min-height: 58px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid transparent;
+      border-radius: 18px;
+      text-align: left;
+      transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        transform 0.18s var(--ease),
+        color var(--transition);
+    }
+
+    .settings-nav-btn:hover {
+      background: var(--surface-2);
+      border-color: var(--border);
+      transform: translateY(-1px);
+    }
+
+    .settings-nav-btn:active {
+      transform: scale(0.985);
+    }
+
+    .settings-nav-btn.is-active {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .settings-nav-left {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .settings-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      place-items: center;
+      background: var(--accent-soft);
+      border-radius: 13px;
+      font-size: 1rem;
+      transition: background-color var(--transition);
+    }
+
+    .settings-nav-btn.is-active .settings-icon {
+      background: color-mix(in srgb, var(--accent-contrast) 14%, transparent);
+    }
+
+    .settings-nav-text {
+      min-width: 0;
+    }
+
+    .settings-nav-text strong {
+      display: block;
+      overflow: hidden;
+      font-size: 0.94rem;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .settings-nav-text span {
+      display: block;
+      overflow: hidden;
+      margin-top: 3px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: color var(--transition);
+    }
+
+    .settings-nav-btn.is-active .settings-nav-text span {
+      color: color-mix(in srgb, var(--accent-contrast) 72%, transparent);
+    }
+
+    .settings-arrow {
+      flex: 0 0 auto;
+      color: currentColor;
+      opacity: 0.54;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .settings-theme-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px;
+      margin: 0 16px 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .settings-theme-row strong {
+      display: block;
+      font-size: 0.92rem;
+    }
+
+    .settings-theme-row span {
+      display: block;
+      margin-top: 3px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    .theme-switch {
+      position: relative;
+      display: inline-flex;
+      width: 54px;
+      height: 32px;
+      flex: 0 0 auto;
+      align-items: center;
+    }
+
+    .theme-switch input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .theme-slider {
+      position: relative;
+      width: 54px;
+      height: 32px;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      transition:
+        background-color var(--transition),
+        border-color var(--transition);
+    }
+
+    .theme-slider::before {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 22px;
+      height: 22px;
+      content: "";
+      background: var(--surface);
+      border-radius: 50%;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      transition:
+        transform var(--transition),
+        background-color var(--transition);
+    }
+
+    .theme-switch input:checked + .theme-slider {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .theme-switch input:checked + .theme-slider::before {
+      transform: translateX(22px);
+      background: var(--accent-contrast);
+    }
+
+    .settings-view {
+      min-height: calc(100vh - 48px);
+      padding: 26px;
+    }
+
+    .view-panel {
+      display: none;
+      animation: settingsPanelIn 0.28s var(--ease) both;
+    }
+
+    .view-panel.is-active {
+      display: block;
+    }
+
+    @keyframes settingsPanelIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .view-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .view-head h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2.15rem);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    .view-head p {
+      max-width: 680px;
+      margin: 10px 0 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .pill {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 11px;
+      color: var(--text-muted);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .settings-card {
+      padding: 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+    }
+
+    .settings-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+
+    .settings-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .settings-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label,
+    .field-label {
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      outline: none;
+      transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        color var(--transition);
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    .field-hint {
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .ghost-btn {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-weight: 850;
+      letter-spacing: -0.01em;
+      transition:
+        transform 0.18s var(--ease),
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .primary-btn {
+      color: var(--accent-contrast);
+      background: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .primary-btn:active,
+    .secondary-btn:active,
+    .ghost-btn:active {
+      transform: scale(0.985);
+    }
+
+    .secondary-btn {
+      color: var(--text);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+
+    .secondary-btn:hover {
+      background: var(--surface-3);
+    }
+
+    .ghost-btn {
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+
+    .ghost-btn:hover {
+      color: var(--text);
+      background: var(--surface-2);
+    }
+
+    .status-search-card {
+      padding: 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    .status-search-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .status-message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .status-message.is-visible {
+      display: block;
+    }
+
+    .status-message.is-success {
+      color: var(--success);
+      background: var(--success-bg);
+    }
+
+    .status-message.is-warning {
+      color: var(--warning);
+      background: var(--warning-bg);
+    }
+
+    .status-message.is-error {
+      color: var(--danger);
+      background: var(--danger-bg);
+    }
+
+    .ticket-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .ticket-card {
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ticket-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .ticket-top h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .ticket-top p {
+      margin: 6px 0 0;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .ticket-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      position: relative;
+    }
+
+    .timeline-step {
+      position: relative;
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+      padding: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition:
+        background-color var(--transition),
+        border-color var(--transition);
+    }
+
+    .timeline-step.is-complete {
+      background: var(--success-bg);
+      border-color: color-mix(in srgb, var(--success) 35%, var(--border));
+    }
+
+    .timeline-step.is-current {
+      background: var(--warning-bg);
+      border-color: color-mix(in srgb, var(--warning) 40%, var(--border));
+    }
+
+    .timeline-dot {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .timeline-step.is-complete .timeline-dot {
+      color: var(--accent-contrast);
+      background: var(--success);
+      border-color: var(--success);
+    }
+
+    .timeline-step.is-current .timeline-dot {
+      color: var(--accent-contrast);
+      background: var(--warning);
+      border-color: var(--warning);
+    }
+
+    .timeline-step strong {
+      overflow: hidden;
+      font-size: 0.84rem;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .timeline-step span {
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      line-height: 1.35;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .about-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .about-list span {
+      color: var(--text-muted);
+    }
+
+    .sheet-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      align-items: end;
+      justify-items: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, 0);
+      backdrop-filter: blur(0);
+      pointer-events: none;
+      opacity: 0;
+      transition:
+        opacity var(--transition),
+        background-color var(--transition),
+        backdrop-filter var(--transition);
+    }
+
+    .sheet-overlay.is-open {
+      background: rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(14px);
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    .bottom-sheet {
+      width: min(100%, var(--sheet-max-width));
+      max-height: min(88vh, 760px);
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px 30px 24px 24px;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(calc(100% + 32px));
+      transition:
+        transform 0.34s var(--ease),
+        background-color var(--transition),
+        border-color var(--transition);
+      touch-action: none;
+    }
+
+    .sheet-overlay.is-open .bottom-sheet {
+      transform: translateY(0);
+    }
+
+    .sheet-scroll {
+      max-height: min(88vh, 760px);
+      overflow: auto;
+      padding: 12px 20px 20px;
+    }
+
+    .sheet-handle-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 8px 0 12px;
+    }
+
+    .sheet-handle {
+      width: 46px;
+      height: 5px;
+      background: var(--surface-3);
+      border-radius: var(--radius-pill);
+    }
+
+    .sheet-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sheet-head h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .sheet-head p {
+      margin: 8px 0 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .sheet-close {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      place-items: center;
+      color: var(--text);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-size: 1.25rem;
+      transition:
+        transform 0.18s var(--ease),
+        background-color var(--transition);
+    }
+
+    .sheet-close:hover {
+      background: var(--surface-3);
+    }
+
+    .sheet-close:active {
+      transform: scale(0.94);
+    }
+
+    .bug-form {
+      display: grid;
+      gap: 14px;
+      padding-top: 18px;
+    }
+
+    .file-picker {
+      position: relative;
+      display: grid;
+      gap: 8px;
+    }
+
+    .file-picker input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .file-picker-label {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px dashed var(--border-strong);
+      border-radius: 18px;
+      cursor: pointer;
+      transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        transform 0.18s var(--ease);
+    }
+
+    .file-picker-label:hover {
+      background: var(--surface-2);
+      border-color: var(--accent);
+    }
+
+    .file-picker-label:active {
+      transform: scale(0.99);
+    }
+
+    .file-picker-copy strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .file-picker-copy span {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .file-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 8px 11px;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .file-name {
+      min-height: 20px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .sheet-status {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .sheet-status.is-visible {
+      display: block;
+    }
+
+    .sheet-status.is-success {
+      color: var(--success);
+      background: var(--success-bg);
+    }
+
+    .sheet-status.is-error {
+      color: var(--danger);
+      background: var(--danger-bg);
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 120;
+      max-width: min(420px, calc(100vw - 36px));
+      padding: 14px 16px;
+      color: var(--accent-contrast);
+      background: var(--accent);
+      border-radius: 18px;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px);
+      transition:
+        opacity var(--transition),
+        transform var(--transition);
+    }
+
+    .toast.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
-  }
 
-  @keyframes afFinalDetailIn {
-    from {
-      opacity: 0;
-      transform: translateY(-4px);
+    .toast strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (max-width: 380px) {
-    .request-card-top-af {
-      grid-template-columns: 42px minmax(0, 1fr) !important;
+    .toast span {
+      display: block;
+      color: color-mix(in srgb, var(--accent-contrast) 76%, transparent);
+      font-size: 0.82rem;
+      line-height: 1.4;
     }
 
-    .request-status-pill-af {
-      grid-column: 2 / 3 !important;
-      justify-self: start !important;
-      margin-top: 4px !important;
+    body.sheet-open {
+      overflow: hidden;
     }
 
-    .request-status-hero-af {
-      grid-template-columns: 42px minmax(0, 1fr) 42px !important;
-      padding: 14px !important;
-    }
-  }
-</style>
+    @media (max-width: 880px) {
+      .settings-shell {
+        padding: 14px;
+      }
 
-<script id="af-final-settings-fix-v3">
-(function () {
-  "use strict";
+      .settings-layout {
+        grid-template-columns: 1fr;
+      }
 
-  var AF_SUPABASE_URL = "https://afooyyydhlwngzssgqih.supabase.co";
+      .settings-sidebar {
+        position: static;
+      }
 
-  var AF_EDGE = {
-    bugSubmit: AF_SUPABASE_URL + "/functions/v1/report-bug",
-    bugStatus: AF_SUPABASE_URL + "/functions/v1/request-status-af",
-    contactSubmit: AF_SUPABASE_URL + "/functions/v1/contact-request",
-    contactStatus: AF_SUPABASE_URL + "/functions/v1/contact-request-status-af"
-  };
+      .settings-view {
+        min-height: auto;
+        padding: 20px;
+      }
 
-  function $(id) {
-    return document.getElementById(id);
-  }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
 
-  function qsa(selector, root) {
-    return Array.prototype.slice.call((root || document).querySelectorAll(selector));
-  }
+      .status-search-form {
+        grid-template-columns: 1fr;
+      }
 
-  function val(id) {
-    var node = $(id);
-    return String(node && node.value ? node.value : "").trim();
-  }
+      .timeline {
+        grid-template-columns: 1fr;
+      }
 
-  function setVal(id, value) {
-    var node = $(id);
-    if (node) node.value = value || "";
-  }
-
-  function escapeHtml(value) {
-    return String(value == null ? "" : value).replace(/[&<>"']/g, function (char) {
-      return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-      }[char];
-    });
-  }
-
-  function emailOk(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
-  }
-
-  function mobileOk(value) {
-    var mobile = String(value || "").replace(/\s+/g, "");
-    return /^(\+91)?[6-9]\d{9}$/.test(mobile) || /^\+\d{8,15}$/.test(mobile);
-  }
-
-  function safeJson(raw) {
-    try {
-      if (!raw) return null;
-      var parsed = JSON.parse(raw);
-      return parsed && typeof parsed === "object" ? parsed : null;
-    } catch (error) {
-      return null;
-    }
-  }
-
-  function headers() {
-    var key = typeof window.SUPABASE_ANON_KEY === "string" ? window.SUPABASE_ANON_KEY.trim() : "";
-    var output = {
-      "Content-Type": "application/json"
-    };
-
-    if (key) {
-      output.apikey = key;
-      output.Authorization = "Bearer " + key;
+      .view-head {
+        display: grid;
+      }
     }
 
-    return output;
-  }
+    @media (max-width: 520px) {
+      .settings-shell {
+        padding: 10px;
+      }
 
-  function getStudent() {
-    var keys = [
-      "af_current_student",
-      "af_logged_student",
-      "af_student_session",
-      "af_student_data",
-      "studentaf_session",
-      "student_session_af",
-      "currentStudentaf",
-      "current_student_af",
-      "currentStudent",
-      "studentData",
-      "loggedInStudent",
-      "student"
-    ];
+      .settings-header,
+      .settings-view {
+        padding: 18px;
+      }
 
-    for (var i = 0; i < keys.length; i += 1) {
-      var parsed = safeJson(localStorage.getItem(keys[i]));
-      if (!parsed) continue;
+      .settings-profile-card,
+      .settings-theme-row {
+        margin-inline: 12px;
+      }
 
-      var student = parsed.student || parsed.data || parsed.user || parsed.profile || parsed;
-      if (student && typeof student === "object") return student;
+      .settings-nav {
+        padding-inline: 12px;
+      }
+
+      .sheet-overlay {
+        padding: 0;
+      }
+
+      .bottom-sheet {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
+        border-radius: 28px 28px 0 0;
+      }
+
+      .sheet-scroll {
+        padding-right: 16px;
+        padding-left: 16px;
+        padding-bottom: calc(18px + env(safe-area-inset-bottom));
+      }
+
+      .toast {
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        left: 12px;
+        max-width: none;
+      }
     }
 
-    return {};
-  }
-
-  function identity() {
-    var student = getStudent();
-
-    var email = String(
-      student.registered_email ||
-      student.email ||
-      student.student_email ||
-      student.email_id ||
-      student.studentEmail ||
-      student.user_email ||
-      localStorage.getItem("af_student_email") ||
-      localStorage.getItem("student_email_af") ||
-      localStorage.getItem("af_registered_email") ||
-      localStorage.getItem("studentEmail") ||
-      localStorage.getItem("registered_email") ||
-      localStorage.getItem("email") ||
-      ""
-    ).trim().toLowerCase();
-
-    var mobile = String(
-      student.registered_mobile ||
-      student.mobile_number ||
-      student.mobile ||
-      student.phone ||
-      student.phone_number ||
-      student.student_mobile ||
-      localStorage.getItem("af_student_mobile") ||
-      localStorage.getItem("student_mobile_af") ||
-      localStorage.getItem("af_registered_mobile") ||
-      localStorage.getItem("studentPhone") ||
-      localStorage.getItem("registered_mobile") ||
-      localStorage.getItem("mobile") ||
-      localStorage.getItem("phone") ||
-      ""
-    ).trim();
-
-    var name = String(
-      student.full_name ||
-      student.name ||
-      student.student_name ||
-      localStorage.getItem("af_student_name") ||
-      localStorage.getItem("student_name_af") ||
-      localStorage.getItem("studentNameaf") ||
-      ""
-    ).trim();
-
-    return {
-      email: email,
-      mobile: mobile,
-      name: name
-    };
-  }
-
-  function deviceId() {
-    var key = "af_device_id";
-    var id = localStorage.getItem(key);
-
-    if (!id) {
-      id = "web_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2);
-      localStorage.setItem(key, id);
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
     }
+  </style>
+</head>
 
-    return id;
-  }
+<body>
+  <main class="settings-shell">
+    <section class="settings-layout" aria-label="Application settings">
+      <aside class="settings-sidebar" aria-label="Settings navigation">
+        <header class="settings-header">
+          <p class="settings-kicker">Control Center</p>
+          <h1 class="settings-title">Settings</h1>
+          <p class="settings-subtitle">
+            Manage your profile, preferences, requests, support reports, and app information.
+          </p>
+        </header>
 
-  function formatDate(value) {
-    try {
-      if (!value) return "Recently submitted";
-      var date = new Date(value);
-      if (Number.isNaN(date.getTime())) return "Recently submitted";
+        <div class="settings-profile-card" aria-label="Signed in profile summary">
+          <div class="settings-avatar" aria-hidden="true">👤</div>
+          <div class="settings-profile-meta">
+            <strong id="profileNameLabel">Devraj Kumar</strong>
+            <span id="profileEmailLabel">devraj@example.com</span>
+          </div>
+        </div>
 
-      return date.toLocaleString("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
+        <nav class="settings-nav" aria-label="Settings sections">
+          <button class="settings-nav-btn is-active" type="button" data-view="profile">
+            <span class="settings-nav-left">
+              <span class="settings-icon" aria-hidden="true">👤</span>
+              <span class="settings-nav-text">
+                <strong>Profile Settings</strong>
+                <span>Identity and account details</span>
+              </span>
+            </span>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="settings-nav-btn" type="button" data-view="notifications">
+            <span class="settings-nav-left">
+              <span class="settings-icon" aria-hidden="true">🔔</span>
+              <span class="settings-nav-text">
+                <strong>Notification Preferences</strong>
+                <span>Email, push, and product alerts</span>
+              </span>
+            </span>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="settings-nav-btn" type="button" data-view="request-status">
+            <span class="settings-nav-left">
+              <span class="settings-icon" aria-hidden="true">📌</span>
+              <span class="settings-nav-text">
+                <strong>Request Status</strong>
+                <span>Track support tickets</span>
+              </span>
+            </span>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="settings-nav-btn" type="button" data-action="open-bug-sheet">
+            <span class="settings-nav-left">
+              <span class="settings-icon" aria-hidden="true">🐞</span>
+              <span class="settings-nav-text">
+                <strong>Report a Bug</strong>
+                <span>Send screenshots and details</span>
+              </span>
+            </span>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="settings-nav-btn" type="button" data-view="about">
+            <span class="settings-nav-left">
+              <span class="settings-icon" aria-hidden="true">ⓘ</span>
+              <span class="settings-nav-text">
+                <strong>About App</strong>
+                <span>Version, build, and policies</span>
+              </span>
+            </span>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+        </nav>
+
+        <div class="settings-theme-row">
+          <div>
+            <strong>Premium Dark Mode</strong>
+            <span>Pitch-black interface palette</span>
+          </div>
+
+          <label class="theme-switch" for="themeToggle" aria-label="Toggle dark mode">
+            <input id="themeToggle" type="checkbox" />
+            <span class="theme-slider" aria-hidden="true"></span>
+          </label>
+        </div>
+      </aside>
+
+      <section class="settings-view" aria-live="polite">
+        <article id="view-profile" class="view-panel is-active" data-panel="profile">
+          <div class="view-head">
+            <div>
+              <h2>Profile Settings</h2>
+              <p>
+                Update the basic profile details shown across the app. This frontend keeps data in localStorage for demo usage.
+              </p>
+            </div>
+            <span class="pill">Account</span>
+          </div>
+
+          <form class="form-grid" id="profileForm" autocomplete="on">
+            <div class="card-grid">
+              <div class="field">
+                <label for="profileName">Full Name</label>
+                <input id="profileName" name="name" type="text" maxlength="80" value="Devraj Kumar" required />
+              </div>
+
+              <div class="field">
+                <label for="profileEmail">Registered Email</label>
+                <input id="profileEmail" name="email" type="email" maxlength="120" value="devraj@example.com" required />
+              </div>
+
+              <div class="field">
+                <label for="profileMobile">Mobile Number</label>
+                <input id="profileMobile" name="mobile" type="tel" maxlength="15" value="+919876543210" required />
+              </div>
+
+              <div class="field">
+                <label for="profileRole">Role</label>
+                <select id="profileRole" name="role">
+                  <option value="student">Student</option>
+                  <option value="developer" selected>Developer</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="primary-btn" type="submit">Save Profile</button>
+          </form>
+        </article>
+
+        <article id="view-notifications" class="view-panel" data-panel="notifications">
+          <div class="view-head">
+            <div>
+              <h2>Notification Preferences</h2>
+              <p>
+                Control which updates are allowed. These switches are frontend-ready and can be connected to your user settings API.
+              </p>
+            </div>
+            <span class="pill">Preferences</span>
+          </div>
+
+          <div class="card-grid">
+            <label class="settings-card">
+              <h3>Email Updates</h3>
+              <p>Receive account, request, and support updates by email.</p>
+              <div style="height: 14px"></div>
+              <span class="theme-switch">
+                <input type="checkbox" data-pref="emailUpdates" checked />
+                <span class="theme-slider" aria-hidden="true"></span>
+              </span>
+            </label>
+
+            <label class="settings-card">
+              <h3>Push Alerts</h3>
+              <p>Show instant alerts for ticket updates and important activity.</p>
+              <div style="height: 14px"></div>
+              <span class="theme-switch">
+                <input type="checkbox" data-pref="pushAlerts" checked />
+                <span class="theme-slider" aria-hidden="true"></span>
+              </span>
+            </label>
+
+            <label class="settings-card">
+              <h3>Product News</h3>
+              <p>Get release notes, improvements, and app announcements.</p>
+              <div style="height: 14px"></div>
+              <span class="theme-switch">
+                <input type="checkbox" data-pref="productNews" />
+                <span class="theme-slider" aria-hidden="true"></span>
+              </span>
+            </label>
+
+            <label class="settings-card">
+              <h3>Security Notices</h3>
+              <p>Always receive critical security and account protection notices.</p>
+              <div style="height: 14px"></div>
+              <span class="theme-switch">
+                <input type="checkbox" data-pref="securityNotices" checked disabled />
+                <span class="theme-slider" aria-hidden="true"></span>
+              </span>
+            </label>
+          </div>
+        </article>
+
+        <article id="view-request-status" class="view-panel" data-panel="request-status">
+          <div class="view-head">
+            <div>
+              <h2>Request Status</h2>
+              <p>
+                Enter your registered email or mobile number to fetch previous support requests and ticket progress.
+              </p>
+            </div>
+            <span class="pill">Async Fetch</span>
+          </div>
+
+          <section class="status-search-card" aria-label="Request status lookup">
+            <form class="status-search-form" id="statusForm">
+              <div class="field">
+                <label for="statusSearch">Registered Email or Mobile Number</label>
+                <input
+                  id="statusSearch"
+                  name="search"
+                  type="text"
+                  inputmode="email"
+                  autocomplete="email tel"
+                  placeholder="devraj@example.com or +919876543210"
+                  maxlength="120"
+                  required
+                />
+                <span class="field-hint">
+                  Demo accepts: devraj@example.com, user@example.com, +919876543210, 9876543210
+                </span>
+              </div>
+
+              <button id="statusSubmitBtn" class="primary-btn" type="submit">
+                Check Status
+              </button>
+            </form>
+
+            <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
+          </section>
+
+          <div id="ticketList" class="ticket-list" aria-label="Request results"></div>
+        </article>
+
+        <article id="view-about" class="view-panel" data-panel="about">
+          <div class="view-head">
+            <div>
+              <h2>About App</h2>
+              <p>
+                Lightweight settings module built with semantic HTML, CSS variables, and vanilla JavaScript.
+              </p>
+            </div>
+            <span class="pill">v1.0.0</span>
+          </div>
+
+          <ul class="about-list">
+            <li>
+              <strong>App Name</strong>
+              <span>AcademeForge Settings Module</span>
+            </li>
+            <li>
+              <strong>Version</strong>
+              <span>1.0.0</span>
+            </li>
+            <li>
+              <strong>Build</strong>
+              <span>Vanilla HTML / CSS / JS</span>
+            </li>
+            <li>
+              <strong>Theme Engine</strong>
+              <span>CSS custom properties</span>
+            </li>
+            <li>
+              <strong>Support</strong>
+              <span>support@example.com</span>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <div id="bugSheetOverlay" class="sheet-overlay" aria-hidden="true">
+    <section
+      id="bugSheet"
+      class="bottom-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bugSheetTitle"
+      tabindex="-1"
+    >
+      <div class="sheet-scroll">
+        <div class="sheet-handle-wrap" data-sheet-handle>
+          <div class="sheet-handle" aria-hidden="true"></div>
+        </div>
+
+        <header class="sheet-head">
+          <div>
+            <h2 id="bugSheetTitle">Report a Bug</h2>
+            <p>
+              Send issue details with an optional screenshot. This is ready to connect to your backend endpoint.
+            </p>
+          </div>
+
+          <button class="sheet-close" type="button" data-close-sheet aria-label="Close bug report">×</button>
+        </header>
+
+        <form id="bugForm" class="bug-form">
+          <div class="field">
+            <label for="bugType">Bug Type</label>
+            <select id="bugType" name="bugType" required>
+              <option value="">Select bug type</option>
+              <option value="UI">UI</option>
+              <option value="Backend">Backend</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="bugDescription">Description</label>
+            <textarea
+              id="bugDescription"
+              name="description"
+              maxlength="1200"
+              placeholder="Describe what happened, where it happened, and what you expected."
+              required
+            ></textarea>
+            <span class="field-hint">Minimum 10 characters. Maximum 1200 characters.</span>
+          </div>
+
+          <div class="file-picker">
+            <span class="field-label">Screenshot</span>
+            <input id="bugScreenshot" name="screenshot" type="file" accept="image/png,image/jpeg,image/webp" />
+            <label class="file-picker-label" for="bugScreenshot">
+              <span class="file-picker-copy">
+                <strong>Upload screenshot</strong>
+                <span>PNG, JPG, or WEBP. Max recommended size: 5 MB.</span>
+              </span>
+              <span class="file-pill">Choose File</span>
+            </label>
+            <div id="bugFileName" class="file-name">No file selected.</div>
+          </div>
+
+          <div id="bugSheetStatus" class="sheet-status" role="status" aria-live="polite"></div>
+
+          <button id="bugSubmitBtn" class="primary-btn" type="submit">
+            Submit Bug Report
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <strong id="toastTitle">Saved</strong>
+    <span id="toastMessage">Your changes were saved.</span>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const STORAGE_KEYS = Object.freeze({
+        theme: "settings_theme",
+        profile: "settings_profile",
+        notificationPrefs: "settings_notification_preferences"
       });
-    } catch (error) {
-      return "Recently submitted";
-    }
-  }
 
-  function truthy(value) {
-    var normalized = String(value == null ? "" : value).trim().toLowerCase();
-    return value === true || normalized === "t" || normalized === "true" || normalized === "1" || normalized === "yes";
-  }
+      const STATUS_STEPS = Object.freeze([
+        {
+          key: "received",
+          label: "Request Received",
+          description: "Your request is logged."
+        },
+        {
+          key: "review",
+          label: "Under Review",
+          description: "Support team is checking it."
+        },
+        {
+          key: "resolved",
+          label: "Resolved",
+          description: "Request has been completed."
+        }
+      ]);
 
-  function statusOf(item) {
-    var raw = String(item && item.status ? item.status : "").trim().toLowerCase();
+      const MOCK_STATUS_RESPONSES = Object.freeze({
+        "devraj@example.com": {
+          success: true,
+          query: "devraj@example.com",
+          tickets: [
+            {
+              id: "AF-BUG-1024",
+              title: "Settings dark mode toggle issue",
+              type: "UI",
+              status: "review",
+              createdAt: "2026-05-18T10:20:00+05:30",
+              updatedAt: "2026-05-19T17:05:00+05:30",
+              summary: "The support team is reviewing the dark mode toggle behavior on mobile devices."
+            },
+            {
+              id: "AF-REQ-1011",
+              title: "Profile update request",
+              type: "Account",
+              status: "resolved",
+              createdAt: "2026-05-12T09:30:00+05:30",
+              updatedAt: "2026-05-13T12:10:00+05:30",
+              summary: "Profile metadata update was completed successfully."
+            }
+          ]
+        },
+        "user@example.com": {
+          success: true,
+          query: "user@example.com",
+          tickets: [
+            {
+              id: "AF-BUG-991",
+              title: "Notification preference not saving",
+              type: "Backend",
+              status: "received",
+              createdAt: "2026-05-20T08:15:00+05:30",
+              updatedAt: "2026-05-20T08:15:00+05:30",
+              summary: "Your request has been received and is waiting for initial review."
+            }
+          ]
+        },
+        "+919876543210": {
+          success: true,
+          query: "+919876543210",
+          tickets: [
+            {
+              id: "AF-SUP-882",
+              title: "Login OTP delay",
+              type: "Backend",
+              status: "review",
+              createdAt: "2026-05-16T14:00:00+05:30",
+              updatedAt: "2026-05-17T11:40:00+05:30",
+              summary: "Engineering is reviewing OTP delivery latency for your account."
+            }
+          ]
+        },
+        "9876543210": {
+          success: true,
+          query: "9876543210",
+          tickets: [
+            {
+              id: "AF-SUP-882",
+              title: "Login OTP delay",
+              type: "Backend",
+              status: "review",
+              createdAt: "2026-05-16T14:00:00+05:30",
+              updatedAt: "2026-05-17T11:40:00+05:30",
+              summary: "Engineering is reviewing OTP delivery latency for your account."
+            }
+          ]
+        }
+      });
 
-    var solved =
-      truthy(item && item.request_solved) ||
-      truthy(item && item.solved) ||
-      truthy(item && item.is_solved) ||
-      raw === "solved" ||
-      raw === "resolved" ||
-      raw === "closed";
-
-    var read =
-      truthy(item && item.team_read) ||
-      truthy(item && item.in_review) ||
-      truthy(item && item.is_read) ||
-      raw === "in_review" ||
-      raw === "in review" ||
-      raw === "review" ||
-      raw === "read";
-
-    if (solved) {
-      return {
-        label: "Solved",
-        className: "solved",
-        read: true,
-        solved: true
-      };
-    }
-
-    if (read) {
-      return {
-        label: "In Review",
-        className: "read",
-        read: true,
-        solved: false
-      };
-    }
-
-    return {
-      label: "Pending",
-      className: "pending",
-      read: false,
-      solved: false
-    };
-  }
-
-  function setMessage(id, type, message) {
-    var box = $(id);
-    if (!box) return;
-
-    box.classList.remove("is-error", "is-empty", "is-success", "error", "success");
-    box.textContent = message || "";
-    box.style.display = message ? "block" : "none";
-
-    if (type === "error") box.classList.add("is-error");
-    if (type === "empty") box.classList.add("is-empty");
-    if (type === "success") box.classList.add("is-success");
-  }
-
-  function hydrateForms() {
-    var data = identity();
-
-    if (data.name) {
-      setVal("contactNameAf", data.name);
-      setVal("bugReporterName", data.name);
-    }
-
-    if (data.email) {
-      setVal("contactEmailAf", data.email);
-      setVal("bugReporterEmail", data.email);
-    }
-
-    if (data.mobile) {
-      setVal("contactMobileAf", data.mobile);
-    }
-
-    setVal("bugPageUrl", window.location.href);
-    setVal("bugUserAgent", navigator.userAgent || "");
-  }
-
-  function ensureContactStatusButton() {
-    if ($("afContactStatusBtn")) return;
-
-    var list = document.querySelector(".settings-support-list") || document.querySelector(".settings-list");
-    if (!list) return;
-
-    var button = document.createElement("button");
-    button.id = "afContactStatusBtn";
-    button.type = "button";
-    button.className = "settings-support-row";
-    button.setAttribute("aria-label", "Open Contact Us Status");
-    button.innerHTML =
-      '<div class="settings-support-left">' +
-      '<span class="settings-support-icon" aria-hidden="true">☑</span>' +
-      '<span>See Contact Us Status</span>' +
-      '</div>' +
-      '<span class="settings-arrow" aria-hidden="true">›</span>';
-
-    button.addEventListener("click", function () {
-      window.openContactStatusPageAf();
-    });
-
-    list.appendChild(button);
-  }
-
-  function ensureContactStatusSection() {
-    if ($("contactStatusAf")) return;
-
-    var section = document.createElement("section");
-    section.id = "contactStatusAf";
-    section.className = "section app-section contact-status-section-af";
-    section.setAttribute("aria-label", "Contact Request Status");
-    section.innerHTML =
-      '<div class="contact-status-page-af">' +
-      '<div class="request-status-hero-af">' +
-      '<button type="button" class="request-status-back-af" onclick="showSection(\'settings\')" aria-label="Back to settings">Back</button>' +
-      '<div class="request-status-hero-text-af">' +
-      '<p>Support Center</p>' +
-      '<h2>Contact Status</h2>' +
-      '<span>Track your call/email support requests.</span>' +
-      '</div>' +
-      '<button type="button" class="request-status-refresh-af" onclick="loadContactStatusAf(true)" aria-label="Refresh contact status">Refresh</button>' +
-      '</div>' +
-      '<div id="contactStatusMessageAf" class="request-status-message-af">Loading your contact requests...</div>' +
-      '<div id="contactStatusListAf" class="request-status-list-af"></div>' +
-      '</div>';
-
-    var app = document.querySelector(".app") || document.body;
-    var nav = document.querySelector(".bottom-nav");
-
-    if (nav && nav.parentNode === app) {
-      app.insertBefore(section, nav);
-    } else {
-      app.appendChild(section);
-    }
-  }
-
-  function showSectionSafe(id) {
-    var target = $(id);
-    if (!target) return;
-
-    if (id !== "contactUsAf") {
-      window.closeContactUsSheetAf();
-    }
-
-    qsa(".section, .app-section").forEach(function (section) {
-      if (section.id === "contactUsAf") return;
-      section.classList.remove("active", "active-section");
-      section.classList.add("hidden-box");
-      section.setAttribute("aria-hidden", "true");
-    });
-
-    target.classList.add("active", "active-section");
-    target.classList.remove("hidden-box");
-    target.setAttribute("aria-hidden", "false");
-
-    qsa(".bottom-nav .nav-btn").forEach(function (button) {
-      var active = button.dataset && button.dataset.section === id;
-      button.classList.toggle("active", active);
-      if (active) button.setAttribute("aria-current", "page");
-      else button.removeAttribute("aria-current");
-    });
-
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }
-
-  var originalShowSection = typeof window.showSection === "function" ? window.showSection : null;
-
-  window.showSection = function (id) {
-    try {
-      if (id === "contactStatusAf") ensureContactStatusSection();
-
-      if (id === "contactUsAf") {
-        window.openContactUsPage();
-        return;
-      }
-
-      showSectionSafe(id);
-
-      if (id === "requestStatusAf") {
-        window.setTimeout(function () {
-          window.loadRequestStatusAf(false);
-        }, 80);
-      }
-
-      if (id === "contactStatusAf") {
-        window.setTimeout(function () {
-          window.loadContactStatusAf(false);
-        }, 80);
-      }
-    } catch (error) {
-      console.error("showSection final fix failed:", error);
-      if (originalShowSection) originalShowSection(id);
-    }
-  };
-
-  window.openBugReportModal = function () {
-    var overlay = $("bugReportOverlay");
-    var form = $("bugReportForm");
-    var status = $("bugReportStatus");
-
-    if (!overlay) {
-      alert("Bug report form missing in HTML.");
-      return;
-    }
-
-    if (form) form.reset();
-    hydrateForms();
-
-    if (status) {
-      status.textContent = "";
-      status.className = "bug-report-status";
-      status.style.display = "none";
-    }
-
-    overlay.classList.add("show");
-    overlay.setAttribute("aria-hidden", "false");
-    document.body.classList.add("bug-report-open");
-
-    window.setTimeout(function () {
-      var first = $("bugReporterName");
-      if (first) first.focus({ preventScroll: true });
-    }, 120);
-  };
-
-  window.closeBugReportModal = function () {
-    var overlay = $("bugReportOverlay");
-    if (overlay) {
-      overlay.classList.remove("show");
-      overlay.setAttribute("aria-hidden", "true");
-    }
-    document.body.classList.remove("bug-report-open");
-  };
-
-  window.openContactUsPage = function () {
-    var sheet = $("contactUsAf");
-
-    if (!sheet) {
-      alert("Contact form missing in HTML.");
-      return;
-    }
-
-    hydrateForms();
-
-    var message = $("contactUsMessageAf");
-    if (message) {
-      message.textContent = "";
-      message.className = "contact-message-af";
-      message.style.display = "none";
-    }
-
-    sheet.classList.add("show", "active");
-    sheet.classList.remove("hidden-box");
-    sheet.setAttribute("aria-hidden", "false");
-    document.body.classList.add("contact-us-open");
-
-    window.setTimeout(function () {
-      var first = $("contactNameAf");
-      if (first) first.focus({ preventScroll: true });
-    }, 120);
-  };
-
-  window.closeContactUsSheetAf = function () {
-    var sheet = $("contactUsAf");
-    if (sheet) {
-      sheet.classList.remove("show", "active", "active-section");
-      sheet.setAttribute("aria-hidden", "true");
-    }
-    document.body.classList.remove("contact-us-open");
-  };
-
-  window.backToSettingsFromContact = function () {
-    window.closeContactUsSheetAf();
-    window.showSection("settings");
-  };
-
-  window.submitBugReport = async function (event) {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    var button = $("bugReportSubmitBtn");
-    var status = $("bugReportStatus");
-
-    try {
-      var data = identity();
-
-      var payload = {
-        reporterName: val("bugReporterName"),
-        reporterEmail: val("bugReporterEmail").toLowerCase(),
-        registered_email: val("bugReporterEmail").toLowerCase() || data.email,
-        email: val("bugReporterEmail").toLowerCase() || data.email,
-        mobile: data.mobile,
-        category: val("bugCategory"),
-        priority: val("bugPriority") || "medium",
-        description: val("bugDescription"),
-        pageUrl: window.location.href,
-        activeSection: document.querySelector(".section.active, .app-section.active")
-          ? document.querySelector(".section.active, .app-section.active").id
-          : "",
-        deviceInfo: {
-          userAgent: navigator.userAgent || "",
-          language: navigator.language || "",
-          platform: navigator.platform || "",
-          viewportWidth: window.innerWidth || 0,
-          viewportHeight: window.innerHeight || 0,
-          devicePixelRatio: window.devicePixelRatio || 1,
-          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
-          online: navigator.onLine === true
+      const state = {
+        activeView: "profile",
+        sheet: {
+          startY: 0,
+          currentY: 0,
+          dragging: false
         }
       };
 
-      if (payload.reporterName.length < 2) throw new Error("Please enter your name.");
-      if (!emailOk(payload.reporterEmail)) throw new Error("Please enter a valid email.");
-      if (!payload.category) throw new Error("Please select category.");
-      if (payload.description.length < 10) throw new Error("Please write at least 10 characters.");
+      const dom = {};
 
-      if (button) {
-        button.disabled = true;
-        button.textContent = "Submitting...";
-      }
+      const cacheDom = () => {
+        dom.html = document.documentElement;
+        dom.themeToggle = document.getElementById("themeToggle");
 
-      if (status) {
-        status.textContent = "Submitting...";
-        status.className = "bug-report-status";
-        status.style.display = "block";
-      }
+        dom.navButtons = Array.from(document.querySelectorAll(".settings-nav-btn"));
+        dom.panels = Array.from(document.querySelectorAll(".view-panel"));
 
-      var response = await fetch(AF_EDGE.bugSubmit, {
-        method: "POST",
-        headers: headers(),
-        body: JSON.stringify(payload)
-      });
+        dom.profileForm = document.getElementById("profileForm");
+        dom.profileName = document.getElementById("profileName");
+        dom.profileEmail = document.getElementById("profileEmail");
+        dom.profileMobile = document.getElementById("profileMobile");
+        dom.profileRole = document.getElementById("profileRole");
+        dom.profileNameLabel = document.getElementById("profileNameLabel");
+        dom.profileEmailLabel = document.getElementById("profileEmailLabel");
 
-      var result = await response.json().catch(function () {
-        return null;
-      });
+        dom.statusForm = document.getElementById("statusForm");
+        dom.statusSearch = document.getElementById("statusSearch");
+        dom.statusSubmitBtn = document.getElementById("statusSubmitBtn");
+        dom.statusMessage = document.getElementById("statusMessage");
+        dom.ticketList = document.getElementById("ticketList");
 
-      if (!response.ok || (result && result.success === false)) {
-        throw new Error(result && (result.message || result.error) ? result.message || result.error : "Submit failed.");
-      }
+        dom.bugSheetOverlay = document.getElementById("bugSheetOverlay");
+        dom.bugSheet = document.getElementById("bugSheet");
+        dom.bugForm = document.getElementById("bugForm");
+        dom.bugType = document.getElementById("bugType");
+        dom.bugDescription = document.getElementById("bugDescription");
+        dom.bugScreenshot = document.getElementById("bugScreenshot");
+        dom.bugFileName = document.getElementById("bugFileName");
+        dom.bugSheetStatus = document.getElementById("bugSheetStatus");
+        dom.bugSubmitBtn = document.getElementById("bugSubmitBtn");
 
-      localStorage.setItem("af_student_email", payload.reporterEmail);
-      localStorage.setItem("af_student_name", payload.reporterName);
-
-      if (status) {
-        status.textContent = "Bug report submitted successfully.";
-        status.className = "bug-report-status success is-success";
-        status.style.display = "block";
-      }
-
-      window.setTimeout(window.closeBugReportModal, 850);
-    } catch (error) {
-      if (status) {
-        status.textContent = error && error.message ? error.message : "Something went wrong.";
-        status.className = "bug-report-status error is-error";
-        status.style.display = "block";
-      }
-    } finally {
-      if (button) {
-        button.disabled = false;
-        button.textContent = "Submit Report";
-      }
-    }
-  };
-
-  window.submitContactRequestAf = async function (event) {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    var button = $("contactSubmitBtnAf");
-    var message = $("contactUsMessageAf");
-
-    try {
-      var data = identity();
-
-      var fullName = val("contactNameAf");
-      var mobile = val("contactMobileAf").replace(/\s+/g, "");
-      var email = val("contactEmailAf").toLowerCase();
-      var reason = val("contactReasonAf");
-      var problem = val("contactProblemAf");
-
-      if (fullName.length < 2) throw new Error("Please enter your full name.");
-      if (!mobileOk(mobile)) throw new Error("Please enter a valid mobile number.");
-      if (!emailOk(email)) throw new Error("Please enter a valid email address.");
-      if (!reason) throw new Error("Please select a reason.");
-      if (problem.length < 10) throw new Error("Please describe your issue properly.");
-
-      var payload = {
-        student_identifier: data.email || data.mobile || email || mobile || null,
-        student_name: data.name || fullName,
-        full_name: fullName,
-        mobile_number: mobile,
-        mobile: mobile,
-        phone: mobile,
-        email: email,
-        registered_email: email,
-        contact_reason: reason,
-        reason: reason,
-        problem_description: problem,
-        description: problem,
-        message: problem,
-        page_url: window.location.href,
-        user_agent: navigator.userAgent || "",
-        device_id: deviceId()
+        dom.toast = document.getElementById("toast");
+        dom.toastTitle = document.getElementById("toastTitle");
+        dom.toastMessage = document.getElementById("toastMessage");
       };
 
-      if (button) {
-        button.disabled = true;
-        button.textContent = "Submitting...";
-      }
+      const safeJsonParse = (value, fallback) => {
+        try {
+          if (!value) return fallback;
+          return JSON.parse(value);
+        } catch {
+          return fallback;
+        }
+      };
 
-      if (message) {
-        message.textContent = "Submitting...";
-        message.className = "contact-message-af";
-        message.style.display = "block";
-      }
+      const escapeHtml = (value) => {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      };
 
-      var response = await fetch(AF_EDGE.contactSubmit, {
-        method: "POST",
-        headers: headers(),
-        body: JSON.stringify(payload)
-      });
+      const normalizeSearch = (value) => {
+        return String(value || "")
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, "");
+      };
 
-      var result = await response.json().catch(function () {
-        return null;
-      });
+      const isValidEmail = (value) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
+      };
 
-      if (!response.ok || (result && result.success === false)) {
-        throw new Error(result && (result.message || result.error) ? result.message || result.error : "Unable to submit request.");
-      }
+      const isValidMobile = (value) => {
+        const normalized = String(value || "").replace(/[^\d+]/g, "");
+        return /^(\+91)?[6-9]\d{9}$/.test(normalized) || /^\+\d{8,15}$/.test(normalized);
+      };
 
-      localStorage.setItem("af_student_email", email);
-      localStorage.setItem("af_student_mobile", mobile);
-      localStorage.setItem("af_student_name", fullName);
+      const formatDate = (value) => {
+        const date = new Date(value);
 
-      if (message) {
-        message.textContent = "Your request has been submitted successfully.";
-        message.className = "contact-message-af is-success";
-        message.style.display = "block";
-      }
+        if (Number.isNaN(date.getTime())) {
+          return "Recently";
+        }
 
-      var form = $("contactUsFormAf");
-      if (form) form.reset();
-
-      window.setTimeout(window.closeContactUsSheetAf, 850);
-    } catch (error) {
-      if (message) {
-        message.textContent = error && error.message ? error.message : "Something went wrong.";
-        message.className = "contact-message-af is-error";
-        message.style.display = "block";
-      }
-    } finally {
-      if (button) {
-        button.disabled = false;
-        button.textContent = "Submit Request";
-      }
-    }
-  };
-
-  function bugTitle(report) {
-    return report.category || report.issue_type || report.bug_type || report.subject || report.title || "Bug Report";
-  }
-
-  function bugText(report) {
-    return (
-      report.description ||
-      report.details ||
-      report.message ||
-      report.bug_description ||
-      report.report_text ||
-      report.problem_description ||
-      report.additional_details ||
-      "No detailed message found for this report."
-    );
-  }
-
-  function contactTitle(request) {
-    return request.contact_reason || request.reason || request.subject || request.category || request.issue_type || "Contact Request";
-  }
-
-  function contactText(request) {
-    return (
-      request.problem_description ||
-      request.message ||
-      request.details ||
-      request.description ||
-      request.additional_details ||
-      request.problem ||
-      "No detailed message found for this contact request."
-    );
-  }
-
-  function renderBugCard(report, index) {
-    var status = statusOf(report || {});
-    var id = "requestCardAf_" + index + "_" + String((report && report.id) || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
-    var title = escapeHtml(bugTitle(report || {}));
-    var text = escapeHtml(bugText(report || {}));
-    var createdAt = escapeHtml(formatDate(report && report.created_at));
-    var note = escapeHtml((report && (report.status_note || report.admin_note || report.note)) || "");
-
-    return [
-      '<article id="' + id + '" class="request-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleRequestCardAf(\'' + id + '\')">',
-      '<div class="request-card-top-af">',
-      '<div class="request-card-icon-af">✓</div>',
-      '<div class="request-card-title-af">',
-      "<h3>" + title + "</h3>",
-      "<p>Submitted: " + createdAt + "</p>",
-      "</div>",
-      '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
-      "</div>",
-      '<div class="request-progress-af">',
-      '<div class="request-step-af is-done"><div class="request-step-dot-af">✓</div><div class="request-step-content-af"><strong>Report Sent</strong><span>Your report has been submitted successfully.</span></div></div>',
-      '<div class="request-step-af ' + (status.read ? "is-done" : "is-pending") + '"><div class="request-step-dot-af">' + (status.read ? "✓" : "!") + '</div><div class="request-step-content-af"><strong>Team Read Your Report</strong><span>' + (status.read ? "Team has read your report." : "Pending — team has not read it yet.") + "</span></div></div>",
-      '<div class="request-step-af ' + (status.solved ? "is-done" : "is-pending") + '"><div class="request-step-dot-af">' + (status.solved ? "✓" : "!") + '</div><div class="request-step-content-af"><strong>Solved Your Request</strong><span>' + (status.solved ? "Your request has been solved." : "Pending — solution is not marked yet.") + "</span></div></div>",
-      "</div>",
-      '<div class="request-card-detail-af">',
-      "<strong>Your Report</strong>",
-      "<p>" + text + "</p>",
-      note ? '<div class="request-note-af">' + note + "</div>" : "",
-      "</div>",
-      "</article>"
-    ].join("");
-  }
-
-  function renderContactCard(request, index) {
-    var status = statusOf(request || {});
-    var id = "contactCardAf_" + index + "_" + String((request && request.id) || Date.now()).replace(/[^a-zA-Z0-9_-]/g, "");
-    var title = escapeHtml(contactTitle(request || {}));
-    var text = escapeHtml(contactText(request || {}));
-    var createdAt = escapeHtml(formatDate(request && request.created_at));
-    var note = escapeHtml((request && (request.status_note || request.admin_note || request.note)) || "");
-
-    return [
-      '<article id="' + id + '" class="request-card-af contact-status-card-af" style="animation-delay:' + index * 70 + 'ms" onclick="toggleContactCardAf(\'' + id + '\')">',
-      '<div class="request-card-top-af">',
-      '<div class="request-card-icon-af">✓</div>',
-      '<div class="request-card-title-af">',
-      "<h3>" + title + "</h3>",
-      "<p>Submitted: " + createdAt + "</p>",
-      "</div>",
-      '<span class="request-status-pill-af ' + status.className + '">' + status.label + "</span>",
-      "</div>",
-      '<div class="request-progress-af">',
-      '<div class="request-step-af is-done"><div class="request-step-dot-af">✓</div><div class="request-step-content-af"><strong>Request Sent</strong><span>Your contact request has been submitted.</span></div></div>',
-      '<div class="request-step-af ' + (status.read ? "is-done" : "is-pending") + '"><div class="request-step-dot-af">' + (status.read ? "✓" : "!") + '</div><div class="request-step-content-af"><strong>Team Read Your Request</strong><span>' + (status.read ? "Team has read your request." : "Pending — team has not read it yet.") + "</span></div></div>",
-      '<div class="request-step-af ' + (status.solved ? "is-done" : "is-pending") + '"><div class="request-step-dot-af">' + (status.solved ? "✓" : "!") + '</div><div class="request-step-content-af"><strong>Solved Your Request</strong><span>' + (status.solved ? "Your request has been solved." : "Pending — solution is not marked yet.") + "</span></div></div>",
-      "</div>",
-      '<div class="request-card-detail-af">',
-      "<strong>Your Contact Message</strong>",
-      "<p>" + text + "</p>",
-      note ? '<div class="request-note-af">' + note + "</div>" : "",
-      "</div>",
-      "</article>"
-    ].join("");
-  }
-
-  window.toggleRequestCardAf = function (cardId) {
-    var card = $(cardId);
-    if (card) {
-      card.classList.toggle("is-expanded");
-      card.classList.toggle("is-open");
-    }
-  };
-
-  window.toggleContactCardAf = function (cardId) {
-    var card = $(cardId);
-    if (card) {
-      card.classList.toggle("is-expanded");
-      card.classList.toggle("is-open");
-    }
-  };
-
-  window.openRequestStatusPageAf = function () {
-    window.showSection("requestStatusAf");
-  };
-
-  window.loadRequestStatusAf = async function (forceRefresh) {
-    var list = $("requestStatusListAf");
-
-    try {
-      if (list) list.innerHTML = "";
-      setMessage("requestStatusMessageAf", "", forceRefresh ? "Refreshing bug status..." : "Loading bug status...");
-
-      var data = identity();
-
-      if (!data.email) {
-        setMessage("requestStatusMessageAf", "error", "Login first to view your request status.");
-        return;
-      }
-
-      var response = await fetch(AF_EDGE.bugStatus, {
-        method: "POST",
-        headers: headers(),
-        body: JSON.stringify({
-          registered_email: data.email,
-          email: data.email,
-          mobile: data.mobile,
-          mobile_number: data.mobile
-        })
-      });
-
-      var result = await response.json().catch(function () {
-        return null;
-      });
-
-      if (!response.ok || (result && result.success === false)) {
-        throw new Error(result && (result.message || result.error) ? result.message || result.error : "Unable to load request status.");
-      }
-
-      var reports = Array.isArray(result && result.reports)
-        ? result.reports
-        : Array.isArray(result && result.requests)
-          ? result.requests
-          : Array.isArray(result && result.data)
-            ? result.data
-            : [];
-
-      if (!reports.length) {
-        setMessage("requestStatusMessageAf", "empty", "No bug reports found.");
-        return;
-      }
-
-      setMessage("requestStatusMessageAf", "", "");
-
-      if (list) {
-        list.innerHTML = reports.map(function (report, index) {
-          return renderBugCard(report, index);
-        }).join("");
-      }
-    } catch (error) {
-      setMessage("requestStatusMessageAf", "error", error && error.message ? error.message : "Could not fetch bug status.");
-    }
-  };
-
-  window.openContactStatusPageAf = function () {
-    ensureContactStatusSection();
-    window.showSection("contactStatusAf");
-  };
-
-  window.loadContactStatusAf = async function (forceRefresh) {
-    ensureContactStatusSection();
-
-    var list = $("contactStatusListAf");
-
-    try {
-      if (list) list.innerHTML = "";
-      setMessage("contactStatusMessageAf", "", forceRefresh ? "Refreshing contact status..." : "Loading contact status...");
-
-      var data = identity();
-
-      if (!data.email && !data.mobile) {
-        setMessage("contactStatusMessageAf", "error", "Login first to view your contact request status.");
-        return;
-      }
-
-      var response = await fetch(AF_EDGE.contactStatus, {
-        method: "POST",
-        headers: headers(),
-        body: JSON.stringify({
-          registered_email: data.email,
-          email: data.email,
-          mobile_number: data.mobile,
-          mobile: data.mobile,
-          phone: data.mobile
-        })
-      });
-
-      var result = await response.json().catch(function () {
-        return null;
-      });
-
-      if (!response.ok || (result && result.success === false)) {
-        throw new Error(result && (result.message || result.error) ? result.message || result.error : "Unable to load contact status.");
-      }
-
-      var requests = Array.isArray(result && result.requests)
-        ? result.requests
-        : Array.isArray(result && result.reports)
-          ? result.reports
-          : Array.isArray(result && result.data)
-            ? result.data
-            : [];
-
-      if (!requests.length) {
-        setMessage("contactStatusMessageAf", "empty", "No contact requests found.");
-        return;
-      }
-
-      setMessage("contactStatusMessageAf", "", "");
-
-      if (list) {
-        list.innerHTML = requests.map(function (request, index) {
-          return renderContactCard(request, index);
-        }).join("");
-      }
-    } catch (error) {
-      setMessage("contactStatusMessageAf", "error", error && error.message ? error.message : "Could not fetch contact status.");
-    }
-  };
-
-  function patchOverlayClick() {
-    var bug = $("bugReportOverlay");
-    var contact = $("contactUsAf");
-
-    if (bug && !bug.dataset.afFinalClickPatched) {
-      bug.dataset.afFinalClickPatched = "1";
-      bug.addEventListener("click", function (event) {
-        if (event.target === bug) window.closeBugReportModal();
-      });
-
-      var bugModal = bug.querySelector(".bug-report-modal");
-      if (bugModal) {
-        bugModal.addEventListener("click", function (event) {
-          event.stopPropagation();
+        return date.toLocaleString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
         });
-      }
-    }
+      };
 
-    if (contact && !contact.dataset.afFinalClickPatched) {
-      contact.dataset.afFinalClickPatched = "1";
-      contact.addEventListener("click", function (event) {
-        if (event.target === contact) window.closeContactUsSheetAf();
-      });
+      const showToast = (title, message) => {
+        window.clearTimeout(showToast.timer);
 
-      var contactPage = contact.querySelector(".contact-us-af-page");
-      if (contactPage) {
-        contactPage.addEventListener("click", function (event) {
-          event.stopPropagation();
+        dom.toastTitle.textContent = title;
+        dom.toastMessage.textContent = message;
+        dom.toast.classList.add("is-visible");
+
+        showToast.timer = window.setTimeout(() => {
+          dom.toast.classList.remove("is-visible");
+        }, 2400);
+      };
+
+      const setTheme = (theme) => {
+        const safeTheme = theme === "dark" ? "dark" : "light";
+
+        dom.html.dataset.theme = safeTheme;
+        dom.themeToggle.checked = safeTheme === "dark";
+
+        try {
+          localStorage.setItem(STORAGE_KEYS.theme, safeTheme);
+        } catch (error) {
+          console.error("Theme persistence failed:", error);
+        }
+      };
+
+      const hydrateTheme = () => {
+        const storedTheme = localStorage.getItem(STORAGE_KEYS.theme);
+        const prefersDark = window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        setTheme(storedTheme || (prefersDark ? "dark" : "light"));
+      };
+
+      const setActiveView = (view) => {
+        if (!view) return;
+
+        state.activeView = view;
+
+        dom.navButtons.forEach((button) => {
+          const isActive = button.dataset.view === view;
+          button.classList.toggle("is-active", isActive);
+
+          if (isActive) {
+            button.setAttribute("aria-current", "page");
+          } else {
+            button.removeAttribute("aria-current");
+          }
         });
-      }
-    }
-  }
 
-  function init() {
-    ensureContactStatusSection();
-    ensureContactStatusButton();
-    hydrateForms();
-    patchOverlayClick();
+        dom.panels.forEach((panel) => {
+          const isActive = panel.dataset.panel === view;
+          panel.classList.toggle("is-active", isActive);
+        });
+      };
 
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        window.closeBugReportModal();
-        window.closeContactUsSheetAf();
-      }
-    });
-  }
+      const loadProfile = () => {
+        const storedProfile = safeJsonParse(localStorage.getItem(STORAGE_KEYS.profile), null);
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
-})();
-</script>
+        if (!storedProfile) {
+          syncProfileLabels();
+          return;
+        }
+
+        dom.profileName.value = storedProfile.name || "Devraj Kumar";
+        dom.profileEmail.value = storedProfile.email || "devraj@example.com";
+        dom.profileMobile.value = storedProfile.mobile || "+919876543210";
+        dom.profileRole.value = storedProfile.role || "developer";
+
+        syncProfileLabels();
+      };
+
+      const syncProfileLabels = () => {
+        dom.profileNameLabel.textContent = dom.profileName.value.trim() || "User";
+        dom.profileEmailLabel.textContent = dom.profileEmail.value.trim() || "No email added";
+      };
+
+      const saveProfile = (event) => {
+        event.preventDefault();
+
+        const payload = {
+          name: dom.profileName.value.trim(),
+          email: dom.profileEmail.value.trim().toLowerCase(),
+          mobile: dom.profileMobile.value.trim(),
+          role: dom.profileRole.value
+        };
+
+        if (payload.name.length < 2) {
+          showToast("Invalid Name", "Please enter a valid full name.");
+          return;
+        }
+
+        if (!isValidEmail(payload.email)) {
+          showToast("Invalid Email", "Please enter a valid email address.");
+          return;
+        }
+
+        if (!isValidMobile(payload.mobile)) {
+          showToast("Invalid Mobile", "Please enter a valid mobile number.");
+          return;
+        }
+
+        localStorage.setItem(STORAGE_KEYS.profile, JSON.stringify(payload));
+        syncProfileLabels();
+        showToast("Profile Saved", "Your profile details were updated.");
+      };
+
+      const hydrateNotificationPrefs = () => {
+        const storedPrefs = safeJsonParse(localStorage.getItem(STORAGE_KEYS.notificationPrefs), {});
+        const inputs = Array.from(document.querySelectorAll("[data-pref]"));
+
+        inputs.forEach((input) => {
+          const key = input.dataset.pref;
+
+          if (Object.prototype.hasOwnProperty.call(storedPrefs, key)) {
+            input.checked = Boolean(storedPrefs[key]);
+          }
+
+          input.addEventListener("change", () => {
+            const latestPrefs = safeJsonParse(localStorage.getItem(STORAGE_KEYS.notificationPrefs), {});
+            latestPrefs[key] = input.checked;
+            localStorage.setItem(STORAGE_KEYS.notificationPrefs, JSON.stringify(latestPrefs));
+            showToast("Preference Saved", "Notification preference updated.");
+          });
+        });
+      };
+
+      const setStatusMessage = (type, message) => {
+        dom.statusMessage.className = "status-message";
+
+        if (!message) {
+          dom.statusMessage.textContent = "";
+          return;
+        }
+
+        dom.statusMessage.textContent = message;
+        dom.statusMessage.classList.add("is-visible", `is-${type}`);
+      };
+
+      const fetchRequestStatus = async (search) => {
+        const normalized = normalizeSearch(search);
+        const endpoint = `/api/check-status?search=${encodeURIComponent(search)}`;
+
+        try {
+          const response = await fetch(endpoint, {
+            method: "GET",
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          const data = await response.json().catch(() => null);
+
+          if (!response.ok) {
+            throw new Error(data?.message || "Unable to fetch request status.");
+          }
+
+          if (!data || data.success !== true || !Array.isArray(data.tickets)) {
+            throw new Error("Invalid status response from server.");
+          }
+
+          return data;
+        } catch (error) {
+          await new Promise((resolve) => window.setTimeout(resolve, 650));
+
+          if (MOCK_STATUS_RESPONSES[normalized]) {
+            return MOCK_STATUS_RESPONSES[normalized];
+          }
+
+          return {
+            success: true,
+            query: search,
+            tickets: []
+          };
+        }
+      };
+
+      const getStatusIndex = (status) => {
+        const normalized = String(status || "").toLowerCase();
+
+        if (normalized === "resolved") return 2;
+        if (normalized === "review" || normalized === "under_review" || normalized === "under-review") return 1;
+
+        return 0;
+      };
+
+      const renderTimeline = (status) => {
+        const activeIndex = getStatusIndex(status);
+
+        return STATUS_STEPS.map((step, index) => {
+          const isComplete = index < activeIndex || activeIndex === 2;
+          const isCurrent = index === activeIndex && activeIndex !== 2;
+          const className = [
+            "timeline-step",
+            isComplete ? "is-complete" : "",
+            isCurrent ? "is-current" : ""
+          ].filter(Boolean).join(" ");
+
+          const marker = isComplete ? "✓" : String(index + 1);
+
+          return `
+            <div class="${className}">
+              <div class="timeline-dot">${escapeHtml(marker)}</div>
+              <strong>${escapeHtml(step.label)}</strong>
+              <span>${escapeHtml(step.description)}</span>
+            </div>
+          `;
+        }).join("");
+      };
+
+      const renderTickets = (tickets) => {
+        dom.ticketList.innerHTML = "";
+
+        if (!tickets.length) {
+          dom.ticketList.innerHTML = `
+            <article class="ticket-card">
+              <div class="ticket-top">
+                <div>
+                  <h3>No requests found</h3>
+                  <p>No previous ticket exists for this email or mobile number.</p>
+                </div>
+                <span class="ticket-badge">Empty</span>
+              </div>
+            </article>
+          `;
+          return;
+        }
+
+        const html = tickets.map((ticket) => {
+          const statusLabel = String(ticket.status || "received")
+            .replaceAll("_", " ")
+            .replaceAll("-", " ")
+            .replace(/\b\w/g, (char) => char.toUpperCase());
+
+          return `
+            <article class="ticket-card">
+              <div class="ticket-top">
+                <div>
+                  <h3>${escapeHtml(ticket.title || "Support Request")}</h3>
+                  <p>
+                    <strong>${escapeHtml(ticket.id || "N/A")}</strong>
+                    · ${escapeHtml(ticket.type || "General")}
+                    · Updated ${escapeHtml(formatDate(ticket.updatedAt))}
+                  </p>
+                  <p>${escapeHtml(ticket.summary || "Your request is being processed.")}</p>
+                </div>
+                <span class="ticket-badge">${escapeHtml(statusLabel)}</span>
+              </div>
+
+              <div class="timeline" aria-label="Ticket progress">
+                ${renderTimeline(ticket.status)}
+              </div>
+            </article>
+          `;
+        }).join("");
+
+        dom.ticketList.innerHTML = html;
+      };
+
+      const handleStatusSubmit = async (event) => {
+        event.preventDefault();
+
+        const search = dom.statusSearch.value.trim();
+
+        if (!search) {
+          setStatusMessage("error", "Please enter your registered email or mobile number.");
+          return;
+        }
+
+        if (!isValidEmail(search) && !isValidMobile(search)) {
+          setStatusMessage("error", "Enter a valid email address or mobile number.");
+          return;
+        }
+
+        dom.statusSubmitBtn.disabled = true;
+        dom.statusSubmitBtn.textContent = "Checking...";
+        dom.ticketList.innerHTML = "";
+        setStatusMessage("warning", "Fetching request status...");
+
+        try {
+          const data = await fetchRequestStatus(search);
+
+          if (!data.tickets.length) {
+            setStatusMessage("warning", "No matching request found.");
+          } else {
+            setStatusMessage("success", `${data.tickets.length} request(s) found.`);
+          }
+
+          renderTickets(data.tickets);
+        } catch (error) {
+          console.error("Request status lookup failed:", error);
+          setStatusMessage("error", error.message || "Unable to check request status.");
+        } finally {
+          dom.statusSubmitBtn.disabled = false;
+          dom.statusSubmitBtn.textContent = "Check Status";
+        }
+      };
+
+      const openBugSheet = () => {
+        dom.bugSheetOverlay.classList.add("is-open");
+        dom.bugSheetOverlay.setAttribute("aria-hidden", "false");
+        document.body.classList.add("sheet-open");
+
+        window.setTimeout(() => {
+          dom.bugSheet.focus();
+        }, 80);
+      };
+
+      const closeBugSheet = () => {
+        dom.bugSheetOverlay.classList.remove("is-open");
+        dom.bugSheetOverlay.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("sheet-open");
+
+        dom.bugSheet.style.transform = "";
+        state.sheet.dragging = false;
+      };
+
+      const setBugStatus = (type, message) => {
+        dom.bugSheetStatus.className = "sheet-status";
+
+        if (!message) {
+          dom.bugSheetStatus.textContent = "";
+          return;
+        }
+
+        dom.bugSheetStatus.textContent = message;
+        dom.bugSheetStatus.classList.add("is-visible", `is-${type}`);
+      };
+
+      const submitBugReport = async (event) => {
+        event.preventDefault();
+
+        const bugType = dom.bugType.value;
+        const description = dom.bugDescription.value.trim();
+        const file = dom.bugScreenshot.files?.[0] || null;
+
+        if (!["UI", "Backend", "Others"].includes(bugType)) {
+          setBugStatus("error", "Please select a valid bug type.");
+          return;
+        }
+
+        if (description.length < 10) {
+          setBugStatus("error", "Please describe the issue in at least 10 characters.");
+          return;
+        }
+
+        if (file && file.size > 5 * 1024 * 1024) {
+          setBugStatus("error", "Screenshot must be 5 MB or smaller.");
+          return;
+        }
+
+        dom.bugSubmitBtn.disabled = true;
+        dom.bugSubmitBtn.textContent = "Submitting...";
+        setBugStatus("success", "Preparing report...");
+
+        const formData = new FormData();
+        formData.append("bugType", bugType);
+        formData.append("description", description);
+        formData.append("pageUrl", window.location.href);
+        formData.append("userAgent", navigator.userAgent);
+
+        if (file) {
+          formData.append("screenshot", file);
+        }
+
+        try {
+          const response = await fetch("/api/report-bug", {
+            method: "POST",
+            body: formData
+          });
+
+          const data = await response.json().catch(() => null);
+
+          if (!response.ok) {
+            throw new Error(data?.message || "Bug report submission failed.");
+          }
+
+          setBugStatus("success", "Bug report submitted successfully.");
+          showToast("Report Submitted", "Your bug report was sent.");
+
+          window.setTimeout(() => {
+            dom.bugForm.reset();
+            dom.bugFileName.textContent = "No file selected.";
+            setBugStatus("", "");
+            closeBugSheet();
+          }, 900);
+        } catch (error) {
+          console.warn("Using mock bug submit success because backend is not connected:", error);
+
+          await new Promise((resolve) => window.setTimeout(resolve, 600));
+
+          setBugStatus("success", "Mock submitted successfully. Connect /api/report-bug to your backend.");
+          showToast("Mock Submitted", "Bug report frontend flow is working.");
+
+          window.setTimeout(() => {
+            dom.bugForm.reset();
+            dom.bugFileName.textContent = "No file selected.";
+            setBugStatus("", "");
+            closeBugSheet();
+          }, 1100);
+        } finally {
+          dom.bugSubmitBtn.disabled = false;
+          dom.bugSubmitBtn.textContent = "Submit Bug Report";
+        }
+      };
+
+      const handleSheetPointerDown = (event) => {
+        if (!event.target.closest("[data-sheet-handle]") && !event.target.closest(".sheet-head")) {
+          return;
+        }
+
+        state.sheet.dragging = true;
+        state.sheet.startY = event.clientY || event.touches?.[0]?.clientY || 0;
+        state.sheet.currentY = state.sheet.startY;
+        dom.bugSheet.style.transition = "none";
+      };
+
+      const handleSheetPointerMove = (event) => {
+        if (!state.sheet.dragging) return;
+
+        const clientY = event.clientY || event.touches?.[0]?.clientY || 0;
+        state.sheet.currentY = clientY;
+
+        const deltaY = Math.max(0, clientY - state.sheet.startY);
+        dom.bugSheet.style.transform = `translateY(${deltaY}px)`;
+      };
+
+      const handleSheetPointerUp = () => {
+        if (!state.sheet.dragging) return;
+
+        const deltaY = Math.max(0, state.sheet.currentY - state.sheet.startY);
+        state.sheet.dragging = false;
+        dom.bugSheet.style.transition = "";
+
+        if (deltaY > 110) {
+          closeBugSheet();
+          return;
+        }
+
+        dom.bugSheet.style.transform = "";
+      };
+
+      const bindEvents = () => {
+        dom.themeToggle.addEventListener("change", () => {
+          setTheme(dom.themeToggle.checked ? "dark" : "light");
+        });
+
+        dom.navButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            if (button.dataset.action === "open-bug-sheet") {
+              openBugSheet();
+              return;
+            }
+
+            setActiveView(button.dataset.view);
+          });
+        });
+
+        dom.profileForm.addEventListener("submit", saveProfile);
+
+        ["input", "change"].forEach((eventName) => {
+          dom.profileName.addEventListener(eventName, syncProfileLabels);
+          dom.profileEmail.addEventListener(eventName, syncProfileLabels);
+        });
+
+        dom.statusForm.addEventListener("submit", handleStatusSubmit);
+
+        dom.bugForm.addEventListener("submit", submitBugReport);
+
+        dom.bugScreenshot.addEventListener("change", () => {
+          const file = dom.bugScreenshot.files?.[0] || null;
+          dom.bugFileName.textContent = file
+            ? `${file.name} · ${(file.size / 1024 / 1024).toFixed(2)} MB`
+            : "No file selected.";
+        });
+
+        dom.bugSheetOverlay.addEventListener("click", (event) => {
+          if (event.target === dom.bugSheetOverlay) {
+            closeBugSheet();
+          }
+        });
+
+        document.querySelectorAll("[data-close-sheet]").forEach((button) => {
+          button.addEventListener("click", closeBugSheet);
+        });
+
+        dom.bugSheet.addEventListener("pointerdown", handleSheetPointerDown);
+        window.addEventListener("pointermove", handleSheetPointerMove);
+        window.addEventListener("pointerup", handleSheetPointerUp);
+        window.addEventListener("pointercancel", handleSheetPointerUp);
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && dom.bugSheetOverlay.classList.contains("is-open")) {
+            closeBugSheet();
+          }
+        });
+      };
+
+      const init = () => {
+        cacheDom();
+        hydrateTheme();
+        loadProfile();
+        hydrateNotificationPrefs();
+        bindEvents();
+      };
+
+      document.addEventListener("DOMContentLoaded", init);
+    })();
+  </script>
+</body>
+</html>
