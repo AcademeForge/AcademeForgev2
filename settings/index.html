@@ -1,120 +1,72 @@
-<!doctype html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Settings Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AcademeForge Settings</title>
 
   <style>
     :root {
-      color-scheme: light;
-
-      --bg: #f7f7f4;
-      --surface: #ffffff;
-      --surface-2: #f0f0ec;
-      --surface-3: #e8e8e2;
-
-      --text: #151512;
-      --text-muted: #6d6d64;
-      --text-soft: #8a8a80;
-
-      --border: rgba(20, 20, 16, 0.1);
-      --border-strong: rgba(20, 20, 16, 0.16);
-
-      --accent: #151512;
-      --accent-contrast: #ffffff;
-      --accent-soft: rgba(21, 21, 18, 0.08);
-
-      --success: #188a52;
-      --success-bg: rgba(24, 138, 82, 0.1);
-
-      --warning: #9a6a00;
-      --warning-bg: rgba(154, 106, 0, 0.1);
-
-      --danger: #c5362f;
-      --danger-bg: rgba(197, 54, 47, 0.1);
-
-      --shadow-sm: 0 8px 24px rgba(20, 20, 16, 0.08);
-      --shadow-md: 0 18px 50px rgba(20, 20, 16, 0.14);
-      --shadow-lg: 0 30px 80px rgba(20, 20, 16, 0.2);
-
-      --radius-xs: 10px;
-      --radius-sm: 14px;
-      --radius-md: 20px;
-      --radius-lg: 28px;
-      --radius-pill: 999px;
-
-      --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
-      --transition: 0.3s var(--ease);
-
-      --max-width: 1080px;
-      --sheet-max-width: 680px;
-      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --af-bg: #050505;
+      --af-surface: #0d0d0f;
+      --af-surface-2: #111113;
+      --af-surface-3: #171719;
+      --af-border: rgba(255, 255, 255, 0.09);
+      --af-border-strong: rgba(255, 255, 255, 0.14);
+      --af-text: #ffffff;
+      --af-muted: #a4a4a8;
+      --af-muted-2: #77777d;
+      --af-accent: #8f5cff;
+      --af-accent-soft: rgba(143, 92, 255, 0.18);
+      --af-danger: #ff4d4f;
+      --af-shadow: 0 16px 44px rgba(0, 0, 0, 0.42);
+      --af-radius-xl: 22px;
+      --af-radius-lg: 16px;
+      --af-radius-md: 12px;
+      --af-bottom-nav-h: 80px;
+      --af-safe-bottom: env(safe-area-inset-bottom, 0px);
+      --af-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
-    html[data-theme="dark"] {
-      color-scheme: dark;
-
-      --bg: #050505;
-      --surface: #101010;
-      --surface-2: #171717;
-      --surface-3: #202020;
-
-      --text: #f4f1ea;
-      --text-muted: #aaa59a;
-      --text-soft: #77736b;
-
-      --border: rgba(244, 241, 234, 0.1);
-      --border-strong: rgba(244, 241, 234, 0.16);
-
-      --accent: #f4f1ea;
-      --accent-contrast: #080808;
-      --accent-soft: rgba(244, 241, 234, 0.09);
-
-      --success: #50c878;
-      --success-bg: rgba(80, 200, 120, 0.12);
-
-      --warning: #d6a84f;
-      --warning-bg: rgba(214, 168, 79, 0.12);
-
-      --danger: #ff6b61;
-      --danger-bg: rgba(255, 107, 97, 0.12);
-
-      --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.32);
-      --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.44);
-      --shadow-lg: 0 30px 90px rgba(0, 0, 0, 0.65);
+    html[data-theme="light"] {
+      --af-bg: #f5f5f7;
+      --af-surface: #ffffff;
+      --af-surface-2: #ffffff;
+      --af-surface-3: #f1f1f4;
+      --af-border: rgba(0, 0, 0, 0.08);
+      --af-border-strong: rgba(0, 0, 0, 0.14);
+      --af-text: #111113;
+      --af-muted: #5f6067;
+      --af-muted-2: #85868d;
+      --af-accent: #6d3cff;
+      --af-accent-soft: rgba(109, 60, 255, 0.12);
+      --af-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
     }
 
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    html {
+    html,
+    body {
+      width: 100%;
       min-height: 100%;
-      background: var(--bg);
-      transition: background-color var(--transition), color var(--transition);
+      margin: 0;
+      padding: 0;
+      background: var(--af-bg);
+      color: var(--af-text);
+      font-family: var(--af-font);
+      overscroll-behavior-y: none;
     }
 
     body {
-      min-height: 100vh;
-      margin: 0;
-      font-family: var(--font);
-      background:
-        radial-gradient(circle at top left, var(--accent-soft), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.04), transparent 32rem),
-        var(--bg);
-      color: var(--text);
-      transition:
-        background-color var(--transition),
-        color var(--transition);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: geometricPrecision;
+      overflow-x: hidden;
     }
 
     button,
     input,
-    textarea,
-    select {
+    a {
       font: inherit;
     }
 
@@ -123,2090 +75,1174 @@
       cursor: pointer;
     }
 
-    button:disabled {
-      cursor: not-allowed;
-      opacity: 0.68;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    .settings-shell {
-      width: min(100%, var(--max-width));
-      min-height: 100vh;
+    .app-shell {
+      width: 100%;
+      min-height: 100dvh;
+      background: var(--af-bg);
+      color: var(--af-text);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .section {
+      width: 100%;
+      min-height: 100dvh;
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .settings-section {
+      padding: 26px 10px calc(var(--af-bottom-nav-h) + var(--af-safe-bottom) + 22px);
+      background: var(--af-bg);
+    }
+
+    .settings-page {
+      width: 100%;
+      max-width: 480px;
       margin: 0 auto;
-      padding: 24px;
-    }
-
-    .settings-layout {
-      display: grid;
-      grid-template-columns: 340px minmax(0, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .settings-sidebar,
-    .settings-view {
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(18px);
-      transition:
-        background-color var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition),
-        transform var(--transition);
-    }
-
-    .settings-sidebar {
-      position: sticky;
-      top: 24px;
-      overflow: hidden;
-    }
-
-    .settings-header {
-      padding: 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .settings-kicker {
-      margin: 0 0 8px;
-      color: var(--text-soft);
-      font-size: 0.78rem;
-      font-weight: 750;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .settings-title {
-      margin: 0;
-      font-size: clamp(1.65rem, 4vw, 2.35rem);
-      line-height: 1.05;
-      letter-spacing: -0.05em;
-    }
-
-    .settings-subtitle {
-      margin: 12px 0 0;
-      color: var(--text-muted);
-      font-size: 0.96rem;
-      line-height: 1.55;
     }
 
     .settings-profile-card {
+      width: 100%;
+      min-height: 150px;
+      border: 1px solid var(--af-border);
+      background: var(--af-surface);
+      border-radius: var(--af-radius-xl);
       display: flex;
-      gap: 14px;
       align-items: center;
-      padding: 16px;
-      margin: 16px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      transition:
-        background-color var(--transition),
-        border-color var(--transition);
+      gap: 16px;
+      padding: 18px 18px;
+      box-shadow: none;
+      overflow: hidden;
     }
 
     .settings-avatar {
-      display: grid;
-      width: 48px;
-      height: 48px;
-      flex: 0 0 auto;
-      place-items: center;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      width: 58px;
+      height: 58px;
+      min-width: 58px;
       border-radius: 18px;
-      box-shadow: var(--shadow-sm);
-      font-size: 1.25rem;
-    }
-
-    .settings-profile-meta {
-      min-width: 0;
-    }
-
-    .settings-profile-meta strong {
-      display: block;
-      overflow: hidden;
-      color: var(--text);
-      font-size: 0.98rem;
-      line-height: 1.2;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .settings-profile-meta span {
-      display: block;
-      overflow: hidden;
-      margin-top: 4px;
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .settings-nav {
+      border: 1px solid var(--af-border);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(143, 92, 255, 0.22), transparent 42%),
+        var(--af-surface-3);
       display: grid;
-      gap: 8px;
-      padding: 0 16px 16px;
-    }
-
-    .settings-nav-btn {
-      display: flex;
-      width: 100%;
-      min-height: 58px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      background: transparent;
-      color: var(--text);
-      border: 1px solid transparent;
-      border-radius: 18px;
-      text-align: left;
-      transition:
-        background-color var(--transition),
-        border-color var(--transition),
-        transform 0.18s var(--ease),
-        color var(--transition);
-    }
-
-    .settings-nav-btn:hover {
-      background: var(--surface-2);
-      border-color: var(--border);
-      transform: translateY(-1px);
-    }
-
-    .settings-nav-btn:active {
-      transform: scale(0.985);
-    }
-
-    .settings-nav-btn.is-active {
-      background: var(--accent);
-      color: var(--accent-contrast);
-      border-color: var(--accent);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .settings-nav-left {
-      display: flex;
-      min-width: 0;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .settings-icon {
-      display: grid;
-      width: 34px;
-      height: 34px;
-      flex: 0 0 auto;
       place-items: center;
-      background: var(--accent-soft);
-      border-radius: 13px;
-      font-size: 1rem;
-      transition: background-color var(--transition);
-    }
-
-    .settings-nav-btn.is-active .settings-icon {
-      background: color-mix(in srgb, var(--accent-contrast) 14%, transparent);
-    }
-
-    .settings-nav-text {
-      min-width: 0;
-    }
-
-    .settings-nav-text strong {
-      display: block;
-      overflow: hidden;
-      font-size: 0.94rem;
-      line-height: 1.2;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .settings-nav-text span {
-      display: block;
-      overflow: hidden;
-      margin-top: 3px;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      transition: color var(--transition);
-    }
-
-    .settings-nav-btn.is-active .settings-nav-text span {
-      color: color-mix(in srgb, var(--accent-contrast) 72%, transparent);
-    }
-
-    .settings-arrow {
-      flex: 0 0 auto;
-      color: currentColor;
-      opacity: 0.54;
-      font-size: 1.25rem;
+      font-size: 28px;
       line-height: 1;
     }
 
-    .settings-theme-row {
+    .settings-profile-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .settings-profile-info h2 {
+      margin: 0 0 12px;
+      color: var(--af-text);
+      font-size: clamp(20px, 5.2vw, 25px);
+      line-height: 1.08;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-transform: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .settings-profile-link {
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 15px;
+      border: 1px solid var(--af-border);
+      background: #080808;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 750;
+      letter-spacing: -0.01em;
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background 160ms ease;
+    }
+
+    html[data-theme="light"] .settings-profile-link {
+      background: #f4f4f6;
+      color: #111113;
+    }
+
+    .settings-profile-link:active {
+      transform: scale(0.97);
+    }
+
+    .settings-beta-card,
+    .settings-row,
+    .settings-support-row {
+      width: 100%;
+      min-height: 56px;
+      border-radius: 13px;
+      border: 1px solid var(--af-border);
+      background: var(--af-surface);
+      color: var(--af-text);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 14px;
+      padding: 10px 16px 10px 12px;
+      text-align: left;
+      transition:
+        transform 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease;
+    }
+
+    .settings-beta-card {
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .settings-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .settings-support-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .settings-row:hover,
+    .settings-support-row:hover,
+    .settings-beta-card:hover {
+      border-color: var(--af-border-strong);
+      background: var(--af-surface-2);
+    }
+
+    .settings-row:active,
+    .settings-support-row:active,
+    .settings-beta-card:active {
+      transform: scale(0.985);
+    }
+
+    .settings-row-left,
+    .settings-support-left {
+      min-width: 0;
+      display: flex;
+      align-items: center;
       gap: 12px;
-      padding: 16px;
-      margin: 0 16px 16px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+      color: var(--af-text);
+      font-size: 14px;
+      font-weight: 720;
+      letter-spacing: -0.012em;
     }
 
-    .settings-theme-row strong {
-      display: block;
-      font-size: 0.92rem;
+    .settings-row-icon,
+    .settings-support-icon {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--af-border);
+      background: var(--af-surface-3);
+      display: grid;
+      place-items: center;
+      color: var(--af-text);
+      font-size: 15px;
+      line-height: 1;
     }
 
-    .settings-theme-row span {
-      display: block;
-      margin-top: 3px;
-      color: var(--text-muted);
-      font-size: 0.78rem;
+    .settings-row-left span:last-child,
+    .settings-support-left span:last-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .theme-switch {
+    .settings-arrow {
+      color: var(--af-text);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+      opacity: 0.95;
+      margin-left: auto;
+    }
+
+    .settings-row-static {
+      cursor: default;
+    }
+
+    .settings-row-static:active {
+      transform: none;
+    }
+
+    .settings-switch {
+      width: 46px;
+      height: 28px;
+      min-width: 46px;
       position: relative;
       display: inline-flex;
-      width: 54px;
-      height: 32px;
-      flex: 0 0 auto;
       align-items: center;
+      cursor: pointer;
     }
 
-    .theme-switch input {
+    .settings-switch input {
       position: absolute;
       opacity: 0;
+      width: 1px;
+      height: 1px;
       pointer-events: none;
     }
 
-    .theme-slider {
+    .settings-slider {
+      width: 46px;
+      height: 28px;
+      border-radius: 999px;
+      background: #242426;
+      border: 1px solid var(--af-border);
       position: relative;
-      width: 54px;
-      height: 32px;
-      background: var(--surface-3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
       transition:
-        background-color var(--transition),
-        border-color var(--transition);
+        background 180ms ease,
+        border-color 180ms ease;
     }
 
-    .theme-slider::before {
+    .settings-slider::before {
+      content: "";
       position: absolute;
-      top: 4px;
+      width: 20px;
+      height: 20px;
       left: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+      transition: transform 180ms ease;
+    }
+
+    .settings-switch input:checked + .settings-slider {
+      background: #2a2a2d;
+      border-color: var(--af-border-strong);
+    }
+
+    .settings-switch input:checked + .settings-slider::before {
+      transform: translate(18px, -50%);
+    }
+
+    html[data-theme="light"] .settings-switch input:checked + .settings-slider {
+      background: var(--af-accent);
+      border-color: transparent;
+    }
+
+    .settings-new-badge {
+      min-height: 24px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--af-accent-soft);
+      color: var(--af-accent);
+      border: 1px solid rgba(143, 92, 255, 0.24);
+      font-size: 11px;
+      font-weight: 850;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+    }
+
+    .settings-support-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--af-border);
+      margin: 2px 0;
+      display: none;
+    }
+
+    .settings-logout-row {
+      justify-content: flex-start;
+    }
+
+    .settings-logout-icon {
+      color: var(--af-text);
+    }
+
+    .settings-app-version-box {
+      width: 100%;
+      margin: 26px auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--af-muted);
+      font-size: 12px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      text-align: center;
+      padding-bottom: 6px;
+    }
+
+    .settings-app-version-box strong {
+      color: var(--af-muted);
+      font-weight: 850;
+    }
+
+    .settings-app-version-box span {
+      color: var(--af-muted-2);
+      font-weight: 600;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      height: calc(var(--af-bottom-nav-h) + var(--af-safe-bottom));
+      padding: 8px 8px calc(8px + var(--af-safe-bottom));
+      background: rgba(8, 8, 9, 0.86);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-top: 1px solid var(--af-border);
+      z-index: 100;
+    }
+
+    html[data-theme="light"] .bottom-nav {
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .bottom-nav-inner {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+    }
+
+    .bottom-nav-item {
+      min-width: 0;
+      height: 64px;
+      border-radius: 20px;
+      background: transparent;
+      color: var(--af-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      transition:
+        color 160ms ease,
+        background 160ms ease,
+        transform 160ms ease,
+        border-color 160ms ease;
+      border: 1px solid transparent;
+    }
+
+    .bottom-nav-item:active {
+      transform: scale(0.96);
+    }
+
+    .bottom-nav-item.active {
+      color: var(--af-text);
+      background: var(--af-surface-3);
+      border-color: var(--af-border);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .bottom-nav-icon {
       width: 22px;
       height: 22px;
-      content: "";
-      background: var(--surface);
-      border-radius: 50%;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-      transition:
-        transform var(--transition),
-        background-color var(--transition);
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      line-height: 1;
     }
 
-    .theme-switch input:checked + .theme-slider {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-
-    .theme-switch input:checked + .theme-slider::before {
-      transform: translateX(22px);
-      background: var(--accent-contrast);
-    }
-
-    .settings-view {
-      min-height: calc(100vh - 48px);
-      padding: 26px;
-    }
-
-    .view-panel {
-      display: none;
-      animation: settingsPanelIn 0.28s var(--ease) both;
-    }
-
-    .view-panel.is-active {
+    .bottom-nav-label {
       display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
-    @keyframes settingsPanelIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
+    .toast-root {
+      position: fixed;
+      left: 50%;
+      bottom: calc(var(--af-bottom-nav-h) + var(--af-safe-bottom) + 18px);
+      transform: translateX(-50%);
+      width: min(calc(100% - 24px), 420px);
+      z-index: 999;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toast {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--af-border);
+      background: rgba(20, 20, 22, 0.96);
+      color: #ffffff;
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 720;
+      letter-spacing: -0.01em;
+      box-shadow: var(--af-shadow);
+      opacity: 0;
+      transform: translateY(10px);
+      animation: afToastIn 180ms ease forwards, afToastOut 220ms ease forwards 2600ms;
+    }
+
+    html[data-theme="light"] .toast {
+      background: rgba(255, 255, 255, 0.96);
+      color: #111113;
+    }
+
+    @keyframes afToastIn {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    .view-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 22px;
+    @keyframes afToastOut {
+      to {
+        opacity: 0;
+        transform: translateY(10px);
+      }
     }
 
-    .view-head h2 {
-      margin: 0;
-      font-size: clamp(1.45rem, 3vw, 2.15rem);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
-    }
-
-    .view-head p {
-      max-width: 680px;
-      margin: 10px 0 0;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .pill {
-      display: inline-flex;
-      min-height: 32px;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 11px;
-      color: var(--text-muted);
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      font-size: 0.78rem;
-      font-weight: 750;
-      white-space: nowrap;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .settings-card {
-      padding: 18px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      transition:
-        background-color var(--transition),
-        border-color var(--transition),
-        transform var(--transition);
-    }
-
-    .settings-card:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
-    }
-
-    .settings-card h3 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .settings-card p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.55;
-    }
-
-    .form-grid {
-      display: grid;
-      gap: 14px;
-    }
-
-    .field {
-      display: grid;
-      gap: 8px;
-    }
-
-    .field label,
-    .field-label {
-      color: var(--text);
-      font-size: 0.84rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      min-height: 48px;
-      padding: 12px 14px;
-      color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      outline: none;
-      transition:
-        background-color var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition),
-        color var(--transition);
-    }
-
-    .field textarea {
-      min-height: 120px;
-      resize: vertical;
-      line-height: 1.5;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-soft);
-    }
-
-    .field-hint {
-      color: var(--text-soft);
-      font-size: 0.78rem;
-      line-height: 1.4;
-    }
-
-    .primary-btn,
-    .secondary-btn,
-    .ghost-btn {
-      display: inline-flex;
-      min-height: 46px;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 16px;
-      font-weight: 850;
-      letter-spacing: -0.01em;
-      transition:
-        transform 0.18s var(--ease),
-        background-color var(--transition),
-        border-color var(--transition),
-        color var(--transition),
-        box-shadow var(--transition);
-    }
-
-    .primary-btn {
-      color: var(--accent-contrast);
-      background: var(--accent);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .primary-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .primary-btn:active,
-    .secondary-btn:active,
-    .ghost-btn:active {
-      transform: scale(0.985);
-    }
-
-    .secondary-btn {
-      color: var(--text);
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-    }
-
-    .secondary-btn:hover {
-      background: var(--surface-3);
-    }
-
-    .ghost-btn {
-      color: var(--text-muted);
-      background: transparent;
-      border: 1px solid var(--border);
-    }
-
-    .ghost-btn:hover {
-      color: var(--text);
-      background: var(--surface-2);
-    }
-
-    .status-search-card {
-      padding: 18px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-    }
-
-    .status-search-form {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 12px;
-      align-items: end;
-    }
-
-    .status-message {
-      display: none;
-      margin-top: 14px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
-
-    .status-message.is-visible {
-      display: block;
-    }
-
-    .status-message.is-success {
-      color: var(--success);
-      background: var(--success-bg);
-    }
-
-    .status-message.is-warning {
-      color: var(--warning);
-      background: var(--warning-bg);
-    }
-
-    .status-message.is-error {
-      color: var(--danger);
-      background: var(--danger-bg);
-    }
-
-    .ticket-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .ticket-card {
-      padding: 18px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .ticket-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .ticket-top h3 {
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    .ticket-top p {
-      margin: 6px 0 0;
-      color: var(--text-muted);
-      font-size: 0.86rem;
-      line-height: 1.45;
-    }
-
-    .ticket-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 10px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      font-weight: 850;
-      white-space: nowrap;
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      position: relative;
-    }
-
-    .timeline-step {
-      position: relative;
-      display: grid;
-      gap: 8px;
-      min-width: 0;
-      padding: 12px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      transition:
-        background-color var(--transition),
-        border-color var(--transition);
-    }
-
-    .timeline-step.is-complete {
-      background: var(--success-bg);
-      border-color: color-mix(in srgb, var(--success) 35%, var(--border));
-    }
-
-    .timeline-step.is-current {
-      background: var(--warning-bg);
-      border-color: color-mix(in srgb, var(--warning) 40%, var(--border));
-    }
-
-    .timeline-dot {
-      display: grid;
-      width: 28px;
-      height: 28px;
-      place-items: center;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      font-weight: 900;
-    }
-
-    .timeline-step.is-complete .timeline-dot {
-      color: var(--accent-contrast);
-      background: var(--success);
-      border-color: var(--success);
-    }
-
-    .timeline-step.is-current .timeline-dot {
-      color: var(--accent-contrast);
-      background: var(--warning);
-      border-color: var(--warning);
-    }
-
-    .timeline-step strong {
-      overflow: hidden;
-      font-size: 0.84rem;
-      line-height: 1.2;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .timeline-step span {
-      color: var(--text-muted);
-      font-size: 0.76rem;
-      line-height: 1.35;
-    }
-
-    .about-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .about-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-    }
-
-    .about-list span {
-      color: var(--text-muted);
-    }
-
-    .sheet-overlay {
+    .modal-backdrop {
       position: fixed;
       inset: 0;
-      z-index: 80;
-      display: grid;
-      align-items: end;
-      justify-items: center;
-      padding: 18px;
-      background: rgba(0, 0, 0, 0);
-      backdrop-filter: blur(0);
-      pointer-events: none;
-      opacity: 0;
-      transition:
-        opacity var(--transition),
-        background-color var(--transition),
-        backdrop-filter var(--transition);
-    }
-
-    .sheet-overlay.is-open {
-      background: rgba(0, 0, 0, 0.42);
-      backdrop-filter: blur(14px);
-      pointer-events: auto;
-      opacity: 1;
-    }
-
-    .bottom-sheet {
-      width: min(100%, var(--sheet-max-width));
-      max-height: min(88vh, 760px);
-      overflow: hidden;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 30px 30px 24px 24px;
-      box-shadow: var(--shadow-lg);
-      transform: translateY(calc(100% + 32px));
-      transition:
-        transform 0.34s var(--ease),
-        background-color var(--transition),
-        border-color var(--transition);
-      touch-action: none;
-    }
-
-    .sheet-overlay.is-open .bottom-sheet {
-      transform: translateY(0);
-    }
-
-    .sheet-scroll {
-      max-height: min(88vh, 760px);
-      overflow: auto;
-      padding: 12px 20px 20px;
-    }
-
-    .sheet-handle-wrap {
-      display: flex;
+      background: rgba(0, 0, 0, 0.58);
+      z-index: 900;
+      display: none;
+      align-items: flex-end;
       justify-content: center;
-      padding: 8px 0 12px;
+      padding: 12px;
     }
 
-    .sheet-handle {
-      width: 46px;
-      height: 5px;
-      background: var(--surface-3);
-      border-radius: var(--radius-pill);
-    }
-
-    .sheet-head {
+    .modal-backdrop.active {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
     }
 
-    .sheet-head h2 {
-      margin: 0;
-      font-size: 1.35rem;
+    .modal-sheet {
+      width: min(100%, 460px);
+      border-radius: 24px;
+      border: 1px solid var(--af-border);
+      background: var(--af-surface);
+      color: var(--af-text);
+      box-shadow: var(--af-shadow);
+      padding: 18px;
+      animation: afSheetIn 180ms ease forwards;
+    }
+
+    @keyframes afSheetIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-title {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .modal-text {
+      margin: 0 0 16px;
+      color: var(--af-muted);
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .modal-btn {
+      min-height: 44px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 800;
+      border: 1px solid var(--af-border);
+      background: var(--af-surface-3);
+      color: var(--af-text);
+    }
+
+    .modal-btn.primary {
+      background: var(--af-accent);
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    .placeholder-page {
+      width: 100%;
+      min-height: 100dvh;
+      padding: 32px 18px calc(var(--af-bottom-nav-h) + var(--af-safe-bottom) + 24px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .placeholder-card {
+      width: min(100%, 420px);
+      border-radius: 24px;
+      border: 1px solid var(--af-border);
+      background: var(--af-surface);
+      padding: 24px;
+    }
+
+    .placeholder-card h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      font-weight: 900;
       letter-spacing: -0.04em;
     }
 
-    .sheet-head p {
-      margin: 8px 0 0;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+    .placeholder-card p {
+      margin: 0;
+      color: var(--af-muted);
+      font-size: 14px;
       line-height: 1.5;
+      font-weight: 600;
     }
 
-    .sheet-close {
-      display: grid;
-      width: 40px;
-      height: 40px;
-      flex: 0 0 auto;
-      place-items: center;
-      color: var(--text);
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      font-size: 1.25rem;
-      transition:
-        transform 0.18s var(--ease),
-        background-color var(--transition);
-    }
-
-    .sheet-close:hover {
-      background: var(--surface-3);
-    }
-
-    .sheet-close:active {
-      transform: scale(0.94);
-    }
-
-    .bug-form {
-      display: grid;
-      gap: 14px;
-      padding-top: 18px;
-    }
-
-    .file-picker {
-      position: relative;
-      display: grid;
-      gap: 8px;
-    }
-
-    .file-picker input {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .file-picker-label {
-      display: flex;
-      min-height: 78px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px;
-      background: var(--surface);
-      border: 1px dashed var(--border-strong);
-      border-radius: 18px;
-      cursor: pointer;
-      transition:
-        background-color var(--transition),
-        border-color var(--transition),
-        transform 0.18s var(--ease);
-    }
-
-    .file-picker-label:hover {
-      background: var(--surface-2);
-      border-color: var(--accent);
-    }
-
-    .file-picker-label:active {
-      transform: scale(0.99);
-    }
-
-    .file-picker-copy strong {
-      display: block;
-      font-size: 0.9rem;
-    }
-
-    .file-picker-copy span {
-      display: block;
-      margin-top: 4px;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      line-height: 1.35;
-    }
-
-    .file-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      padding: 8px 11px;
-      background: var(--accent);
-      color: var(--accent-contrast);
-      border-radius: var(--radius-pill);
-      font-size: 0.78rem;
-      font-weight: 850;
-      white-space: nowrap;
-    }
-
-    .file-name {
-      min-height: 20px;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      line-height: 1.35;
-    }
-
-    .sheet-status {
-      display: none;
-      padding: 12px 14px;
-      border-radius: 16px;
-      font-size: 0.86rem;
-      line-height: 1.45;
-    }
-
-    .sheet-status.is-visible {
-      display: block;
-    }
-
-    .sheet-status.is-success {
-      color: var(--success);
-      background: var(--success-bg);
-    }
-
-    .sheet-status.is-error {
-      color: var(--danger);
-      background: var(--danger-bg);
-    }
-
-    .toast {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 120;
-      max-width: min(420px, calc(100vw - 36px));
-      padding: 14px 16px;
-      color: var(--accent-contrast);
-      background: var(--accent);
-      border-radius: 18px;
-      box-shadow: var(--shadow-lg);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(16px);
-      transition:
-        opacity var(--transition),
-        transform var(--transition);
-    }
-
-    .toast.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .toast strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    .toast span {
-      display: block;
-      color: color-mix(in srgb, var(--accent-contrast) 76%, transparent);
-      font-size: 0.82rem;
-      line-height: 1.4;
-    }
-
-    body.sheet-open {
-      overflow: hidden;
-    }
-
-    @media (max-width: 880px) {
-      .settings-shell {
-        padding: 14px;
+    @media (max-width: 380px) {
+      .settings-section {
+        padding-left: 8px;
+        padding-right: 8px;
       }
 
-      .settings-layout {
-        grid-template-columns: 1fr;
+      .settings-profile-card {
+        min-height: 136px;
+        padding: 16px;
       }
 
-      .settings-sidebar {
-        position: static;
+      .settings-avatar {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        border-radius: 16px;
+        font-size: 25px;
       }
 
-      .settings-view {
-        min-height: auto;
-        padding: 20px;
+      .settings-row,
+      .settings-support-row,
+      .settings-beta-card {
+        min-height: 54px;
+        padding-right: 14px;
       }
 
-      .card-grid {
-        grid-template-columns: 1fr;
+      .settings-row-icon,
+      .settings-support-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
       }
 
-      .status-search-form {
-        grid-template-columns: 1fr;
+      .bottom-nav {
+        padding-left: 6px;
+        padding-right: 6px;
       }
 
-      .timeline {
-        grid-template-columns: 1fr;
-      }
-
-      .view-head {
-        display: grid;
+      .bottom-nav-item {
+        height: 62px;
+        border-radius: 18px;
+        font-size: 10px;
       }
     }
 
-    @media (max-width: 520px) {
-      .settings-shell {
-        padding: 10px;
+    @media (min-width: 481px) {
+      body {
+        display: flex;
+        justify-content: center;
       }
 
-      .settings-header,
-      .settings-view {
-        padding: 18px;
-      }
-
-      .settings-profile-card,
-      .settings-theme-row {
-        margin-inline: 12px;
-      }
-
-      .settings-nav {
-        padding-inline: 12px;
-      }
-
-      .sheet-overlay {
-        padding: 0;
-      }
-
-      .bottom-sheet {
-        width: 100%;
-        border-right: 0;
-        border-bottom: 0;
-        border-left: 0;
-        border-radius: 28px 28px 0 0;
-      }
-
-      .sheet-scroll {
-        padding-right: 16px;
-        padding-left: 16px;
-        padding-bottom: calc(18px + env(safe-area-inset-bottom));
-      }
-
-      .toast {
-        right: 12px;
-        bottom: calc(12px + env(safe-area-inset-bottom));
-        left: 12px;
-        max-width: none;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+      .app-shell {
+        max-width: 480px;
+        border-left: 1px solid var(--af-border);
+        border-right: 1px solid var(--af-border);
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="settings-shell">
-    <section class="settings-layout" aria-label="Application settings">
-      <aside class="settings-sidebar" aria-label="Settings navigation">
-        <header class="settings-header">
-          <p class="settings-kicker">Control Center</p>
-          <h1 class="settings-title">Settings</h1>
-          <p class="settings-subtitle">
-            Manage your profile, preferences, requests, support reports, and app information.
-          </p>
-        </header>
-
-        <div class="settings-profile-card" aria-label="Signed in profile summary">
-          <div class="settings-avatar" aria-hidden="true">👤</div>
-          <div class="settings-profile-meta">
-            <strong id="profileNameLabel">Devraj Kumar</strong>
-            <span id="profileEmailLabel">devraj@example.com</span>
-          </div>
+  <main class="app-shell">
+    <section id="home" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>Home</h1>
+          <p>This is a placeholder section. Replace it with your real Home UI.</p>
         </div>
-
-        <nav class="settings-nav" aria-label="Settings sections">
-          <button class="settings-nav-btn is-active" type="button" data-view="profile">
-            <span class="settings-nav-left">
-              <span class="settings-icon" aria-hidden="true">👤</span>
-              <span class="settings-nav-text">
-                <strong>Profile Settings</strong>
-                <span>Identity and account details</span>
-              </span>
-            </span>
-            <span class="settings-arrow" aria-hidden="true">›</span>
-          </button>
-
-          <button class="settings-nav-btn" type="button" data-view="notifications">
-            <span class="settings-nav-left">
-              <span class="settings-icon" aria-hidden="true">🔔</span>
-              <span class="settings-nav-text">
-                <strong>Notification Preferences</strong>
-                <span>Email, push, and product alerts</span>
-              </span>
-            </span>
-            <span class="settings-arrow" aria-hidden="true">›</span>
-          </button>
-
-          <button class="settings-nav-btn" type="button" data-view="request-status">
-            <span class="settings-nav-left">
-              <span class="settings-icon" aria-hidden="true">📌</span>
-              <span class="settings-nav-text">
-                <strong>Request Status</strong>
-                <span>Track support tickets</span>
-              </span>
-            </span>
-            <span class="settings-arrow" aria-hidden="true">›</span>
-          </button>
-
-          <button class="settings-nav-btn" type="button" data-action="open-bug-sheet">
-            <span class="settings-nav-left">
-              <span class="settings-icon" aria-hidden="true">🐞</span>
-              <span class="settings-nav-text">
-                <strong>Report a Bug</strong>
-                <span>Send screenshots and details</span>
-              </span>
-            </span>
-            <span class="settings-arrow" aria-hidden="true">›</span>
-          </button>
-
-          <button class="settings-nav-btn" type="button" data-view="about">
-            <span class="settings-nav-left">
-              <span class="settings-icon" aria-hidden="true">ⓘ</span>
-              <span class="settings-nav-text">
-                <strong>About App</strong>
-                <span>Version, build, and policies</span>
-              </span>
-            </span>
-            <span class="settings-arrow" aria-hidden="true">›</span>
-          </button>
-        </nav>
-
-        <div class="settings-theme-row">
-          <div>
-            <strong>Premium Dark Mode</strong>
-            <span>Pitch-black interface palette</span>
-          </div>
-
-          <label class="theme-switch" for="themeToggle" aria-label="Toggle dark mode">
-            <input id="themeToggle" type="checkbox" />
-            <span class="theme-slider" aria-hidden="true"></span>
-          </label>
-        </div>
-      </aside>
-
-      <section class="settings-view" aria-live="polite">
-        <article id="view-profile" class="view-panel is-active" data-panel="profile">
-          <div class="view-head">
-            <div>
-              <h2>Profile Settings</h2>
-              <p>
-                Update the basic profile details shown across the app. This frontend keeps data in localStorage for demo usage.
-              </p>
-            </div>
-            <span class="pill">Account</span>
-          </div>
-
-          <form class="form-grid" id="profileForm" autocomplete="on">
-            <div class="card-grid">
-              <div class="field">
-                <label for="profileName">Full Name</label>
-                <input id="profileName" name="name" type="text" maxlength="80" value="Devraj Kumar" required />
-              </div>
-
-              <div class="field">
-                <label for="profileEmail">Registered Email</label>
-                <input id="profileEmail" name="email" type="email" maxlength="120" value="devraj@example.com" required />
-              </div>
-
-              <div class="field">
-                <label for="profileMobile">Mobile Number</label>
-                <input id="profileMobile" name="mobile" type="tel" maxlength="15" value="+919876543210" required />
-              </div>
-
-              <div class="field">
-                <label for="profileRole">Role</label>
-                <select id="profileRole" name="role">
-                  <option value="student">Student</option>
-                  <option value="developer" selected>Developer</option>
-                  <option value="admin">Admin</option>
-                </select>
-              </div>
-            </div>
-
-            <button class="primary-btn" type="submit">Save Profile</button>
-          </form>
-        </article>
-
-        <article id="view-notifications" class="view-panel" data-panel="notifications">
-          <div class="view-head">
-            <div>
-              <h2>Notification Preferences</h2>
-              <p>
-                Control which updates are allowed. These switches are frontend-ready and can be connected to your user settings API.
-              </p>
-            </div>
-            <span class="pill">Preferences</span>
-          </div>
-
-          <div class="card-grid">
-            <label class="settings-card">
-              <h3>Email Updates</h3>
-              <p>Receive account, request, and support updates by email.</p>
-              <div style="height: 14px"></div>
-              <span class="theme-switch">
-                <input type="checkbox" data-pref="emailUpdates" checked />
-                <span class="theme-slider" aria-hidden="true"></span>
-              </span>
-            </label>
-
-            <label class="settings-card">
-              <h3>Push Alerts</h3>
-              <p>Show instant alerts for ticket updates and important activity.</p>
-              <div style="height: 14px"></div>
-              <span class="theme-switch">
-                <input type="checkbox" data-pref="pushAlerts" checked />
-                <span class="theme-slider" aria-hidden="true"></span>
-              </span>
-            </label>
-
-            <label class="settings-card">
-              <h3>Product News</h3>
-              <p>Get release notes, improvements, and app announcements.</p>
-              <div style="height: 14px"></div>
-              <span class="theme-switch">
-                <input type="checkbox" data-pref="productNews" />
-                <span class="theme-slider" aria-hidden="true"></span>
-              </span>
-            </label>
-
-            <label class="settings-card">
-              <h3>Security Notices</h3>
-              <p>Always receive critical security and account protection notices.</p>
-              <div style="height: 14px"></div>
-              <span class="theme-switch">
-                <input type="checkbox" data-pref="securityNotices" checked disabled />
-                <span class="theme-slider" aria-hidden="true"></span>
-              </span>
-            </label>
-          </div>
-        </article>
-
-        <article id="view-request-status" class="view-panel" data-panel="request-status">
-          <div class="view-head">
-            <div>
-              <h2>Request Status</h2>
-              <p>
-                Enter your registered email or mobile number to fetch previous support requests and ticket progress.
-              </p>
-            </div>
-            <span class="pill">Async Fetch</span>
-          </div>
-
-          <section class="status-search-card" aria-label="Request status lookup">
-            <form class="status-search-form" id="statusForm">
-              <div class="field">
-                <label for="statusSearch">Registered Email or Mobile Number</label>
-                <input
-                  id="statusSearch"
-                  name="search"
-                  type="text"
-                  inputmode="email"
-                  autocomplete="email tel"
-                  placeholder="devraj@example.com or +919876543210"
-                  maxlength="120"
-                  required
-                />
-                <span class="field-hint">
-                  Demo accepts: devraj@example.com, user@example.com, +919876543210, 9876543210
-                </span>
-              </div>
-
-              <button id="statusSubmitBtn" class="primary-btn" type="submit">
-                Check Status
-              </button>
-            </form>
-
-            <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
-          </section>
-
-          <div id="ticketList" class="ticket-list" aria-label="Request results"></div>
-        </article>
-
-        <article id="view-about" class="view-panel" data-panel="about">
-          <div class="view-head">
-            <div>
-              <h2>About App</h2>
-              <p>
-                Lightweight settings module built with semantic HTML, CSS variables, and vanilla JavaScript.
-              </p>
-            </div>
-            <span class="pill">v1.0.0</span>
-          </div>
-
-          <ul class="about-list">
-            <li>
-              <strong>App Name</strong>
-              <span>AcademeForge Settings Module</span>
-            </li>
-            <li>
-              <strong>Version</strong>
-              <span>1.0.0</span>
-            </li>
-            <li>
-              <strong>Build</strong>
-              <span>Vanilla HTML / CSS / JS</span>
-            </li>
-            <li>
-              <strong>Theme Engine</strong>
-              <span>CSS custom properties</span>
-            </li>
-            <li>
-              <strong>Support</strong>
-              <span>support@example.com</span>
-            </li>
-          </ul>
-        </article>
-      </section>
-    </section>
-  </main>
-
-  <div id="bugSheetOverlay" class="sheet-overlay" aria-hidden="true">
-    <section
-      id="bugSheet"
-      class="bottom-sheet"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="bugSheetTitle"
-      tabindex="-1"
-    >
-      <div class="sheet-scroll">
-        <div class="sheet-handle-wrap" data-sheet-handle>
-          <div class="sheet-handle" aria-hidden="true"></div>
-        </div>
-
-        <header class="sheet-head">
-          <div>
-            <h2 id="bugSheetTitle">Report a Bug</h2>
-            <p>
-              Send issue details with an optional screenshot. This is ready to connect to your backend endpoint.
-            </p>
-          </div>
-
-          <button class="sheet-close" type="button" data-close-sheet aria-label="Close bug report">×</button>
-        </header>
-
-        <form id="bugForm" class="bug-form">
-          <div class="field">
-            <label for="bugType">Bug Type</label>
-            <select id="bugType" name="bugType" required>
-              <option value="">Select bug type</option>
-              <option value="UI">UI</option>
-              <option value="Backend">Backend</option>
-              <option value="Others">Others</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="bugDescription">Description</label>
-            <textarea
-              id="bugDescription"
-              name="description"
-              maxlength="1200"
-              placeholder="Describe what happened, where it happened, and what you expected."
-              required
-            ></textarea>
-            <span class="field-hint">Minimum 10 characters. Maximum 1200 characters.</span>
-          </div>
-
-          <div class="file-picker">
-            <span class="field-label">Screenshot</span>
-            <input id="bugScreenshot" name="screenshot" type="file" accept="image/png,image/jpeg,image/webp" />
-            <label class="file-picker-label" for="bugScreenshot">
-              <span class="file-picker-copy">
-                <strong>Upload screenshot</strong>
-                <span>PNG, JPG, or WEBP. Max recommended size: 5 MB.</span>
-              </span>
-              <span class="file-pill">Choose File</span>
-            </label>
-            <div id="bugFileName" class="file-name">No file selected.</div>
-          </div>
-
-          <div id="bugSheetStatus" class="sheet-status" role="status" aria-live="polite"></div>
-
-          <button id="bugSubmitBtn" class="primary-btn" type="submit">
-            Submit Bug Report
-          </button>
-        </form>
       </div>
     </section>
-  </div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite">
-    <strong id="toastTitle">Saved</strong>
-    <span id="toastMessage">Your changes were saved.</span>
-  </div>
+    <section id="student" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>Student</h1>
+          <p>This is a placeholder section. Replace it with your real Student UI.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="batches" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>Batches</h1>
+          <p>This is a placeholder section. Replace it with your real Batches UI.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="community" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>Community</h1>
+          <p>This is a placeholder section. Replace it with your real Community UI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settings" class="section settings-section active" aria-label="Settings page">
+      <div class="settings-page">
+        <div class="settings-profile-card">
+          <div class="settings-avatar" aria-hidden="true">👨‍🎓</div>
+
+          <div class="settings-profile-info">
+            <h2 id="settingsStudentName">Hi, TEST STUDENT 0</h2>
+
+            <button
+              type="button"
+              class="settings-profile-link"
+              onclick="openStudentDashboardFromSettingsAf()"
+              aria-label="View profile"
+            >
+              View profile
+            </button>
+          </div>
+        </div>
+
+        <a
+          href="https://academeforge.github.io/SUPER/official/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="settings-beta-card"
+          aria-label="Open AcademeForge official website"
+        >
+          <span>Official Website</span>
+          <span class="settings-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <div class="settings-list">
+          <div class="settings-row settings-row-static">
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">◐</span>
+              <span>Night Mode</span>
+            </div>
+
+            <label class="settings-switch" for="settingsDarkToggle" aria-label="Toggle dark mode">
+              <input
+                id="settingsDarkToggle"
+                type="checkbox"
+                onchange="toggleSettingsDarkMode(this.checked)"
+              />
+              <span class="settings-slider" aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn"
+            onclick="showSection('explore')"
+            aria-label="Open AF Test Arena"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">🎓</span>
+              <span>AF Test Arena</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn"
+            onclick="showSection('studentaf')"
+            aria-label="Open Student ID Access"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">▫</span>
+              <span>Login/Create ID</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn"
+            onclick="openBugReportModal()"
+            aria-label="Report a Bug"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">!</span>
+              <span>Report a Bug</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn"
+            onclick="openRequestStatusPageAf()"
+            aria-label="Open Request Status"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">✓</span>
+              <span>Request Status</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn"
+            onclick="showSection('learningHeatmap')"
+            aria-label="Open Learning Heatmap"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">🔥</span>
+              <span>Learning Heatmap</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn"
+            onclick="openContactUsPage()"
+            aria-label="Open Contact Us"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">☎</span>
+              <span>Contact Us</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn"
+            onclick="showSection('management')"
+            aria-label="Open About Us"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon" aria-hidden="true">ⓘ</span>
+              <span>About Us</span>
+            </div>
+            <span class="settings-arrow" aria-hidden="true">›</span>
+          </button>
+
+          <button
+            type="button"
+            class="settings-row settings-row-btn settings-logout-row"
+            onclick="logoutStudentafWithMessage()"
+            aria-label="Logout"
+          >
+            <div class="settings-row-left">
+              <span class="settings-row-icon settings-logout-icon" aria-hidden="true">↩</span>
+              <span>Logout</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="settings-app-version-box">
+          <strong>App Version: 09.01.2024</strong>
+          <span>Made with love in India</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="explore" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>AF Test Arena</h1>
+          <p>This is a placeholder section. Replace it with your real AF Test Arena UI.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="studentaf" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>Login/Create ID</h1>
+          <p>This is a placeholder section. Replace it with your real login/create ID UI.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="learningHeatmap" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>Learning Heatmap</h1>
+          <p>This is a placeholder section. Replace it with your real learning heatmap UI.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="management" class="section">
+      <div class="placeholder-page">
+        <div class="placeholder-card">
+          <h1>About Us</h1>
+          <p>This is a placeholder section. Replace it with your real About Us UI.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Primary navigation">
+      <div class="bottom-nav-inner">
+        <button type="button" class="bottom-nav-item" data-target="home" onclick="showSection('home')">
+          <span class="bottom-nav-icon" aria-hidden="true">⌂</span>
+          <span class="bottom-nav-label">Home</span>
+        </button>
+
+        <button type="button" class="bottom-nav-item" data-target="student" onclick="showSection('student')">
+          <span class="bottom-nav-icon" aria-hidden="true">🎓</span>
+          <span class="bottom-nav-label">Student</span>
+        </button>
+
+        <button type="button" class="bottom-nav-item" data-target="batches" onclick="showSection('batches')">
+          <span class="bottom-nav-icon" aria-hidden="true">□</span>
+          <span class="bottom-nav-label">Batches</span>
+        </button>
+
+        <button type="button" class="bottom-nav-item" data-target="community" onclick="showSection('community')">
+          <span class="bottom-nav-icon" aria-hidden="true">◇</span>
+          <span class="bottom-nav-label">Community</span>
+        </button>
+
+        <button type="button" class="bottom-nav-item active" data-target="settings" onclick="showSection('settings')">
+          <span class="bottom-nav-icon" aria-hidden="true">⚙</span>
+          <span class="bottom-nav-label">Settings</span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="toastRoot" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+    <div id="bugReportModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="bugReportTitle">
+      <div class="modal-sheet">
+        <h2 id="bugReportTitle" class="modal-title">Report a Bug</h2>
+        <p class="modal-text">
+          Send a clear description of the issue, the page where it happened, and the steps to reproduce it.
+        </p>
+
+        <div class="modal-actions">
+          <button type="button" class="modal-btn" onclick="closeBugReportModal()">Cancel</button>
+          <button type="button" class="modal-btn primary" onclick="submitBugReportFallback()">Continue</button>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script>
-    (() => {
-      "use strict";
+    "use strict";
 
-      const STORAGE_KEYS = Object.freeze({
-        theme: "settings_theme",
-        profile: "settings_profile",
-        notificationPrefs: "settings_notification_preferences"
+    const AF_STORAGE_KEYS = Object.freeze({
+      theme: "af_settings_theme",
+      studentName: "af_student_name"
+    });
+
+    const AF_SECTION_ALIASES = Object.freeze({
+      settings: "settings",
+      home: "home",
+      student: "student",
+      batches: "batches",
+      community: "community",
+      explore: "explore",
+      studentaf: "studentaf",
+      learningHeatmap: "learningHeatmap",
+      management: "management",
+      notifications: "settings"
+    });
+
+    function safeLocalStorageGet(key) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function safeLocalStorageSet(key, value) {
+      try {
+        window.localStorage.setItem(key, value);
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function normalizeTheme(value) {
+      if (value === "light" || value === "dark") {
+        return value;
+      }
+
+      return "dark";
+    }
+
+    function applyTheme(theme) {
+      const normalizedTheme = normalizeTheme(theme);
+      document.documentElement.setAttribute("data-theme", normalizedTheme);
+
+      const toggle = document.getElementById("settingsDarkToggle");
+      if (toggle) {
+        toggle.checked = normalizedTheme === "dark";
+      }
+
+      safeLocalStorageSet(AF_STORAGE_KEYS.theme, normalizedTheme);
+    }
+
+    function toggleSettingsDarkMode(isDark) {
+      applyTheme(isDark ? "dark" : "light");
+      showToast(isDark ? "Night mode enabled" : "Light mode enabled");
+    }
+
+    function resolveSectionId(sectionId) {
+      if (typeof sectionId !== "string") {
+        return "settings";
+      }
+
+      const normalized = sectionId.trim();
+      return AF_SECTION_ALIASES[normalized] || normalized;
+    }
+
+    function showSection(sectionId) {
+      const targetId = resolveSectionId(sectionId);
+      const targetSection = document.getElementById(targetId);
+
+      if (!targetSection) {
+        showToast("Section is not available yet");
+        return;
+      }
+
+      const sections = document.querySelectorAll(".section");
+      sections.forEach((section) => {
+        section.classList.toggle("active", section.id === targetId);
       });
 
-      const STATUS_STEPS = Object.freeze([
-        {
-          key: "received",
-          label: "Request Received",
-          description: "Your request is logged."
-        },
-        {
-          key: "review",
-          label: "Under Review",
-          description: "Support team is checking it."
-        },
-        {
-          key: "resolved",
-          label: "Resolved",
-          description: "Request has been completed."
-        }
-      ]);
-
-      const MOCK_STATUS_RESPONSES = Object.freeze({
-        "devraj@example.com": {
-          success: true,
-          query: "devraj@example.com",
-          tickets: [
-            {
-              id: "AF-BUG-1024",
-              title: "Settings dark mode toggle issue",
-              type: "UI",
-              status: "review",
-              createdAt: "2026-05-18T10:20:00+05:30",
-              updatedAt: "2026-05-19T17:05:00+05:30",
-              summary: "The support team is reviewing the dark mode toggle behavior on mobile devices."
-            },
-            {
-              id: "AF-REQ-1011",
-              title: "Profile update request",
-              type: "Account",
-              status: "resolved",
-              createdAt: "2026-05-12T09:30:00+05:30",
-              updatedAt: "2026-05-13T12:10:00+05:30",
-              summary: "Profile metadata update was completed successfully."
-            }
-          ]
-        },
-        "user@example.com": {
-          success: true,
-          query: "user@example.com",
-          tickets: [
-            {
-              id: "AF-BUG-991",
-              title: "Notification preference not saving",
-              type: "Backend",
-              status: "received",
-              createdAt: "2026-05-20T08:15:00+05:30",
-              updatedAt: "2026-05-20T08:15:00+05:30",
-              summary: "Your request has been received and is waiting for initial review."
-            }
-          ]
-        },
-        "+919876543210": {
-          success: true,
-          query: "+919876543210",
-          tickets: [
-            {
-              id: "AF-SUP-882",
-              title: "Login OTP delay",
-              type: "Backend",
-              status: "review",
-              createdAt: "2026-05-16T14:00:00+05:30",
-              updatedAt: "2026-05-17T11:40:00+05:30",
-              summary: "Engineering is reviewing OTP delivery latency for your account."
-            }
-          ]
-        },
-        "9876543210": {
-          success: true,
-          query: "9876543210",
-          tickets: [
-            {
-              id: "AF-SUP-882",
-              title: "Login OTP delay",
-              type: "Backend",
-              status: "review",
-              createdAt: "2026-05-16T14:00:00+05:30",
-              updatedAt: "2026-05-17T11:40:00+05:30",
-              summary: "Engineering is reviewing OTP delivery latency for your account."
-            }
-          ]
-        }
+      const navItems = document.querySelectorAll(".bottom-nav-item");
+      navItems.forEach((item) => {
+        const itemTarget = item.getAttribute("data-target");
+        item.classList.toggle("active", itemTarget === targetId);
       });
 
-      const state = {
-        activeView: "profile",
-        sheet: {
-          startY: 0,
-          currentY: 0,
-          dragging: false
-        }
-      };
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+      });
+    }
 
-      const dom = {};
+    function showToast(message) {
+      const root = document.getElementById("toastRoot");
+      if (!root) {
+        return;
+      }
 
-      const cacheDom = () => {
-        dom.html = document.documentElement;
-        dom.themeToggle = document.getElementById("themeToggle");
+      const cleanMessage = typeof message === "string" && message.trim()
+        ? message.trim()
+        : "Done";
 
-        dom.navButtons = Array.from(document.querySelectorAll(".settings-nav-btn"));
-        dom.panels = Array.from(document.querySelectorAll(".view-panel"));
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.textContent = cleanMessage;
 
-        dom.profileForm = document.getElementById("profileForm");
-        dom.profileName = document.getElementById("profileName");
-        dom.profileEmail = document.getElementById("profileEmail");
-        dom.profileMobile = document.getElementById("profileMobile");
-        dom.profileRole = document.getElementById("profileRole");
-        dom.profileNameLabel = document.getElementById("profileNameLabel");
-        dom.profileEmailLabel = document.getElementById("profileEmailLabel");
+      root.appendChild(toast);
 
-        dom.statusForm = document.getElementById("statusForm");
-        dom.statusSearch = document.getElementById("statusSearch");
-        dom.statusSubmitBtn = document.getElementById("statusSubmitBtn");
-        dom.statusMessage = document.getElementById("statusMessage");
-        dom.ticketList = document.getElementById("ticketList");
+      window.setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
 
-        dom.bugSheetOverlay = document.getElementById("bugSheetOverlay");
-        dom.bugSheet = document.getElementById("bugSheet");
-        dom.bugForm = document.getElementById("bugForm");
-        dom.bugType = document.getElementById("bugType");
-        dom.bugDescription = document.getElementById("bugDescription");
-        dom.bugScreenshot = document.getElementById("bugScreenshot");
-        dom.bugFileName = document.getElementById("bugFileName");
-        dom.bugSheetStatus = document.getElementById("bugSheetStatus");
-        dom.bugSubmitBtn = document.getElementById("bugSubmitBtn");
+    function openStudentDashboardFromSettingsAf() {
+      const studentSection = document.getElementById("student");
+      if (studentSection) {
+        showSection("student");
+        return;
+      }
 
-        dom.toast = document.getElementById("toast");
-        dom.toastTitle = document.getElementById("toastTitle");
-        dom.toastMessage = document.getElementById("toastMessage");
-      };
+      showToast("Student profile is not available yet");
+    }
 
-      const safeJsonParse = (value, fallback) => {
-        try {
-          if (!value) return fallback;
-          return JSON.parse(value);
-        } catch {
-          return fallback;
-        }
-      };
+    function openBugReportModal() {
+      const modal = document.getElementById("bugReportModal");
+      if (!modal) {
+        showToast("Bug report is not available yet");
+        return;
+      }
 
-      const escapeHtml = (value) => {
-        return String(value ?? "")
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#039;");
-      };
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
 
-      const normalizeSearch = (value) => {
-        return String(value || "")
-          .trim()
-          .toLowerCase()
-          .replace(/\s+/g, "");
-      };
+    function closeBugReportModal() {
+      const modal = document.getElementById("bugReportModal");
+      if (!modal) {
+        return;
+      }
 
-      const isValidEmail = (value) => {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
-      };
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
 
-      const isValidMobile = (value) => {
-        const normalized = String(value || "").replace(/[^\d+]/g, "");
-        return /^(\+91)?[6-9]\d{9}$/.test(normalized) || /^\+\d{8,15}$/.test(normalized);
-      };
+    function submitBugReportFallback() {
+      closeBugReportModal();
 
-      const formatDate = (value) => {
-        const date = new Date(value);
+      const subject = encodeURIComponent("AcademeForge Bug Report");
+      const body = encodeURIComponent(
+        [
+          "Bug description:",
+          "",
+          "Page/section:",
+          "",
+          "Steps to reproduce:",
+          "1.",
+          "2.",
+          "3.",
+          "",
+          "Device/browser:",
+          navigator.userAgent
+        ].join("\n")
+      );
 
-        if (Number.isNaN(date.getTime())) {
-          return "Recently";
-        }
+      const mailto = `mailto:academeforge@gmail.com?subject=${subject}&body=${body}`;
 
-        return date.toLocaleString("en-IN", {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit"
-        });
-      };
+      try {
+        window.location.href = mailto;
+      } catch (error) {
+        showToast("Could not open mail app");
+      }
+    }
 
-      const showToast = (title, message) => {
-        window.clearTimeout(showToast.timer);
+    function openRequestStatusPageAf() {
+      showToast("Opening request status");
+      showSection("settings");
+    }
 
-        dom.toastTitle.textContent = title;
-        dom.toastMessage.textContent = message;
-        dom.toast.classList.add("is-visible");
+    function openContactUsPage() {
+      const subject = encodeURIComponent("AcademeForge Contact");
+      const body = encodeURIComponent("Hi AcademeForge Team,\n\n");
 
-        showToast.timer = window.setTimeout(() => {
-          dom.toast.classList.remove("is-visible");
-        }, 2400);
-      };
+      try {
+        window.location.href = `mailto:academeforge@gmail.com?subject=${subject}&body=${body}`;
+      } catch (error) {
+        showToast("Could not open contact page");
+      }
+    }
 
-      const setTheme = (theme) => {
-        const safeTheme = theme === "dark" ? "dark" : "light";
+    function logoutStudentafWithMessage() {
+      const confirmed = window.confirm("Are you sure you want to logout?");
 
-        dom.html.dataset.theme = safeTheme;
-        dom.themeToggle.checked = safeTheme === "dark";
+      if (!confirmed) {
+        return;
+      }
 
-        try {
-          localStorage.setItem(STORAGE_KEYS.theme, safeTheme);
-        } catch (error) {
-          console.error("Theme persistence failed:", error);
-        }
-      };
+      try {
+        window.localStorage.removeItem(AF_STORAGE_KEYS.studentName);
+      } catch (error) {
+        console.warn("Unable to clear student name", error);
+      }
 
-      const hydrateTheme = () => {
-        const storedTheme = localStorage.getItem(STORAGE_KEYS.theme);
-        const prefersDark = window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const nameElement = document.getElementById("settingsStudentName");
+      if (nameElement) {
+        nameElement.textContent = "Hi, TEST STUDENT 0";
+      }
 
-        setTheme(storedTheme || (prefersDark ? "dark" : "light"));
-      };
+      showToast("Logged out successfully");
+      showSection("settings");
+    }
 
-      const setActiveView = (view) => {
-        if (!view) return;
+    function hydrateStudentName() {
+      const nameElement = document.getElementById("settingsStudentName");
+      if (!nameElement) {
+        return;
+      }
 
-        state.activeView = view;
+      const storedName = safeLocalStorageGet(AF_STORAGE_KEYS.studentName);
 
-        dom.navButtons.forEach((button) => {
-          const isActive = button.dataset.view === view;
-          button.classList.toggle("is-active", isActive);
+      if (storedName && storedName.trim()) {
+        nameElement.textContent = `Hi, ${storedName.trim()}`;
+        return;
+      }
 
-          if (isActive) {
-            button.setAttribute("aria-current", "page");
-          } else {
-            button.removeAttribute("aria-current");
+      if (!nameElement.textContent.trim()) {
+        nameElement.textContent = "Hi, TEST STUDENT 0";
+      }
+    }
+
+    function bindModalDismissHandlers() {
+      const modal = document.getElementById("bugReportModal");
+
+      if (modal) {
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            closeBugReportModal();
           }
         });
+      }
 
-        dom.panels.forEach((panel) => {
-          const isActive = panel.dataset.panel === view;
-          panel.classList.toggle("is-active", isActive);
-        });
-      };
-
-      const loadProfile = () => {
-        const storedProfile = safeJsonParse(localStorage.getItem(STORAGE_KEYS.profile), null);
-
-        if (!storedProfile) {
-          syncProfileLabels();
-          return;
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeBugReportModal();
         }
-
-        dom.profileName.value = storedProfile.name || "Devraj Kumar";
-        dom.profileEmail.value = storedProfile.email || "devraj@example.com";
-        dom.profileMobile.value = storedProfile.mobile || "+919876543210";
-        dom.profileRole.value = storedProfile.role || "developer";
-
-        syncProfileLabels();
-      };
-
-      const syncProfileLabels = () => {
-        dom.profileNameLabel.textContent = dom.profileName.value.trim() || "User";
-        dom.profileEmailLabel.textContent = dom.profileEmail.value.trim() || "No email added";
-      };
-
-      const saveProfile = (event) => {
-        event.preventDefault();
-
-        const payload = {
-          name: dom.profileName.value.trim(),
-          email: dom.profileEmail.value.trim().toLowerCase(),
-          mobile: dom.profileMobile.value.trim(),
-          role: dom.profileRole.value
-        };
-
-        if (payload.name.length < 2) {
-          showToast("Invalid Name", "Please enter a valid full name.");
-          return;
-        }
-
-        if (!isValidEmail(payload.email)) {
-          showToast("Invalid Email", "Please enter a valid email address.");
-          return;
-        }
-
-        if (!isValidMobile(payload.mobile)) {
-          showToast("Invalid Mobile", "Please enter a valid mobile number.");
-          return;
-        }
-
-        localStorage.setItem(STORAGE_KEYS.profile, JSON.stringify(payload));
-        syncProfileLabels();
-        showToast("Profile Saved", "Your profile details were updated.");
-      };
-
-      const hydrateNotificationPrefs = () => {
-        const storedPrefs = safeJsonParse(localStorage.getItem(STORAGE_KEYS.notificationPrefs), {});
-        const inputs = Array.from(document.querySelectorAll("[data-pref]"));
-
-        inputs.forEach((input) => {
-          const key = input.dataset.pref;
-
-          if (Object.prototype.hasOwnProperty.call(storedPrefs, key)) {
-            input.checked = Boolean(storedPrefs[key]);
-          }
-
-          input.addEventListener("change", () => {
-            const latestPrefs = safeJsonParse(localStorage.getItem(STORAGE_KEYS.notificationPrefs), {});
-            latestPrefs[key] = input.checked;
-            localStorage.setItem(STORAGE_KEYS.notificationPrefs, JSON.stringify(latestPrefs));
-            showToast("Preference Saved", "Notification preference updated.");
-          });
-        });
-      };
-
-      const setStatusMessage = (type, message) => {
-        dom.statusMessage.className = "status-message";
-
-        if (!message) {
-          dom.statusMessage.textContent = "";
-          return;
-        }
-
-        dom.statusMessage.textContent = message;
-        dom.statusMessage.classList.add("is-visible", `is-${type}`);
-      };
-
-      const fetchRequestStatus = async (search) => {
-        const normalized = normalizeSearch(search);
-        const endpoint = `/api/check-status?search=${encodeURIComponent(search)}`;
-
-        try {
-          const response = await fetch(endpoint, {
-            method: "GET",
-            headers: {
-              "Accept": "application/json"
-            }
-          });
-
-          const data = await response.json().catch(() => null);
-
-          if (!response.ok) {
-            throw new Error(data?.message || "Unable to fetch request status.");
-          }
-
-          if (!data || data.success !== true || !Array.isArray(data.tickets)) {
-            throw new Error("Invalid status response from server.");
-          }
-
-          return data;
-        } catch (error) {
-          await new Promise((resolve) => window.setTimeout(resolve, 650));
-
-          if (MOCK_STATUS_RESPONSES[normalized]) {
-            return MOCK_STATUS_RESPONSES[normalized];
-          }
-
-          return {
-            success: true,
-            query: search,
-            tickets: []
-          };
-        }
-      };
-
-      const getStatusIndex = (status) => {
-        const normalized = String(status || "").toLowerCase();
-
-        if (normalized === "resolved") return 2;
-        if (normalized === "review" || normalized === "under_review" || normalized === "under-review") return 1;
-
-        return 0;
-      };
-
-      const renderTimeline = (status) => {
-        const activeIndex = getStatusIndex(status);
-
-        return STATUS_STEPS.map((step, index) => {
-          const isComplete = index < activeIndex || activeIndex === 2;
-          const isCurrent = index === activeIndex && activeIndex !== 2;
-          const className = [
-            "timeline-step",
-            isComplete ? "is-complete" : "",
-            isCurrent ? "is-current" : ""
-          ].filter(Boolean).join(" ");
-
-          const marker = isComplete ? "✓" : String(index + 1);
-
-          return `
-            <div class="${className}">
-              <div class="timeline-dot">${escapeHtml(marker)}</div>
-              <strong>${escapeHtml(step.label)}</strong>
-              <span>${escapeHtml(step.description)}</span>
-            </div>
-          `;
-        }).join("");
-      };
-
-      const renderTickets = (tickets) => {
-        dom.ticketList.innerHTML = "";
-
-        if (!tickets.length) {
-          dom.ticketList.innerHTML = `
-            <article class="ticket-card">
-              <div class="ticket-top">
-                <div>
-                  <h3>No requests found</h3>
-                  <p>No previous ticket exists for this email or mobile number.</p>
-                </div>
-                <span class="ticket-badge">Empty</span>
-              </div>
-            </article>
-          `;
-          return;
-        }
-
-        const html = tickets.map((ticket) => {
-          const statusLabel = String(ticket.status || "received")
-            .replaceAll("_", " ")
-            .replaceAll("-", " ")
-            .replace(/\b\w/g, (char) => char.toUpperCase());
-
-          return `
-            <article class="ticket-card">
-              <div class="ticket-top">
-                <div>
-                  <h3>${escapeHtml(ticket.title || "Support Request")}</h3>
-                  <p>
-                    <strong>${escapeHtml(ticket.id || "N/A")}</strong>
-                    · ${escapeHtml(ticket.type || "General")}
-                    · Updated ${escapeHtml(formatDate(ticket.updatedAt))}
-                  </p>
-                  <p>${escapeHtml(ticket.summary || "Your request is being processed.")}</p>
-                </div>
-                <span class="ticket-badge">${escapeHtml(statusLabel)}</span>
-              </div>
-
-              <div class="timeline" aria-label="Ticket progress">
-                ${renderTimeline(ticket.status)}
-              </div>
-            </article>
-          `;
-        }).join("");
-
-        dom.ticketList.innerHTML = html;
-      };
-
-      const handleStatusSubmit = async (event) => {
-        event.preventDefault();
-
-        const search = dom.statusSearch.value.trim();
-
-        if (!search) {
-          setStatusMessage("error", "Please enter your registered email or mobile number.");
-          return;
-        }
-
-        if (!isValidEmail(search) && !isValidMobile(search)) {
-          setStatusMessage("error", "Enter a valid email address or mobile number.");
-          return;
-        }
-
-        dom.statusSubmitBtn.disabled = true;
-        dom.statusSubmitBtn.textContent = "Checking...";
-        dom.ticketList.innerHTML = "";
-        setStatusMessage("warning", "Fetching request status...");
-
-        try {
-          const data = await fetchRequestStatus(search);
-
-          if (!data.tickets.length) {
-            setStatusMessage("warning", "No matching request found.");
-          } else {
-            setStatusMessage("success", `${data.tickets.length} request(s) found.`);
-          }
-
-          renderTickets(data.tickets);
-        } catch (error) {
-          console.error("Request status lookup failed:", error);
-          setStatusMessage("error", error.message || "Unable to check request status.");
-        } finally {
-          dom.statusSubmitBtn.disabled = false;
-          dom.statusSubmitBtn.textContent = "Check Status";
-        }
-      };
-
-      const openBugSheet = () => {
-        dom.bugSheetOverlay.classList.add("is-open");
-        dom.bugSheetOverlay.setAttribute("aria-hidden", "false");
-        document.body.classList.add("sheet-open");
-
-        window.setTimeout(() => {
-          dom.bugSheet.focus();
-        }, 80);
-      };
-
-      const closeBugSheet = () => {
-        dom.bugSheetOverlay.classList.remove("is-open");
-        dom.bugSheetOverlay.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("sheet-open");
-
-        dom.bugSheet.style.transform = "";
-        state.sheet.dragging = false;
-      };
-
-      const setBugStatus = (type, message) => {
-        dom.bugSheetStatus.className = "sheet-status";
-
-        if (!message) {
-          dom.bugSheetStatus.textContent = "";
-          return;
-        }
-
-        dom.bugSheetStatus.textContent = message;
-        dom.bugSheetStatus.classList.add("is-visible", `is-${type}`);
-      };
-
-      const submitBugReport = async (event) => {
-        event.preventDefault();
-
-        const bugType = dom.bugType.value;
-        const description = dom.bugDescription.value.trim();
-        const file = dom.bugScreenshot.files?.[0] || null;
-
-        if (!["UI", "Backend", "Others"].includes(bugType)) {
-          setBugStatus("error", "Please select a valid bug type.");
-          return;
-        }
-
-        if (description.length < 10) {
-          setBugStatus("error", "Please describe the issue in at least 10 characters.");
-          return;
-        }
-
-        if (file && file.size > 5 * 1024 * 1024) {
-          setBugStatus("error", "Screenshot must be 5 MB or smaller.");
-          return;
-        }
-
-        dom.bugSubmitBtn.disabled = true;
-        dom.bugSubmitBtn.textContent = "Submitting...";
-        setBugStatus("success", "Preparing report...");
-
-        const formData = new FormData();
-        formData.append("bugType", bugType);
-        formData.append("description", description);
-        formData.append("pageUrl", window.location.href);
-        formData.append("userAgent", navigator.userAgent);
-
-        if (file) {
-          formData.append("screenshot", file);
-        }
-
-        try {
-          const response = await fetch("/api/report-bug", {
-            method: "POST",
-            body: formData
-          });
-
-          const data = await response.json().catch(() => null);
-
-          if (!response.ok) {
-            throw new Error(data?.message || "Bug report submission failed.");
-          }
-
-          setBugStatus("success", "Bug report submitted successfully.");
-          showToast("Report Submitted", "Your bug report was sent.");
-
-          window.setTimeout(() => {
-            dom.bugForm.reset();
-            dom.bugFileName.textContent = "No file selected.";
-            setBugStatus("", "");
-            closeBugSheet();
-          }, 900);
-        } catch (error) {
-          console.warn("Using mock bug submit success because backend is not connected:", error);
-
-          await new Promise((resolve) => window.setTimeout(resolve, 600));
-
-          setBugStatus("success", "Mock submitted successfully. Connect /api/report-bug to your backend.");
-          showToast("Mock Submitted", "Bug report frontend flow is working.");
-
-          window.setTimeout(() => {
-            dom.bugForm.reset();
-            dom.bugFileName.textContent = "No file selected.";
-            setBugStatus("", "");
-            closeBugSheet();
-          }, 1100);
-        } finally {
-          dom.bugSubmitBtn.disabled = false;
-          dom.bugSubmitBtn.textContent = "Submit Bug Report";
-        }
-      };
-
-      const handleSheetPointerDown = (event) => {
-        if (!event.target.closest("[data-sheet-handle]") && !event.target.closest(".sheet-head")) {
-          return;
-        }
-
-        state.sheet.dragging = true;
-        state.sheet.startY = event.clientY || event.touches?.[0]?.clientY || 0;
-        state.sheet.currentY = state.sheet.startY;
-        dom.bugSheet.style.transition = "none";
-      };
-
-      const handleSheetPointerMove = (event) => {
-        if (!state.sheet.dragging) return;
-
-        const clientY = event.clientY || event.touches?.[0]?.clientY || 0;
-        state.sheet.currentY = clientY;
-
-        const deltaY = Math.max(0, clientY - state.sheet.startY);
-        dom.bugSheet.style.transform = `translateY(${deltaY}px)`;
-      };
-
-      const handleSheetPointerUp = () => {
-        if (!state.sheet.dragging) return;
-
-        const deltaY = Math.max(0, state.sheet.currentY - state.sheet.startY);
-        state.sheet.dragging = false;
-        dom.bugSheet.style.transition = "";
-
-        if (deltaY > 110) {
-          closeBugSheet();
-          return;
-        }
-
-        dom.bugSheet.style.transform = "";
-      };
-
-      const bindEvents = () => {
-        dom.themeToggle.addEventListener("change", () => {
-          setTheme(dom.themeToggle.checked ? "dark" : "light");
-        });
-
-        dom.navButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            if (button.dataset.action === "open-bug-sheet") {
-              openBugSheet();
-              return;
-            }
-
-            setActiveView(button.dataset.view);
-          });
-        });
-
-        dom.profileForm.addEventListener("submit", saveProfile);
-
-        ["input", "change"].forEach((eventName) => {
-          dom.profileName.addEventListener(eventName, syncProfileLabels);
-          dom.profileEmail.addEventListener(eventName, syncProfileLabels);
-        });
-
-        dom.statusForm.addEventListener("submit", handleStatusSubmit);
-
-        dom.bugForm.addEventListener("submit", submitBugReport);
-
-        dom.bugScreenshot.addEventListener("change", () => {
-          const file = dom.bugScreenshot.files?.[0] || null;
-          dom.bugFileName.textContent = file
-            ? `${file.name} · ${(file.size / 1024 / 1024).toFixed(2)} MB`
-            : "No file selected.";
-        });
-
-        dom.bugSheetOverlay.addEventListener("click", (event) => {
-          if (event.target === dom.bugSheetOverlay) {
-            closeBugSheet();
-          }
-        });
-
-        document.querySelectorAll("[data-close-sheet]").forEach((button) => {
-          button.addEventListener("click", closeBugSheet);
-        });
-
-        dom.bugSheet.addEventListener("pointerdown", handleSheetPointerDown);
-        window.addEventListener("pointermove", handleSheetPointerMove);
-        window.addEventListener("pointerup", handleSheetPointerUp);
-        window.addEventListener("pointercancel", handleSheetPointerUp);
-
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && dom.bugSheetOverlay.classList.contains("is-open")) {
-            closeBugSheet();
-          }
-        });
-      };
-
-      const init = () => {
-        cacheDom();
-        hydrateTheme();
-        loadProfile();
-        hydrateNotificationPrefs();
-        bindEvents();
-      };
-
-      document.addEventListener("DOMContentLoaded", init);
-    })();
+      });
+    }
+
+    function initSettingsPage() {
+      const savedTheme = normalizeTheme(safeLocalStorageGet(AF_STORAGE_KEYS.theme) || "dark");
+      applyTheme(savedTheme);
+      hydrateStudentName();
+      bindModalDismissHandlers();
+      showSection("settings");
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initSettingsPage, { once: true });
+    } else {
+      initSettingsPage();
+    }
   </script>
 </body>
 </html>
