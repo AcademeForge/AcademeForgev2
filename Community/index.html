@@ -31,7 +31,7 @@
   width: min(100%, 1260px) !important;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 275px minmax(0, 600px) 350px;
+  grid-template-columns: 220px minmax(0, 1fr) 320px;
   column-gap: 0;
   margin: 0 auto !important;
   overflow: visible !important;
@@ -255,7 +255,7 @@
 }
 
 #community .af-nexus-post-text-v2 {
-  margin: -20px 0 0 50px !important;
+  margin: 8px 0 0 50px !important; overflow-wrap:anywhere; word-break:break-word;
   padding-top: 24px;
   font-size: 15px !important;
   line-height: 1.55 !important;
@@ -263,7 +263,7 @@
 
 #community .af-nexus-post-actions-v2 {
   max-width: 430px !important;
-  margin: 10px 0 0 40px !important;
+  margin: 10px 0 0 50px !important; flex-wrap:wrap;
   padding-left: 0 !important;
 }
 
@@ -417,7 +417,19 @@
   background: #333639;
 }
 
+
+#community .af-hidden{display:none!important;}
+#community .af-limit-exceeded-v2{
+border-color:#f4212e!important;
+outline:1px solid #f4212e!important;
+}
+#community .af-nexus-post-text-v2,
+#community .af-nexus-comment-text-v2{
+overflow-wrap:anywhere!important;
+word-break:break-word!important;
+}
 @media (max-width: 1180px) {
+
   #community .af-nexus-v2-shell {
     width: min(100%, 880px) !important;
     grid-template-columns: 88px minmax(0, 600px) 1fr;
