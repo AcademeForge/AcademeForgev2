@@ -1003,6 +1003,545 @@
         font-size: 13px;
       }
     }
+
+       /* =========================================================
+   AF NEXUS COMMUNITY - TWITTER/X CLONE OVERRIDE
+   Keep this AFTER the existing community CSS.
+   Existing IDs/classes are preserved.
+========================================================= */
+
+#community {
+  --x-bg: #000;
+  --x-panel: #000;
+  --x-panel-soft: #080808;
+  --x-line: #2f3336;
+  --x-text: #e7e9ea;
+  --x-muted: #71767b;
+  --x-hover: rgba(239, 243, 244, .08);
+  --x-blue: #1d9bf0;
+  --x-blue-hover: #1a8cd8;
+  --x-red: #f4212e;
+  --x-pink: #f91880;
+  --x-green: #00ba7c;
+  --x-radius: 16px;
+  background: var(--x-bg) !important;
+  color: var(--x-text) !important;
+}
+
+#community .af-nexus-v2-shell {
+  width: min(100%, 1260px) !important;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 275px minmax(0, 600px) 350px;
+  column-gap: 0;
+  margin: 0 auto !important;
+  overflow: visible !important;
+  background: var(--x-bg) !important;
+  border: 0 !important;
+}
+
+#community .af-nexus-v2-shell::before {
+  content: "AF";
+  position: sticky;
+  top: 0;
+  grid-column: 1;
+  grid-row: 1 / span 20;
+  align-self: start;
+  width: 275px;
+  height: 100vh;
+  padding: 22px 28px;
+  border-right: 1px solid var(--x-line);
+  color: var(--x-text);
+  font-size: 28px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+#community .af-nexus-v2-shell::after {
+  content: "What's happening\A\AAcademeForge updates\AStudent discussions\ALearning resources\ACommunity highlights";
+  white-space: pre-line;
+  position: sticky;
+  top: 16px;
+  grid-column: 3;
+  grid-row: 1 / span 20;
+  align-self: start;
+  width: 320px;
+  margin: 16px 0 0 30px;
+  padding: 18px;
+  border: 1px solid var(--x-line);
+  border-radius: var(--x-radius);
+  background: #16181c;
+  color: var(--x-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  pointer-events: none;
+}
+
+#community .af-nexus-main-v2,
+#community .af-nexus-locked-v2,
+#community .af-nexus-write-btn-v2,
+#community .af-nexus-modal-overlay-v2,
+#community .af-nexus-menu-overlay-v2 {
+  grid-column: 2;
+}
+
+#community .af-nexus-main-v2,
+#community .af-nexus-feed-view-v2,
+#community .af-my-nexus-view-v2,
+#community .af-nexus-posts-list-v2,
+#community .af-nexus-userbar-v2,
+#community .af-nexus-section-head-v2 {
+  background: var(--x-panel) !important;
+}
+
+#community .af-nexus-main-v2 {
+  width: 100%;
+  min-height: 100vh;
+  border-left: 1px solid var(--x-line);
+  border-right: 1px solid var(--x-line);
+}
+
+#community .af-nexus-header-v2 {
+  min-height: 53px !important;
+  padding: 0 16px !important;
+  border-bottom: 1px solid var(--x-line) !important;
+  background: rgba(0, 0, 0, .82) !important;
+  backdrop-filter: blur(18px);
+}
+
+#community .af-nexus-title-wrap-v2 {
+  gap: 10px !important;
+}
+
+#community .af-nexus-logo-v2 {
+  width: 34px !important;
+  height: 34px !important;
+  flex-basis: 34px !important;
+  background: transparent !important;
+  color: var(--x-blue) !important;
+  font-size: 20px !important;
+}
+
+#community .af-nexus-title-wrap-v2 h2,
+#community .af-nexus-section-head-v2 h3,
+#community .af-nexus-modal-head-v2 h3,
+#community .af-nexus-locked-card-v2 h2 {
+  color: var(--x-text) !important;
+  letter-spacing: 0 !important;
+}
+
+#community .af-nexus-title-wrap-v2 h2 {
+  font-size: 20px !important;
+}
+
+#community .af-nexus-title-wrap-v2 p,
+#community .af-nexus-section-head-v2 p,
+#community .af-nexus-modal-head-v2 p,
+#community .af-nexus-userbar-v2 span,
+#community .af-nexus-userbar-v2 small,
+#community .af-nexus-author-v2 small,
+#community .af-nexus-comment-top-v2 small,
+#community .af-nexus-loading-v2,
+#community .af-nexus-empty-v2,
+#community .af-nexus-empty-state-v2,
+#community .af-nexus-composer-foot-v2 span,
+#community .af-nexus-comment-input-foot-v2 span {
+  color: var(--x-muted) !important;
+}
+
+#community .af-nexus-my-btn-v2,
+#community .af-nexus-login-btn-v2 {
+  min-height: 34px !important;
+  padding: 0 16px !important;
+  background: #eff3f4 !important;
+  color: #0f1419 !important;
+  font-size: 14px !important;
+  border-radius: 999px !important;
+}
+
+#community .af-nexus-my-btn-v2:hover,
+#community .af-nexus-login-btn-v2:hover {
+  background: #d7dbdc !important;
+}
+
+#community .af-nexus-userbar-v2,
+#community .af-nexus-section-head-v2,
+#community .af-nexus-controls-v2,
+#community .af-nexus-post-card-v2,
+#community .af-nexus-comment-card-v2,
+#community .af-nexus-comment-input-box-v2,
+#community .af-nexus-modal-head-v2,
+#community .af-nexus-composer-foot-v2,
+#community .af-nexus-comment-input-foot-v2 {
+  border-color: var(--x-line) !important;
+}
+
+#community .af-nexus-userbar-v2 {
+  padding: 10px 16px !important;
+}
+
+#community .af-nexus-userbar-v2 strong,
+#community .af-nexus-author-v2 strong,
+#community .af-nexus-comment-top-v2 strong,
+#community .af-nexus-post-text-v2,
+#community .af-nexus-comment-text-v2 {
+  color: var(--x-text) !important;
+}
+
+#community .af-nexus-controls-v2 {
+  top: 53px !important;
+  background: rgba(0, 0, 0, .82) !important;
+  backdrop-filter: blur(18px);
+}
+
+#community .af-nexus-filter-btn-v2 {
+  min-height: 53px !important;
+  color: var(--x-muted) !important;
+}
+
+#community .af-nexus-filter-btn-v2:hover,
+#community .af-nexus-post-card-v2:hover,
+#community .af-nexus-comment-card-v2:hover,
+#community .af-nexus-refresh-btn-v2:hover,
+#community .af-nexus-menu-card-v2 button:hover,
+#community .af-nexus-modal-head-v2 button:hover {
+  background: var(--x-hover) !important;
+}
+
+#community .af-nexus-filter-btn-v2.active {
+  color: var(--x-text) !important;
+}
+
+#community .af-nexus-filter-btn-v2.active::after {
+  width: 58px !important;
+  height: 4px !important;
+  background: var(--x-blue) !important;
+}
+
+#community .af-nexus-section-head-v2 {
+  padding: 14px 16px !important;
+}
+
+#community .af-nexus-refresh-btn-v2 {
+  min-height: 34px !important;
+  border: 1px solid #536471 !important;
+  background: transparent !important;
+  color: var(--x-text) !important;
+}
+
+#community .af-nexus-post-card-v2 {
+  padding: 12px 16px !important;
+  background: var(--x-panel) !important;
+}
+
+#community .af-nexus-post-top-v2 {
+  margin-bottom: 4px !important;
+}
+
+#community .af-nexus-avatar-v2 {
+  width: 40px !important;
+  height: 40px !important;
+  flex-basis: 40px !important;
+  background: linear-gradient(135deg, #1d9bf0, #7856ff) !important;
+  color: #fff !important;
+}
+
+#community .af-nexus-author-v2 strong {
+  max-width: 390px !important;
+  font-size: 15px !important;
+}
+
+#community .af-nexus-author-v2 small::before {
+  content: "@afnexus · ";
+}
+
+#community .af-nexus-post-text-v2 {
+  margin: -20px 0 0 50px !important;
+  padding-top: 24px;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+#community .af-nexus-post-actions-v2 {
+  max-width: 430px !important;
+  margin: 10px 0 0 40px !important;
+  padding-left: 0 !important;
+}
+
+#community .af-nexus-action-btn-v2,
+#community .af-nexus-comment-btn-v2,
+#community .af-nexus-like-btn-v2,
+#community .af-nexus-reply-btn-v2,
+#community .af-nexus-menu-btn-v2 {
+  color: var(--x-muted) !important;
+}
+
+#community .af-nexus-action-btn-v2,
+#community .af-nexus-comment-btn-v2,
+#community .af-nexus-like-btn-v2,
+#community .af-nexus-reply-btn-v2 {
+  min-height: 32px !important;
+  padding: 0 9px !important;
+  font-weight: 700 !important;
+}
+
+#community .af-nexus-action-btn-v2:hover,
+#community .af-nexus-comment-btn-v2:hover,
+#community .af-nexus-reply-btn-v2:hover,
+#community .af-nexus-menu-btn-v2:hover {
+  background: rgba(29, 155, 240, .12) !important;
+  color: var(--x-blue) !important;
+}
+
+#community .af-nexus-like-btn-v2:hover {
+  background: rgba(249, 24, 128, .12) !important;
+  color: var(--x-pink) !important;
+}
+
+#community .af-nexus-write-btn-v2 {
+  right: max(22px, calc((100vw - 600px) / 2 - 4px)) !important;
+  bottom: 28px !important;
+  width: 56px !important;
+  height: 56px !important;
+  background: var(--x-blue) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(29, 155, 240, .35) !important;
+}
+
+#community .af-nexus-write-btn-v2:hover {
+  background: var(--x-blue-hover) !important;
+}
+
+#community .af-nexus-modal-overlay-v2,
+#community .af-nexus-menu-overlay-v2 {
+  background: rgba(91, 112, 131, .4) !important;
+}
+
+#community .af-nexus-composer-card-v2,
+#community .af-nexus-comments-card-v2,
+#community .af-nexus-reply-card-v2,
+#community .af-nexus-menu-card-v2,
+#community .af-nexus-locked-card-v2 {
+  border: 1px solid var(--x-line) !important;
+  background: var(--x-panel) !important;
+  color: var(--x-text) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .6) !important;
+}
+
+#community .af-nexus-composer-card-v2,
+#community .af-nexus-comments-card-v2,
+#community .af-nexus-reply-card-v2 {
+  border-radius: 16px !important;
+}
+
+#community .af-nexus-modal-head-v2,
+#community .af-nexus-composer-foot-v2,
+#community .af-nexus-comment-input-foot-v2,
+#community .af-nexus-comment-input-box-v2,
+#community .af-nexus-comments-list-v2,
+#community .af-nexus-word-warning-v2 {
+  background: var(--x-panel) !important;
+}
+
+#community .af-nexus-modal-head-v2 button {
+  color: var(--x-text) !important;
+}
+
+#community textarea,
+#community .af-nexus-composer-card-v2 textarea,
+#community .af-nexus-reply-card-v2 textarea,
+#community .af-nexus-comment-input-box-v2 textarea {
+  color: var(--x-text) !important;
+  background: var(--x-panel) !important;
+}
+
+#community textarea::placeholder {
+  color: var(--x-muted) !important;
+}
+
+#community #afNexusSubmitPostBtnV2,
+#community #afNexusSubmitCommentBtnV2,
+#community #afNexusSubmitReplyBtnV2,
+#community .af-nexus-composer-foot-v2 button,
+#community .af-nexus-comment-input-foot-v2 button {
+  background: var(--x-blue) !important;
+  color: #fff !important;
+}
+
+#community #afNexusSubmitPostBtnV2:hover,
+#community #afNexusSubmitCommentBtnV2:hover,
+#community #afNexusSubmitReplyBtnV2:hover,
+#community .af-nexus-composer-foot-v2 button:hover,
+#community .af-nexus-comment-input-foot-v2 button:hover {
+  background: var(--x-blue-hover) !important;
+}
+
+#community .af-nexus-comment-card-v2 {
+  background: var(--x-panel) !important;
+}
+
+#community .af-nexus-comment-card-v2.reply {
+  margin-left: 22px !important;
+  border-left-color: var(--x-line) !important;
+}
+
+#community .af-nexus-comment-actions-v2 {
+  margin-top: 6px !important;
+}
+
+#community .af-nexus-menu-card-v2 button {
+  border-color: var(--x-line) !important;
+  background: var(--x-panel) !important;
+  color: var(--x-text) !important;
+}
+
+#community #afNexusDeleteActionBtnV2 {
+  color: var(--x-red) !important;
+}
+
+#community .af-nexus-locked-v2 {
+  background: var(--x-bg) !important;
+}
+
+#community .af-nexus-lock-icon-v2 {
+  background: rgba(29, 155, 240, .12) !important;
+  color: var(--x-blue) !important;
+}
+
+#community .af-nexus-comments-list-v2::-webkit-scrollbar,
+#community .af-nexus-modal-overlay-v2::-webkit-scrollbar {
+  width: 8px;
+}
+
+#community .af-nexus-comments-list-v2::-webkit-scrollbar-thumb,
+#community .af-nexus-modal-overlay-v2::-webkit-scrollbar-thumb {
+  background: #333639;
+}
+
+@media (max-width: 1180px) {
+  #community .af-nexus-v2-shell {
+    width: min(100%, 880px) !important;
+    grid-template-columns: 88px minmax(0, 600px) 1fr;
+  }
+
+  #community .af-nexus-v2-shell::before {
+    width: 88px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  #community .af-nexus-v2-shell::after {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  #community .af-nexus-v2-shell {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  #community .af-nexus-v2-shell::before,
+  #community .af-nexus-v2-shell::after {
+    display: none !important;
+  }
+
+  #community .af-nexus-main-v2 {
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+
+  #community .af-nexus-header-v2 {
+    min-height: 52px !important;
+    padding: 0 14px !important;
+  }
+
+  #community .af-nexus-title-wrap-v2 p {
+    display: none !important;
+  }
+
+  #community .af-nexus-my-btn-v2 {
+    min-height: 32px !important;
+    padding: 0 12px !important;
+    font-size: 13px !important;
+  }
+
+  #community .af-nexus-controls-v2 {
+    top: 52px !important;
+  }
+
+  #community .af-nexus-section-head-v2 {
+    padding: 12px 14px !important;
+  }
+
+  #community .af-nexus-post-card-v2 {
+    padding: 12px 14px !important;
+  }
+
+  #community .af-nexus-author-v2 strong {
+    max-width: calc(100vw - 128px) !important;
+  }
+
+  #community .af-nexus-post-text-v2 {
+    margin-left: 50px !important;
+  }
+
+  #community .af-nexus-post-actions-v2 {
+    margin-left: 40px !important;
+    max-width: calc(100vw - 74px) !important;
+  }
+
+  #community .af-nexus-write-btn-v2 {
+    right: 18px !important;
+    bottom: 18px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  #community .af-nexus-modal-overlay-v2 {
+    align-items: end !important;
+    padding: 0 !important;
+  }
+
+  #community .af-nexus-composer-card-v2,
+  #community .af-nexus-comments-card-v2,
+  #community .af-nexus-reply-card-v2 {
+    width: 100% !important;
+    max-height: 92vh !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #community .af-nexus-logo-v2 {
+    display: none !important;
+  }
+
+  #community .af-nexus-userbar-v2 {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  #community .af-nexus-section-head-v2 {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  #community .af-nexus-section-head-v2 p {
+    display: none !important;
+  }
+
+  #community .af-nexus-refresh-btn-v2 {
+    width: auto !important;
+  }
+
+  #community .af-nexus-action-btn-v2 {
+    font-size: 13px !important;
+  }
+}
   </style>
 
   <div class="af-nexus-v2-shell glass">
